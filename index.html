@@ -1,22 +1,195 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lawisa Thaï Massage | Paris 8ème</title>
-    <meta name="description" content="L'Art du Massage Thaïlandais au Cœur de Paris. Une parenthèse de bien-être et d'authenticité au 183 Rue du Faubourg Saint-Honoré.">
-    
+    <meta name="description"
+        content="L'Art du Massage Thaïlandais au Cœur de Paris. Une parenthèse de bien-être et d'authenticité au 183 Rue du Faubourg Saint-Honoré.">
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="style.css">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css?v=6">
+    <style>
+        .services .service-card {
+            position: relative !important;
+            background: transparent !important;
+            border: none !important;
+            border-radius: 28px !important;
+            overflow: hidden !important;
+            isolation: isolate;
+            -webkit-mask-image: -webkit-radial-gradient(white, black);
+            transition: box-shadow 0.35s ease !important;
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: flex-end !important;
+            height: 490px !important;
+            width: 360px !important;
+            flex-shrink: 0 !important;
+            cursor: pointer;
+        }
+
+        .services .service-card:hover,
+        .services .service-card.is-hovered {
+            box-shadow: 0 20px 50px rgba(20, 18, 15, 0.25) !important;
+        }
+
+        .services .service-image {
+            position: absolute !important;
+            inset: 0 !important;
+            padding-top: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+            overflow: hidden !important;
+            border-radius: 28px !important;
+            z-index: 1 !important;
+        }
+
+        .services .service-image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top,
+                    rgba(0, 0, 0, 0.12) 42%,
+                    rgba(0, 0, 0, 0) 100%);
+            transition: background 0.45s ease;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .services .service-card:hover .service-image::after,
+        .services .service-card.is-hovered .service-image::after,
+        .services .service-card:focus-within .service-image::after {
+            background: linear-gradient(to top,
+                    rgba(0, 0, 0, 0.32) 55%,
+                    rgba(0, 0, 0, 0.08) 100%);
+        }
+
+        .services .service-image img {
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+            transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        }
+
+        .services .service-card:hover .service-image img,
+        .services .service-card.is-hovered .service-image img,
+        .services .service-card:focus-within .service-image img {
+            transform: scale(1.06) !important;
+        }
+
+        .services .service-info {
+            position: relative !important;
+            z-index: 2 !important;
+            padding: 2rem 1.75rem 1.6rem !important;
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: flex-end !important;
+            flex-grow: 0 !important;
+            width: 100% !important;
+            background: transparent !important;
+        }
+
+        .services .service-info::before {
+            display: none !important;
+        }
+
+        .services .service-info>div {
+            display: flex !important;
+            flex-direction: column !important;
+            flex-grow: 0 !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+            padding-bottom: 1rem !important;
+            margin-bottom: 1.15rem !important;
+        }
+
+        .services .service-info h3 {
+            font-family: 'Inter', sans-serif !important;
+            font-weight: 700 !important;
+            font-size: 1.65rem !important;
+            line-height: 1.2 !important;
+            color: #ffffff !important;
+            margin-bottom: 0 !important;
+            text-transform: none !important;
+            letter-spacing: -0.01em !important;
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35) !important;
+            transition: margin-bottom 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        }
+
+        .services .service-card:hover .service-info h3,
+        .services .service-card.is-hovered .service-info h3,
+        .services .service-card:focus-within .service-info h3 {
+            margin-bottom: 0.75rem !important;
+        }
+
+        .services .service-desc {
+            font-family: 'Inter', sans-serif !important;
+            font-size: 0.95rem !important;
+            font-weight: 400 !important;
+            color: rgba(255, 255, 255, 0.9) !important;
+            line-height: 1.55 !important;
+            max-height: 0 !important;
+            opacity: 0 !important;
+            overflow: hidden !important;
+            transform: translateY(14px) !important;
+            margin-bottom: 0 !important;
+            transition: max-height 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+                opacity 0.35s ease,
+                transform 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        }
+
+        .services .service-card:hover .service-desc,
+        .services .service-card.is-hovered .service-desc,
+        .services .service-card:focus-within .service-desc {
+            max-height: 180px !important;
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+
+        .services .service-link {
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            width: 100% !important;
+            padding: 0.9rem 1.5rem !important;
+            font-family: 'Inter', sans-serif !important;
+            font-size: 0.95rem !important;
+            letter-spacing: 0.01em !important;
+            font-weight: 500 !important;
+            text-transform: none !important;
+            color: #ffffff !important;
+            background: linear-gradient(135deg,
+                    rgba(92, 84, 76, 0.62) 0%,
+                    rgba(54, 49, 44, 0.78) 100%) !important;
+            backdrop-filter: blur(10px) !important;
+            -webkit-backdrop-filter: blur(10px) !important;
+            border: 1px solid rgba(255, 255, 255, 0.28) !important;
+            border-radius: 999px !important;
+            transition: background 0.3s ease, border-color 0.3s ease, transform 0.25s ease !important;
+            margin-top: 0 !important;
+        }
+
+        .services .service-link:hover {
+            background: var(--lawisa-gold) !important;
+            border-color: var(--lawisa-gold) !important;
+            color: #ffffff !important;
+        }
+    </style>
+
     <!-- GSAP for Horizontal Scroll -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
+
 <body>
     <!-- Navigation -->
     <header class="header" id="header">
@@ -36,10 +209,12 @@
             </nav>
             <div class="nav-actions">
                 <div class="lang-switch">
-                    <a href="#" class="lang-btn active" data-lang="fr">FR</a> | <a href="#" class="lang-btn" data-lang="en">EN</a>
+                    <a href="#" class="lang-btn active" data-lang="fr">FR</a> | <a href="#" class="lang-btn"
+                        data-lang="en">EN</a>
                 </div>
-                <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking" target="_blank" class="btn-header" data-i18n="nav_book">Réserver</a>
-                
+                <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking"
+                    target="_blank" class="btn-header" data-i18n="nav_book">Réserver</a>
+
                 <button class="mobile-menu-btn" aria-label="Menu">
                     <span></span>
                     <span></span>
@@ -58,14 +233,17 @@
         </div>
         <div class="hero-container">
             <div class="hero-content fade-in-up">
-                <h1 data-i18n="hero_title">L’Art du Massage Thaïlandais<br><span class="hero-title-sub">au cœur de Paris</span></h1>
-                <p class="subtitle" data-i18n="hero_subtitle">Un savoir-faire traditionnel, dans un écrin de calme au Faubourg Saint-Honoré.</p>
-                
+                <h1 data-i18n="hero_title">L’Art du Massage Thaïlandais<br><span class="hero-title-sub">au cœur de
+                        Paris</span></h1>
+                <p class="subtitle" data-i18n="hero_subtitle">Un savoir-faire traditionnel, dans un écrin de calme au
+                    Faubourg Saint-Honoré.</p>
+
                 <div class="hero-actions">
-                    <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking" target="_blank" class="btn-primary" data-i18n="hero_btn_book">Réserver une séance</a>
+                    <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking"
+                        target="_blank" class="btn-primary" data-i18n="hero_btn_book">Réserver une séance</a>
                     <a href="#massages" class="btn-secondary" data-i18n="hero_btn_discover">Découvrir les massages</a>
                 </div>
-                
+
                 <div class="hero-meta">
                     <div class="hero-social" data-i18n="hero_social">
                         <span class="stars">★★★★★</span> 5.0 sur Google · 200+ avis
@@ -85,90 +263,100 @@
                 <!-- Service 1 -->
                 <div class="service-card fade-in-up">
                     <div class="service-image">
-                        <img src="public/images/img3.png" alt="Massage Traditionnel Thaïlandais">
+                        <img src="public/images/WhatsApp Image 2026-11-15 at 15.36.14 (1).jpeg"
+                            alt="Massage Traditionnel Thaïlandais">
                     </div>
                     <div class="service-info">
                         <div>
                             <h3 data-i18n="massage_1">Massage Traditionnel Thaïlandais</h3>
-                            <p class="service-desc" data-i18n="massage_1_desc">Une thérapie ancestrale mêlant acupression et étirements profonds pour rééquilibrer les énergies.</p>
-                            <p class="price"><span data-i18n="price_from">À partir de</span> €90</p>
+                            <p class="service-desc" data-i18n="massage_1_desc">Une thérapie ancestrale mêlant
+                                acupression et étirements profonds pour rééquilibrer les énergies.</p>
                         </div>
-                        <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking" target="_blank" class="service-link" data-i18n="btn_book">Réserver</a>
+                        <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking"
+                            target="_blank" class="service-link" data-i18n="card_btn_book">Réserver</a>
                     </div>
                 </div>
-                
+
                 <!-- Service 2 -->
                 <div class="service-card fade-in-up" style="transition-delay: 0.1s;">
                     <div class="service-image">
-                        <img src="public/images/img5.png" alt="Massage aux Huiles Chaudes">
+                        <img src="public/images/WhatsApp Image 2026-11-15 at 15.36.15 (6).jpeg"
+                            alt="Massage aux Huiles Chaudes">
                     </div>
                     <div class="service-info">
                         <div>
                             <h3 data-i18n="massage_2">Massage aux Huiles Chaudes</h3>
-                            <p class="service-desc" data-i18n="massage_2_desc">Un moment de pure relaxation, avec des mouvements fluides et des huiles essentielles chaudes.</p>
-                            <p class="price"><span data-i18n="price_from">À partir de</span> €90</p>
+                            <p class="service-desc" data-i18n="massage_2_desc">Un moment de pure relaxation, avec des
+                                mouvements fluides et des huiles essentielles chaudes.</p>
                         </div>
-                        <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking" target="_blank" class="service-link" data-i18n="btn_book">Réserver</a>
+                        <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking"
+                            target="_blank" class="service-link" data-i18n="card_btn_book">Réserver</a>
                     </div>
                 </div>
 
                 <!-- Service 3 -->
                 <div class="service-card fade-in-up" style="transition-delay: 0.2s;">
                     <div class="service-image">
-                        <img src="public/images/img12.png" alt="Massage Mixte Thaï & Huiles Chaudes">
+                        <img src="public/images/WhatsApp Image 2026-11-15 at 15.36.15 (4).jpeg"
+                            alt="Massage Mixte Thaï & Huiles Chaudes">
                     </div>
                     <div class="service-info">
                         <div>
                             <h3 data-i18n="massage_3">Massage Mixte Thaï & Huiles Chaudes</h3>
-                            <p class="service-desc" data-i18n="massage_3_desc">L'alliance parfaite entre la profondeur du massage thaï et la douceur des huiles chaudes.</p>
-                            <p class="price"><span data-i18n="price_from">À partir de</span> €95</p>
+                            <p class="service-desc" data-i18n="massage_3_desc">L'alliance parfaite entre la profondeur
+                                du massage thaï et la douceur des huiles chaudes.</p>
                         </div>
-                        <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking" target="_blank" class="service-link" data-i18n="btn_book">Réserver</a>
+                        <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking"
+                            target="_blank" class="service-link" data-i18n="card_btn_book">Réserver</a>
                     </div>
                 </div>
 
                 <!-- Service 4 -->
                 <div class="service-card fade-in-up">
                     <div class="service-image">
-                        <img src="public/images/img13.png" alt="Massage Sportif">
+                        <img src="public/images/WhatsApp Image 2026-11-15 at 15.32.27 (3).jpeg" alt="Massage Sportif">
                     </div>
                     <div class="service-info">
                         <div>
                             <h3 data-i18n="massage_4">Massage Sportif</h3>
-                            <p class="service-desc" data-i18n="massage_4_desc">Idéal pour dénouer les tensions musculaires profondes et accélérer la récupération.</p>
-                            <p class="price"><span data-i18n="price_from">À partir de</span> €110</p>
+                            <p class="service-desc" data-i18n="massage_4_desc">Idéal pour dénouer les tensions
+                                musculaires profondes et accélérer la récupération.</p>
                         </div>
-                        <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking" target="_blank" class="service-link" data-i18n="btn_book">Réserver</a>
+                        <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking"
+                            target="_blank" class="service-link" data-i18n="card_btn_book">Réserver</a>
                     </div>
                 </div>
 
                 <!-- Service 5 -->
                 <div class="service-card fade-in-up" style="transition-delay: 0.1s;">
                     <div class="service-image">
-                        <img src="public/images/img15.png" alt="Jet Lag Recovery">
+                        <img src="public/images/WhatsApp Image 2026-11-15 at 15.36.15 (1).jpeg" alt="Jet Lag Recovery">
                     </div>
                     <div class="service-info">
                         <div>
                             <h3 data-i18n="massage_5">Jet Lag Recovery</h3>
-                            <p class="service-desc" data-i18n="massage_5_desc">Un soin ciblé pour retrouver votre équilibre après un long voyage et éliminer la fatigue.</p>
-                            <p class="price"><span data-i18n="price_from">À partir de</span> €55</p>
+                            <p class="service-desc" data-i18n="massage_5_desc">Un soin ciblé pour retrouver votre
+                                équilibre après un long voyage et éliminer la fatigue.</p>
                         </div>
-                        <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking" target="_blank" class="service-link" data-i18n="btn_book">Réserver</a>
+                        <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking"
+                            target="_blank" class="service-link" data-i18n="card_btn_book">Réserver</a>
                     </div>
                 </div>
 
                 <!-- Service 6 -->
                 <div class="service-card fade-in-up" style="transition-delay: 0.2s;">
                     <div class="service-image">
-                        <img src="public/images/img16.png" alt="Réflexologie Plantaire">
+                        <img src="public/images/WhatsApp Image 2026-11-15 at 15.32.27 (2).jpeg"
+                            alt="Réflexologie Plantaire">
                     </div>
                     <div class="service-info">
                         <div>
                             <h3 data-i18n="massage_6">Réflexologie Plantaire</h3>
-                            <p class="service-desc" data-i18n="massage_6_desc">Stimulation des zones réflexes des pieds pour apaiser l'ensemble du corps.</p>
-                            <p class="price"><span data-i18n="price_from">À partir de</span> €45</p>
+                            <p class="service-desc" data-i18n="massage_6_desc">Stimulation des zones réflexes des pieds
+                                pour apaiser l'ensemble du corps.</p>
                         </div>
-                        <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking" target="_blank" class="service-link" data-i18n="btn_book">Réserver</a>
+                        <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking"
+                            target="_blank" class="service-link" data-i18n="card_btn_book">Réserver</a>
                     </div>
                 </div>
             </div>
@@ -186,8 +374,9 @@
             <!-- Right side: Panel -->
             <div class="booking-panel fade-in-up" style="transition-delay: 0.1s;">
                 <h2 class="section-title" data-i18n="booking_title">Réservez votre massage</h2>
-                <p class="booking-subtitle" data-i18n="booking_desc">Choisissez votre soin et consultez les disponibilités en temps réel.</p>
-                
+                <p class="booking-subtitle" data-i18n="booking_desc">Choisissez votre soin et consultez les
+                    disponibilités en temps réel.</p>
+
                 <div class="booking-list">
                     <!-- Item 1 -->
                     <div class="booking-item">
@@ -195,16 +384,18 @@
                             <h4 data-i18n="massage_1">Massage Traditionnel Thaïlandais</h4>
                             <span class="booking-price"><span data-i18n="price_from">À partir de</span> 90€</span>
                         </div>
-                        <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking" target="_blank" class="btn-book-small" data-i18n="btn_book">RÉSERVER</a>
+                        <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking"
+                            target="_blank" class="btn-book-small" data-i18n="btn_book">RÉSERVER</a>
                     </div>
-                    
+
                     <!-- Item 2 -->
                     <div class="booking-item">
                         <div class="booking-item-info">
                             <h4 data-i18n="massage_2">Massage aux Huiles Chaudes</h4>
                             <span class="booking-price"><span data-i18n="price_from">À partir de</span> 90€</span>
                         </div>
-                        <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking" target="_blank" class="btn-book-small" data-i18n="btn_book">RÉSERVER</a>
+                        <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking"
+                            target="_blank" class="btn-book-small" data-i18n="btn_book">RÉSERVER</a>
                     </div>
 
                     <!-- Item 3 -->
@@ -213,7 +404,8 @@
                             <h4 data-i18n="massage_3">Massage Mixte Thaï & Huiles Chaudes</h4>
                             <span class="booking-price"><span data-i18n="price_from">À partir de</span> 95€</span>
                         </div>
-                        <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking" target="_blank" class="btn-book-small" data-i18n="btn_book">RÉSERVER</a>
+                        <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking"
+                            target="_blank" class="btn-book-small" data-i18n="btn_book">RÉSERVER</a>
                     </div>
 
                     <!-- Item 4 -->
@@ -222,7 +414,8 @@
                             <h4 data-i18n="massage_4">Massage Sportif</h4>
                             <span class="booking-price"><span data-i18n="price_from">À partir de</span> 110€</span>
                         </div>
-                        <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking" target="_blank" class="btn-book-small" data-i18n="btn_book">RÉSERVER</a>
+                        <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking"
+                            target="_blank" class="btn-book-small" data-i18n="btn_book">RÉSERVER</a>
                     </div>
 
                     <!-- Item 5 -->
@@ -231,11 +424,14 @@
                             <h4 data-i18n="massage_6">Réflexologie Plantaire</h4>
                             <span class="booking-price"><span data-i18n="price_from">À partir de</span> 45€</span>
                         </div>
-                        <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking" target="_blank" class="btn-book-small" data-i18n="btn_book">RÉSERVER</a>
+                        <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking"
+                            target="_blank" class="btn-book-small" data-i18n="btn_book">RÉSERVER</a>
                     </div>
                 </div>
 
-                <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking" target="_blank" class="btn-primary booking-main-cta" data-i18n="booking_fallback_btn">VOIR TOUTES LES DISPONIBILITÉS</a>
+                <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking"
+                    target="_blank" class="btn-primary booking-main-cta" data-i18n="booking_fallback_btn">VOIR TOUTES
+                    LES DISPONIBILITÉS</a>
             </div>
         </div>
     </section>
@@ -245,9 +441,13 @@
         <div class="container">
             <div class="experience-content">
                 <div class="experience-text fade-in-up">
-                    <h2 class="section-title" data-i18n="section_salon">Une Expérience Thaïlandaise Authentique à Paris</h2>
-                    <p data-i18n="salon_p1">Découvrez un véritable sanctuaire de relaxation au cœur du 8ème arrondissement. Nos praticiennes professionnelles, formées aux techniques authentiques du massage thaïlandais, vous offrent des soins personnalisés.</p>
-                    <p data-i18n="salon_p2">Profitez d'une atmosphère paisible et élégante, pensée pour votre apaisement total du corps et de l'esprit, où chaque détail contribue à votre bien-être.</p>
+                    <h2 class="section-title" data-i18n="section_salon">Une Expérience Thaïlandaise Authentique à Paris
+                    </h2>
+                    <p data-i18n="salon_p1">Découvrez un véritable sanctuaire de relaxation au cœur du 8ème
+                        arrondissement. Nos praticiennes professionnelles, formées aux techniques authentiques du
+                        massage thaïlandais, vous offrent des soins personnalisés.</p>
+                    <p data-i18n="salon_p2">Profitez d'une atmosphère paisible et élégante, pensée pour votre apaisement
+                        total du corps et de l'esprit, où chaque détail contribue à votre bien-être.</p>
                     <a href="#galerie" class="btn btn-outline mt-2" data-i18n="salon_btn">Découvrir le salon</a>
                 </div>
                 <div class="experience-image fade-in-up" style="transition-delay: 0.2s;">
@@ -261,12 +461,13 @@
     <section class="editorial-gallery section-padding bg-ivory" id="galerie">
         <div class="editorial-container">
             <div class="editorial-grid">
-                
+
                 <!-- Left Text Block -->
                 <div class="editorial-text fade-in-up">
                     <span class="eyebrow" data-i18n="gallery_eyebrow">LE SALON</span>
                     <h2 class="editorial-title" data-i18n="gallery_title">Un lieu pensé pour ralentir.</h2>
-                    <p class="editorial-desc" data-i18n="gallery_desc">Lumière douce, matières naturelles et détails thaïlandais composent un espace calme au cœur du 8e arrondissement.</p>
+                    <p class="editorial-desc" data-i18n="gallery_desc">Lumière douce, matières naturelles et détails
+                        thaïlandais composent un espace calme au cœur du 8e arrondissement.</p>
                     <p class="editorial-line" data-i18n="gallery_line">183 Rue du Faubourg Saint-Honoré · Paris 8e</p>
                 </div>
 
@@ -301,137 +502,151 @@
         <div class="container text-center">
             <div class="reviews-frame">
                 <h2 class="section-title fade-in-up" data-i18n="section_reviews">Ce que disent nos clients</h2>
-            <a href="https://www.google.com/maps/search/?api=1&query=Lawisa+Thai+Massage+183+Rue+du+Faubourg+Saint-Honoré+75008+Paris" target="_blank" rel="noopener noreferrer" class="reviews-link-wrapper">
-                <div class="reviews-summary fade-in-up" data-i18n="hero_social">
-                    <span class="stars">★★★★★</span> 5.0 sur Google · 200+ avis
-                </div>
-                
-                <div class="reviews-grid">
-                    <div class="review-card fade-in-up">
-                        <div class="review-header">
-                            <div class="review-avatar" style="background-color: #E91E63;">S</div>
-                            <div class="review-author-info">
-                                <span class="review-author">Sophie L.</span>
-                                <span class="review-time">il y a 2 semaines</span>
-                            </div>
-                        </div>
-                        <div class="review-stars">★★★★★</div>
-                        <p class="review-text" data-i18n="review_1_text">"Une expérience exceptionnelle. Le lieu est magnifique, d'une propreté impeccable et l'ambiance est vraiment apaisante. Le massage thaï aux huiles était parfait."</p>
-                    </div>
-                    
-                    <div class="review-card fade-in-up" style="transition-delay: 0.1s;">
-                        <div class="review-header">
-                            <div class="review-avatar" style="background-color: #3F51B5;">M</div>
-                            <div class="review-author-info">
-                                <span class="review-author">Marc D.</span>
-                                <span class="review-time">il y a 1 mois</span>
-                            </div>
-                        </div>
-                        <div class="review-stars">★★★★★</div>
-                        <p class="review-text" data-i18n="review_2_text">"Le meilleur massage thaï de Paris. Le salon est luxueux, décoré avec beaucoup de goût. On s'y sent immédiatement bien. L'équipe est très professionnelle."</p>
-                    </div>
-                    
-                    <div class="review-card fade-in-up" style="transition-delay: 0.2s;">
-                        <div class="review-header">
-                            <div class="review-avatar" style="background-color: #009688;">C</div>
-                            <div class="review-author-info">
-                                <span class="review-author">Camille P.</span>
-                                <span class="review-time">il y a 2 mois</span>
-                            </div>
-                        </div>
-                        <div class="review-stars">★★★★★</div>
-                        <p class="review-text" data-i18n="review_3_text">"Une véritable parenthèse de détente au cœur de Paris. Les praticiennes sont très douées et à l'écoute. J'y retournerai les yeux fermés."</p>
+                <a href="https://www.google.com/maps/search/?api=1&query=Lawisa+Thai+Massage+183+Rue+du+Faubourg+Saint-Honoré+75008+Paris"
+                    target="_blank" rel="noopener noreferrer" class="reviews-link-wrapper">
+                    <div class="reviews-summary fade-in-up" data-i18n="hero_social">
+                        <span class="stars">★★★★★</span> 5.0 sur Google · 200+ avis
                     </div>
 
-                    <div class="review-card fade-in-up" style="transition-delay: 0.3s;">
-                        <div class="review-header">
-                            <div class="review-avatar" style="background-color: #FF9800;">J</div>
-                            <div class="review-author-info">
-                                <span class="review-author">Julien T.</span>
-                                <span class="review-time">il y a 3 mois</span>
+                    <div class="reviews-grid">
+                        <div class="review-card fade-in-up">
+                            <div class="review-header">
+                                <div class="review-avatar" style="background-color: #E91E63;">S</div>
+                                <div class="review-author-info">
+                                    <span class="review-author">Sophie L.</span>
+                                    <span class="review-time">il y a 2 semaines</span>
+                                </div>
                             </div>
+                            <div class="review-stars">★★★★★</div>
+                            <p class="review-text" data-i18n="review_1_text">"Une expérience exceptionnelle. Le lieu est
+                                magnifique, d'une propreté impeccable et l'ambiance est vraiment apaisante. Le massage
+                                thaï aux huiles était parfait."</p>
                         </div>
-                        <div class="review-stars">★★★★★</div>
-                        <p class="review-text">"Superbe endroit ! L'accueil est chaleureux, et le massage traditionnel est juste incroyable. Une vraie évasion au cœur de Paris."</p>
+
+                        <div class="review-card fade-in-up" style="transition-delay: 0.1s;">
+                            <div class="review-header">
+                                <div class="review-avatar" style="background-color: #3F51B5;">M</div>
+                                <div class="review-author-info">
+                                    <span class="review-author">Marc D.</span>
+                                    <span class="review-time">il y a 1 mois</span>
+                                </div>
+                            </div>
+                            <div class="review-stars">★★★★★</div>
+                            <p class="review-text" data-i18n="review_2_text">"Le meilleur massage thaï de Paris. Le
+                                salon est luxueux, décoré avec beaucoup de goût. On s'y sent immédiatement bien.
+                                L'équipe est très professionnelle."</p>
+                        </div>
+
+                        <div class="review-card fade-in-up" style="transition-delay: 0.2s;">
+                            <div class="review-header">
+                                <div class="review-avatar" style="background-color: #009688;">C</div>
+                                <div class="review-author-info">
+                                    <span class="review-author">Camille P.</span>
+                                    <span class="review-time">il y a 2 mois</span>
+                                </div>
+                            </div>
+                            <div class="review-stars">★★★★★</div>
+                            <p class="review-text" data-i18n="review_3_text">"Une véritable parenthèse de détente au
+                                cœur de Paris. Les praticiennes sont très douées et à l'écoute. J'y retournerai les yeux
+                                fermés."</p>
+                        </div>
+
+                        <div class="review-card fade-in-up" style="transition-delay: 0.3s;">
+                            <div class="review-header">
+                                <div class="review-avatar" style="background-color: #FF9800;">J</div>
+                                <div class="review-author-info">
+                                    <span class="review-author">Julien T.</span>
+                                    <span class="review-time">il y a 3 mois</span>
+                                </div>
+                            </div>
+                            <div class="review-stars">★★★★★</div>
+                            <p class="review-text">"Superbe endroit ! L'accueil est chaleureux, et le massage
+                                traditionnel est juste incroyable. Une vraie évasion au cœur de Paris."</p>
+                        </div>
+
+                        <div class="review-card fade-in-up" style="transition-delay: 0.4s;">
+                            <div class="review-header">
+                                <div class="review-avatar" style="background-color: #9C27B0;">E</div>
+                                <div class="review-author-info">
+                                    <span class="review-author">Elodie R.</span>
+                                    <span class="review-time">il y a 4 mois</span>
+                                </div>
+                            </div>
+                            <div class="review-stars">★★★★★</div>
+                            <p class="review-text">"Propreté impeccable et massages très professionnels. J'ai choisi le
+                                massage aux huiles chaudes, un pur bonheur !"</p>
+                        </div>
+
+                        <div class="review-card fade-in-up" style="transition-delay: 0.5s;">
+                            <div class="review-header">
+                                <div class="review-avatar" style="background-color: #4CAF50;">A</div>
+                                <div class="review-author-info">
+                                    <span class="review-author">Antoine B.</span>
+                                    <span class="review-time">il y a 5 mois</span>
+                                </div>
+                            </div>
+                            <div class="review-stars">★★★★★</div>
+                            <p class="review-text">"Excellente adresse. Le cadre est relaxant et l'équipe est très
+                                attentionnée. Le massage traditionnel thaïlandais m'a fait énormément de bien."</p>
+                        </div>
+
+                        <div class="review-card fade-in-up" style="transition-delay: 0.6s;">
+                            <div class="review-header">
+                                <div class="review-avatar" style="background-color: #F44336;">L</div>
+                                <div class="review-author-info">
+                                    <span class="review-author">Laurence G.</span>
+                                    <span class="review-time">il y a 5 mois</span>
+                                </div>
+                            </div>
+                            <div class="review-stars">★★★★★</div>
+                            <p class="review-text">"J'ai passé un moment divin. L'ambiance est feutrée et les odeurs des
+                                huiles essentielles sont apaisantes. Je recommande vivement le massage mix !"</p>
+                        </div>
+
+                        <div class="review-card fade-in-up" style="transition-delay: 0.7s;">
+                            <div class="review-header">
+                                <div class="review-avatar" style="background-color: #2196F3;">P</div>
+                                <div class="review-author-info">
+                                    <span class="review-author">Pierre M.</span>
+                                    <span class="review-time">il y a 6 mois</span>
+                                </div>
+                            </div>
+                            <div class="review-stars">★★★★★</div>
+                            <p class="review-text">"Après un long vol, le massage Jet Lag Recovery était exactement ce
+                                qu'il me fallait. Très belle découverte dans le 8ème."</p>
+                        </div>
+
+                        <div class="review-card fade-in-up" style="transition-delay: 0.8s;">
+                            <div class="review-header">
+                                <div class="review-avatar" style="background-color: #607D8B;">N</div>
+                                <div class="review-author-info">
+                                    <span class="review-author">Nadia K.</span>
+                                    <span class="review-time">il y a 7 mois</span>
+                                </div>
+                            </div>
+                            <div class="review-stars">★★★★★</div>
+                            <p class="review-text">"Un havre de paix. Dès l'accueil on se sent chouchouté. Le massage
+                                était profond et réparateur. Bravo à toute l'équipe."</p>
+                        </div>
+
+                        <div class="review-card fade-in-up" style="transition-delay: 0.9s;">
+                            <div class="review-header">
+                                <div class="review-avatar" style="background-color: #795548;">G</div>
+                                <div class="review-author-info">
+                                    <span class="review-author">Guillaume V.</span>
+                                    <span class="review-time">il y a 8 mois</span>
+                                </div>
+                            </div>
+                            <div class="review-stars">★★★★★</div>
+                            <p class="review-text">"Prestation très haut de gamme. Le salon est superbe, très propre et
+                                on sent que les praticiennes ont une véritable expérience."</p>
+                        </div>
                     </div>
 
-                    <div class="review-card fade-in-up" style="transition-delay: 0.4s;">
-                        <div class="review-header">
-                            <div class="review-avatar" style="background-color: #9C27B0;">E</div>
-                            <div class="review-author-info">
-                                <span class="review-author">Elodie R.</span>
-                                <span class="review-time">il y a 4 mois</span>
-                            </div>
-                        </div>
-                        <div class="review-stars">★★★★★</div>
-                        <p class="review-text">"Propreté impeccable et massages très professionnels. J'ai choisi le massage aux huiles chaudes, un pur bonheur !"</p>
+                    <div class="reviews-view-all fade-in-up">
+                        <span data-i18n="reviews_view_all">Voir tous les avis sur Google</span>
                     </div>
-
-                    <div class="review-card fade-in-up" style="transition-delay: 0.5s;">
-                        <div class="review-header">
-                            <div class="review-avatar" style="background-color: #4CAF50;">A</div>
-                            <div class="review-author-info">
-                                <span class="review-author">Antoine B.</span>
-                                <span class="review-time">il y a 5 mois</span>
-                            </div>
-                        </div>
-                        <div class="review-stars">★★★★★</div>
-                        <p class="review-text">"Excellente adresse. Le cadre est relaxant et l'équipe est très attentionnée. Le massage traditionnel thaïlandais m'a fait énormément de bien."</p>
-                    </div>
-
-                    <div class="review-card fade-in-up" style="transition-delay: 0.6s;">
-                        <div class="review-header">
-                            <div class="review-avatar" style="background-color: #F44336;">L</div>
-                            <div class="review-author-info">
-                                <span class="review-author">Laurence G.</span>
-                                <span class="review-time">il y a 5 mois</span>
-                            </div>
-                        </div>
-                        <div class="review-stars">★★★★★</div>
-                        <p class="review-text">"J'ai passé un moment divin. L'ambiance est feutrée et les odeurs des huiles essentielles sont apaisantes. Je recommande vivement le massage mix !"</p>
-                    </div>
-
-                    <div class="review-card fade-in-up" style="transition-delay: 0.7s;">
-                        <div class="review-header">
-                            <div class="review-avatar" style="background-color: #2196F3;">P</div>
-                            <div class="review-author-info">
-                                <span class="review-author">Pierre M.</span>
-                                <span class="review-time">il y a 6 mois</span>
-                            </div>
-                        </div>
-                        <div class="review-stars">★★★★★</div>
-                        <p class="review-text">"Après un long vol, le massage Jet Lag Recovery était exactement ce qu'il me fallait. Très belle découverte dans le 8ème."</p>
-                    </div>
-
-                    <div class="review-card fade-in-up" style="transition-delay: 0.8s;">
-                        <div class="review-header">
-                            <div class="review-avatar" style="background-color: #607D8B;">N</div>
-                            <div class="review-author-info">
-                                <span class="review-author">Nadia K.</span>
-                                <span class="review-time">il y a 7 mois</span>
-                            </div>
-                        </div>
-                        <div class="review-stars">★★★★★</div>
-                        <p class="review-text">"Un havre de paix. Dès l'accueil on se sent chouchouté. Le massage était profond et réparateur. Bravo à toute l'équipe."</p>
-                    </div>
-
-                    <div class="review-card fade-in-up" style="transition-delay: 0.9s;">
-                        <div class="review-header">
-                            <div class="review-avatar" style="background-color: #795548;">G</div>
-                            <div class="review-author-info">
-                                <span class="review-author">Guillaume V.</span>
-                                <span class="review-time">il y a 8 mois</span>
-                            </div>
-                        </div>
-                        <div class="review-stars">★★★★★</div>
-                        <p class="review-text">"Prestation très haut de gamme. Le salon est superbe, très propre et on sent que les praticiennes ont une véritable expérience."</p>
-                    </div>
-                </div>
-
-                <div class="reviews-view-all fade-in-up">
-                    <span data-i18n="reviews_view_all">Voir tous les avis sur Google</span>
-                </div>
-            </a>
+                </a>
             </div>
         </div>
     </section>
@@ -443,8 +658,10 @@
         </div>
         <div class="booking-content fade-in-up">
             <h2 data-i18n="booking_cta_title">Votre Moment de Bien-être Vous Attend</h2>
-            <p data-i18n="booking_cta_desc">Offrez-vous une pause au cœur de Paris et découvrez l’art du massage thaïlandais traditionnel.</p>
-            <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking" target="_blank" class="btn btn-primary btn-large" data-i18n="booking_cta_btn">Réserver maintenant</a>
+            <p data-i18n="booking_cta_desc">Offrez-vous une pause au cœur de Paris et découvrez l’art du massage
+                thaïlandais traditionnel.</p>
+            <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking"
+                target="_blank" class="btn btn-primary btn-large" data-i18n="booking_cta_btn">Réserver maintenant</a>
         </div>
     </section>
 
@@ -454,12 +671,12 @@
             <div class="location-grid">
                 <div class="location-info fade-in-up">
                     <h2 class="section-title" data-i18n="contact_title">Nous trouver</h2>
-                    
+
                     <p class="address">
                         183 Rue du Faubourg Saint-Honoré<br>
                         75008 Paris
                     </p>
-                    
+
                     <div class="contact-details">
                         <div class="detail-item">
                             <a href="tel:+33636432381" class="contact-phone-link">06 36 43 23 81</a>
@@ -468,23 +685,23 @@
                             <p data-i18n="hours_text">Lundi - Dimanche<br>10:00 - 20:00</p>
                         </div>
                     </div>
-                    
+
                     <div class="location-buttons">
-                        <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking" target="_blank" class="btn btn-primary" data-i18n="contact_btn_book">RÉSERVER UNE SÉANCE</a>
-                        <a href="https://www.google.com/maps/search/?api=1&query=Lawisa+Thai+Massage+183+Rue+du+Faubourg+Saint-Honoré+75008+Paris" target="_blank" rel="noopener noreferrer" class="btn btn-outline" data-i18n="contact_btn_route">ITINÉRAIRE</a>
+                        <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking"
+                            target="_blank" class="btn btn-primary" data-i18n="contact_btn_book">RÉSERVER UNE SÉANCE</a>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Lawisa+Thai+Massage+183+Rue+du+Faubourg+Saint-Honoré+75008+Paris"
+                            target="_blank" rel="noopener noreferrer" class="btn btn-outline"
+                            data-i18n="contact_btn_route">ITINÉRAIRE</a>
                         <a href="tel:+33636432381" class="btn btn-outline" data-i18n="contact_btn_call">APPELER</a>
                     </div>
                 </div>
-                
+
                 <div class="location-map fade-in-up" style="transition-delay: 0.2s;">
-                    <a href="https://www.google.com/maps/search/?api=1&query=Lawisa+Thai+Massage+183+Rue+du+Faubourg+Saint-Honoré+75008+Paris" target="_blank" rel="noopener noreferrer" class="map-overlay"></a>
-                    <iframe 
-                        src="https://maps.google.com/maps?q=Lawisa%20Tha%C3%AF%20Massage%20183%20Rue%20du%20Faubourg%20Saint-Honor%C3%A9%2075008%20Paris&t=&z=16&ie=UTF8&iwloc=&output=embed" 
-                        width="100%" 
-                        height="100%" 
-                        style="border:0;" 
-                        allowfullscreen="" 
-                        loading="lazy" 
+                    <a href="https://www.google.com/maps/search/?api=1&query=Lawisa+Thai+Massage+183+Rue+du+Faubourg+Saint-Honoré+75008+Paris"
+                        target="_blank" rel="noopener noreferrer" class="map-overlay"></a>
+                    <iframe
+                        src="https://maps.google.com/maps?q=Lawisa%20Tha%C3%AF%20Massage%20183%20Rue%20du%20Faubourg%20Saint-Honor%C3%A9%2075008%20Paris&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade">
                     </iframe>
                 </div>
@@ -506,9 +723,10 @@
                         75008 Paris
                     </p>
                     <a href="tel:+33636432381" class="footer-phone">06 36 43 23 81</a>
-                    <p class="footer-desc" data-i18n="footer_desc">Massage thaïlandais traditionnel au cœur de Paris.</p>
+                    <p class="footer-desc" data-i18n="footer_desc">Massage thaïlandais traditionnel au cœur de Paris.
+                    </p>
                 </div>
-                
+
                 <!-- Nav Column -->
                 <div class="footer-nav fade-in-up" style="transition-delay: 0.1s;">
                     <a href="#massages" data-i18n="nav_massages">Massages</a>
@@ -517,19 +735,21 @@
                     <a href="#avis" data-i18n="nav_reviews">Avis</a>
                     <a href="#contact" data-i18n="nav_contact">Contact</a>
                 </div>
-                
+
                 <!-- Booking Column -->
                 <div class="footer-booking fade-in-up" style="transition-delay: 0.2s;">
                     <h3 data-i18n="footer_book_title">Votre moment de détente</h3>
                     <p data-i18n="footer_book_desc">Réservez votre massage en quelques instants.</p>
-                    <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking" target="_blank" class="footer-btn" data-i18n="footer_book_btn">RÉSERVER</a>
-                    
+                    <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking"
+                        target="_blank" class="footer-btn" data-i18n="footer_book_btn">RÉSERVER</a>
+
                     <div class="footer-lang">
-                        <a href="#" class="lang-btn active" data-lang="fr">FR</a> <span class="lang-divider">|</span> <a href="#" class="lang-btn" data-lang="en">EN</a>
+                        <a href="#" class="lang-btn active" data-lang="fr">FR</a> <span class="lang-divider">|</span> <a
+                            href="#" class="lang-btn" data-lang="en">EN</a>
                     </div>
                 </div>
             </div>
-            
+
             <div class="footer-bottom fade-in-up" style="transition-delay: 0.3s;">
                 <p data-i18n="footer_rights">&copy; 2026 Lawisa Thaï Massage</p>
                 <div class="footer-legal">
@@ -543,7 +763,8 @@
     <!-- WhatsApp Chat Widget -->
     <a href="https://wa.me/33636432381" target="_blank" class="whatsapp-widget" aria-label="Chat on WhatsApp">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor">
-            <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157.1zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+            <path
+                d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157.1zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z" />
         </svg>
     </a>
 
@@ -582,6 +803,7 @@
                 massage_6_desc: "Stimulation des zones réflexes des pieds pour apaiser l'ensemble du corps.",
                 price_from: "À partir de",
                 btn_book: "RÉSERVER",
+                card_btn_book: "Réserver",
                 booking_title: "Réservez votre massage",
                 booking_desc: "Choisissez votre soin et consultez les disponibilités en temps réel.",
                 booking_fallback_btn: "VOIR TOUTES LES DISPONIBILITÉS",
@@ -650,6 +872,7 @@
                 massage_6_desc: "Stimulation of reflex zones in the feet to soothe the entire body.",
                 price_from: "From",
                 btn_book: "BOOK",
+                card_btn_book: "Book Now",
                 booking_title: "Book Your Massage",
                 booking_desc: "Choose your treatment and view real-time availability.",
                 booking_fallback_btn: "VIEW ALL AVAILABILITY",
@@ -695,14 +918,14 @@
         langBtns.forEach(btn => {
             btn.addEventListener('click', (e) => {
                 e.preventDefault();
-                
+
                 // Update active state visually
                 langBtns.forEach(b => b.classList.remove('active'));
                 const selectedLang = e.target.getAttribute('data-lang');
-                
+
                 // Set both buttons (header and footer) to active
                 document.querySelectorAll(`.lang-btn[data-lang="${selectedLang}"]`).forEach(b => b.classList.add('active'));
-                
+
                 // Translate all elements
                 elementsToTranslate.forEach(el => {
                     const key = el.getAttribute('data-i18n');
@@ -710,7 +933,7 @@
                         el.innerHTML = i18n[selectedLang][key];
                     }
                 });
-                
+
                 // Update html lang attribute
                 document.documentElement.lang = selectedLang;
             });
@@ -746,16 +969,16 @@
         document.querySelectorAll('.fade-in-up').forEach((el) => {
             observer.observe(el);
         });
-        
+
         // Mobile menu toggle
         const mobileBtn = document.querySelector('.mobile-menu-btn');
         const navLinks = document.querySelector('.nav-links');
-        
+
         if (mobileBtn) {
             mobileBtn.addEventListener('click', () => {
                 navLinks.classList.toggle('active');
             });
-            
+
             // Close menu when clicking a link
             navLinks.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', () => {
@@ -763,7 +986,13 @@
                 });
             });
         }
-        
+
+        // Hover listeners to ensure smooth description slide-up
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('mouseenter', () => card.classList.add('is-hovered'));
+            card.addEventListener('mouseleave', () => card.classList.remove('is-hovered'));
+        });
+
         // GSAP Horizontal Scroll for Massages
         if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
             gsap.registerPlugin(ScrollTrigger);
@@ -799,25 +1028,34 @@
                         const rect = card.getBoundingClientRect();
                         const cardCenter = rect.left + rect.width / 2;
                         const dist = Math.abs(centerX - cardCenter);
-                        
+
                         // Max distance where scaling effect applies
-                        const maxDist = window.innerWidth / 1.5; 
-                        
-                        let scale = 1.15 - (dist / maxDist) * 0.3; 
+                        const maxDist = window.innerWidth / 1.5;
+
+                        let scale = 1.15 - (dist / maxDist) * 0.3;
                         if (scale < 0.85) scale = 0.85;
                         if (scale > 1.15) scale = 1.15;
 
                         let opacity = 1 - (dist / maxDist) * 0.7;
                         if (opacity < 0.3) opacity = 0.3;
                         if (opacity > 1) opacity = 1;
-                        
+
                         // 3D Cover Flow effect
-                        let rotateY = (dist / maxDist) * 45; 
+                        let rotateY = (dist / maxDist) * 45;
                         if (rotateY > 45) rotateY = 45;
                         if (cardCenter > centerX) rotateY = -rotateY;
 
-                        card.style.transform = `perspective(1500px) scale(${scale}) rotateY(${rotateY}deg)`;
-                        card.style.opacity = opacity;
+                        const nextTransform = `perspective(1500px) scale(${scale.toFixed(4)}) rotateY(${rotateY.toFixed(3)}deg)`;
+                        const nextOpacity = opacity.toFixed(3);
+
+                        if (card._lastTransform !== nextTransform) {
+                            card.style.transform = nextTransform;
+                            card._lastTransform = nextTransform;
+                        }
+                        if (card._lastOpacity !== nextOpacity) {
+                            card.style.opacity = nextOpacity;
+                            card._lastOpacity = nextOpacity;
+                        }
                     });
                     requestAnimationFrame(updateCardsScale);
                 }
@@ -882,4 +1120,5 @@
         }
     </script>
 </body>
+
 </html>

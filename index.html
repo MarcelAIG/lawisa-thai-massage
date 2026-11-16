@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="style.css?v=11">
+    <link rel="stylesheet" href="style.css?v=20">
     <style>
 .service-card {
     position: relative;
@@ -676,6 +676,633 @@
     transform: translateY(-2px);
     box-shadow: 0 0 14px rgba(217, 165, 29, 0.5), 0 6px 22px rgba(217, 165, 29, 0.35);
 }
+
+
+/* ==========================================================================
+   World-Class Google Reviews Section (Section 4)
+   ========================================================================== */
+.lawisa-reviews-section {
+    position: relative;
+    padding: 2.75rem 0 2.9rem;
+    min-height: calc(100vh - 65px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: linear-gradient(180deg, var(--soft-white) 0%, var(--warm-ivory) 50%, var(--soft-white) 100%);
+    overflow: hidden;
+}
+
+.lawisa-reviews-container {
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 2.5rem;
+}
+
+.lawisa-reviews-top {
+    margin-bottom: 1.55rem;
+}
+
+.lawisa-reviews-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #1F4E3D;
+    color: var(--soft-white);
+    padding: 0.42rem 1.05rem;
+    border-radius: 6px;
+    border: 1px solid rgba(217, 165, 29, 0.4);
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+}
+
+.lawisa-reviews-eyebrow-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--lawisa-gold);
+    display: inline-block;
+}
+
+.lawisa-reviews-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.lawisa-reviews-title {
+    font-family: 'Inter', sans-serif !important;
+    font-size: clamp(2.15rem, 3.1vw, 2.8rem);
+    font-weight: 800 !important;
+    color: var(--charcoal);
+    margin: 0 !important;
+    letter-spacing: 0.02em;
+    line-height: 1 !important;
+    text-transform: uppercase;
+    flex-shrink: 0;
+}
+
+.lawisa-reviews-line {
+    flex: 1;
+    height: 1.5px;
+    background: linear-gradient(90deg, var(--lawisa-gold) 0%, rgba(217, 165, 29, 0.35) 100%);
+    min-width: 80px;
+}
+
+.lawisa-see-all-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    background-color: #ffffff;
+    color: var(--charcoal) !important;
+    border: 1px solid rgba(217, 165, 29, 0.45);
+    border-radius: 10px;
+    padding: 0.78rem 1.45rem;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    flex-shrink: 0;
+    box-shadow: 0 6px 18px rgba(34, 33, 31, 0.06);
+    transition: all 0.3s ease;
+}
+
+.lawisa-see-all-btn:hover {
+    background-color: var(--charcoal);
+    color: #ffffff !important;
+    border-color: var(--lawisa-gold);
+    box-shadow: 0 0 14px rgba(217, 165, 29, 0.45), 0 6px 22px rgba(217, 165, 29, 0.3);
+    transform: translateY(-2px);
+}
+
+.lawisa-see-all-arrow {
+    color: var(--lawisa-gold);
+    font-size: 0.95rem;
+    transition: transform 0.25s ease;
+}
+
+.lawisa-see-all-btn:hover .lawisa-see-all-arrow {
+    transform: translateX(4px);
+}
+
+/* Marquee Viewport & Right-to-Left Track */
+.lawisa-reviews-viewport {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 0.5rem 0 0.75rem;
+    mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+}
+
+.lawisa-reviews-track {
+    --manual-offset: 0px;
+    display: flex;
+    gap: 1.35rem;
+    width: max-content;
+    padding-left: 1.35rem;
+    animation: lawisaRollRTL 65s linear infinite;
+    will-change: transform;
+}
+
+.lawisa-reviews-viewport:hover .lawisa-reviews-track,
+.lawisa-reviews-track.is-paused {
+    animation-play-state: paused;
+}
+
+@keyframes lawisaRollRTL {
+    0% {
+        transform: translate3d(var(--manual-offset, 0px), 0, 0);
+    }
+    100% {
+        transform: translate3d(calc(-50% + var(--manual-offset, 0px)), 0, 0);
+    }
+}
+
+.lawisa-review-card {
+    width: 365px;
+    min-height: 196px;
+    flex-shrink: 0;
+    background-color: #ffffff;
+    border: 1.5px solid rgba(217, 165, 29, 0.22);
+    border-radius: 14px;
+    padding: 1.35rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 8px 24px rgba(34, 33, 31, 0.05);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.lawisa-review-card:hover {
+    border-color: var(--lawisa-gold);
+    box-shadow: 0 0 14px rgba(217, 165, 29, 0.35), 0 10px 28px rgba(217, 165, 29, 0.2);
+    transform: translateY(-2px);
+}
+
+.lawisa-review-card-top {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-bottom: 0.55rem;
+}
+
+.lawisa-review-score {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: rgba(34, 33, 31, 0.65);
+}
+
+.lawisa-review-stars {
+    color: #FBBC05;
+    font-size: 0.98rem;
+    letter-spacing: 1.5px;
+    line-height: 1;
+}
+
+.lawisa-review-body {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.9rem;
+    line-height: 1.54;
+    color: rgba(34, 33, 31, 0.82);
+    margin: 0 0 0.85rem 0;
+    flex-grow: 1;
+}
+
+.lawisa-review-more-btn {
+    background: none;
+    border: none;
+    color: rgba(34, 33, 31, 0.55);
+    font-weight: 600;
+    font-size: 0.84rem;
+    cursor: pointer;
+    padding: 0;
+    margin-left: 0.25rem;
+}
+
+.lawisa-review-more-btn:hover {
+    color: var(--charcoal);
+    text-decoration: underline;
+}
+
+.lawisa-review-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+}
+
+.lawisa-review-author {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: rgba(34, 33, 31, 0.72);
+}
+
+.lawisa-review-g-icon {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+}
+
+/* Pagination Bar */
+.lawisa-reviews-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    margin: 0.45rem 0 1.3rem;
+}
+
+.lawisa-page-btn,
+.lawisa-page-next {
+    background: transparent;
+    border: none;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: rgba(34, 33, 31, 0.55);
+    cursor: pointer;
+    padding: 0.15rem 0.4rem;
+    border-radius: 6px;
+    transition: color 0.25s ease;
+}
+
+.lawisa-page-btn.active,
+.lawisa-page-btn:hover,
+.lawisa-page-next:hover {
+    color: var(--charcoal);
+    font-weight: 700;
+}
+
+.lawisa-page-dots {
+    color: rgba(34, 33, 31, 0.45);
+    font-size: 0.85rem;
+}
+
+/* Bottom Center "REVIEW US ON GOOGLE" Box */
+.lawisa-review-us-box {
+    max-width: 500px;
+    margin: 0 auto;
+    background: linear-gradient(145deg, #16241F 0%, #0E1412 100%);
+    border: 1.5px solid rgba(217, 165, 29, 0.65);
+    border-radius: 14px;
+    padding: 1.55rem 2.25rem;
+    text-align: center;
+    box-shadow: 0 0 18px rgba(217, 165, 29, 0.2), 0 14px 34px rgba(18, 24, 22, 0.2);
+}
+
+.lawisa-review-us-title {
+    font-family: 'Inter', sans-serif !important;
+    font-size: clamp(1.22rem, 1.9vw, 1.48rem);
+    font-weight: 800 !important;
+    color: #ffffff !important;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem !important;
+    white-space: nowrap;
+}
+
+.lawisa-review-us-stars {
+    color: var(--lawisa-gold);
+    font-size: 1.55rem;
+    letter-spacing: 4px;
+    line-height: 1;
+    margin-bottom: 1rem;
+}
+
+.lawisa-leave-review-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--lawisa-gold);
+    color: #ffffff !important;
+    border: 1px solid var(--lawisa-gold);
+    border-radius: 8px;
+    padding: 0.78rem 1.85rem;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.lawisa-leave-review-btn:hover {
+    background-color: var(--deep-gold);
+    border-color: var(--lawisa-gold);
+    box-shadow: 0 0 16px rgba(217, 165, 29, 0.55), 0 6px 20px rgba(217, 165, 29, 0.35);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .lawisa-reviews-section {
+        min-height: auto;
+        padding: 3rem 0;
+    }
+
+    .lawisa-reviews-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.85rem;
+    }
+
+    .lawisa-reviews-line {
+        width: 100%;
+    }
+
+    .lawisa-see-all-btn {
+        width: 100%;
+    }
+
+    .lawisa-review-card {
+        width: 290px;
+        padding: 1.15rem;
+    }
+
+    .lawisa-review-us-box {
+        padding: 1.25rem 1.1rem;
+    }
+
+    .lawisa-review-us-title {
+        white-space: normal;
+    }
+}
+
+
+
+/* ==========================================================================
+   Offres & Cartes Cadeaux Section (Section 5)
+   ========================================================================== */
+.lawisa-offers-section {
+    position: relative;
+    min-height: calc(100vh - 80px);
+    display: flex;
+    align-items: center;
+    padding: 3.75rem 0;
+    background-color: var(--warm-ivory);
+    border-top: 1px solid rgba(217, 165, 29, 0.2);
+}
+
+.lawisa-offers-editorial {
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 2.5rem;
+    display: grid;
+    grid-template-columns: 0.82fr 1.18fr;
+    gap: 4.5rem;
+    align-items: center;
+}
+
+/* Left Column: Clean Single Photograph */
+.lawisa-offers-media {
+    width: 100%;
+}
+
+.lawisa-offers-photo {
+    width: 100%;
+    height: 500px;
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1px solid rgba(217, 165, 29, 0.38);
+    box-shadow: 0 18px 40px rgba(34, 33, 31, 0.08);
+    background-color: var(--warm-beige);
+}
+
+.lawisa-offers-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.lawisa-offers-media:hover .lawisa-offers-photo img {
+    transform: scale(1.035);
+}
+
+/* Right Column: Minimalist Single-Line Offer Rows */
+.lawisa-offers-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    min-width: 0;
+}
+
+.lawisa-offers-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    margin-bottom: 0.45rem;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.74rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--deep-gold);
+}
+
+.lawisa-offers-eyebrow::before {
+    content: "";
+    width: 24px;
+    height: 1px;
+    background-color: var(--lawisa-gold);
+    display: inline-block;
+    flex-shrink: 0;
+}
+
+.lawisa-offers-title {
+    font-family: 'Cormorant Garamond', serif !important;
+    font-size: clamp(2.25rem, 3.1vw, 2.75rem);
+    font-weight: 600 !important;
+    line-height: 1.12 !important;
+    color: var(--charcoal);
+    margin-bottom: 1.6rem !important;
+    letter-spacing: -0.01em;
+    font-variant-numeric: lining-nums;
+}
+
+.lawisa-offers-list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.lawisa-offer-row {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.25rem;
+    padding: 1.12rem 1.35rem;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 12px;
+    transition: border-color 0.25s ease, background-color 0.25s ease, box-shadow 0.3s ease;
+}
+
+.lawisa-offer-row::after {
+    content: "";
+    position: absolute;
+    left: 0.25rem;
+    right: 0.25rem;
+    bottom: -1px;
+    height: 1px;
+    background: rgba(217, 165, 29, 0.24);
+    transition: opacity 0.25s ease;
+    pointer-events: none;
+}
+
+.lawisa-offer-row:hover {
+    z-index: 2;
+    background: rgba(255, 252, 247, 0.96);
+    border-color: rgba(217, 165, 29, 0.65);
+    box-shadow: 0 8px 24px rgba(184, 135, 24, 0.1);
+}
+
+.lawisa-offer-row:hover::after,
+.lawisa-offer-row:has(+ .lawisa-offer-row:hover)::after {
+    opacity: 0;
+}
+
+.lawisa-offer-info {
+    min-width: 0;
+    flex: 1;
+}
+
+.lawisa-offer-name {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 1.08rem;
+    font-weight: 600 !important;
+    letter-spacing: -0.01em;
+    line-height: 1.25 !important;
+    color: var(--charcoal);
+    margin: 0 0 0.22rem !important;
+}
+
+.lawisa-offer-desc {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.88rem;
+    font-weight: 400;
+    line-height: 1.4;
+    color: rgba(34, 33, 31, 0.65);
+    margin: 0;
+}
+
+.lawisa-offer-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1.1rem;
+    flex-shrink: 0;
+}
+
+.lawisa-offer-price {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 1.12rem;
+    font-weight: 600;
+    font-variant-numeric: lining-nums tabular-nums;
+    letter-spacing: -0.01em;
+    line-height: 1;
+    color: var(--charcoal);
+    white-space: nowrap;
+    transition: color 0.25s ease;
+}
+
+.lawisa-offer-row:hover .lawisa-offer-price {
+    color: var(--deep-gold);
+}
+
+.lawisa-offer-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 118px;
+    height: 40px;
+    padding: 0 1.25rem;
+    border-radius: 9px;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background-color: var(--soft-white);
+    color: var(--charcoal) !important;
+    border: 1px solid rgba(217, 165, 29, 0.55);
+    white-space: nowrap;
+    transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.lawisa-offer-row:hover .lawisa-offer-btn {
+    background-color: var(--lawisa-gold);
+    color: #ffffff !important;
+    border-color: var(--lawisa-gold);
+}
+
+.lawisa-offer-row:hover .lawisa-offer-btn:hover,
+.lawisa-offer-btn:hover {
+    background-color: var(--deep-gold);
+    color: #ffffff !important;
+    border-color: var(--lawisa-gold);
+    box-shadow: 0 0 12px rgba(217, 165, 29, 0.45), 0 4px 12px rgba(217, 165, 29, 0.25);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .lawisa-offers-editorial {
+        grid-template-columns: 1fr;
+        gap: 2.25rem;
+        max-width: 680px;
+    }
+
+    .lawisa-offers-photo {
+        height: 360px;
+    }
+}
+
+@media (max-width: 768px) {
+    .lawisa-offers-section {
+        padding: 2.75rem 0;
+    }
+
+    .lawisa-offers-editorial {
+        padding: 0 1.25rem;
+        gap: 1.75rem;
+    }
+
+    .lawisa-offers-photo {
+        height: 300px;
+        border-radius: 18px;
+    }
+
+    .lawisa-offer-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+        padding: 0.9rem 1rem;
+    }
+
+    .lawisa-offer-desc {
+        white-space: normal;
+    }
+
+    .lawisa-offer-right {
+        width: 100%;
+        justify-content: space-between;
+    }
+}
+
     </style>
     
     <!-- GSAP for Horizontal Scroll -->
@@ -733,7 +1360,7 @@
                 
                 <div class="hero-meta">
                     <div class="hero-social" data-i18n="hero_social">
-                        <span class="stars">★★★★★</span> 5.0 sur Google · 200+ avis
+                        <span class="stars">★★★★★</span> 5.0 sur Google · 222 avis
                     </div>
                 </div>
             </div>
@@ -835,7 +1462,7 @@
     </section>
 
     <!-- About Showcase Section (Section 3) -->
-    <section class="about-showcase-section" id="reserver-embed">
+    <section class="about-showcase-section" id="le-salon">
         <div class="about-showcase-container">
             <!-- Left side: Image + Overlapping Circular Logo Badge -->
             <div class="about-showcase-media fade-in-up">
@@ -902,7 +1529,7 @@
                 </div>
 
                 <div class="about-actions">
-                    <a href="#le-salon" class="about-btn-primary">
+                    <a href="#galerie" class="about-btn-primary">
                         <span data-i18n="about_btn_know">Découvrir le Salon</span>
                         <span class="about-btn-arrow">→</span>
                     </a>
@@ -911,18 +1538,113 @@
         </div>
     </section>
 
-    <!-- Salon Experience Section -->
-    <section class="experience section-padding" id="le-salon">
-        <div class="container">
-            <div class="experience-content">
-                <div class="experience-text fade-in-up">
-                    <h2 class="section-title" data-i18n="section_salon">Une Expérience Thaïlandaise Authentique à Paris</h2>
-                    <p data-i18n="salon_p1">Découvrez un véritable sanctuaire de relaxation au cœur du 8ème arrondissement. Nos praticiennes professionnelles, formées aux techniques authentiques du massage thaïlandais, vous offrent des soins personnalisés.</p>
-                    <p data-i18n="salon_p2">Profitez d'une atmosphère paisible et élégante, pensée pour votre apaisement total du corps et de l'esprit, où chaque détail contribue à votre bien-être.</p>
-                    <a href="#galerie" class="btn btn-outline mt-2" data-i18n="salon_btn">Découvrir le salon</a>
+    <!-- Google Reviews Section (Section 4) -->
+    <section class="lawisa-reviews-section" id="avis">
+        <div class="lawisa-reviews-container">
+            <div class="lawisa-reviews-top fade-in-up">
+                <div class="lawisa-reviews-eyebrow">
+                    <span class="lawisa-reviews-eyebrow-dot"></span>
+                    <span data-i18n="reviews_eyebrow_badge">DÉCOUVREZ CE QUE NOS CLIENTS DISENT DE NOUS · 5.0 ★ (222 AVIS)</span>
                 </div>
-                <div class="experience-image fade-in-up" style="transition-delay: 0.2s;">
-                    <img src="public/images/WhatsApp Image 2026-11-15 at 15.36.15 (1).jpeg" alt="Réception Lawisa Thaï Massage">
+
+                <div class="lawisa-reviews-bar">
+                    <h2 class="lawisa-reviews-title" data-i18n="reviews_main_heading">AVIS CLIENTS</h2>
+                    <div class="lawisa-reviews-line" aria-hidden="true"></div>
+                    <a href="https://maps.app.goo.gl/87m61ci81Ua11WW76" target="_blank" rel="noopener noreferrer" class="lawisa-see-all-btn" data-lawisa-maps-link>
+                        <span data-i18n="reviews_see_all_btn">VOIR TOUS LES AVIS GOOGLE</span>
+                        <span class="lawisa-see-all-arrow" aria-hidden="true">→</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slow Right-to-Left Rolling Carousel -->
+        <div class="lawisa-reviews-viewport" id="lawisa-reviews-viewport" aria-label="Avis clients Google">
+            <div class="lawisa-reviews-track" id="lawisa-reviews-track"></div>
+        </div>
+
+        <div class="lawisa-reviews-container">
+            <!-- Pagination Bar (1 2 3 4 5 ... >) -->
+            <div class="lawisa-reviews-pagination" aria-label="Pagination des avis">
+                <button type="button" class="lawisa-page-btn active" data-page="1">1</button>
+                <button type="button" class="lawisa-page-btn" data-page="2">2</button>
+                <button type="button" class="lawisa-page-btn" data-page="3">3</button>
+                <button type="button" class="lawisa-page-btn" data-page="4">4</button>
+                <button type="button" class="lawisa-page-btn" data-page="5">5</button>
+                <span class="lawisa-page-dots">…</span>
+                <button type="button" class="lawisa-page-next" id="lawisa-page-next" aria-label="Suivant">&#10095;</button>
+            </div>
+
+            <!-- Bottom Center "REVIEW US ON GOOGLE" Box -->
+            <div class="lawisa-review-us-box fade-in-up">
+                <h3 class="lawisa-review-us-title" data-i18n="reviews_box_title">REVIEW US ON GOOGLE</h3>
+                <div class="lawisa-review-us-stars" aria-hidden="true">★★★★★</div>
+                <a href="https://maps.app.goo.gl/87m61ci81Ua11WW76" target="_blank" rel="noopener noreferrer" id="lawisa-leave-review-btn" class="lawisa-leave-review-btn" data-i18n="reviews_leave_btn">LAISSER UN AVIS</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Offres & Cartes Cadeaux Section (Section 5) -->
+    <section class="lawisa-offers-section" id="offres">
+        <div class="lawisa-offers-editorial">
+            <!-- Left Column: Serene LAWISA Photograph -->
+            <div class="lawisa-offers-media fade-in-up">
+                <div class="lawisa-offers-photo">
+                    <img src="public/images/WhatsApp Image 2026-11-15 at 15.32.27 (2).jpeg" alt="Lawisa Thaï Massage — Soins aux huiles chaudes et moments privilégiés" loading="lazy">
+                </div>
+            </div>
+
+            <!-- Right Column: Minimalist Single-Line Offer List -->
+            <div class="lawisa-offers-content fade-in-up" style="transition-delay: 0.1s;">
+                <span class="lawisa-offers-eyebrow" data-i18n="offers_eyebrow">PRIVILÈGES & ATTENTIONS</span>
+                <h2 class="lawisa-offers-title" data-i18n="offers_title">Offres & Moments Privilégiés</h2>
+
+                <div class="lawisa-offers-list">
+                    <!-- 1. Happy Hour -->
+                    <article class="lawisa-offer-row">
+                        <div class="lawisa-offer-info">
+                            <h3 class="lawisa-offer-name" data-i18n="offer_hh_title">Happy Hour</h3>
+                            <p class="lawisa-offer-desc" data-i18n="offer_hh_desc">Massage aux huiles d’1h · Lundi au vendredi, 11h – 14h</p>
+                        </div>
+                        <div class="lawisa-offer-right">
+                            <span class="lawisa-offer-price" data-i18n="offer_hh_price">69 €</span>
+                            <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking" target="_blank" rel="noopener noreferrer" class="lawisa-offer-btn" data-i18n="offer_hh_cta">Réserver</a>
+                        </div>
+                    </article>
+
+                    <!-- 2. Forfaits Massages -->
+                    <article class="lawisa-offer-row">
+                        <div class="lawisa-offer-info">
+                            <h3 class="lawisa-offer-name" data-i18n="offer_pkg_title">Forfaits Massages</h3>
+                            <p class="lawisa-offer-desc" data-i18n="offer_pkg_desc">Forfait de 5 ou 10 massages d’une heure</p>
+                        </div>
+                        <div class="lawisa-offer-right">
+                            <span class="lawisa-offer-price" data-i18n="offer_pkg_price">400 € · 750 €</span>
+                            <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking" target="_blank" rel="noopener noreferrer" class="lawisa-offer-btn" data-i18n="offer_pkg_cta">Réserver</a>
+                        </div>
+                    </article>
+
+                    <!-- 3. Massage en Duo -->
+                    <article class="lawisa-offer-row">
+                        <div class="lawisa-offer-info">
+                            <h3 class="lawisa-offer-name" data-i18n="offer_duo_title">Massage en Duo</h3>
+                            <p class="lawisa-offer-desc" data-i18n="offer_duo_desc">Parenthèse de détente à partager à deux en suite Duo</p>
+                        </div>
+                        <div class="lawisa-offer-right">
+                            <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking" target="_blank" rel="noopener noreferrer" class="lawisa-offer-btn" data-i18n="offer_duo_cta">Réserver</a>
+                        </div>
+                    </article>
+
+                    <!-- 4. Cartes Cadeaux -->
+                    <article class="lawisa-offer-row">
+                        <div class="lawisa-offer-info">
+                            <h3 class="lawisa-offer-name" data-i18n="offer_gift_title">Cartes Cadeaux</h3>
+                            <p class="lawisa-offer-desc" data-i18n="offer_gift_desc">Offrez un moment de bien-être et de calme chez LAWISA</p>
+                        </div>
+                        <div class="lawisa-offer-right">
+                            <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking" target="_blank" rel="noopener noreferrer" class="lawisa-offer-btn" data-i18n="offer_gift_cta">Offrir</a>
+                        </div>
+                    </article>
                 </div>
             </div>
         </div>
@@ -966,146 +1688,6 @@
         </div>
         <div class="lightbox-next" id="lightbox-next">&#10095;</div>
     </div>
-
-    <!-- Reviews Section -->
-    <section class="reviews section-padding bg-soft" id="avis">
-        <div class="container text-center">
-            <div class="reviews-frame">
-                <h2 class="section-title fade-in-up" data-i18n="section_reviews">Ce que disent nos clients</h2>
-            <a href="https://www.google.com/maps/search/?api=1&query=Lawisa+Thai+Massage+183+Rue+du+Faubourg+Saint-Honoré+75008+Paris" target="_blank" rel="noopener noreferrer" class="reviews-link-wrapper">
-                <div class="reviews-summary fade-in-up" data-i18n="hero_social">
-                    <span class="stars">★★★★★</span> 5.0 sur Google · 200+ avis
-                </div>
-                
-                <div class="reviews-grid">
-                    <div class="review-card fade-in-up">
-                        <div class="review-header">
-                            <div class="review-avatar" style="background-color: #E91E63;">S</div>
-                            <div class="review-author-info">
-                                <span class="review-author">Sophie L.</span>
-                                <span class="review-time">il y a 2 semaines</span>
-                            </div>
-                        </div>
-                        <div class="review-stars">★★★★★</div>
-                        <p class="review-text" data-i18n="review_1_text">"Une expérience exceptionnelle. Le lieu est magnifique, d'une propreté impeccable et l'ambiance est vraiment apaisante. Le massage thaï aux huiles était parfait."</p>
-                    </div>
-                    
-                    <div class="review-card fade-in-up" style="transition-delay: 0.1s;">
-                        <div class="review-header">
-                            <div class="review-avatar" style="background-color: #3F51B5;">M</div>
-                            <div class="review-author-info">
-                                <span class="review-author">Marc D.</span>
-                                <span class="review-time">il y a 1 mois</span>
-                            </div>
-                        </div>
-                        <div class="review-stars">★★★★★</div>
-                        <p class="review-text" data-i18n="review_2_text">"Le meilleur massage thaï de Paris. Le salon est luxueux, décoré avec beaucoup de goût. On s'y sent immédiatement bien. L'équipe est très professionnelle."</p>
-                    </div>
-                    
-                    <div class="review-card fade-in-up" style="transition-delay: 0.2s;">
-                        <div class="review-header">
-                            <div class="review-avatar" style="background-color: #009688;">C</div>
-                            <div class="review-author-info">
-                                <span class="review-author">Camille P.</span>
-                                <span class="review-time">il y a 2 mois</span>
-                            </div>
-                        </div>
-                        <div class="review-stars">★★★★★</div>
-                        <p class="review-text" data-i18n="review_3_text">"Une véritable parenthèse de détente au cœur de Paris. Les praticiennes sont très douées et à l'écoute. J'y retournerai les yeux fermés."</p>
-                    </div>
-
-                    <div class="review-card fade-in-up" style="transition-delay: 0.3s;">
-                        <div class="review-header">
-                            <div class="review-avatar" style="background-color: #FF9800;">J</div>
-                            <div class="review-author-info">
-                                <span class="review-author">Julien T.</span>
-                                <span class="review-time">il y a 3 mois</span>
-                            </div>
-                        </div>
-                        <div class="review-stars">★★★★★</div>
-                        <p class="review-text">"Superbe endroit ! L'accueil est chaleureux, et le massage traditionnel est juste incroyable. Une vraie évasion au cœur de Paris."</p>
-                    </div>
-
-                    <div class="review-card fade-in-up" style="transition-delay: 0.4s;">
-                        <div class="review-header">
-                            <div class="review-avatar" style="background-color: #9C27B0;">E</div>
-                            <div class="review-author-info">
-                                <span class="review-author">Elodie R.</span>
-                                <span class="review-time">il y a 4 mois</span>
-                            </div>
-                        </div>
-                        <div class="review-stars">★★★★★</div>
-                        <p class="review-text">"Propreté impeccable et massages très professionnels. J'ai choisi le massage aux huiles chaudes, un pur bonheur !"</p>
-                    </div>
-
-                    <div class="review-card fade-in-up" style="transition-delay: 0.5s;">
-                        <div class="review-header">
-                            <div class="review-avatar" style="background-color: #4CAF50;">A</div>
-                            <div class="review-author-info">
-                                <span class="review-author">Antoine B.</span>
-                                <span class="review-time">il y a 5 mois</span>
-                            </div>
-                        </div>
-                        <div class="review-stars">★★★★★</div>
-                        <p class="review-text">"Excellente adresse. Le cadre est relaxant et l'équipe est très attentionnée. Le massage traditionnel thaïlandais m'a fait énormément de bien."</p>
-                    </div>
-
-                    <div class="review-card fade-in-up" style="transition-delay: 0.6s;">
-                        <div class="review-header">
-                            <div class="review-avatar" style="background-color: #F44336;">L</div>
-                            <div class="review-author-info">
-                                <span class="review-author">Laurence G.</span>
-                                <span class="review-time">il y a 5 mois</span>
-                            </div>
-                        </div>
-                        <div class="review-stars">★★★★★</div>
-                        <p class="review-text">"J'ai passé un moment divin. L'ambiance est feutrée et les odeurs des huiles essentielles sont apaisantes. Je recommande vivement le massage mix !"</p>
-                    </div>
-
-                    <div class="review-card fade-in-up" style="transition-delay: 0.7s;">
-                        <div class="review-header">
-                            <div class="review-avatar" style="background-color: #2196F3;">P</div>
-                            <div class="review-author-info">
-                                <span class="review-author">Pierre M.</span>
-                                <span class="review-time">il y a 6 mois</span>
-                            </div>
-                        </div>
-                        <div class="review-stars">★★★★★</div>
-                        <p class="review-text">"Après un long vol, le massage Jet Lag Recovery était exactement ce qu'il me fallait. Très belle découverte dans le 8ème."</p>
-                    </div>
-
-                    <div class="review-card fade-in-up" style="transition-delay: 0.8s;">
-                        <div class="review-header">
-                            <div class="review-avatar" style="background-color: #607D8B;">N</div>
-                            <div class="review-author-info">
-                                <span class="review-author">Nadia K.</span>
-                                <span class="review-time">il y a 7 mois</span>
-                            </div>
-                        </div>
-                        <div class="review-stars">★★★★★</div>
-                        <p class="review-text">"Un havre de paix. Dès l'accueil on se sent chouchouté. Le massage était profond et réparateur. Bravo à toute l'équipe."</p>
-                    </div>
-
-                    <div class="review-card fade-in-up" style="transition-delay: 0.9s;">
-                        <div class="review-header">
-                            <div class="review-avatar" style="background-color: #795548;">G</div>
-                            <div class="review-author-info">
-                                <span class="review-author">Guillaume V.</span>
-                                <span class="review-time">il y a 8 mois</span>
-                            </div>
-                        </div>
-                        <div class="review-stars">★★★★★</div>
-                        <p class="review-text">"Prestation très haut de gamme. Le salon est superbe, très propre et on sent que les praticiennes ont une véritable expérience."</p>
-                    </div>
-                </div>
-
-                <div class="reviews-view-all fade-in-up">
-                    <span data-i18n="reviews_view_all">Voir tous les avis sur Google</span>
-                </div>
-            </a>
-            </div>
-        </div>
-    </section>
 
     <!-- Booking CTA Section -->
     <section class="booking-cta">
@@ -1218,6 +1800,7 @@
         </svg>
     </a>
 
+    <script src="js/reviews.js?v=2"></script>
     <script>
         // Translations dictionary
         const i18n = {
@@ -1234,7 +1817,7 @@
                 hero_subtitle: "Un savoir-faire traditionnel, dans un écrin de calme au Faubourg Saint-Honoré.",
                 hero_btn_book: "Réserver une séance",
                 hero_btn_discover: "Découvrir les massages",
-                hero_social: "<span class=\"stars\">★★★★★</span> 5.0 sur Google · 200+ avis",
+                hero_social: "<span class=\"stars\">★★★★★</span> 5.0 sur Google · 222 avis",
                 hero_location: "183 Rue du Faubourg Saint-Honoré · Paris 8e",
                 social_proof_reviews: "Plus de 200 avis",
                 location_line: "Paris 8ème · Faubourg Saint-Honoré",
@@ -1277,6 +1860,30 @@
                 salon_btn: "Découvrir le salon",
                 section_reviews: "Ce que disent nos clients",
                 reviews_view_all: "Voir tous les avis sur Google",
+                reviews_eyebrow_badge: "DÉCOUVREZ CE QUE NOS CLIENTS DISENT DE NOUS · 5.0 ★ (222 AVIS)",
+                reviews_main_heading: "AVIS CLIENTS",
+                reviews_count_label: "avis Google",
+                reviews_see_all_btn: "Voir tous les avis",
+                reviews_box_title: "AVIS SUR GOOGLE",
+                reviews_box_verified: "avis Google",
+                reviews_leave_btn: "Laisser un avis",
+                offers_eyebrow: "PRIVILÈGES & ATTENTIONS",
+                offers_title: "Offres & Moments Privilégiés",
+                offer_hh_title: "Happy Hour",
+                offer_hh_price: "69 €",
+                offer_hh_desc: "Massage aux huiles d’1h · Lundi au vendredi, 11h – 14h",
+                offer_hh_cta: "Réserver",
+                offer_pkg_title: "Forfaits Massages",
+                offer_pkg_price: "400 € · 750 €",
+                offer_pkg_desc: "Forfait de 5 ou 10 massages d’une heure",
+                offer_pkg_cta: "Réserver",
+                offer_duo_title: "Massage en Duo",
+                offer_duo_desc: "Parenthèse de détente à partager à deux en suite Duo",
+                offer_duo_cta: "Réserver",
+                offer_gift_title: "Cartes Cadeaux",
+                offer_gift_desc: "Offrez un moment de bien-être et de calme chez LAWISA",
+                offer_gift_cta: "Offrir",
+                reviews_direct_notice: "Pour ouvrir directement la fenêtre d'écriture d'avis Google, ajoutez votre <code>placeId</code> (ou lien <code>g.page/r/.../review</code>) dans <code>js/reviews.js</code>.", 
                 reviews_subtitle: "5.0 sur Google",
                 review_1_text: "\"Une expérience exceptionnelle. Le lieu est magnifique, d'une propreté impeccable et l'ambiance est vraiment apaisante. Le massage thaï aux huiles était parfait.\"",
                 review_2_text: "\"Le meilleur massage thaï de Paris. Le salon est luxueux, décoré avec beaucoup de goût. On s'y sent immédiatement bien. L'équipe est très professionnelle.\"",
@@ -1313,7 +1920,7 @@
                 hero_subtitle: "Traditional expertise in a calm sanctuary on Faubourg Saint-Honoré.",
                 hero_btn_book: "Book a Session",
                 hero_btn_discover: "Discover our massages",
-                hero_social: "<span class=\"stars\">★★★★★</span> 5.0 on Google · 200+ reviews",
+                hero_social: "<span class=\"stars\">★★★★★</span> 5.0 on Google · 222 reviews",
                 hero_location: "183 Rue du Faubourg Saint-Honoré · Paris 8th",
                 social_proof_reviews: "200+ reviews",
                 location_line: "Paris 8th · Faubourg Saint-Honoré",
@@ -1356,6 +1963,30 @@
                 salon_btn: "Discover the salon",
                 section_reviews: "What our clients say",
                 reviews_view_all: "See all reviews on Google",
+                reviews_eyebrow_badge: "DISCOVER WHAT OUR CUSTOMERS HAVE TO SAY ABOUT US · 5.0 ★ (222 REVIEWS)",
+                reviews_main_heading: "CUSTOMER REVIEWS",
+                reviews_count_label: "Google reviews",
+                reviews_see_all_btn: "See All Reviews",
+                reviews_box_title: "REVIEW US ON GOOGLE",
+                reviews_box_verified: "Google reviews",
+                reviews_leave_btn: "Leave a Review",
+                offers_eyebrow: "PRIVILEGES & THOUGHTFUL MOMENTS",
+                offers_title: "Special Offers & Moments",
+                offer_hh_title: "Happy Hour",
+                offer_hh_price: "€69",
+                offer_hh_desc: "1-hour oil massage · Monday to Friday, 11 AM – 2 PM",
+                offer_hh_cta: "Book",
+                offer_pkg_title: "Massage Packages",
+                offer_pkg_price: "€400 · €750",
+                offer_pkg_desc: "Package of 5 or 10 one-hour massages",
+                offer_pkg_cta: "Book",
+                offer_duo_title: "Couples Massage",
+                offer_duo_desc: "Relaxing massage experience for two in our Duo suite",
+                offer_duo_cta: "Book",
+                offer_gift_title: "Gift Cards",
+                offer_gift_desc: "Gift a moment of calm and relaxation at LAWISA",
+                offer_gift_cta: "Gift",
+                reviews_direct_notice: "To open Google's direct review-writing window, paste LAWISA's <code>placeId</code> (or <code>g.page/r/.../review</code> URL) in <code>js/reviews.js</code>.", 
                 reviews_subtitle: "5.0 on Google",
                 review_1_text: "\"An exceptional experience. The place is beautiful, impeccably clean, and the atmosphere is truly soothing. The Thai oil massage was perfect.\"",
                 review_2_text: "\"The best Thai massage in Paris. The salon is luxurious, decorated with great taste. You feel immediately good there. The team is very professional.\"",

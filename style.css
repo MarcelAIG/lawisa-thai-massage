@@ -2558,10 +2558,7 @@ img {
    ========================================================================== */
 .lawisa-gallery-section {
     position: relative;
-    min-height: calc(100vh - 70px);
-    display: flex;
-    align-items: center;
-    padding: 3rem 0;
+    padding: 3.75rem 0;
     background-color: var(--soft-white);
     border-top: 1px solid rgba(217, 165, 29, 0.2);
 }
@@ -2945,5 +2942,503 @@ img {
         right: 0.75rem;
         width: 40px;
         height: 40px;
+    }
+}
+
+/* ==========================================================================
+   Find Us - Location & Contact Section (Section 7)
+   ========================================================================== */
+.lawisa-contact-section {
+    position: relative;
+    padding: 3.75rem 0;
+    background-color: var(--warm-ivory);
+    border-top: 1px solid rgba(217, 165, 29, 0.2);
+}
+
+.lawisa-contact-container {
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 2.5rem;
+}
+
+.lawisa-contact-grid {
+    display: grid;
+    grid-template-columns: 0.95fr 1.05fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.lawisa-contact-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    min-width: 0;
+}
+
+.lawisa-contact-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    margin-bottom: 0.45rem;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--deep-gold);
+}
+
+.lawisa-contact-eyebrow::before {
+    content: "";
+    width: 24px;
+    height: 1px;
+    background-color: var(--lawisa-gold);
+    display: inline-block;
+    flex-shrink: 0;
+}
+
+.lawisa-contact-title {
+    font-family: 'Cormorant Garamond', serif !important;
+    font-size: clamp(2.15rem, 3vw, 2.7rem);
+    font-weight: 600 !important;
+    line-height: 1.1 !important;
+    color: var(--charcoal);
+    margin-bottom: 1.35rem !important;
+    letter-spacing: -0.01em;
+}
+
+/* Exterior Salon & Address Card */
+.lawisa-contact-facade-card {
+    display: flex;
+    align-items: center;
+    gap: 1.15rem;
+    width: 100%;
+    padding: 0.95rem 1.15rem;
+    background: rgba(255, 252, 247, 0.92);
+    border: 1px solid rgba(217, 165, 29, 0.42);
+    border-radius: 14px;
+    margin-bottom: 0.75rem;
+    box-shadow: 0 8px 22px rgba(34, 33, 31, 0.04);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.lawisa-contact-facade-card:hover {
+    border-color: rgba(217, 165, 29, 0.72);
+    box-shadow: 0 10px 26px rgba(184, 135, 24, 0.1);
+}
+
+.lawisa-contact-facade-photo {
+    width: 96px;
+    height: 104px;
+    border-radius: 10px;
+    overflow: hidden;
+    flex-shrink: 0;
+    border: 1px solid rgba(217, 165, 29, 0.35);
+    background-color: var(--warm-beige);
+}
+
+.lawisa-contact-facade-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.lawisa-contact-facade-card:hover .lawisa-contact-facade-photo img {
+    transform: scale(1.05);
+}
+
+.lawisa-contact-facade-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    min-width: 0;
+}
+
+.lawisa-contact-brand {
+    font-family: 'Cormorant Garamond', serif !important;
+    font-size: 1.38rem;
+    font-weight: 600 !important;
+    line-height: 1.15 !important;
+    color: var(--charcoal);
+    margin: 0 !important;
+}
+
+.lawisa-contact-address {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.92rem;
+    font-weight: 500;
+    line-height: 1.4;
+    color: rgba(34, 33, 31, 0.85);
+    margin: 0;
+}
+
+.lawisa-contact-district {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: #1F4E3D;
+}
+
+/* Business Detail Rows (Hours & Phone) */
+.lawisa-contact-details-list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.lawisa-contact-detail-row {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.85rem 1.15rem;
+    border-radius: 11px;
+    border: 1px solid transparent;
+    background: transparent;
+    transition: border-color 0.25s ease, background-color 0.25s ease, box-shadow 0.3s ease;
+}
+
+.lawisa-contact-detail-row::after {
+    content: "";
+    position: absolute;
+    left: 0.25rem;
+    right: 0.25rem;
+    bottom: -1px;
+    height: 1px;
+    background: rgba(217, 165, 29, 0.24);
+    transition: opacity 0.25s ease;
+    pointer-events: none;
+}
+
+.lawisa-contact-detail-row:hover {
+    z-index: 2;
+    background: rgba(255, 252, 247, 0.95);
+    border-color: rgba(217, 165, 29, 0.65);
+    box-shadow: 0 8px 22px rgba(184, 135, 24, 0.09);
+}
+
+.lawisa-contact-detail-row:hover::after,
+.lawisa-contact-detail-row:has(+ .lawisa-contact-detail-row:hover)::after {
+    opacity: 0;
+}
+
+.lawisa-contact-detail-label {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.86rem;
+    font-weight: 500;
+    color: rgba(34, 33, 31, 0.65);
+}
+
+.lawisa-contact-detail-val,
+.lawisa-contact-phone-val {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.94rem;
+    font-weight: 600;
+    font-variant-numeric: lining-nums tabular-nums;
+    color: var(--charcoal);
+    text-align: right;
+    transition: color 0.25s ease;
+}
+
+.lawisa-contact-phone-val:hover,
+.lawisa-contact-detail-row:hover .lawisa-contact-phone-val {
+    color: var(--deep-gold);
+}
+
+/* 2x2 Contact Action Buttons */
+.lawisa-contact-actions {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+    width: 100%;
+    margin-top: 1.25rem;
+}
+
+.lawisa-contact-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    height: 44px;
+    padding: 0 1rem;
+    border-radius: 9px;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    background-color: var(--soft-white);
+    color: var(--charcoal) !important;
+    border: 1px solid rgba(217, 165, 29, 0.5);
+    white-space: nowrap;
+    transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.lawisa-contact-btn svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+}
+
+.lawisa-contact-btn:hover {
+    background-color: var(--charcoal);
+    color: #ffffff !important;
+    border-color: var(--lawisa-gold);
+    box-shadow: 0 0 14px rgba(217, 165, 29, 0.4), 0 6px 18px rgba(217, 165, 29, 0.22);
+    transform: translateY(-1px);
+}
+
+.lawisa-contact-btn.is-primary {
+    background-color: var(--lawisa-gold);
+    color: #ffffff !important;
+    border-color: var(--lawisa-gold);
+}
+
+.lawisa-contact-btn.is-primary:hover {
+    background-color: var(--deep-gold);
+    border-color: var(--lawisa-gold);
+    box-shadow: 0 0 16px rgba(217, 165, 29, 0.5), 0 6px 20px rgba(217, 165, 29, 0.3);
+}
+
+.lawisa-contact-btn.is-whatsapp {
+    background-color: #1F4E3D;
+    color: #ffffff !important;
+    border-color: rgba(217, 165, 29, 0.45);
+}
+
+.lawisa-contact-btn.is-whatsapp:hover {
+    background-color: #16392C;
+    border-color: var(--lawisa-gold);
+    box-shadow: 0 0 14px rgba(217, 165, 29, 0.42), 0 6px 18px rgba(31, 78, 61, 0.28);
+}
+
+/* Right Column: Interactive Google Map */
+.lawisa-contact-map-wrap {
+    width: 100%;
+    height: 470px;
+    border-radius: 22px;
+    overflow: hidden;
+    border: 1.5px solid rgba(217, 165, 29, 0.38);
+    box-shadow: 0 20px 45px rgba(34, 33, 31, 0.08);
+    background-color: var(--warm-beige);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.lawisa-contact-map-wrap:hover {
+    border-color: var(--lawisa-gold);
+    box-shadow: 0 0 18px rgba(217, 165, 29, 0.32), 0 22px 50px rgba(34, 33, 31, 0.12);
+}
+
+.lawisa-contact-map-wrap iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .lawisa-contact-section {
+        min-height: auto;
+        padding: 3.5rem 0;
+    }
+
+    .lawisa-contact-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        max-width: 720px;
+        margin: 0 auto;
+    }
+
+    .lawisa-contact-map-wrap {
+        height: 380px;
+    }
+}
+
+@media (max-width: 640px) {
+    .lawisa-contact-container {
+        padding: 0 1.25rem;
+    }
+
+    .lawisa-contact-facade-card {
+        padding: 0.85rem;
+        gap: 0.9rem;
+    }
+
+    .lawisa-contact-facade-photo {
+        width: 82px;
+        height: 92px;
+    }
+
+    .lawisa-contact-detail-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+        padding: 0.8rem 0.95rem;
+    }
+
+    .lawisa-contact-detail-val,
+    .lawisa-contact-phone-val {
+        text-align: left;
+    }
+
+    .lawisa-contact-actions {
+        grid-template-columns: 1fr;
+    }
+
+    .lawisa-contact-map-wrap {
+        height: 320px;
+        border-radius: 18px;
+    }
+}
+
+/* ==========================================================================
+   Compact Final Booking CTA Section (Before Footer)
+   ========================================================================== */
+.lawisa-final-cta-section {
+    padding: 2.5rem 0 3.25rem;
+    background-color: var(--soft-white);
+    border-top: 1px solid rgba(217, 165, 29, 0.2);
+}
+
+.lawisa-final-cta-container {
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 2.5rem;
+}
+
+.lawisa-final-cta-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2.5rem;
+    padding: 2rem 2.75rem;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #18352B 0%, #101E19 55%, #121615 100%);
+    border: 1.5px solid rgba(217, 165, 29, 0.6);
+    box-shadow: 0 0 20px rgba(217, 165, 29, 0.14), 0 16px 36px rgba(16, 30, 25, 0.16);
+}
+
+.lawisa-final-cta-text {
+    min-width: 0;
+    flex: 1;
+}
+
+.lawisa-final-cta-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--lawisa-gold);
+    margin-bottom: 0.35rem;
+}
+
+.lawisa-final-cta-title {
+    font-family: 'Cormorant Garamond', serif !important;
+    font-size: clamp(1.75rem, 2.4vw, 2.2rem);
+    font-weight: 600 !important;
+    line-height: 1.15 !important;
+    color: var(--soft-white) !important;
+    margin: 0 0 0.35rem !important;
+}
+
+.lawisa-final-cta-desc {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: rgba(255, 252, 247, 0.76);
+    margin: 0;
+}
+
+.lawisa-final-cta-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    flex-shrink: 0;
+}
+
+.lawisa-final-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 44px;
+    padding: 0 1.5rem;
+    border-radius: 9px;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.lawisa-final-cta-btn.is-primary {
+    background-color: var(--lawisa-gold);
+    color: #ffffff !important;
+    border: 1px solid var(--lawisa-gold);
+}
+
+.lawisa-final-cta-btn.is-primary:hover {
+    background-color: var(--deep-gold);
+    border-color: var(--lawisa-gold);
+    box-shadow: 0 0 16px rgba(217, 165, 29, 0.5), 0 6px 20px rgba(217, 165, 29, 0.3);
+    transform: translateY(-1px);
+}
+
+.lawisa-final-cta-btn.is-secondary {
+    background-color: rgba(255, 255, 255, 0.06);
+    color: var(--soft-white) !important;
+    border: 1px solid rgba(217, 165, 29, 0.45);
+    font-variant-numeric: lining-nums tabular-nums;
+}
+
+.lawisa-final-cta-btn.is-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+    border-color: var(--lawisa-gold);
+    box-shadow: 0 0 14px rgba(217, 165, 29, 0.35);
+    transform: translateY(-1px);
+}
+
+@media (max-width: 1024px) {
+    .lawisa-final-cta-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+        padding: 1.75rem 2rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .lawisa-final-cta-section {
+        padding: 2rem 0 2.75rem;
+    }
+
+    .lawisa-final-cta-container {
+        padding: 0 1.25rem;
+    }
+
+    .lawisa-final-cta-card {
+        padding: 1.5rem;
+    }
+
+    .lawisa-final-cta-actions {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .lawisa-final-cta-btn {
+        width: 100%;
     }
 }

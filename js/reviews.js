@@ -111,12 +111,13 @@ window.LAWISA_REVIEWS_CONFIG = {
         const shortText = isLong ? rawText.slice(0, 122).trim() + "..." : rawText;
         const ratingNum = Number(review.rating) || 5;
         const stars = "★".repeat(ratingNum);
+        const starsAriaLabel = lang === "en" ? `${ratingNum} out of 5 stars` : `${ratingNum} sur 5 étoiles`;
 
         return `
             <article class="lawisa-review-card" data-full-text="${escapeHtml(rawText)}" data-short-text="${escapeHtml(shortText)}">
                 <div class="lawisa-review-card-top">
                     <span class="lawisa-review-score">${ratingNum}</span>
-                    <span class="lawisa-review-stars" aria-label="${ratingNum} sur 5 étoiles">${stars}</span>
+                    <span class="lawisa-review-stars" aria-label="${starsAriaLabel}">${stars}</span>
                 </div>
                 <p class="lawisa-review-body">
                     <span class="lawisa-review-body-text">${escapeHtml(shortText)}</span>
@@ -231,10 +232,8 @@ window.LAWISA_REVIEWS_CONFIG = {
         setupControlsAndButtons();
         maybeFetchLiveReviews();
 
-        document.querySelectorAll(".lang-btn").forEach(btn => {
-            btn.addEventListener("click", () => {
-                setTimeout(() => renderReviews(config.reviews), 20);
-            });
+        window.addEventListener("lawisa:langchange", () => {
+            renderReviews(config.reviews);
         });
     });
 })();

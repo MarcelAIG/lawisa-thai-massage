@@ -11,17 +11,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="style.css?v=8">
+    <link rel="stylesheet" href="style.css?v=11">
     <style>
 .service-card {
     position: relative;
     background: transparent;
-    border: none;
+    border: 1.5px solid transparent;
     border-radius: 28px;
     overflow: hidden;
     isolation: isolate;
     -webkit-mask-image: -webkit-radial-gradient(white, black);
-    transition: box-shadow 0.35s ease;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -34,7 +34,8 @@
 
 .service-card:hover,
 .service-card.is-hovered {
-    box-shadow: 0 18px 45px rgba(20, 18, 15, 0.25);
+    border-color: var(--lawisa-gold);
+    box-shadow: 0 0 15px rgba(217, 165, 29, 0.4), 0 10px 40px rgba(217, 165, 29, 0.5);
 }
 
 .service-image {
@@ -51,13 +52,15 @@
     content: '';
     position: absolute;
     inset: 0;
+    border-radius: 28px;
+    box-shadow: inset 0 0 0 1.5px transparent;
     background: linear-gradient(
         to top,
         rgba(0, 0, 0, 0.45) 0%,
         rgba(0, 0, 0, 0.12) 42%,
         rgba(0, 0, 0, 0) 100%
     );
-    transition: background 0.45s ease;
+    transition: background 0.45s ease, box-shadow 0.3s ease;
     z-index: 1;
     pointer-events: none;
 }
@@ -65,6 +68,7 @@
 .service-card:hover .service-image::after,
 .service-card.is-hovered .service-image::after,
 .service-card:focus-within .service-image::after {
+    box-shadow: inset 0 0 0 1.5px var(--lawisa-gold);
     background: linear-gradient(
         to top,
         rgba(0, 0, 0, 0.58) 0%,
@@ -237,13 +241,20 @@
     height: 175px;
     border-radius: 50%;
     background-color: #ffffff;
-    box-shadow: 0 14px 36px rgba(34, 33, 31, 0.12);
-    border: 1px solid rgba(217, 165, 29, 0.18);
+    border: 1.5px solid var(--lawisa-gold);
+    box-shadow: 0 0 15px rgba(217, 165, 29, 0.38), 0 14px 36px rgba(34, 33, 31, 0.12);
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 1.4rem;
     z-index: 3;
+    will-change: transform, opacity;
+    transition: box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.about-logo-badge:hover {
+    border-color: var(--lawisa-gold);
+    box-shadow: 0 0 22px rgba(217, 165, 29, 0.55), 0 16px 40px rgba(217, 165, 29, 0.35);
 }
 
 .about-logo-badge img {
@@ -262,7 +273,7 @@
     display: inline-flex;
     align-items: center;
     gap: 0.55rem;
-    background-color: rgba(34, 33, 31, 0.05);
+    background-color: rgba(31, 78, 61, 0.08);
     padding: 0.45rem 1rem;
     border-radius: 999px;
     margin-bottom: 1.4rem;
@@ -271,31 +282,34 @@
     font-weight: 600;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: rgba(34, 33, 31, 0.75);
+    color: #1F4E3D;
 }
 
 .about-pill-dot {
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background-color: #9A3B26;
+    background-color: #1F4E3D;
     display: inline-block;
 }
 
 .about-heading {
-    font-family: 'Inter', sans-serif !important;
-    font-size: clamp(2.1rem, 3.2vw, 2.75rem);
-    font-weight: 700 !important;
-    line-height: 1.18 !important;
+    font-family: 'Cormorant Garamond', serif !important;
+    font-size: clamp(2.35rem, 3.6vw, 3.15rem);
+    font-weight: 600 !important;
+    line-height: 1.14 !important;
     color: var(--charcoal);
     margin-bottom: 1.35rem;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.01em;
 }
 
 .about-heading-accent {
-    font-family: 'Inter', sans-serif !important;
-    font-weight: 700 !important;
-    color: #9A3B26;
+    font-family: 'Cormorant Garamond', serif !important;
+    font-weight: 600 !important;
+    font-style: italic;
+    color: #1F4E3D;
+    display: block;
+    margin-top: 0.15rem;
 }
 
 .about-lead {
@@ -332,7 +346,7 @@
     width: 22px;
     height: 22px;
     margin-top: 0.15rem;
-    color: #9A3B26;
+    color: #1F4E3D;
 }
 
 .about-feature-icon svg {
@@ -459,6 +473,209 @@
 }
 
 
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2.5rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.btn-primary {
+    background-color: var(--lawisa-gold);
+    color: #fff;
+    border: 1px solid var(--lawisa-gold);
+}
+
+.btn-primary:hover {
+    background-color: var(--deep-gold);
+    border-color: var(--lawisa-gold);
+    box-shadow: 0 0 14px rgba(217, 165, 29, 0.45), 0 6px 22px rgba(217, 165, 29, 0.3);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--soft-white);
+    border: 1px solid var(--soft-white);
+}
+
+.btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: var(--lawisa-gold);
+    box-shadow: 0 0 14px rgba(217, 165, 29, 0.4), 0 6px 22px rgba(217, 165, 29, 0.25);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--charcoal);
+    border: 1px solid var(--charcoal);
+}
+
+.btn-outline:hover {
+    background-color: var(--charcoal);
+    color: var(--soft-white);
+    border-color: var(--lawisa-gold);
+    box-shadow: 0 0 14px rgba(217, 165, 29, 0.4), 0 6px 22px rgba(217, 165, 29, 0.25);
+}
+.btn-header {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.6rem 1.8rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--charcoal);
+    border: 1px solid var(--charcoal);
+    border-radius: 10px;
+    background-color: transparent;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-header:hover {
+    background-color: var(--charcoal);
+    color: #fff;
+    border-color: var(--lawisa-gold);
+    box-shadow: 0 0 14px rgba(217, 165, 29, 0.4), 0 6px 20px rgba(217, 165, 29, 0.28);
+}
+.hero-actions .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.1rem 2.5rem;
+    font-size: 0.85rem;
+    letter-spacing: 0.15em;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: #fff;
+    background-color: var(--lawisa-gold);
+    border: 1px solid var(--lawisa-gold);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.hero-actions .btn-primary:hover {
+    background-color: transparent;
+    color: var(--charcoal);
+    border-color: var(--lawisa-gold);
+    box-shadow: 0 0 14px rgba(217, 165, 29, 0.45), 0 6px 22px rgba(217, 165, 29, 0.3);
+}
+
+.hero-actions .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.1rem 2.5rem;
+    font-size: 0.85rem;
+    letter-spacing: 0.15em;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: var(--charcoal);
+    border: 1px solid var(--charcoal);
+    border-radius: 10px;
+    background-color: transparent;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.hero-actions .btn-secondary:hover {
+    background-color: var(--lawisa-gold);
+    color: #fff;
+    border-color: var(--lawisa-gold);
+    box-shadow: 0 0 14px rgba(217, 165, 29, 0.45), 0 6px 22px rgba(217, 165, 29, 0.3);
+}
+.reviews-view-all span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--lawisa-gold);
+    color: #fff;
+    padding: 1rem 2.5rem;
+    border-radius: 10px;
+    border: 1px solid var(--lawisa-gold);
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: all 0.3s ease;
+}
+
+.reviews-link-wrapper:hover .reviews-view-all span {
+    background-color: var(--charcoal);
+    border-color: var(--lawisa-gold);
+    box-shadow: 0 0 14px rgba(217, 165, 29, 0.45), 0 6px 22px rgba(217, 165, 29, 0.3);
+}
+.contact-phone-link {
+    display: inline-block;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #fff;
+    background-color: var(--charcoal);
+    padding: 0.6rem 1.2rem;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.contact-phone-link:hover {
+    background-color: var(--lawisa-gold);
+    border-color: var(--lawisa-gold);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 0 14px rgba(217, 165, 29, 0.45), 0 6px 22px rgba(217, 165, 29, 0.3);
+}
+.location-buttons .btn-primary:hover {
+    background-color: var(--charcoal);
+    border-color: var(--lawisa-gold);
+    box-shadow: 0 0 14px rgba(217, 165, 29, 0.45), 0 6px 22px rgba(217, 165, 29, 0.3);
+}
+
+.location-buttons .btn-outline {
+    border-color: rgba(34, 33, 31, 0.2);
+    color: var(--charcoal);
+}
+
+.location-buttons .btn-outline:hover {
+    border-color: var(--lawisa-gold);
+    background-color: var(--charcoal);
+    color: #fff;
+    box-shadow: 0 0 14px rgba(217, 165, 29, 0.4), 0 6px 22px rgba(217, 165, 29, 0.25);
+}
+.footer-btn {
+    display: inline-block;
+    background-color: var(--lawisa-gold);
+    color: #1F1E1B;
+    padding: 0.8rem 2rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    border-radius: 10px;
+    border: 1px solid var(--lawisa-gold);
+    margin-bottom: 3rem;
+    transition: all 0.3s ease;
+}
+
+.footer-btn:hover {
+    background-color: #fff;
+    border-color: var(--lawisa-gold);
+    transform: translateY(-2px);
+    box-shadow: 0 0 14px rgba(217, 165, 29, 0.5), 0 6px 22px rgba(217, 165, 29, 0.35);
+}
     </style>
     
     <!-- GSAP for Horizontal Scroll -->
@@ -637,7 +854,7 @@
                     <span data-i18n="about_eyebrow">À PROPOS DE LAWISA & DU SALON</span>
                 </div>
 
-                <h2 class="about-heading" data-i18n="about_title">Plus Qu’un Massage, <span class="about-heading-accent">C’est l’Art du Soin, du Calme & de l’Attention</span></h2>
+                <h2 class="about-heading" data-i18n="about_title">Plus Qu’un Massage,<span class="about-heading-accent">L’Art du Soin, du Calme & de l’Attention</span></h2>
 
                 <p class="about-lead" data-i18n="about_lead">Chez Lawisa Thaï Massage à Paris 8ème, chaque soin est prodigué avec patience, douceur et un savoir-faire authentique — pour que vous vous sentiez apaisé, détendu et pleinement ressourcé.</p>
 
@@ -688,16 +905,6 @@
                     <a href="#le-salon" class="about-btn-primary">
                         <span data-i18n="about_btn_know">Découvrir le Salon</span>
                         <span class="about-btn-arrow">→</span>
-                    </a>
-                    <a href="tel:+33636432381" class="about-btn-outline">
-                        <svg class="about-phone-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
-                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                        </svg>
-                        <span>+33 6 36 43 23 81</span>
-                    </a>
-                    <a href="https://wa.me/33636432381" target="_blank" rel="noopener noreferrer" class="about-btn-outline">
-                        <span class="about-whatsapp-dot"></span>
-                        <span>WhatsApp</span>
                     </a>
                 </div>
             </div>
@@ -1048,7 +1255,7 @@
                 btn_book: "RÉSERVER",
                 card_btn_book: "Réserver",
                 about_eyebrow: "À PROPOS DE LAWISA & DU SALON",
-                about_title: "Plus Qu’un Massage, <span class=\"about-heading-accent\">C’est l’Art du Soin, du Calme & de l’Attention</span>",
+                about_title: "Plus Qu’un Massage,<span class=\"about-heading-accent\">L’Art du Soin, du Calme & de l’Attention</span>",
                 about_lead: "Chez Lawisa Thaï Massage à Paris 8ème, chaque soin est prodigué avec patience, douceur et un savoir-faire authentique — pour que vous vous sentiez apaisé, détendu et pleinement ressourcé.",
                 about_feat1_title: "Un Cadre Calme & Apaisant",
                 about_feat1_desc: "Un espace pensé avec soin au 183 Rue du Faubourg Saint-Honoré pour votre confort.",
@@ -1127,7 +1334,7 @@
                 btn_book: "BOOK",
                 card_btn_book: "Book Now",
                 about_eyebrow: "ABOUT LAWISA & THE SALON",
-                about_title: "More Than a Massage, <span class=\"about-heading-accent\">It’s Care, Calm & Attention</span>",
+                about_title: "More Than a Massage,<span class=\"about-heading-accent\">The Art of Care, Calm & Attention</span>",
                 about_lead: "At Lawisa Thaï Massage in Paris 8th, you are treated with patience, gentle hands, and authentic expertise—so you feel safe, relaxed, and leave deeply rebalanced.",
                 about_feat1_title: "Calm Salon Environment",
                 about_feat1_desc: "Thoughtfully arranged space on Faubourg Saint-Honoré designed for comfort.",
@@ -1320,6 +1527,34 @@
                     card.addEventListener('mouseleave', () => card.classList.remove('is-hovered'));
                 });
                 updateCardsScale();
+            }
+
+            const aboutLogoBadge = document.querySelector('.about-logo-badge');
+            const aboutSection = document.querySelector('.about-showcase-section');
+            if (aboutLogoBadge && aboutSection) {
+                gsap.fromTo(aboutLogoBadge,
+                    {
+                        y: -260,
+                        x: 90,
+                        scale: 0.45,
+                        rotation: -20,
+                        opacity: 0
+                    },
+                    {
+                        y: 0,
+                        x: 0,
+                        scale: 1,
+                        rotation: 0,
+                        opacity: 1,
+                        ease: "power2.out",
+                        scrollTrigger: {
+                            trigger: aboutSection,
+                            start: "top 95%",
+                            end: "top 30%",
+                            scrub: 1
+                        }
+                    }
+                );
             }
         }
 

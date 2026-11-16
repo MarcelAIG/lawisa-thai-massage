@@ -2552,3 +2552,398 @@ img {
         justify-content: space-between;
     }
 }
+
+/* ==========================================================================
+   The Salon Gallery Section (Section 6)
+   ========================================================================== */
+.lawisa-gallery-section {
+    position: relative;
+    min-height: calc(100vh - 70px);
+    display: flex;
+    align-items: center;
+    padding: 3rem 0;
+    background-color: var(--soft-white);
+    border-top: 1px solid rgba(217, 165, 29, 0.2);
+}
+
+.lawisa-gallery-container {
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 2.5rem;
+}
+
+.lawisa-gallery-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.lawisa-gallery-heading-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.lawisa-gallery-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    margin-bottom: 0.4rem;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--deep-gold);
+}
+
+.lawisa-gallery-eyebrow::before {
+    content: "";
+    width: 24px;
+    height: 1px;
+    background-color: var(--lawisa-gold);
+    display: inline-block;
+    flex-shrink: 0;
+}
+
+.lawisa-gallery-title {
+    font-family: 'Cormorant Garamond', serif !important;
+    font-size: clamp(2.15rem, 3vw, 2.7rem);
+    font-weight: 600 !important;
+    line-height: 1.1 !important;
+    color: var(--charcoal);
+    margin: 0 !important;
+    letter-spacing: -0.01em;
+}
+
+.lawisa-gallery-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    flex-shrink: 0;
+}
+
+.lawisa-gallery-ig {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.84rem;
+    font-weight: 500;
+    color: rgba(34, 33, 31, 0.72);
+    padding: 0.45rem 0.65rem;
+    border-radius: 8px;
+    transition: color 0.25s ease;
+}
+
+.lawisa-gallery-ig svg {
+    width: 17px;
+    height: 17px;
+    flex-shrink: 0;
+    color: var(--deep-gold);
+}
+
+.lawisa-gallery-ig:hover {
+    color: var(--deep-gold);
+}
+
+.lawisa-gallery-all-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 42px;
+    padding: 0 1.45rem;
+    border-radius: 9px;
+    background-color: var(--lawisa-gold);
+    color: #ffffff !important;
+    border: 1px solid var(--lawisa-gold);
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.lawisa-gallery-all-btn:hover {
+    background-color: var(--deep-gold);
+    border-color: var(--lawisa-gold);
+    box-shadow: 0 0 14px rgba(217, 165, 29, 0.45), 0 4px 14px rgba(217, 165, 29, 0.25);
+    transform: translateY(-1px);
+}
+
+/* Editorial 12-Column Asymmetrical Mosaic */
+.lawisa-gallery-mosaic {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 1rem;
+    height: 465px;
+    width: 100%;
+}
+
+.lawisa-gallery-item {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 1.5px solid rgba(217, 165, 29, 0.22);
+    background-color: var(--warm-beige);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.lawisa-gallery-item.is-tall {
+    grid-column: 1 / 5;
+    grid-row: 1 / 3;
+}
+
+.lawisa-gallery-item.is-wide-left {
+    grid-column: 5 / 9;
+    grid-row: 1 / 2;
+}
+
+.lawisa-gallery-item.is-wide-right {
+    grid-column: 9 / 13;
+    grid-row: 1 / 2;
+}
+
+.lawisa-gallery-item.is-bottom-left {
+    grid-column: 5 / 8;
+    grid-row: 2 / 3;
+}
+
+.lawisa-gallery-item.is-bottom-mid {
+    grid-column: 8 / 11;
+    grid-row: 2 / 3;
+}
+
+.lawisa-gallery-item.is-bottom-right {
+    grid-column: 11 / 13;
+    grid-row: 2 / 3;
+}
+
+.lawisa-gallery-item:hover,
+.lawisa-gallery-item:focus-visible {
+    outline: none;
+    border-color: var(--lawisa-gold);
+    box-shadow: 0 0 16px rgba(217, 165, 29, 0.38), 0 12px 28px rgba(34, 33, 31, 0.12);
+}
+
+.lawisa-gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.lawisa-gallery-item:hover img,
+.lawisa-gallery-item:focus-visible img {
+    transform: scale(1.05);
+}
+
+.lawisa-gallery-caption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 2rem 1rem 0.85rem;
+    background: linear-gradient(to top, rgba(16, 28, 23, 0.82) 0%, rgba(16, 28, 23, 0.35) 60%, transparent 100%);
+    color: var(--soft-white);
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.lawisa-gallery-item:hover .lawisa-gallery-caption,
+.lawisa-gallery-item:focus-visible .lawisa-gallery-caption {
+    opacity: 1;
+}
+
+/* Enhanced Full-Screen Lightbox */
+#gallery-lightbox {
+    background-color: rgba(12, 19, 16, 0.96);
+    padding: 3.5rem 2rem 2.5rem;
+    flex-direction: column;
+}
+
+.lawisa-lightbox-topbar {
+    position: absolute;
+    top: 1.5rem;
+    left: 2rem;
+    right: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.lawisa-lightbox-counter {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    color: rgba(255, 252, 247, 0.82);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(217, 165, 29, 0.35);
+    padding: 0.4rem 0.85rem;
+    border-radius: 999px;
+}
+
+#gallery-lightbox .lightbox-close {
+    position: static;
+    pointer-events: auto;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(217, 165, 29, 0.4);
+    color: #ffffff;
+    font-size: 1.65rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+}
+
+#gallery-lightbox .lightbox-prev,
+#gallery-lightbox .lightbox-next {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(217, 165, 29, 0.4);
+    color: #ffffff;
+    font-size: 1.25rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+}
+
+#gallery-lightbox .lightbox-close:hover,
+#gallery-lightbox .lightbox-prev:hover,
+#gallery-lightbox .lightbox-next:hover {
+    background-color: var(--lawisa-gold);
+    border-color: var(--lawisa-gold);
+    color: #ffffff;
+}
+
+#gallery-lightbox .lightbox-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 84vw;
+    max-height: 82vh;
+}
+
+#gallery-lightbox .lightbox-content img {
+    max-width: 100%;
+    max-height: 74vh;
+    border-radius: 12px;
+    border: 1px solid rgba(217, 165, 29, 0.3);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+    object-fit: contain;
+}
+
+.lightbox-caption {
+    margin-top: 1rem;
+    font-family: 'Cormorant Garamond', serif !important;
+    font-size: 1.35rem;
+    font-weight: 500;
+    color: var(--soft-white);
+    text-align: center;
+    letter-spacing: 0.01em;
+}
+
+@media (max-width: 1024px) {
+    .lawisa-gallery-section {
+        min-height: auto;
+        padding: 3.5rem 0;
+    }
+
+    .lawisa-gallery-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .lawisa-gallery-mosaic {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+        height: auto;
+    }
+
+    .lawisa-gallery-item.is-tall,
+    .lawisa-gallery-item.is-wide-left,
+    .lawisa-gallery-item.is-wide-right,
+    .lawisa-gallery-item.is-bottom-left,
+    .lawisa-gallery-item.is-bottom-mid,
+    .lawisa-gallery-item.is-bottom-right {
+        grid-column: auto;
+        grid-row: auto;
+        height: 240px;
+    }
+
+    .lawisa-gallery-item.is-tall {
+        grid-column: span 2;
+        height: 300px;
+    }
+}
+
+@media (max-width: 640px) {
+    .lawisa-gallery-container {
+        padding: 0 1.25rem;
+    }
+
+    .lawisa-gallery-actions {
+        width: 100%;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+    }
+
+    .lawisa-gallery-mosaic {
+        grid-template-columns: 1fr;
+        gap: 0.85rem;
+    }
+
+    .lawisa-gallery-item.is-tall,
+    .lawisa-gallery-item.is-wide-left,
+    .lawisa-gallery-item.is-wide-right,
+    .lawisa-gallery-item.is-bottom-left,
+    .lawisa-gallery-item.is-bottom-mid,
+    .lawisa-gallery-item.is-bottom-right {
+        grid-column: auto;
+        height: 220px;
+    }
+
+    .lawisa-gallery-caption {
+        opacity: 1;
+    }
+
+    #gallery-lightbox .lightbox-prev {
+        left: 0.75rem;
+        width: 40px;
+        height: 40px;
+    }
+
+    #gallery-lightbox .lightbox-next {
+        right: 0.75rem;
+        width: 40px;
+        height: 40px;
+    }
+}

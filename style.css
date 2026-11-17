@@ -277,6 +277,7 @@ img {
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.15em;
+    white-space: nowrap;
     position: relative;
     padding-bottom: 4px;
 }
@@ -522,10 +523,19 @@ img {
 }
 
 .hero-social {
-    display: flex;
+    display: inline-flex;
     align-items: center;
+    width: fit-content;
     font-size: 1.1rem;
     font-weight: 700;
+    color: var(--charcoal);
+    text-decoration: none;
+    transition: color 0.25s ease, transform 0.25s ease;
+}
+
+a.hero-social:hover {
+    color: var(--deep-gold);
+    transform: translateY(-1px);
 }
 
 .hero-social .stars {
@@ -573,13 +583,15 @@ img {
 
 .service-card {
     position: relative;
-    background: transparent;
-    border: 1.5px solid transparent;
+    background-color: #332E27;
+    background-image: linear-gradient(160deg, rgba(255, 255, 255, 0.08) 0%, rgba(0, 0, 0, 0.24) 100%);
+    border: 1.5px solid rgba(217, 165, 29, 0.25);
     border-radius: 28px;
     overflow: hidden;
     isolation: isolate;
     -webkit-mask-image: -webkit-radial-gradient(white, black);
-    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 14px 32px rgba(34, 33, 31, 0.12);
+    transition: background-color 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -591,31 +603,44 @@ img {
 }
 
 .service-card:hover,
-.service-card.is-hovered {
+.service-card.is-hovered,
+.service-card:focus-within {
+    background-color: var(--lawisa-gold);
     border-color: var(--lawisa-gold);
-    box-shadow: 0 0 15px rgba(217, 165, 29, 0.4), 0 10px 40px rgba(217, 165, 29, 0.5);
+    box-shadow: 0 0 18px rgba(217, 165, 29, 0.48), 0 12px 40px rgba(217, 165, 29, 0.45);
 }
 
 .service-image {
     position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
+    inset: 12px;
+    width: auto;
+    height: auto;
     overflow: hidden;
-    border-radius: 28px;
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
+    border-radius: 999px 999px 18px 18px;
+    border: 1.5px solid rgba(217, 165, 29, 0.65);
+    box-shadow: 0 0 10px rgba(217, 165, 29, 0.16), inset 0 0 0 1px rgba(255, 255, 255, 0.12);
     z-index: 1;
+    transition: border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.service-card:hover .service-image,
+.service-card.is-hovered .service-image,
+.service-card:focus-within .service-image {
+    border-color: rgba(255, 246, 214, 0.85);
+    box-shadow: 0 0 16px rgba(217, 165, 29, 0.45), inset 0 0 12px rgba(217, 165, 29, 0.18);
 }
 
 .service-image::after {
     content: '';
     position: absolute;
     inset: 0;
-    border-radius: 28px;
-    box-shadow: inset 0 0 0 1.5px transparent;
+    border-radius: 999px 999px 18px 18px;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.14);
     background: linear-gradient(
         to top,
-        rgba(0, 0, 0, 0.45) 0%,
-        rgba(0, 0, 0, 0.12) 42%,
+        rgba(18, 16, 14, 0.62) 0%,
+        rgba(18, 16, 14, 0.18) 44%,
         rgba(0, 0, 0, 0) 100%
     );
     transition: background 0.45s ease, box-shadow 0.3s ease;
@@ -629,8 +654,8 @@ img {
     box-shadow: inset 0 0 0 1.5px var(--lawisa-gold);
     background: linear-gradient(
         to top,
-        rgba(0, 0, 0, 0.58) 0%,
-        rgba(0, 0, 0, 0.32) 55%,
+        rgba(18, 16, 14, 0.72) 0%,
+        rgba(18, 16, 14, 0.36) 56%,
         rgba(0, 0, 0, 0.08) 100%
     );
 }
@@ -654,7 +679,7 @@ img {
 .service-info {
     position: relative;
     z-index: 2;
-    padding: 2rem 1.75rem 1.6rem;
+    padding: 2rem 2.15rem 1.85rem;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -827,28 +852,26 @@ img {
     align-items: flex-start;
 }
 
-.about-pill {
+.about-eyebrow {
     display: inline-flex;
     align-items: center;
-    gap: 0.55rem;
-    background-color: rgba(31, 78, 61, 0.08);
-    padding: 0.45rem 1rem;
-    border-radius: 999px;
-    margin-bottom: 1.4rem;
+    gap: 0.7rem;
+    margin-bottom: 0.85rem;
     font-family: 'Inter', sans-serif !important;
     font-size: 0.72rem;
     font-weight: 600;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: #1F4E3D;
+    color: var(--deep-gold);
 }
 
-.about-pill-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background-color: #1F4E3D;
+.about-eyebrow::before {
+    content: "";
+    width: 24px;
+    height: 1px;
+    background-color: var(--lawisa-gold);
     display: inline-block;
+    flex-shrink: 0;
 }
 
 .about-heading {
@@ -857,7 +880,7 @@ img {
     font-weight: 600 !important;
     line-height: 1.14 !important;
     color: var(--charcoal);
-    margin-bottom: 1.35rem;
+    margin-bottom: 1.15rem;
     letter-spacing: -0.01em;
 }
 
@@ -875,59 +898,7 @@ img {
     font-size: 1.02rem;
     line-height: 1.7;
     color: rgba(34, 33, 31, 0.72);
-    margin-bottom: 1.75rem;
-}
-
-.about-divider {
-    width: 100%;
-    border: none;
-    border-top: 1px solid rgba(34, 33, 31, 0.1);
-    margin-bottom: 1.75rem;
-}
-
-.about-features {
-    display: flex;
-    flex-direction: column;
-    gap: 1.3rem;
-    width: 100%;
-    margin-bottom: 2.25rem;
-}
-
-.about-feature-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.9rem;
-}
-
-.about-feature-icon {
-    flex-shrink: 0;
-    width: 22px;
-    height: 22px;
-    margin-top: 0.15rem;
-    color: #1F4E3D;
-}
-
-.about-feature-icon svg {
-    width: 100%;
-    height: 100%;
-    display: block;
-}
-
-.about-feature-text h4 {
-    font-family: 'Inter', sans-serif !important;
-    font-size: 0.98rem;
-    font-weight: 600 !important;
-    color: var(--charcoal);
-    margin-bottom: 0.2rem;
-    line-height: 1.35;
-}
-
-.about-feature-text p {
-    font-family: 'Inter', sans-serif !important;
-    font-size: 0.9rem;
-    color: rgba(34, 33, 31, 0.65);
-    line-height: 1.5;
-    margin: 0;
+    margin-bottom: 2rem;
 }
 
 .about-actions {
@@ -942,25 +913,30 @@ img {
     align-items: center;
     justify-content: center;
     gap: 0.65rem;
-    background-color: #1D2B28;
+    padding: 1.1rem 2.5rem;
+    border-radius: 10px;
+    background-color: var(--lawisa-gold);
     color: #ffffff !important;
-    padding: 0.85rem 1.65rem;
-    border-radius: 999px;
+    border: 1px solid var(--lawisa-gold);
     font-family: 'Inter', sans-serif !important;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 500;
-    transition: transform 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .about-btn-primary:hover {
-    background-color: var(--charcoal);
+    background-color: var(--deep-gold);
+    border-color: var(--lawisa-gold);
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(29, 43, 40, 0.2);
+    box-shadow: 0 0 14px rgba(217, 165, 29, 0.45), 0 6px 22px rgba(217, 165, 29, 0.3);
 }
 
 .about-btn-arrow {
-    color: var(--lawisa-gold);
-    font-size: 1rem;
+    color: #ffffff;
+    font-size: 0.85rem;
     line-height: 1;
     transition: transform 0.25s ease;
 }
@@ -1683,6 +1659,40 @@ img {
     color: rgba(255, 247, 235, 0.5);
 }
 
+.footer-social {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 1.35rem;
+}
+
+.footer-social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    background-color: rgba(255, 247, 235, 0.06);
+    border: 1px solid rgba(217, 165, 29, 0.45);
+    color: var(--lawisa-gold);
+    transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.footer-social-link svg {
+    width: 20px;
+    height: 20px;
+    display: block;
+}
+
+.footer-social-link:hover {
+    background-color: var(--lawisa-gold);
+    border-color: var(--lawisa-gold);
+    color: #1F1E1B;
+    box-shadow: 0 0 14px rgba(217, 165, 29, 0.5), 0 6px 20px rgba(217, 165, 29, 0.3);
+    transform: translateY(-2px);
+}
+
 .footer-nav {
     display: flex;
     flex-direction: column;
@@ -1888,43 +1898,57 @@ img {
    ========================================================================== */
 .whatsapp-widget {
     position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 60px;
-    height: 60px;
-    background-color: #25D366;
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
+    bottom: 26px;
+    right: 26px;
+    display: inline-flex;
     align-items: center;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    justify-content: center;
+    gap: 0.6rem;
+    padding: 0.72rem 1.25rem;
+    background-color: #25D366;
+    color: #ffffff !important;
+    border-radius: 999px;
+    border: 1.5px solid rgba(255, 255, 255, 0.35);
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.32), 0 4px 12px rgba(0, 0, 0, 0.14);
     z-index: 1000;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .whatsapp-widget svg {
-    width: 34px;
-    height: 34px;
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+}
+
+.whatsapp-widget-label {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.84rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
 }
 
 .whatsapp-widget:hover {
-    transform: translateY(-5px) scale(1.05);
-    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(37, 211, 102, 0.42), 0 0 14px rgba(217, 165, 29, 0.28);
     background-color: #1EBE5D;
-    color: white;
+    border-color: var(--lawisa-gold);
+    color: #ffffff !important;
 }
 
 @media (max-width: 768px) {
     .whatsapp-widget {
-        bottom: 20px;
-        right: 20px;
-        width: 55px;
-        height: 55px;
+        bottom: 18px;
+        right: 16px;
+        padding: 0.62rem 1rem;
+        gap: 0.45rem;
     }
     .whatsapp-widget svg {
-        width: 30px;
-        height: 30px;
+        width: 20px;
+        height: 20px;
+    }
+    .whatsapp-widget-label {
+        font-size: 0.78rem;
     }
 }
 
@@ -1957,26 +1981,23 @@ img {
 .lawisa-reviews-eyebrow {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    background-color: #1F4E3D;
-    color: var(--soft-white);
-    padding: 0.42rem 1.05rem;
-    border-radius: 6px;
-    border: 1px solid rgba(217, 165, 29, 0.4);
+    gap: 0.7rem;
+    margin-bottom: 0.75rem;
     font-family: 'Inter', sans-serif !important;
     font-size: 0.72rem;
     font-weight: 600;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    margin-bottom: 0.75rem;
+    color: var(--deep-gold);
 }
 
-.lawisa-reviews-eyebrow-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
+.lawisa-reviews-eyebrow::before {
+    content: "";
+    width: 24px;
+    height: 1px;
     background-color: var(--lawisa-gold);
     display: inline-block;
+    flex-shrink: 0;
 }
 
 .lawisa-reviews-bar {
@@ -1987,14 +2008,12 @@ img {
 }
 
 .lawisa-reviews-title {
-    font-family: 'Inter', sans-serif !important;
-    font-size: clamp(2.15rem, 3.1vw, 2.8rem);
-    font-weight: 800 !important;
+    font-family: 'Cinzel', serif !important;
+    font-size: clamp(2.1rem, 3.4vw, 3rem);
+    font-weight: 600 !important;
     color: var(--charcoal);
     margin: 0 !important;
-    letter-spacing: 0.02em;
-    line-height: 1 !important;
-    text-transform: uppercase;
+    line-height: 1.2 !important;
     flex-shrink: 0;
 }
 
@@ -2043,38 +2062,36 @@ img {
     transform: translateX(4px);
 }
 
-/* Marquee Viewport & Right-to-Left Track */
+/* Interactive Scrollable & Auto-Rolling Carousel */
 .lawisa-reviews-viewport {
     position: relative;
     width: 100%;
-    overflow: hidden;
+    overflow-x: auto;
+    overflow-y: hidden;
     padding: 0.5rem 0 0.75rem;
     mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
     -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    touch-action: pan-x pan-y;
+    cursor: grab;
+    -webkit-overflow-scrolling: touch;
+}
+
+.lawisa-reviews-viewport::-webkit-scrollbar {
+    display: none;
+}
+
+.lawisa-reviews-viewport.is-dragging {
+    cursor: grabbing;
+    user-select: none;
 }
 
 .lawisa-reviews-track {
-    --manual-offset: 0px;
     display: flex;
     gap: 1.35rem;
     width: max-content;
-    padding-left: 1.35rem;
-    animation: lawisaRollRTL 65s linear infinite;
-    will-change: transform;
-}
-
-.lawisa-reviews-viewport:hover .lawisa-reviews-track,
-.lawisa-reviews-track.is-paused {
-    animation-play-state: paused;
-}
-
-@keyframes lawisaRollRTL {
-    0% {
-        transform: translate3d(var(--manual-offset, 0px), 0, 0);
-    }
-    100% {
-        transform: translate3d(calc(-50% + var(--manual-offset, 0px)), 0, 0);
-    }
+    padding: 0 1.35rem;
 }
 
 .lawisa-review-card {
@@ -2169,46 +2186,56 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.55rem;
-    margin: 0.45rem 0 1.3rem;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    margin: 0.55rem 0 1.3rem;
 }
 
 .lawisa-page-btn,
+.lawisa-page-prev,
 .lawisa-page-next {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 30px;
+    height: 30px;
     background: transparent;
-    border: none;
+    border: 1px solid transparent;
     font-family: 'Inter', sans-serif !important;
     font-size: 0.85rem;
     font-weight: 500;
     color: rgba(34, 33, 31, 0.55);
     cursor: pointer;
-    padding: 0.15rem 0.4rem;
+    padding: 0 0.45rem;
     border-radius: 6px;
-    transition: color 0.25s ease;
+    transition: color 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
 }
 
-.lawisa-page-btn.active,
 .lawisa-page-btn:hover,
+.lawisa-page-prev:hover,
 .lawisa-page-next:hover {
     color: var(--charcoal);
-    font-weight: 700;
+    background-color: rgba(217, 165, 29, 0.12);
 }
 
-.lawisa-page-dots {
-    color: rgba(34, 33, 31, 0.45);
-    font-size: 0.85rem;
+.lawisa-page-btn.active {
+    color: var(--deep-gold);
+    font-weight: 700;
+    background-color: rgba(217, 165, 29, 0.16);
+    border-color: rgba(217, 165, 29, 0.45);
 }
 
 /* Bottom Center "REVIEW US ON GOOGLE" Box */
 .lawisa-review-us-box {
     max-width: 500px;
     margin: 0 auto;
-    background: linear-gradient(145deg, #16241F 0%, #0E1412 100%);
+    background-color: #332E27;
+    background-image: linear-gradient(160deg, rgba(255, 255, 255, 0.08) 0%, rgba(0, 0, 0, 0.24) 100%);
     border: 1.5px solid rgba(217, 165, 29, 0.65);
     border-radius: 14px;
     padding: 1.55rem 2.25rem;
     text-align: center;
-    box-shadow: 0 0 18px rgba(217, 165, 29, 0.2), 0 14px 34px rgba(18, 24, 22, 0.2);
+    box-shadow: 0 0 18px rgba(217, 165, 29, 0.2), 0 14px 34px rgba(34, 33, 31, 0.2);
 }
 
 .lawisa-review-us-title {
@@ -2273,6 +2300,11 @@ img {
 
     .lawisa-see-all-btn {
         width: 100%;
+    }
+
+    .lawisa-reviews-viewport {
+        mask-image: linear-gradient(to right, transparent 0%, black 3%, black 97%, transparent 100%);
+        -webkit-mask-image: linear-gradient(to right, transparent 0%, black 3%, black 97%, transparent 100%);
     }
 
     .lawisa-review-card {
@@ -2626,25 +2658,39 @@ img {
 .lawisa-gallery-ig {
     display: inline-flex;
     align-items: center;
-    gap: 0.45rem;
+    gap: 0.55rem;
+    height: 42px;
+    padding: 0 1.15rem;
+    border-radius: 9px;
+    background-color: #ffffff;
+    border: 1px solid rgba(217, 165, 29, 0.55);
     font-family: 'Inter', sans-serif !important;
     font-size: 0.84rem;
-    font-weight: 500;
-    color: rgba(34, 33, 31, 0.72);
-    padding: 0.45rem 0.65rem;
-    border-radius: 8px;
-    transition: color 0.25s ease;
+    font-weight: 600;
+    color: var(--charcoal) !important;
+    box-shadow: 0 4px 14px rgba(34, 33, 31, 0.06);
+    white-space: nowrap;
+    transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
 }
 
 .lawisa-gallery-ig svg {
-    width: 17px;
-    height: 17px;
+    width: 18px;
+    height: 18px;
     flex-shrink: 0;
     color: var(--deep-gold);
+    transition: color 0.25s ease;
 }
 
 .lawisa-gallery-ig:hover {
-    color: var(--deep-gold);
+    background-color: var(--charcoal);
+    border-color: var(--lawisa-gold);
+    color: #ffffff !important;
+    box-shadow: 0 0 14px rgba(217, 165, 29, 0.4), 0 6px 18px rgba(217, 165, 29, 0.22);
+    transform: translateY(-1px);
+}
+
+.lawisa-gallery-ig:hover svg {
+    color: var(--lawisa-gold);
 }
 
 .lawisa-gallery-all-btn {

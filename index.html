@@ -12,17 +12,19 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="style.css?v=23">
+    <link rel="stylesheet" href="style.css?v=33">
     <style>
 .service-card {
     position: relative;
-    background: transparent;
-    border: 1.5px solid transparent;
+    background-color: #332E27;
+    background-image: linear-gradient(160deg, rgba(255, 255, 255, 0.08) 0%, rgba(0, 0, 0, 0.24) 100%);
+    border: 1.5px solid rgba(217, 165, 29, 0.25);
     border-radius: 28px;
     overflow: hidden;
     isolation: isolate;
     -webkit-mask-image: -webkit-radial-gradient(white, black);
-    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 14px 32px rgba(34, 33, 31, 0.12);
+    transition: background-color 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -34,31 +36,44 @@
 }
 
 .service-card:hover,
-.service-card.is-hovered {
+.service-card.is-hovered,
+.service-card:focus-within {
+    background-color: var(--lawisa-gold);
     border-color: var(--lawisa-gold);
-    box-shadow: 0 0 15px rgba(217, 165, 29, 0.4), 0 10px 40px rgba(217, 165, 29, 0.5);
+    box-shadow: 0 0 18px rgba(217, 165, 29, 0.48), 0 12px 40px rgba(217, 165, 29, 0.45);
 }
 
 .service-image {
     position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
+    inset: 12px;
+    width: auto;
+    height: auto;
     overflow: hidden;
-    border-radius: 28px;
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
+    border-radius: 999px 999px 18px 18px;
+    border: 1.5px solid rgba(217, 165, 29, 0.65);
+    box-shadow: 0 0 10px rgba(217, 165, 29, 0.16), inset 0 0 0 1px rgba(255, 255, 255, 0.12);
     z-index: 1;
+    transition: border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.service-card:hover .service-image,
+.service-card.is-hovered .service-image,
+.service-card:focus-within .service-image {
+    border-color: rgba(255, 246, 214, 0.85);
+    box-shadow: 0 0 16px rgba(217, 165, 29, 0.45), inset 0 0 12px rgba(217, 165, 29, 0.18);
 }
 
 .service-image::after {
     content: '';
     position: absolute;
     inset: 0;
-    border-radius: 28px;
-    box-shadow: inset 0 0 0 1.5px transparent;
+    border-radius: 999px 999px 18px 18px;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.14);
     background: linear-gradient(
         to top,
-        rgba(0, 0, 0, 0.45) 0%,
-        rgba(0, 0, 0, 0.12) 42%,
+        rgba(18, 16, 14, 0.62) 0%,
+        rgba(18, 16, 14, 0.18) 44%,
         rgba(0, 0, 0, 0) 100%
     );
     transition: background 0.45s ease, box-shadow 0.3s ease;
@@ -72,8 +87,8 @@
     box-shadow: inset 0 0 0 1.5px var(--lawisa-gold);
     background: linear-gradient(
         to top,
-        rgba(0, 0, 0, 0.58) 0%,
-        rgba(0, 0, 0, 0.32) 55%,
+        rgba(18, 16, 14, 0.72) 0%,
+        rgba(18, 16, 14, 0.36) 56%,
         rgba(0, 0, 0, 0.08) 100%
     );
 }
@@ -97,7 +112,7 @@
 .service-info {
     position: relative;
     z-index: 2;
-    padding: 2rem 1.75rem 1.6rem;
+    padding: 2rem 2.15rem 1.85rem;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -270,28 +285,26 @@
     align-items: flex-start;
 }
 
-.about-pill {
+.about-eyebrow {
     display: inline-flex;
     align-items: center;
-    gap: 0.55rem;
-    background-color: rgba(31, 78, 61, 0.08);
-    padding: 0.45rem 1rem;
-    border-radius: 999px;
-    margin-bottom: 1.4rem;
+    gap: 0.7rem;
+    margin-bottom: 0.85rem;
     font-family: 'Inter', sans-serif !important;
     font-size: 0.72rem;
     font-weight: 600;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: #1F4E3D;
+    color: var(--deep-gold);
 }
 
-.about-pill-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background-color: #1F4E3D;
+.about-eyebrow::before {
+    content: "";
+    width: 24px;
+    height: 1px;
+    background-color: var(--lawisa-gold);
     display: inline-block;
+    flex-shrink: 0;
 }
 
 .about-heading {
@@ -300,7 +313,7 @@
     font-weight: 600 !important;
     line-height: 1.14 !important;
     color: var(--charcoal);
-    margin-bottom: 1.35rem;
+    margin-bottom: 1.15rem;
     letter-spacing: -0.01em;
 }
 
@@ -318,59 +331,7 @@
     font-size: 1.02rem;
     line-height: 1.7;
     color: rgba(34, 33, 31, 0.72);
-    margin-bottom: 1.75rem;
-}
-
-.about-divider {
-    width: 100%;
-    border: none;
-    border-top: 1px solid rgba(34, 33, 31, 0.1);
-    margin-bottom: 1.75rem;
-}
-
-.about-features {
-    display: flex;
-    flex-direction: column;
-    gap: 1.3rem;
-    width: 100%;
-    margin-bottom: 2.25rem;
-}
-
-.about-feature-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.9rem;
-}
-
-.about-feature-icon {
-    flex-shrink: 0;
-    width: 22px;
-    height: 22px;
-    margin-top: 0.15rem;
-    color: #1F4E3D;
-}
-
-.about-feature-icon svg {
-    width: 100%;
-    height: 100%;
-    display: block;
-}
-
-.about-feature-text h4 {
-    font-family: 'Inter', sans-serif !important;
-    font-size: 0.98rem;
-    font-weight: 600 !important;
-    color: var(--charcoal);
-    margin-bottom: 0.2rem;
-    line-height: 1.35;
-}
-
-.about-feature-text p {
-    font-family: 'Inter', sans-serif !important;
-    font-size: 0.9rem;
-    color: rgba(34, 33, 31, 0.65);
-    line-height: 1.5;
-    margin: 0;
+    margin-bottom: 2rem;
 }
 
 .about-actions {
@@ -385,25 +346,30 @@
     align-items: center;
     justify-content: center;
     gap: 0.65rem;
-    background-color: #1D2B28;
+    padding: 1.1rem 2.5rem;
+    border-radius: 10px;
+    background-color: var(--lawisa-gold);
     color: #ffffff !important;
-    padding: 0.85rem 1.65rem;
-    border-radius: 999px;
+    border: 1px solid var(--lawisa-gold);
     font-family: 'Inter', sans-serif !important;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 500;
-    transition: transform 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .about-btn-primary:hover {
-    background-color: var(--charcoal);
+    background-color: var(--deep-gold);
+    border-color: var(--lawisa-gold);
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(29, 43, 40, 0.2);
+    box-shadow: 0 0 14px rgba(217, 165, 29, 0.45), 0 6px 22px rgba(217, 165, 29, 0.3);
 }
 
 .about-btn-arrow {
-    color: var(--lawisa-gold);
-    font-size: 1rem;
+    color: #ffffff;
+    font-size: 0.85rem;
     line-height: 1;
     transition: transform 0.25s ease;
 }
@@ -678,6 +644,40 @@
     box-shadow: 0 0 14px rgba(217, 165, 29, 0.5), 0 6px 22px rgba(217, 165, 29, 0.35);
 }
 
+.footer-social {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 1.35rem;
+}
+
+.footer-social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    background-color: rgba(255, 247, 235, 0.06);
+    border: 1px solid rgba(217, 165, 29, 0.45);
+    color: var(--lawisa-gold);
+    transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.footer-social-link svg {
+    width: 20px;
+    height: 20px;
+    display: block;
+}
+
+.footer-social-link:hover {
+    background-color: var(--lawisa-gold);
+    border-color: var(--lawisa-gold);
+    color: #1F1E1B;
+    box-shadow: 0 0 14px rgba(217, 165, 29, 0.5), 0 6px 20px rgba(217, 165, 29, 0.3);
+    transform: translateY(-2px);
+}
+
 
 /* ==========================================================================
    World-Class Google Reviews Section (Section 4)
@@ -707,26 +707,23 @@
 .lawisa-reviews-eyebrow {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    background-color: #1F4E3D;
-    color: var(--soft-white);
-    padding: 0.42rem 1.05rem;
-    border-radius: 6px;
-    border: 1px solid rgba(217, 165, 29, 0.4);
+    gap: 0.7rem;
+    margin-bottom: 0.75rem;
     font-family: 'Inter', sans-serif !important;
     font-size: 0.72rem;
     font-weight: 600;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    margin-bottom: 0.75rem;
+    color: var(--deep-gold);
 }
 
-.lawisa-reviews-eyebrow-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
+.lawisa-reviews-eyebrow::before {
+    content: "";
+    width: 24px;
+    height: 1px;
     background-color: var(--lawisa-gold);
     display: inline-block;
+    flex-shrink: 0;
 }
 
 .lawisa-reviews-bar {
@@ -737,14 +734,12 @@
 }
 
 .lawisa-reviews-title {
-    font-family: 'Inter', sans-serif !important;
-    font-size: clamp(2.15rem, 3.1vw, 2.8rem);
-    font-weight: 800 !important;
+    font-family: 'Cinzel', serif !important;
+    font-size: clamp(2.1rem, 3.4vw, 3rem);
+    font-weight: 600 !important;
     color: var(--charcoal);
     margin: 0 !important;
-    letter-spacing: 0.02em;
-    line-height: 1 !important;
-    text-transform: uppercase;
+    line-height: 1.2 !important;
     flex-shrink: 0;
 }
 
@@ -793,38 +788,36 @@
     transform: translateX(4px);
 }
 
-/* Marquee Viewport & Right-to-Left Track */
+/* Interactive Scrollable & Auto-Rolling Carousel */
 .lawisa-reviews-viewport {
     position: relative;
     width: 100%;
-    overflow: hidden;
+    overflow-x: auto;
+    overflow-y: hidden;
     padding: 0.5rem 0 0.75rem;
     mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
     -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    touch-action: pan-x pan-y;
+    cursor: grab;
+    -webkit-overflow-scrolling: touch;
+}
+
+.lawisa-reviews-viewport::-webkit-scrollbar {
+    display: none;
+}
+
+.lawisa-reviews-viewport.is-dragging {
+    cursor: grabbing;
+    user-select: none;
 }
 
 .lawisa-reviews-track {
-    --manual-offset: 0px;
     display: flex;
     gap: 1.35rem;
     width: max-content;
-    padding-left: 1.35rem;
-    animation: lawisaRollRTL 65s linear infinite;
-    will-change: transform;
-}
-
-.lawisa-reviews-viewport:hover .lawisa-reviews-track,
-.lawisa-reviews-track.is-paused {
-    animation-play-state: paused;
-}
-
-@keyframes lawisaRollRTL {
-    0% {
-        transform: translate3d(var(--manual-offset, 0px), 0, 0);
-    }
-    100% {
-        transform: translate3d(calc(-50% + var(--manual-offset, 0px)), 0, 0);
-    }
+    padding: 0 1.35rem;
 }
 
 .lawisa-review-card {
@@ -919,46 +912,56 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.55rem;
-    margin: 0.45rem 0 1.3rem;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    margin: 0.55rem 0 1.3rem;
 }
 
 .lawisa-page-btn,
+.lawisa-page-prev,
 .lawisa-page-next {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 30px;
+    height: 30px;
     background: transparent;
-    border: none;
+    border: 1px solid transparent;
     font-family: 'Inter', sans-serif !important;
     font-size: 0.85rem;
     font-weight: 500;
     color: rgba(34, 33, 31, 0.55);
     cursor: pointer;
-    padding: 0.15rem 0.4rem;
+    padding: 0 0.45rem;
     border-radius: 6px;
-    transition: color 0.25s ease;
+    transition: color 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
 }
 
-.lawisa-page-btn.active,
 .lawisa-page-btn:hover,
+.lawisa-page-prev:hover,
 .lawisa-page-next:hover {
     color: var(--charcoal);
-    font-weight: 700;
+    background-color: rgba(217, 165, 29, 0.12);
 }
 
-.lawisa-page-dots {
-    color: rgba(34, 33, 31, 0.45);
-    font-size: 0.85rem;
+.lawisa-page-btn.active {
+    color: var(--deep-gold);
+    font-weight: 700;
+    background-color: rgba(217, 165, 29, 0.16);
+    border-color: rgba(217, 165, 29, 0.45);
 }
 
 /* Bottom Center "REVIEW US ON GOOGLE" Box */
 .lawisa-review-us-box {
     max-width: 500px;
     margin: 0 auto;
-    background: linear-gradient(145deg, #16241F 0%, #0E1412 100%);
+    background-color: #332E27;
+    background-image: linear-gradient(160deg, rgba(255, 255, 255, 0.08) 0%, rgba(0, 0, 0, 0.24) 100%);
     border: 1.5px solid rgba(217, 165, 29, 0.65);
     border-radius: 14px;
     padding: 1.55rem 2.25rem;
     text-align: center;
-    box-shadow: 0 0 18px rgba(217, 165, 29, 0.2), 0 14px 34px rgba(18, 24, 22, 0.2);
+    box-shadow: 0 0 18px rgba(217, 165, 29, 0.2), 0 14px 34px rgba(34, 33, 31, 0.2);
 }
 
 .lawisa-review-us-title {
@@ -1023,6 +1026,11 @@
 
     .lawisa-see-all-btn {
         width: 100%;
+    }
+
+    .lawisa-reviews-viewport {
+        mask-image: linear-gradient(to right, transparent 0%, black 3%, black 97%, transparent 100%);
+        -webkit-mask-image: linear-gradient(to right, transparent 0%, black 3%, black 97%, transparent 100%);
     }
 
     .lawisa-review-card {
@@ -1377,25 +1385,39 @@
 .lawisa-gallery-ig {
     display: inline-flex;
     align-items: center;
-    gap: 0.45rem;
+    gap: 0.55rem;
+    height: 42px;
+    padding: 0 1.15rem;
+    border-radius: 9px;
+    background-color: #ffffff;
+    border: 1px solid rgba(217, 165, 29, 0.55);
     font-family: 'Inter', sans-serif !important;
     font-size: 0.84rem;
-    font-weight: 500;
-    color: rgba(34, 33, 31, 0.72);
-    padding: 0.45rem 0.65rem;
-    border-radius: 8px;
-    transition: color 0.25s ease;
+    font-weight: 600;
+    color: var(--charcoal) !important;
+    box-shadow: 0 4px 14px rgba(34, 33, 31, 0.06);
+    white-space: nowrap;
+    transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
 }
 
 .lawisa-gallery-ig svg {
-    width: 17px;
-    height: 17px;
+    width: 18px;
+    height: 18px;
     flex-shrink: 0;
     color: var(--deep-gold);
+    transition: color 0.25s ease;
 }
 
 .lawisa-gallery-ig:hover {
-    color: var(--deep-gold);
+    background-color: var(--charcoal);
+    border-color: var(--lawisa-gold);
+    color: #ffffff !important;
+    box-shadow: 0 0 14px rgba(217, 165, 29, 0.4), 0 6px 18px rgba(217, 165, 29, 0.22);
+    transform: translateY(-1px);
+}
+
+.lawisa-gallery-ig:hover svg {
+    color: var(--lawisa-gold);
 }
 
 .lawisa-gallery-all-btn {
@@ -2194,6 +2216,87 @@
     }
 }
 
+/* Hero Social Link, Nav Wrap Guard & WhatsApp CTA Pill */
+.nav-links a {
+    white-space: nowrap;
+}
+
+.hero-social {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--charcoal);
+    text-decoration: none;
+    transition: color 0.25s ease, transform 0.25s ease;
+}
+
+a.hero-social:hover {
+    color: var(--deep-gold);
+    transform: translateY(-1px);
+}
+
+.whatsapp-widget {
+    position: fixed;
+    bottom: 26px;
+    right: 26px;
+    width: auto;
+    height: auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    padding: 0.72rem 1.25rem;
+    background-color: #25D366;
+    color: #ffffff !important;
+    border-radius: 999px;
+    border: 1.5px solid rgba(255, 255, 255, 0.35);
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.32), 0 4px 12px rgba(0, 0, 0, 0.14);
+    z-index: 1000;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.whatsapp-widget svg {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+}
+
+.whatsapp-widget-label {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.84rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+}
+
+.whatsapp-widget:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(37, 211, 102, 0.42), 0 0 14px rgba(217, 165, 29, 0.28);
+    background-color: #1EBE5D;
+    border-color: var(--lawisa-gold);
+    color: #ffffff !important;
+}
+
+@media (max-width: 768px) {
+    .whatsapp-widget {
+        bottom: 18px;
+        right: 16px;
+        padding: 0.62rem 1rem;
+        gap: 0.45rem;
+    }
+
+    .whatsapp-widget svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .whatsapp-widget-label {
+        font-size: 0.78rem;
+    }
+}
+
     </style>
     
     <!-- GSAP for Horizontal Scroll -->
@@ -2214,7 +2317,7 @@
                 <a href="#massages" data-i18n="nav_massages">Massages</a>
                 <a href="#le-salon" data-i18n="nav_salon">Le Salon</a>
                 <a href="#galerie" data-i18n="nav_gallery">Galerie</a>
-                <a href="#avis" data-i18n="nav_reviews">Avis</a>
+                <a href="#service-area" data-i18n="nav_service_area">Zone de service</a>
                 <a href="#contact" data-i18n="nav_contact">Contact</a>
             </nav>
             <div class="nav-actions">
@@ -2242,17 +2345,17 @@
         <div class="hero-container">
             <div class="hero-content fade-in-up">
                 <h1 data-i18n="hero_title">L’Art du Massage Thaïlandais<br><span class="hero-title-sub">au cœur de Paris</span></h1>
-                <p class="subtitle" data-i18n="hero_subtitle">Un savoir-faire traditionnel, dans un écrin de calme au Faubourg Saint-Honoré.</p>
+                <p class="subtitle" data-i18n="hero_subtitle">Massages thaïlandais authentiques et soins aux huiles chaudes au Faubourg Saint-Honoré.</p>
                 
                 <div class="hero-actions">
-                    <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking" target="_blank" class="btn-primary" data-i18n="hero_btn_book">Réserver une séance</a>
-                    <a href="#massages" class="btn-secondary" data-i18n="hero_btn_discover">Découvrir les massages</a>
+                    <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking" target="_blank" class="btn-primary" data-i18n="hero_btn_book">Réserver maintenant</a>
+                    <a href="#massages" class="btn-secondary" data-i18n="hero_btn_discover">Nos massages</a>
                 </div>
                 
                 <div class="hero-meta">
-                    <div class="hero-social" data-i18n="hero_social">
+                    <a href="https://maps.app.goo.gl/87m61ci81Ua11WW76" target="_blank" rel="noopener noreferrer" class="hero-social" data-i18n="hero_social" data-i18n-aria="hero_social_aria" aria-label="Voir les avis Google de LAWISA (5.0 sur 5 · 222 avis)">
                         <span class="stars">★★★★★</span> 5.0 sur Google · 222 avis
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -2367,57 +2470,11 @@
 
             <!-- Right side: Content -->
             <div class="about-showcase-content fade-in-up" style="transition-delay: 0.1s;">
-                <div class="about-pill">
-                    <span class="about-pill-dot"></span>
-                    <span data-i18n="about_eyebrow">À PROPOS DE LAWISA & DU SALON</span>
-                </div>
+                <span class="about-eyebrow" data-i18n="about_eyebrow">LE SALON</span>
 
-                <h2 class="about-heading" data-i18n="about_title">Plus Qu’un Massage,<span class="about-heading-accent">L’Art du Soin, du Calme & de l’Attention</span></h2>
+                <h2 class="about-heading" data-i18n="about_title">Le Salon LAWISA,<span class="about-heading-accent">un havre de calme à Paris 8ᵉ</span></h2>
 
-                <p class="about-lead" data-i18n="about_lead">Chez Lawisa Thaï Massage à Paris 8ème, chaque soin est prodigué avec patience, douceur et un savoir-faire authentique — pour que vous vous sentiez apaisé, détendu et pleinement ressourcé.</p>
-
-                <hr class="about-divider">
-
-                <div class="about-features">
-                    <div class="about-feature-item">
-                        <div class="about-feature-icon" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                                <circle cx="12" cy="12" r="9"></circle>
-                                <path d="M8.5 12.5l2.3 2.3 4.7-4.8" stroke-linecap="round" stroke-linejoin="round"></path>
-                            </svg>
-                        </div>
-                        <div class="about-feature-text">
-                            <h4 data-i18n="about_feat1_title">Un Cadre Calme & Apaisant</h4>
-                            <p data-i18n="about_feat1_desc">Un espace pensé avec soin au 183 Rue du Faubourg Saint-Honoré pour votre confort.</p>
-                        </div>
-                    </div>
-
-                    <div class="about-feature-item">
-                        <div class="about-feature-icon" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                                <circle cx="12" cy="12" r="9"></circle>
-                                <path d="M8.5 12.5l2.3 2.3 4.7-4.8" stroke-linecap="round" stroke-linejoin="round"></path>
-                            </svg>
-                        </div>
-                        <div class="about-feature-text">
-                            <h4 data-i18n="about_feat2_title">Une Attention Sur-Mesure</h4>
-                            <p data-i18n="about_feat2_desc">Chaque séance est adaptée à vos zones de tension, votre rythme et vos besoins.</p>
-                        </div>
-                    </div>
-
-                    <div class="about-feature-item">
-                        <div class="about-feature-icon" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                                <circle cx="12" cy="12" r="9"></circle>
-                                <path d="M8.5 12.5l2.3 2.3 4.7-4.8" stroke-linecap="round" stroke-linejoin="round"></path>
-                            </svg>
-                        </div>
-                        <div class="about-feature-text">
-                            <h4 data-i18n="about_feat3_title">Un Échange Personnalisé</h4>
-                            <p data-i18n="about_feat3_desc">Échangez directement avec nos praticiennes sur vos préférences avant chaque visite.</p>
-                        </div>
-                    </div>
-                </div>
+                <p class="about-lead" data-i18n="about_lead">Au 183 Rue du Faubourg Saint-Honoré, nos praticiennes perpétuent les rituels thaïlandais traditionnels dans une atmosphère paisible et feutrée.</p>
 
                 <div class="about-actions">
                     <a href="#galerie" class="about-btn-primary">
@@ -2433,13 +2490,10 @@
     <section class="lawisa-reviews-section" id="avis">
         <div class="lawisa-reviews-container">
             <div class="lawisa-reviews-top fade-in-up">
-                <div class="lawisa-reviews-eyebrow">
-                    <span class="lawisa-reviews-eyebrow-dot"></span>
-                    <span data-i18n="reviews_eyebrow_badge">DÉCOUVREZ CE QUE NOS CLIENTS DISENT DE NOUS · 5.0 ★ (222 AVIS)</span>
-                </div>
+                <span class="lawisa-reviews-eyebrow" data-i18n="reviews_eyebrow_badge">5.0 ★ SUR GOOGLE · 222 AVIS</span>
 
                 <div class="lawisa-reviews-bar">
-                    <h2 class="lawisa-reviews-title" data-i18n="reviews_main_heading">AVIS CLIENTS</h2>
+                    <h2 class="lawisa-reviews-title" data-i18n="reviews_main_heading">Avis Clients</h2>
                     <div class="lawisa-reviews-line" aria-hidden="true"></div>
                     <a href="https://maps.app.goo.gl/87m61ci81Ua11WW76" target="_blank" rel="noopener noreferrer" class="lawisa-see-all-btn" data-lawisa-maps-link>
                         <span data-i18n="reviews_see_all_btn">Voir tous les avis Google</span>
@@ -2449,22 +2503,14 @@
             </div>
         </div>
 
-        <!-- Slow Right-to-Left Rolling Carousel -->
+        <!-- Scrollable & Slow Right-to-Left Rolling Carousel -->
         <div class="lawisa-reviews-viewport" id="lawisa-reviews-viewport" aria-label="Avis clients Google" data-i18n-aria="reviews_viewport_aria">
             <div class="lawisa-reviews-track" id="lawisa-reviews-track"></div>
         </div>
 
         <div class="lawisa-reviews-container">
-            <!-- Pagination Bar (1 2 3 4 5 ... >) -->
-            <div class="lawisa-reviews-pagination" aria-label="Pagination des avis" data-i18n-aria="reviews_pagination_aria">
-                <button type="button" class="lawisa-page-btn active" data-page="1">1</button>
-                <button type="button" class="lawisa-page-btn" data-page="2">2</button>
-                <button type="button" class="lawisa-page-btn" data-page="3">3</button>
-                <button type="button" class="lawisa-page-btn" data-page="4">4</button>
-                <button type="button" class="lawisa-page-btn" data-page="5">5</button>
-                <span class="lawisa-page-dots">…</span>
-                <button type="button" class="lawisa-page-next" id="lawisa-page-next" aria-label="Suivant" data-i18n-aria="reviews_next_aria">&#10095;</button>
-            </div>
+            <!-- Dynamic Interactive Pagination Bar -->
+            <div class="lawisa-reviews-pagination" id="lawisa-reviews-pagination" aria-label="Pagination des avis" data-i18n-aria="reviews_pagination_aria"></div>
 
             <!-- Bottom Center "REVIEW US ON GOOGLE" Box -->
             <div class="lawisa-review-us-box fade-in-up">
@@ -2551,10 +2597,10 @@
                 </div>
                 <div class="lawisa-gallery-actions">
                     <a href="https://www.instagram.com/lawisa_paris08/" target="_blank" rel="noopener noreferrer" class="lawisa-gallery-ig" aria-label="Instagram @lawisa_paris08">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                             <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
                             <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle>
                         </svg>
                         <span>@lawisa_paris08</span>
                     </a>
@@ -2714,6 +2760,15 @@
                     </p>
                     <a href="tel:+33636432381" class="footer-phone">06 36 43 23 81</a>
                     <p class="footer-desc" data-i18n="footer_desc">Massage thaïlandais traditionnel au cœur de Paris.</p>
+                    <div class="footer-social">
+                        <a href="https://www.instagram.com/lawisa_paris08/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Suivre LAWISA sur Instagram (@lawisa_paris08)" data-i18n-aria="footer_ig_aria" title="Instagram @lawisa_paris08">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle>
+                            </svg>
+                        </a>
+                    </div>
                 </div>
                 
                 <!-- Nav Column -->
@@ -2748,13 +2803,14 @@
     </footer>
 
     <!-- WhatsApp Chat Widget -->
-    <a href="https://wa.me/33636432381" target="_blank" class="whatsapp-widget" aria-label="Contacter sur WhatsApp" data-i18n-aria="whatsapp_aria">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor">
+    <a href="https://wa.me/33636432381" target="_blank" rel="noopener noreferrer" class="whatsapp-widget" aria-label="Contacter LAWISA sur WhatsApp" data-i18n-aria="whatsapp_aria">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor" aria-hidden="true">
             <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157.1zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
         </svg>
+        <span class="whatsapp-widget-label" data-i18n="whatsapp_cta">Écrire sur WhatsApp</span>
     </a>
 
-    <script src="js/reviews.js?v=3"></script>
+    <script src="js/reviews.js?v=4"></script>
     <script>
         // Translations dictionary
         const i18n = {
@@ -2766,13 +2822,15 @@
                 nav_salon: "Le Salon",
                 nav_gallery: "Galerie",
                 nav_reviews: "Avis",
+                nav_service_area: "Zone de service",
                 nav_contact: "Contact",
                 nav_book: "Réserver",
                 hero_title: "L’Art du Massage Thaïlandais<br><span class=\"hero-title-sub\">au cœur de Paris</span>",
-                hero_subtitle: "Un savoir-faire traditionnel, dans un écrin de calme au Faubourg Saint-Honoré.",
-                hero_btn_book: "Réserver une séance",
-                hero_btn_discover: "Découvrir les massages",
+                hero_subtitle: "Massages thaïlandais authentiques et soins aux huiles chaudes au Faubourg Saint-Honoré.",
+                hero_btn_book: "Réserver maintenant",
+                hero_btn_discover: "Nos massages",
                 hero_social: "<span class=\"stars\">★★★★★</span> 5.0 sur Google · 222 avis",
+                hero_social_aria: "Voir les avis Google de LAWISA (5.0 sur 5 · 222 avis)",
                 section_massages: "Nos Massages",
                 massage_1: "Massage Traditionnel Thaïlandais",
                 massage_1_desc: "Une thérapie ancestrale mêlant acupression et étirements profonds pour rééquilibrer les énergies.",
@@ -2788,18 +2846,12 @@
                 massage_6_desc: "Stimulation des zones réflexes des pieds pour apaiser l'ensemble du corps.",
                 card_btn_book: "Réserver",
                 about_photo_alt: "Salon Lawisa Thaï Massage Paris 8e",
-                about_eyebrow: "À PROPOS DE LAWISA & DU SALON",
-                about_title: "Plus Qu’un Massage,<span class=\"about-heading-accent\">L’Art du Soin, du Calme & de l’Attention</span>",
-                about_lead: "Chez Lawisa Thaï Massage à Paris 8ème, chaque soin est prodigué avec patience, douceur et un savoir-faire authentique — pour que vous vous sentiez apaisé, détendu et pleinement ressourcé.",
-                about_feat1_title: "Un Cadre Calme & Apaisant",
-                about_feat1_desc: "Un espace pensé avec soin au 183 Rue du Faubourg Saint-Honoré pour votre confort.",
-                about_feat2_title: "Une Attention Sur-Mesure",
-                about_feat2_desc: "Chaque séance est adaptée à vos zones de tension, votre rythme et vos besoins.",
-                about_feat3_title: "Un Échange Personnalisé",
-                about_feat3_desc: "Échangez directement avec nos praticiennes sur vos préférences avant chaque visite.",
+                about_eyebrow: "LE SALON",
+                about_title: "Le Salon LAWISA,<span class=\"about-heading-accent\">un havre de calme à Paris 8ᵉ</span>",
+                about_lead: "Au 183 Rue du Faubourg Saint-Honoré, nos praticiennes perpétuent les rituels thaïlandais traditionnels dans une atmosphère paisible et feutrée.",
                 about_btn_know: "Découvrir le Salon",
-                reviews_eyebrow_badge: "DÉCOUVREZ CE QUE NOS CLIENTS DISENT DE NOUS · 5.0 ★ (222 AVIS)",
-                reviews_main_heading: "AVIS CLIENTS",
+                reviews_eyebrow_badge: "5.0 ★ SUR GOOGLE · 222 AVIS",
+                reviews_main_heading: "Avis Clients",
                 reviews_see_all_btn: "Voir tous les avis Google",
                 reviews_viewport_aria: "Avis clients Google",
                 reviews_pagination_aria: "Pagination des avis",
@@ -2854,13 +2906,15 @@
                 contact_btn_whatsapp: "WhatsApp",
                 contact_map_title: "Localisation Google Maps — LAWISA Thaï Massage, 183 Rue du Faubourg Saint-Honoré, 75008 Paris",
                 footer_desc: "Massage thaïlandais traditionnel au cœur de Paris.",
+                footer_ig_aria: "Suivre LAWISA sur Instagram (@lawisa_paris08)",
                 footer_book_title: "Votre moment de détente",
                 footer_book_desc: "Réservez votre massage en quelques instants.",
                 footer_book_btn: "RÉSERVER",
                 footer_legal: "Mentions légales",
                 footer_privacy: "Politique de confidentialité",
                 footer_rights: "&copy; 2026 Lawisa Thaï Massage. Tous droits réservés.",
-                whatsapp_aria: "Contacter sur WhatsApp"
+                whatsapp_cta: "Écrire sur WhatsApp",
+                whatsapp_aria: "Contacter LAWISA sur WhatsApp"
             },
             en: {
                 page_title: "Lawisa Thaï Massage | Paris 8th",
@@ -2870,13 +2924,15 @@
                 nav_salon: "The Salon",
                 nav_gallery: "Gallery",
                 nav_reviews: "Reviews",
+                nav_service_area: "Service Area",
                 nav_contact: "Contact",
                 nav_book: "Book",
                 hero_title: "The Art of Thai Massage<br><span class=\"hero-title-sub\">in the heart of Paris</span>",
-                hero_subtitle: "Traditional expertise in a calm sanctuary on Faubourg Saint-Honoré.",
-                hero_btn_book: "Book a Session",
-                hero_btn_discover: "Discover Our Massages",
+                hero_subtitle: "Authentic Thai massage and warm oil rituals in a serene sanctuary on Faubourg Saint-Honoré.",
+                hero_btn_book: "Book Now",
+                hero_btn_discover: "Our Massages",
                 hero_social: "<span class=\"stars\">★★★★★</span> 5.0 on Google · 222 reviews",
+                hero_social_aria: "View LAWISA Google reviews (5.0 on Google · 222 reviews)",
                 section_massages: "Our Massages",
                 massage_1: "Traditional Thai Massage",
                 massage_1_desc: "An ancestral therapy combining acupressure and deep stretching to rebalance energy.",
@@ -2892,18 +2948,12 @@
                 massage_6_desc: "Stimulation of reflex zones in the feet to soothe the entire body.",
                 card_btn_book: "Book Now",
                 about_photo_alt: "Lawisa Thaï Massage Salon Paris 8th",
-                about_eyebrow: "ABOUT LAWISA & THE SALON",
-                about_title: "More Than a Massage,<span class=\"about-heading-accent\">The Art of Care, Calm & Attention</span>",
-                about_lead: "At Lawisa Thaï Massage in Paris 8th, you are treated with patience, gentle hands, and authentic expertise—so you feel safe, relaxed, and leave deeply rebalanced.",
-                about_feat1_title: "Calm Salon Environment",
-                about_feat1_desc: "Thoughtfully arranged space on Faubourg Saint-Honoré designed for comfort.",
-                about_feat2_title: "Tailored Body Attention",
-                about_feat2_desc: "Every session is adapted to your tension points, pressure preference, and energy.",
-                about_feat3_title: "Direct Personal Communication",
-                about_feat3_desc: "Speak directly with our team about your preferences before every visit.",
+                about_eyebrow: "THE SALON",
+                about_title: "The LAWISA Salon,<span class=\"about-heading-accent\">a haven of calm in Paris 8th</span>",
+                about_lead: "At 183 Rue du Faubourg Saint-Honoré, our therapists practice traditional Thai rituals in a peaceful, intimate setting.",
                 about_btn_know: "Discover the Salon",
-                reviews_eyebrow_badge: "DISCOVER WHAT OUR CLIENTS SAY ABOUT US · 5.0 ★ (222 REVIEWS)",
-                reviews_main_heading: "CUSTOMER REVIEWS",
+                reviews_eyebrow_badge: "5.0 ★ ON GOOGLE · 222 REVIEWS",
+                reviews_main_heading: "Customer Reviews",
                 reviews_see_all_btn: "See All Google Reviews",
                 reviews_viewport_aria: "Google Customer Reviews",
                 reviews_pagination_aria: "Reviews pagination",
@@ -2958,13 +3008,15 @@
                 contact_btn_whatsapp: "WhatsApp",
                 contact_map_title: "Google Maps Location — LAWISA Thaï Massage, 183 Rue du Faubourg Saint-Honoré, 75008 Paris",
                 footer_desc: "Traditional Thai massage in the heart of Paris.",
+                footer_ig_aria: "Follow LAWISA on Instagram (@lawisa_paris08)",
                 footer_book_title: "Your moment of relaxation",
                 footer_book_desc: "Book your massage in just a few moments.",
                 footer_book_btn: "BOOK",
                 footer_legal: "Legal notice",
                 footer_privacy: "Privacy policy",
                 footer_rights: "&copy; 2026 Lawisa Thaï Massage. All rights reserved.",
-                whatsapp_aria: "Chat on WhatsApp"
+                whatsapp_cta: "WhatsApp Us",
+                whatsapp_aria: "Chat with LAWISA on WhatsApp"
             }
         };
 

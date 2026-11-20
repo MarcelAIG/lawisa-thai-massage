@@ -47,10 +47,9 @@ export async function onRequestGet(context) {
         ? data.reviews.map(r => ({
               author: (r.authorAttribution && r.authorAttribution.displayName) || "Client Google",
               rating: r.rating || 5,
-              date_fr: r.relativePublishTimeDescription || "",
-              date_en: r.relativePublishTimeDescription || "",
-              text_fr: (r.text && r.text.text) || "",
-              text_en: (r.originalText && r.originalText.text) || (r.text && r.text.text) || ""
+              originalLang: (r.originalText && r.originalText.languageCode) || (r.text && r.text.languageCode) || "fr",
+              originalText: (r.originalText && r.originalText.text) || (r.text && r.text.text) || "",
+              translated_fr: (r.text && r.text.text) || ""
           }))
         : [];
 
@@ -59,10 +58,10 @@ export async function onRequestGet(context) {
             ok: true,
             placeId: data.id || placeId,
             rating: data.rating || 5.0,
-            userRatingCount: data.userRatingCount || 222,
+            userRatingCount: data.userRatingCount || null,
             writeReviewUri:
                 (data.googleMapsLinks && data.googleMapsLinks.writeAReviewUri) ||
-                `https://search.google.com/local/writereview?placeid=${encodeURIComponent(placeId)}`,
+                "https://g.page/r/CQ6U_9CE7H4XEBM/review",
             reviews
         }),
         {

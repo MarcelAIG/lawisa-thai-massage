@@ -1,75 +1,35 @@
 /**
  * LAWISA Thaï Massage — Google Reviews Configuration & Carousel Controller
  * =========================================================================
- * - Easy manual updates: edit the `reviews` array below at any time.
- * - Optional automatic updates: set `enableAutoFetch: true` when `/api/reviews`
- *   is configured with GOOGLE_PLACES_API_KEY and GOOGLE_PLACE_ID.
+ * - Genuine reviews ONLY: paste verified Google reviews from LAWISA's Google
+ *   Business Profile into `reviews` below (exact author name, star rating,
+ *   original language, and verbatim wording), OR enable `enableAutoFetch: true`
+ *   once `/api/reviews` is configured with GOOGLE_PLACES_API_KEY and GOOGLE_PLACE_ID.
+ * - Never add invented or placeholder reviews.
  */
 window.LAWISA_REVIEWS_CONFIG = {
     businessName: "LAWISA Thaï Massage",
     rating: "5.0",
-    totalReviews: 222,
+    totalReviews: null, // Populated dynamically only when verified via Google Places API or confirmed directly
     mapsProfileUrl: "https://maps.app.goo.gl/87m61ci81Ua11WW76",
 
-    // Paste your Google Place ID (e.g. "ChIJ...") or direct review-request URL ("https://g.page/r/.../review")
-    // When set, the "Leave a Review" button opens Google's write-review modal directly;
-    // otherwise it opens LAWISA's Google Business Profile listing.
+    // Direct Google review-writing popup link
     placeId: "",
-    directWriteReviewUrl: "",
+    directWriteReviewUrl: "https://g.page/r/CQ6U_9CE7H4XEBM/review",
 
     enableAutoFetch: false,
     apiEndpoint: "/api/reviews",
 
-    reviews: [
-        {
-            author: "Sophie L.",
-            rating: 5,
-            text_fr: "Une expérience exceptionnelle. Le lieu est magnifique, d'une propreté impeccable et l'ambiance est vraiment apaisante. Le massage thaï aux huiles était parfait.",
-            text_en: "An exceptional experience. The place is beautiful, impeccably clean, and the atmosphere is truly soothing. The Thai warm oil massage was perfect."
-        },
-        {
-            author: "Marc D.",
-            rating: 5,
-            text_fr: "Le meilleur massage thaï de Paris. Le salon est luxueux, décoré avec beaucoup de goût. On s'y sent immédiatement bien. L'équipe est très professionnelle.",
-            text_en: "The best Thai massage in Paris. The salon is luxurious, decorated with great taste. You immediately feel at ease. The team is very professional."
-        },
-        {
-            author: "Camille P.",
-            rating: 5,
-            text_fr: "Une véritable parenthèse de détente au cœur de Paris. Les praticiennes sont très douées et à l'écoute. J'y retournerai les yeux fermés.",
-            text_en: "A true oasis of relaxation in the heart of Paris. The practitioners are very skilled and attentive. I will definitely be back."
-        },
-        {
-            author: "Julien T.",
-            rating: 5,
-            text_fr: "Superbe endroit ! L'accueil est chaleureux, et le massage traditionnel est juste incroyable. Une vraie évasion au cœur du 8ème arrondissement.",
-            text_en: "Superb place! Warm welcome, and the traditional Thai massage is just incredible. A true escape in the heart of the 8th arrondissement."
-        },
-        {
-            author: "Elodie R.",
-            rating: 5,
-            text_fr: "Propreté impeccable et massages très professionnels. La masseuse était très douée et le cadre parfait. J'ai choisi le massage aux huiles chaudes, un pur bonheur !",
-            text_en: "Impeccable cleanliness and very professional massages. The practitioner was very skilled and the setting was perfect. Pure bliss!"
-        },
-        {
-            author: "Antoine B.",
-            rating: 5,
-            text_fr: "Excellente adresse rue du Faubourg Saint-Honoré. Le cadre est relaxant et l'équipe est très attentionnée. Le massage traditionnel thaïlandais m'a fait énormément de bien.",
-            text_en: "Excellent address on Rue du Faubourg Saint-Honoré. The setting is relaxing and the team is very attentive. The traditional Thai massage did me a world of good."
-        },
-        {
-            author: "Laurence G.",
-            rating: 5,
-            text_fr: "J'ai passé un moment divin. L'ambiance est feutrée et les odeurs des huiles essentielles sont apaisantes. Je recommande vivement le massage mixte !",
-            text_en: "I had a divine time. The atmosphere is cozy and the essential oils smell wonderful. I highly recommend the mixed Thai & warm oil massage!"
-        },
-        {
-            author: "Guillaume V.",
-            rating: 5,
-            text_fr: "Prestation très haut de gamme. Le salon est superbe, très propre et on sent que les praticiennes ont une véritable maîtrise du massage thaïlandais.",
-            text_en: "Very high-end service. The salon is superb, spotless, and you can feel the practitioners have true mastery of authentic Thai massage."
-        }
-    ]
+    // Add ONLY genuine, verbatim Google reviews from LAWISA's Google profile:
+    // {
+    //     author: "Exact Reviewer Name",
+    //     rating: 5,
+    //     originalLang: "fr", // "fr" | "en" | other ISO code
+    //     originalText: "Exact verbatim wording as published on Google...",
+    //     translated_en: "Optional English translation (clearly labeled in UI)",
+    //     translated_fr: "Optional French translation (clearly labeled in UI)"
+    // }
+    reviews: []
 };
 
 (function initLawisaReviews() {
@@ -125,8 +85,35 @@ window.LAWISA_REVIEWS_CONFIG = {
         return document.documentElement.lang === "en" ? "en" : "fr";
     }
 
+    function resolveReviewDisplay(review, lang) {
+        const origLang = (review.originalLang || "").toLowerCase();
+        const origText = (review.originalText || review.text || "").trim();
+
+        if (lang === "en") {
+            if (origLang === "en" && origText) {
+                return { text: origText, translationNote: "" };
+            }
+            const translated = (review.translated_en || review.text_en || "").trim();
+            if (translated && translated !== origText) {
+                const note = origLang === "fr" ? "Translated from French" : "Translated to English";
+                return { text: translated, translationNote: note };
+            }
+            return { text: origText || translated, translationNote: "" };
+        }
+
+        if (origLang === "fr" && origText) {
+            return { text: origText, translationNote: "" };
+        }
+        const translated = (review.translated_fr || review.text_fr || "").trim();
+        if (translated && translated !== origText) {
+            const note = origLang === "en" ? "Traduit de l’anglais" : "Traduit en français";
+            return { text: translated, translationNote: note };
+        }
+        return { text: origText || translated, translationNote: "" };
+    }
+
     function buildCardHtml(review, idx, lang) {
-        const rawText = (lang === "en" ? (review.text_en || review.text_fr || review.text) : (review.text_fr || review.text)) || "";
+        const { text: rawText, translationNote } = resolveReviewDisplay(review, lang);
         const moreLabel = lang === "en" ? "More" : "Plus";
         const lessLabel = lang === "en" ? "Less" : "Moins";
         const isLong = rawText.length > 125;
@@ -145,6 +132,7 @@ window.LAWISA_REVIEWS_CONFIG = {
                     <span class="lawisa-review-body-text">${escapeHtml(shortText)}</span>
                     ${isLong ? `<button type="button" class="lawisa-review-more-btn" data-more-label="${moreLabel}" data-less-label="${lessLabel}">${moreLabel}</button>` : ""}
                 </p>
+                ${translationNote ? `<span class="lawisa-review-translated-note">${escapeHtml(translationNote)}</span>` : ""}
                 <div class="lawisa-review-card-footer">
                     <span class="lawisa-review-author">${escapeHtml(review.author)}</span>
                     ${GOOGLE_G_SVG}
@@ -208,8 +196,14 @@ window.LAWISA_REVIEWS_CONFIG = {
 
     function renderPagination() {
         const pagination = document.getElementById("lawisa-reviews-pagination");
-        if (!pagination || state.totalUnique <= 0) return;
+        if (!pagination) return;
+        if (state.totalUnique <= 0) {
+            pagination.innerHTML = "";
+            pagination.hidden = true;
+            return;
+        }
 
+        pagination.hidden = false;
         const lang = getCurrentLang();
         const prevLabel = lang === "en" ? "Previous review" : "Avis précédent";
         const nextLabel = lang === "en" ? "Next review" : "Avis suivant";
@@ -320,12 +314,32 @@ window.LAWISA_REVIEWS_CONFIG = {
     }
 
     function renderReviews(reviewsList, preserveIndex = false) {
+        const section = document.getElementById("avis");
+        const viewport = document.getElementById("lawisa-reviews-viewport");
         const track = document.getElementById("lawisa-reviews-track");
-        if (!track) return;
+        if (!track || !viewport) return;
 
         const lang = getCurrentLang();
-        const validReviews = Array.isArray(reviewsList) && reviewsList.length > 0 ? reviewsList : config.reviews;
+        const validReviews = Array.isArray(reviewsList)
+            ? reviewsList.filter(r => r && r.author && (r.originalText || r.text || r.text_fr || r.text_en))
+            : [];
+
         state.totalUnique = validReviews.length;
+
+        if (state.totalUnique === 0) {
+            track.innerHTML = "";
+            viewport.hidden = true;
+            if (section) section.classList.add("is-empty");
+            renderPagination();
+            if (window.ScrollTrigger && typeof window.ScrollTrigger.refresh === "function") {
+                window.ScrollTrigger.refresh();
+            }
+            return;
+        }
+
+        viewport.hidden = false;
+        if (section) section.classList.remove("is-empty");
+
         if (!preserveIndex || state.activeIndex >= state.totalUnique) {
             state.activeIndex = 0;
         }
@@ -558,9 +572,11 @@ window.LAWISA_REVIEWS_CONFIG = {
         document.querySelectorAll("[data-lawisa-rating]").forEach(el => {
             el.textContent = config.rating;
         });
-        document.querySelectorAll("[data-lawisa-review-count]").forEach(el => {
-            el.textContent = config.totalReviews;
-        });
+        if (config.totalReviews) {
+            document.querySelectorAll("[data-lawisa-review-count]").forEach(el => {
+                el.textContent = config.totalReviews;
+            });
+        }
         document.querySelectorAll("[data-lawisa-maps-link]").forEach(el => {
             el.setAttribute("href", config.mapsProfileUrl);
         });
@@ -592,13 +608,21 @@ window.LAWISA_REVIEWS_CONFIG = {
     }
 
     document.addEventListener("DOMContentLoaded", () => {
-        renderReviews(config.reviews, false);
-        updateStaticLinksAndCounts();
-        bindInteractionsOnce();
-        maybeFetchLiveReviews();
+        try {
+            renderReviews(config.reviews, false);
+            updateStaticLinksAndCounts();
+            bindInteractionsOnce();
+            maybeFetchLiveReviews();
 
-        window.addEventListener("lawisa:langchange", () => {
-            renderReviews(config.reviews, true);
-        });
+            window.addEventListener("lawisa:langchange", () => {
+                try {
+                    renderReviews(config.reviews, true);
+                } catch (err) {
+                    console.error("LAWISA reviews langchange error:", err);
+                }
+            });
+        } catch (err) {
+            console.error("LAWISA reviews init error:", err);
+        }
     });
 })();

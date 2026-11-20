@@ -11,15 +11,16 @@
     --deep-gold: #B88718;
     --charcoal: #22211F;
     --warm-beige: #E9DDCA;
-    
+
     /* Typography */
     --font-heading: 'Cormorant Garamond', serif;
     --font-body: 'Inter', sans-serif;
-    
+
     /* Spacing & Layout */
     --section-padding: 120px 0;
-    --container-width: 1280px; /* Widened for desktop as requested */
-    
+    --container-width: 1280px;
+    /* Widened for desktop as requested */
+
     /* Effects */
     --transition-slow: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     --transition-fast: 0.3s ease;
@@ -68,7 +69,12 @@ h6,
     margin-bottom: 1rem;
 }
 
-nav, .nav-links a, button, .btn, .btn-header, .btn-primary {
+nav,
+.nav-links a,
+button,
+.btn,
+.btn-header,
+.btn-primary {
     font-family: 'Inter', sans-serif !important;
 }
 
@@ -112,8 +118,13 @@ img {
     background-color: var(--warm-ivory);
 }
 
-.mt-2 { margin-top: 1rem; }
-.mt-4 { margin-top: 2rem; }
+.mt-2 {
+    margin-top: 1rem;
+}
+
+.mt-4 {
+    margin-top: 2rem;
+}
 
 /* Buttons */
 .btn {
@@ -216,7 +227,7 @@ img {
     backdrop-filter: blur(10px);
     padding: 0.5rem 0;
     border-bottom: 1px solid var(--warm-beige);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
 }
 
 .header.scrolled::before {
@@ -262,7 +273,8 @@ img {
 .header:not(.scrolled) .nav-links a,
 .header:not(.scrolled) .lang-switch,
 .header:not(.scrolled) .lang-switch a {
-    color: var(--charcoal); /* Changed to charcoal for better contrast on hero if hero gets brighter */
+    color: var(--charcoal);
+    /* Changed to charcoal for better contrast on hero if hero gets brighter */
 }
 
 /* Force specific colors if needed on hero, but we'll stick to charcoal for elegance */
@@ -385,7 +397,8 @@ img {
     z-index: 1;
 }
 
-.hero-image img, .hero-image video {
+.hero-image img,
+.hero-image video {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -637,12 +650,10 @@ a.hero-social:hover {
     inset: 0;
     border-radius: 999px 999px 18px 18px;
     box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.14);
-    background: linear-gradient(
-        to top,
-        rgba(18, 16, 14, 0.62) 0%,
-        rgba(18, 16, 14, 0.18) 44%,
-        rgba(0, 0, 0, 0) 100%
-    );
+    background: linear-gradient(to top,
+            rgba(18, 16, 14, 0.62) 0%,
+            rgba(18, 16, 14, 0.18) 44%,
+            rgba(0, 0, 0, 0) 100%);
     transition: background 0.45s ease, box-shadow 0.3s ease;
     z-index: 1;
     pointer-events: none;
@@ -652,12 +663,10 @@ a.hero-social:hover {
 .service-card.is-hovered .service-image::after,
 .service-card:focus-within .service-image::after {
     box-shadow: inset 0 0 0 1.5px var(--lawisa-gold);
-    background: linear-gradient(
-        to top,
-        rgba(18, 16, 14, 0.72) 0%,
-        rgba(18, 16, 14, 0.36) 56%,
-        rgba(0, 0, 0, 0.08) 100%
-    );
+    background: linear-gradient(to top,
+            rgba(18, 16, 14, 0.84) 0%,
+            rgba(18, 16, 14, 0.54) 64%,
+            rgba(0, 0, 0, 0.1) 100%);
 }
 
 .service-image img {
@@ -679,7 +688,7 @@ a.hero-social:hover {
 .service-info {
     position: relative;
     z-index: 2;
-    padding: 2rem 2.15rem 1.85rem;
+    padding: 1.75rem 2rem 1.75rem;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -687,54 +696,65 @@ a.hero-social:hover {
     background: transparent;
 }
 
-.service-info > div {
+.service-info>div {
     display: flex;
     flex-direction: column;
     border-bottom: 1px solid rgba(255, 255, 255, 0.22);
-    padding-bottom: 1rem;
-    margin-bottom: 1.15rem;
+    padding-bottom: 0.9rem;
+    margin-bottom: 1.05rem;
 }
 
 .service-info h3 {
     font-family: 'Inter', sans-serif !important;
     font-weight: 700;
-    font-size: 1.65rem;
+    font-size: 1.42rem;
     line-height: 1.2;
     color: #ffffff;
-    margin-bottom: 0;
+    margin-bottom: 0.35rem;
     text-transform: none;
     letter-spacing: -0.01em;
-    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.45);
+}
+
+.service-price {
+    display: inline-block;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.86rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: #F4D47A;
+    margin-bottom: 0;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.45);
     transition: margin-bottom 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.service-card:hover .service-info h3,
-.service-card.is-hovered .service-info h3,
-.service-card:focus-within .service-info h3 {
-    margin-bottom: 0.75rem;
+.service-card:hover .service-price,
+.service-card.is-hovered .service-price,
+.service-card:focus-within .service-price {
+    margin-bottom: 0.65rem;
 }
 
 .service-desc {
     font-family: 'Inter', sans-serif !important;
-    font-size: 0.95rem;
+    font-size: 0.87rem;
     font-weight: 400;
-    color: rgba(255, 255, 255, 0.92);
-    line-height: 1.55;
+    color: rgba(255, 255, 255, 0.94);
+    line-height: 1.48;
     max-height: 0;
     opacity: 0;
     overflow: hidden;
     transform: translateY(12px);
     margin-bottom: 0;
-    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.35);
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.45);
     transition: max-height 0.45s cubic-bezier(0.16, 1, 0.3, 1),
-                opacity 0.35s ease,
-                transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        opacity 0.35s ease,
+        transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .service-card:hover .service-desc,
 .service-card.is-hovered .service-desc,
 .service-card:focus-within .service-desc {
-    max-height: 180px;
+    max-height: 230px;
     opacity: 1;
     transform: translateY(0);
 }
@@ -751,11 +771,9 @@ a.hero-social:hover {
     font-weight: 500;
     text-transform: none;
     color: #ffffff !important;
-    background: linear-gradient(
-        135deg,
-        rgba(92, 84, 76, 0.62) 0%,
-        rgba(54, 49, 44, 0.78) 100%
-    );
+    background: linear-gradient(135deg,
+            rgba(92, 84, 76, 0.62) 0%,
+            rgba(54, 49, 44, 0.78) 100%);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.28);
@@ -1164,7 +1182,7 @@ a.hero-social:hover {
         grid-template-columns: 1fr;
         gap: 4rem;
     }
-    
+
     .editorial-photos {
         height: 600px;
     }
@@ -1174,7 +1192,7 @@ a.hero-social:hover {
     .editorial-photos {
         height: 400px;
     }
-    
+
     .editorial-title {
         font-size: 2.8rem;
     }
@@ -1185,7 +1203,10 @@ a.hero-social:hover {
     display: none;
     position: fixed;
     z-index: 9999;
-    top: 0; left: 0; right: 0; bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background-color: rgba(15, 15, 15, 0.95);
     justify-content: center;
     align-items: center;
@@ -1205,10 +1226,12 @@ a.hero-social:hover {
     max-width: 100%;
     max-height: 90vh;
     object-fit: contain;
-    box-shadow: 0 0 30px rgba(0,0,0,0.5);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
 }
 
-.lightbox-close, .lightbox-prev, .lightbox-next {
+.lightbox-close,
+.lightbox-prev,
+.lightbox-next {
     position: absolute;
     color: white;
     cursor: pointer;
@@ -1217,7 +1240,9 @@ a.hero-social:hover {
     user-select: none;
 }
 
-.lightbox-close:hover, .lightbox-prev:hover, .lightbox-next:hover {
+.lightbox-close:hover,
+.lightbox-prev:hover,
+.lightbox-next:hover {
     color: var(--lawisa-gold);
 }
 
@@ -1256,14 +1281,19 @@ a.hero-social:hover {
 .reviews-frame::before {
     content: '';
     position: absolute;
-    top: 10px; left: 10px; right: 10px; bottom: 10px;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
     border: 1px solid var(--lawisa-gold);
     pointer-events: none;
     opacity: 0.3;
 }
+
 .reviews .section-title {
     margin-bottom: 1rem;
 }
+
 .reviews-link-wrapper {
     display: block;
     text-decoration: none;
@@ -1349,7 +1379,7 @@ a.hero-social:hover {
     border-radius: 4px;
     border: 1px solid #e5e5e5;
     text-align: left;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 
 .review-header {
@@ -1764,7 +1794,8 @@ a.hero-social:hover {
     transition: color 0.3s ease;
 }
 
-.footer-lang a.active, .footer-lang a:hover {
+.footer-lang a.active,
+.footer-lang a:hover {
     color: var(--lawisa-gold);
 }
 
@@ -1801,49 +1832,60 @@ a.hero-social:hover {
    Responsive Design
    ========================================================================== */
 @media (max-width: 1200px) {
-    .hero h1 { font-size: 4rem; }
-    
-    .services-grid { gap: 2rem; }
-    
+    .hero h1 {
+        font-size: 4rem;
+    }
+
+    .services-grid {
+        gap: 2rem;
+    }
+
     .gallery-grid {
         grid-auto-rows: 350px;
     }
 }
 
 @media (max-width: 1024px) {
-    .services-grid, .reviews-grid {
+
+    .services-grid,
+    .reviews-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-    
+
     .gallery-grid {
         grid-template-columns: repeat(2, 1fr);
         grid-auto-rows: 300px;
     }
-    
-    .item-large, .item-portrait, .item-landscape {
+
+    .item-large,
+    .item-portrait,
+    .item-landscape {
         grid-column: span 1;
         grid-row: span 1;
     }
-    
+
     .location-grid {
         padding: 3rem;
         gap: 3rem;
     }
-    
+
     .experience-content {
         gap: 3rem;
     }
 }
 
 @media (max-width: 768px) {
-    .nav-links, .nav-actions .btn, .lang-switch {
+
+    .nav-links,
+    .nav-actions .btn,
+    .lang-switch {
         display: none;
     }
-    
+
     .mobile-menu-btn {
         display: block;
     }
-    
+
     .nav-links.active {
         display: flex;
         flex-direction: column;
@@ -1853,41 +1895,44 @@ a.hero-social:hover {
         width: 100%;
         background: #fff;
         padding: 2rem;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     }
-    
+
     .hero h1 {
         font-size: 3rem;
     }
-    
+
     .hero::after {
         background: linear-gradient(to right, rgba(255, 252, 247, 0.95) 0%, rgba(255, 252, 247, 0.85) 100%);
     }
-    
-    .services-grid, .reviews-grid {
+
+    .services-grid,
+    .reviews-grid {
         grid-template-columns: 1fr;
     }
-    
-    .experience-content, .location-grid, .footer-grid {
+
+    .experience-content,
+    .location-grid,
+    .footer-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .experience-image {
         margin-top: 2rem;
     }
-    
+
     .location-grid {
         padding: 2rem;
     }
-    
+
     .section-padding {
         padding: 5rem 0;
     }
-    
+
     .hero-buttons {
         flex-direction: column;
     }
-    
+
     .location-buttons {
         flex-direction: column;
     }
@@ -1943,10 +1988,12 @@ a.hero-social:hover {
         padding: 0.62rem 1rem;
         gap: 0.45rem;
     }
+
     .whatsapp-widget svg {
         width: 20px;
         height: 20px;
     }
+
     .whatsapp-widget-label {
         font-size: 0.78rem;
     }
@@ -1965,6 +2012,16 @@ a.hero-social:hover {
     justify-content: center;
     background: linear-gradient(180deg, var(--soft-white) 0%, var(--warm-ivory) 50%, var(--soft-white) 100%);
     overflow: hidden;
+}
+
+.lawisa-reviews-section.is-empty {
+    min-height: auto;
+    padding: 3.75rem 0;
+}
+
+.lawisa-reviews-viewport[hidden],
+.lawisa-reviews-pagination[hidden] {
+    display: none !important;
 }
 
 .lawisa-reviews-container {
@@ -2159,6 +2216,15 @@ a.hero-social:hover {
 .lawisa-review-more-btn:hover {
     color: var(--charcoal);
     text-decoration: underline;
+}
+
+.lawisa-review-translated-note {
+    display: block;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.74rem;
+    font-style: italic;
+    color: rgba(34, 33, 31, 0.52);
+    margin: -0.4rem 0 0.65rem;
 }
 
 .lawisa-review-card-footer {

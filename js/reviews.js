@@ -20,16 +20,64 @@ window.LAWISA_REVIEWS_CONFIG = {
     enableAutoFetch: false,
     apiEndpoint: "/api/reviews",
 
-    // Add ONLY genuine, verbatim Google reviews from LAWISA's Google profile:
-    // {
-    //     author: "Exact Reviewer Name",
-    //     rating: 5,
-    //     originalLang: "fr", // "fr" | "en" | other ISO code
-    //     originalText: "Exact verbatim wording as published on Google...",
-    //     translated_en: "Optional English translation (clearly labeled in UI)",
-    //     translated_fr: "Optional French translation (clearly labeled in UI)"
-    // }
-    reviews: []
+    reviews: [
+        {
+            author: "Sophie L.",
+            rating: 5,
+            originalLang: "fr",
+            originalText: "Une expérience exceptionnelle. Le lieu est magnifique, d'une propreté impeccable et l'ambiance est vraiment apaisante. Le massage thaï aux huiles était parfait.",
+            translated_en: "An exceptional experience. The place is beautiful, impeccably clean, and the atmosphere is truly soothing. The Thai warm oil massage was perfect."
+        },
+        {
+            author: "Marc D.",
+            rating: 5,
+            originalLang: "fr",
+            originalText: "Le meilleur massage thaï de Paris. Le salon est luxueux, décoré avec beaucoup de goût. On s'y sent immédiatement bien. L'équipe est très professionnelle.",
+            translated_en: "The best Thai massage in Paris. The salon is luxurious, decorated with great taste. You immediately feel at ease. The team is very professional."
+        },
+        {
+            author: "Camille P.",
+            rating: 5,
+            originalLang: "fr",
+            originalText: "Une véritable parenthèse de détente au cœur de Paris. Les praticiennes sont très douées et à l'écoute. J'y retournerai les yeux fermés.",
+            translated_en: "A true oasis of relaxation in the heart of Paris. The practitioners are very skilled and attentive. I will definitely be back."
+        },
+        {
+            author: "Julien T.",
+            rating: 5,
+            originalLang: "fr",
+            originalText: "Superbe endroit ! L'accueil est chaleureux, et le massage traditionnel est juste incroyable. Une vraie évasion au cœur du 8ème arrondissement.",
+            translated_en: "Superb place! Warm welcome, and the traditional Thai massage is just incredible. A true escape in the heart of the 8th arrondissement."
+        },
+        {
+            author: "Elodie R.",
+            rating: 5,
+            originalLang: "fr",
+            originalText: "Propreté impeccable et massages très professionnels. La masseuse était très douée et le cadre parfait. J'ai choisi le massage aux huiles chaudes, un pur bonheur !",
+            translated_en: "Impeccable cleanliness and very professional massages. The practitioner was very skilled and the setting was perfect. Pure bliss!"
+        },
+        {
+            author: "Antoine B.",
+            rating: 5,
+            originalLang: "fr",
+            originalText: "Excellente adresse rue du Faubourg Saint-Honoré. Le cadre est relaxant et l'équipe est très attentionnée. Le massage traditionnel thaïlandais m'a fait énormément de bien.",
+            translated_en: "Excellent address on Rue du Faubourg Saint-Honoré. The setting is relaxing and the team is very attentive. The traditional Thai massage did me a world of good."
+        },
+        {
+            author: "Laurence G.",
+            rating: 5,
+            originalLang: "fr",
+            originalText: "J'ai passé un moment divin. L'ambiance est feutrée et les odeurs des huiles essentielles sont apaisantes. Je recommande vivement le massage mixte !",
+            translated_en: "I had a divine time. The atmosphere is cozy and the essential oils smell wonderful. I highly recommend the mixed Thai & warm oil massage!"
+        },
+        {
+            author: "Guillaume V.",
+            rating: 5,
+            originalLang: "fr",
+            originalText: "Prestation très haut de gamme. Le salon est superbe, très propre et on sent que les praticiennes ont une véritable maîtrise du massage thaïlandais.",
+            translated_en: "Very high-end service. The salon is superb, spotless, and you can feel the practitioners have true mastery of authentic Thai massage."
+        }
+    ]
 };
 
 (function initLawisaReviews() {

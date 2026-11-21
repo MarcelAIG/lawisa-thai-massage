@@ -1,0 +1,476 @@
+/* ==========================================================================
+   LAWISA Massages Collection (/massages/ & /en/massages/)
+   Paired with /style.css (v47): Newsreader + DM Sans, warm ivory, charcoal, gold
+   ========================================================================== */
+
+.mcat-main {
+    background-color: var(--soft-white);
+    color: var(--charcoal);
+    overflow-x: clip;
+}
+
+.mcat-container {
+    width: 100%;
+    max-width: 1380px;
+    margin: 0 auto;
+    padding: 0 clamp(1.25rem, 3.2vw, 2.75rem);
+}
+
+/* ==========================================================================
+   1. Editorial Hero — Asymmetrical Luxury Composition
+   ========================================================================== */
+.mcat-hero {
+    background-color: var(--soft-white);
+    padding: clamp(6rem, 8.8vw, 7.25rem) 0 clamp(2.5rem, 4.5vw, 3.75rem);
+}
+
+.mcat-hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.84fr) minmax(0, 1.16fr);
+    gap: clamp(2rem, 5vw, 4.75rem);
+    align-items: center;
+}
+
+.mcat-hero-copy {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.mcat-hero-title {
+    font-family: var(--font-heading);
+    font-size: clamp(2.45rem, 4vw, 3.65rem);
+    font-weight: 400;
+    line-height: 1.06;
+    letter-spacing: -0.025em;
+    color: var(--charcoal);
+    margin: 0;
+}
+
+.mcat-hero-title em {
+    font-style: italic;
+    font-weight: 400;
+    color: #5E4A1E;
+}
+
+.mcat-hero-rule {
+    width: 44px;
+    height: 1px;
+    background-color: rgba(217, 165, 29, 0.72);
+    margin: 1.3rem 0;
+    display: block;
+}
+
+.mcat-hero-lead {
+    font-family: var(--font-body);
+    font-size: clamp(0.98rem, 1.2vw, 1.0625rem);
+    line-height: 1.68;
+    color: rgba(34, 33, 31, 0.78);
+    max-width: 38ch;
+    margin: 0;
+}
+
+.mcat-hero-media {
+    border-radius: 10px;
+    overflow: hidden;
+    aspect-ratio: 16 / 10;
+    max-height: 490px;
+    width: 100%;
+    border: 1px solid rgba(217, 165, 29, 0.24);
+    box-shadow: 0 22px 52px rgba(34, 33, 31, 0.08);
+    background-color: #ECE4D5;
+}
+
+.mcat-hero-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 35%;
+    display: block;
+    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mcat-hero-media:hover img {
+    transform: scale(1.02);
+}
+
+/* ==========================================================================
+   2. 4 x 2 Massage Collection Grid
+   ========================================================================== */
+.mcat-collection {
+    background-color: var(--warm-ivory);
+    border-top: 1px solid rgba(217, 165, 29, 0.16);
+    padding: clamp(2.75rem, 5vw, 4rem) 0 clamp(3.5rem, 6vw, 4.75rem);
+}
+
+.mcat-collection-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-bottom: clamp(1.65rem, 3vw, 2.35rem);
+    padding-bottom: 0.9rem;
+    border-bottom: 1px solid rgba(217, 165, 29, 0.22);
+}
+
+.mcat-collection-title {
+    font-family: var(--font-heading);
+    font-size: clamp(1.7rem, 2.4vw, 2.15rem);
+    font-weight: 400;
+    line-height: 1.15;
+    letter-spacing: -0.018em;
+    color: var(--charcoal);
+    margin: 0;
+}
+
+.mcat-collection-count {
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #9A7012;
+    white-space: nowrap;
+}
+
+.mcat-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: clamp(1.15rem, 1.75vw, 1.65rem);
+}
+
+.mcat-card {
+    position: relative;
+    aspect-ratio: 3 / 4;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #2A2622;
+    border: 1px solid rgba(217, 165, 29, 0.24);
+    box-shadow: 0 12px 30px rgba(34, 33, 31, 0.08);
+    isolation: isolate;
+    cursor: pointer;
+    transition: border-color 0.35s ease, box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mcat-card:hover,
+.mcat-card:focus-within,
+.mcat-card.is-revealed {
+    border-color: rgba(217, 165, 29, 0.78);
+    box-shadow: 0 22px 46px rgba(34, 33, 31, 0.16);
+    transform: translateY(-3px);
+}
+
+.mcat-card-photo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 22%;
+    transition: transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mcat-card:hover .mcat-card-photo,
+.mcat-card:focus-within .mcat-card-photo,
+.mcat-card.is-revealed .mcat-card-photo {
+    transform: scale(1.05);
+}
+
+.mcat-card-scrim {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(180deg,
+            rgba(20, 19, 17, 0) 46%,
+            rgba(20, 19, 17, 0.38) 70%,
+            rgba(20, 19, 17, 0.85) 100%);
+    transition: opacity 0.35s ease;
+}
+
+.mcat-card-scrim-deep {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0;
+    background: linear-gradient(180deg,
+            rgba(20, 19, 17, 0.18) 0%,
+            rgba(20, 19, 17, 0.58) 42%,
+            rgba(20, 19, 17, 0.93) 100%);
+    transition: opacity 0.38s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mcat-card:hover .mcat-card-scrim-deep,
+.mcat-card:focus-within .mcat-card-scrim-deep,
+.mcat-card.is-revealed .mcat-card-scrim-deep {
+    opacity: 1;
+}
+
+.mcat-card-body {
+    position: absolute;
+    inset: auto 0 0 0;
+    z-index: 2;
+    padding: 1.35rem 1.3rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.mcat-card-title {
+    font-family: var(--font-heading);
+    font-size: clamp(1.18rem, 1.42vw, 1.36rem);
+    font-weight: 400;
+    line-height: 1.18;
+    letter-spacing: -0.012em;
+    color: #FFFCF7;
+    margin: 0 0 0.3rem;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
+}
+
+.mcat-card-price {
+    font-family: var(--font-body);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    font-variant-numeric: lining-nums tabular-nums;
+    color: #F4D47A;
+    display: block;
+}
+
+/* Hover / Tap Reveal Drawer */
+.mcat-card-reveal {
+    display: grid;
+    grid-template-rows: 0fr;
+    opacity: 0;
+    transition: grid-template-rows 0.42s cubic-bezier(0.16, 1, 0.3, 1),
+        opacity 0.32s ease,
+        margin-top 0.35s ease;
+    margin-top: 0;
+}
+
+.mcat-card:hover .mcat-card-reveal,
+.mcat-card:focus-within .mcat-card-reveal,
+.mcat-card.is-revealed .mcat-card-reveal {
+    grid-template-rows: 1fr;
+    opacity: 1;
+    margin-top: 0.75rem;
+}
+
+.mcat-card-reveal-inner {
+    overflow: hidden;
+    min-height: 0;
+}
+
+.mcat-card-desc {
+    font-family: var(--font-body);
+    font-size: 0.84rem;
+    line-height: 1.52;
+    color: rgba(255, 252, 247, 0.9);
+    margin: 0 0 0.95rem;
+}
+
+.mcat-card-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding-top: 0.8rem;
+    border-top: 1px solid rgba(217, 165, 29, 0.3);
+}
+
+.mcat-book-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.56rem 1.15rem;
+    border-radius: 6px;
+    background-color: var(--lawisa-gold);
+    border: 1px solid var(--lawisa-gold);
+    color: #1F1E1B !important;
+    font-family: var(--font-body);
+    font-size: 0.76rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background-color 0.22s ease, transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.mcat-book-btn:hover,
+.mcat-book-btn:focus-visible {
+    background-color: #FFFCF7;
+    border-color: var(--lawisa-gold);
+    color: #1F1E1B !important;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(217, 165, 29, 0.32);
+}
+
+.mcat-discover-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: #FFFCF7;
+    text-decoration: none;
+    padding: 0.25rem 0;
+    border-bottom: 1px solid rgba(244, 212, 122, 0.45);
+    white-space: nowrap;
+    transition: color 0.22s ease, border-color 0.22s ease, transform 0.22s ease;
+}
+
+.mcat-discover-link:hover,
+.mcat-discover-link:focus-visible {
+    color: #F4D47A;
+    border-color: #F4D47A;
+    transform: translateX(2px);
+}
+
+/* ==========================================================================
+   3. Unobstructed Wide Spa Photograph with Minimalist Left CTA
+   ========================================================================== */
+.mcat-sanctuary {
+    position: relative;
+    width: 100%;
+    height: clamp(410px, 54vh, 540px);
+    overflow: hidden;
+    background-color: #2A2622;
+}
+
+.mcat-sanctuary-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 58%;
+    display: block;
+}
+
+.mcat-sanctuary-scrim {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(90deg,
+            rgba(20, 19, 17, 0.74) 0%,
+            rgba(20, 19, 17, 0.36) 38%,
+            rgba(20, 19, 17, 0) 68%);
+}
+
+.mcat-sanctuary-inner {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    max-width: 1380px;
+    margin: 0 auto;
+    padding: clamp(2.5rem, 5vw, 4rem) clamp(1.25rem, 3.2vw, 2.75rem);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+}
+
+.mcat-sanctuary-content {
+    max-width: 440px;
+}
+
+.mcat-sanctuary-title {
+    font-family: var(--font-heading);
+    font-size: clamp(1.85rem, 3vw, 2.65rem);
+    font-weight: 400;
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+    color: #FFFCF7;
+    margin: 0 0 1.35rem;
+    text-shadow: 0 2px 18px rgba(0, 0, 0, 0.38);
+}
+
+.mcat-sanctuary-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.85rem 2rem;
+    border-radius: 8px;
+    background-color: var(--lawisa-gold);
+    border: 1px solid var(--lawisa-gold);
+    color: #1F1E1B !important;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.24);
+    transition: background-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.mcat-sanctuary-cta:hover,
+.mcat-sanctuary-cta:focus-visible {
+    background-color: #FFFCF7;
+    border-color: var(--lawisa-gold);
+    color: #1F1E1B !important;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(217, 165, 29, 0.34);
+}
+
+/* ==========================================================================
+   Responsive Adjustments
+   ========================================================================== */
+@media (max-width: 1120px) {
+    .mcat-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 900px) {
+    .mcat-hero-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 680px) {
+    .mcat-collection-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.4rem;
+    }
+
+    .mcat-grid {
+        grid-template-columns: minmax(0, 420px);
+        justify-content: center;
+    }
+
+    .mcat-sanctuary {
+        height: 400px;
+    }
+
+    .mcat-sanctuary-scrim {
+        background: linear-gradient(180deg,
+                rgba(20, 19, 17, 0.08) 0%,
+                rgba(20, 19, 17, 0.46) 54%,
+                rgba(20, 19, 17, 0.82) 100%);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .mcat-hero-media img,
+    .mcat-card,
+    .mcat-card-photo,
+    .mcat-card-scrim-deep,
+    .mcat-card-reveal,
+    .mcat-book-btn,
+    .mcat-discover-link,
+    .mcat-sanctuary-cta,
+    .fade-in-up {
+        transition: none;
+        transform: none;
+    }
+
+    .fade-in-up {
+        opacity: 1;
+    }
+}

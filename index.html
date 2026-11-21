@@ -16,7 +16,7 @@
         href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,400..500&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css?v=44">
+    <link rel="stylesheet" href="style.css?v=47">
 
     <!-- GSAP for Horizontal Scroll -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -34,10 +34,10 @@
             </div>
             <nav class="nav-links">
                 <a href="#accueil" data-i18n="nav_home">Accueil</a>
-                <a href="#massages" data-i18n="nav_massages">Massages</a>
+                <a href="/massages/" data-i18n="nav_massages" data-i18n-href="nav_massages_url">Massages</a>
                 <a href="#le-salon" data-i18n="nav_salon">Le Salon</a>
                 <a href="#galerie" data-i18n="nav_gallery">Galerie</a>
-                <a href="#service-area" data-i18n="nav_service_area">Zone de service</a>
+                <a href="#offres" data-i18n="nav_offers">Offres</a>
                 <a href="#contact" data-i18n="nav_contact">Contact</a>
             </nav>
             <div class="nav-actions">
@@ -96,7 +96,7 @@
         <div class="services-wrapper">
             <div class="services-grid">
                 <!-- Service 1 -->
-                <div class="service-card fade-in-up">
+                <div class="service-card fade-in-up" data-detail-card>
                     <div class="service-image">
                         <img src="public/images/services/thai-traditionnel.jpg" alt="Massage Thaï Traditionnel"
                             data-i18n-alt="massage_1" decoding="async">
@@ -112,6 +112,9 @@
                         <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking"
                             target="_blank" rel="noopener noreferrer" class="service-link"
                             data-i18n="card_btn_book">Réserver</a>
+                        <a href="/massages/massage-thai-traditionnel/" class="service-detail-link"
+                            data-i18n="card_btn_discover" data-i18n-href="massage_1_url">Découvrir <span
+                                aria-hidden="true">→</span></a>
                     </div>
                 </div>
 
@@ -304,8 +307,8 @@
                 <div class="lawisa-reviews-bar">
                     <h2 class="lawisa-reviews-title" data-i18n="reviews_main_heading">Avis Clients</h2>
                     <div class="lawisa-reviews-line" aria-hidden="true"></div>
-                    <a href="https://www.google.com/maps/place//data=!4m4!3m3!1s0x47e66f31875950e5:0x177eec84d0ff940e!9m1!1b1" target="_blank" rel="noopener noreferrer"
-                        class="lawisa-see-all-btn" data-lawisa-maps-link>
+                    <a href="https://www.google.com/maps/place//data=!4m4!3m3!1s0x47e66f31875950e5:0x177eec84d0ff940e!9m1!1b1"
+                        target="_blank" rel="noopener noreferrer" class="lawisa-see-all-btn" data-lawisa-maps-link>
                         <span data-i18n="reviews_see_all_btn">Voir tous les avis Google</span>
                         <span class="lawisa-see-all-arrow" aria-hidden="true">→</span>
                     </a>
@@ -341,7 +344,8 @@
             <div class="lawisa-offers-header fade-in-up">
                 <span class="lawisa-offers-eyebrow" data-i18n="offers_eyebrow">PRIVILÈGES &amp; FORFAITS</span>
                 <h2 class="lawisa-offers-title" data-i18n="offers_title">Offres &amp; Forfaits</h2>
-                <p class="lawisa-offers-subtitle" data-i18n="offers_subtitle">Des parenthèses privilégiées pensées pour prolonger votre bien-être au cœur du 8ᵉ arrondissement.</p>
+                <p class="lawisa-offers-subtitle" data-i18n="offers_subtitle">Des parenthèses privilégiées pensées pour
+                    prolonger votre bien-être au cœur du 8ᵉ arrondissement.</p>
             </div>
 
             <div class="lawisa-offers-grid">
@@ -360,16 +364,20 @@
                                 <h3 class="lawisa-offer-card-title" data-i18n="offer_hh_title">Happy Hour</h3>
                                 <div class="lawisa-offer-card-summary">
                                     <span class="lawisa-offer-card-price" data-i18n="offer_hh_price">69 €</span>
-                                    <span class="lawisa-offer-card-cue" data-i18n="offer_cue_discover">Découvrir +</span>
+                                    <span class="lawisa-offer-card-cue" data-i18n="offer_cue_discover">Découvrir
+                                        +</span>
                                 </div>
                             </div>
                             <div class="lawisa-offer-card-reveal">
                                 <div class="lawisa-offer-card-reveal-inner">
                                     <span class="lawisa-offer-divider" aria-hidden="true"></span>
-                                    <p class="lawisa-offer-card-tagline" data-i18n="offer_hh_tagline">Une heure rien que pour vous, à prix doux.</p>
+                                    <p class="lawisa-offer-card-tagline" data-i18n="offer_hh_tagline">Une heure rien que
+                                        pour vous, à prix doux.</p>
                                     <div class="lawisa-offer-card-details">
-                                        <p class="lawisa-offer-card-detail" data-i18n="offer_hh_detail">Massage aux huiles de 60 minutes</p>
-                                        <p class="lawisa-offer-card-schedule" data-i18n="offer_hh_schedule">Lundi – Vendredi · 11h00 – 14h00</p>
+                                        <p class="lawisa-offer-card-detail" data-i18n="offer_hh_detail">Massage aux
+                                            huiles de 60 minutes</p>
+                                        <p class="lawisa-offer-card-schedule" data-i18n="offer_hh_schedule">Lundi –
+                                            Vendredi · 11h00 – 14h00</p>
                                     </div>
                                     <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking"
                                         target="_blank" rel="noopener noreferrer" class="lawisa-offer-cta"
@@ -395,16 +403,20 @@
                                 <h3 class="lawisa-offer-card-title" data-i18n="offer_p5_title">Forfait 5 Séances</h3>
                                 <div class="lawisa-offer-card-summary">
                                     <span class="lawisa-offer-card-price" data-i18n="offer_p5_price">400 €</span>
-                                    <span class="lawisa-offer-card-cue" data-i18n="offer_cue_discover">Découvrir +</span>
+                                    <span class="lawisa-offer-card-cue" data-i18n="offer_cue_discover">Découvrir
+                                        +</span>
                                 </div>
                             </div>
                             <div class="lawisa-offer-card-reveal">
                                 <div class="lawisa-offer-card-reveal-inner">
                                     <span class="lawisa-offer-divider" aria-hidden="true"></span>
-                                    <p class="lawisa-offer-card-tagline" data-i18n="offer_pkg_tagline">Prolongez vos moments de bien-être.</p>
+                                    <p class="lawisa-offer-card-tagline" data-i18n="offer_pkg_tagline">Prolongez vos
+                                        moments de bien-être.</p>
                                     <div class="lawisa-offer-card-details">
-                                        <p class="lawisa-offer-card-detail" data-i18n="offer_p5_detail">5 séances de massage · Offre permanente</p>
-                                        <p class="lawisa-offer-card-schedule" data-i18n="offer_pkg_meta">Votre rituel bien-être chez LAWISA</p>
+                                        <p class="lawisa-offer-card-detail" data-i18n="offer_p5_detail">5 séances de
+                                            massage · Offre permanente</p>
+                                        <p class="lawisa-offer-card-schedule" data-i18n="offer_pkg_meta">Votre rituel
+                                            bien-être chez LAWISA</p>
                                     </div>
                                     <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking"
                                         target="_blank" rel="noopener noreferrer" class="lawisa-offer-cta"
@@ -430,16 +442,20 @@
                                 <h3 class="lawisa-offer-card-title" data-i18n="offer_p10_title">Forfait 10 Séances</h3>
                                 <div class="lawisa-offer-card-summary">
                                     <span class="lawisa-offer-card-price" data-i18n="offer_p10_price">750 €</span>
-                                    <span class="lawisa-offer-card-cue" data-i18n="offer_cue_discover">Découvrir +</span>
+                                    <span class="lawisa-offer-card-cue" data-i18n="offer_cue_discover">Découvrir
+                                        +</span>
                                 </div>
                             </div>
                             <div class="lawisa-offer-card-reveal">
                                 <div class="lawisa-offer-card-reveal-inner">
                                     <span class="lawisa-offer-divider" aria-hidden="true"></span>
-                                    <p class="lawisa-offer-card-tagline" data-i18n="offer_pkg_tagline">Prolongez vos moments de bien-être.</p>
+                                    <p class="lawisa-offer-card-tagline" data-i18n="offer_pkg_tagline">Prolongez vos
+                                        moments de bien-être.</p>
                                     <div class="lawisa-offer-card-details">
-                                        <p class="lawisa-offer-card-detail" data-i18n="offer_p10_detail">10 séances de massage · Offre permanente</p>
-                                        <p class="lawisa-offer-card-schedule" data-i18n="offer_pkg_meta">Votre rituel bien-être chez LAWISA</p>
+                                        <p class="lawisa-offer-card-detail" data-i18n="offer_p10_detail">10 séances de
+                                            massage · Offre permanente</p>
+                                        <p class="lawisa-offer-card-schedule" data-i18n="offer_pkg_meta">Votre rituel
+                                            bien-être chez LAWISA</p>
                                     </div>
                                     <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking"
                                         target="_blank" rel="noopener noreferrer" class="lawisa-offer-cta"
@@ -549,79 +565,94 @@
 
             <div class="lawisa-faq-list fade-in-up">
                 <article class="lawisa-faq-item">
-                    <button type="button" class="lawisa-faq-trigger" id="lawisa-faq-trigger-1"
-                        aria-expanded="false" aria-controls="lawisa-faq-panel-1">
+                    <button type="button" class="lawisa-faq-trigger" id="lawisa-faq-trigger-1" aria-expanded="false"
+                        aria-controls="lawisa-faq-panel-1">
                         <span class="lawisa-faq-question" data-i18n="faq_q1">Où se trouve LAWISA Thaï Massage ?</span>
                         <span class="lawisa-faq-icon" aria-hidden="true"></span>
                     </button>
                     <div class="lawisa-faq-panel" id="lawisa-faq-panel-1" role="region"
                         aria-labelledby="lawisa-faq-trigger-1">
                         <div class="lawisa-faq-panel-inner">
-                            <p class="lawisa-faq-answer" data-i18n="faq_a1">183 Rue du Faubourg Saint-Honoré, Paris 8e.</p>
+                            <p class="lawisa-faq-answer" data-i18n="faq_a1">183 Rue du Faubourg Saint-Honoré, Paris 8e.
+                            </p>
                         </div>
                     </div>
                 </article>
 
                 <article class="lawisa-faq-item">
-                    <button type="button" class="lawisa-faq-trigger" id="lawisa-faq-trigger-2"
-                        aria-expanded="false" aria-controls="lawisa-faq-panel-2">
+                    <button type="button" class="lawisa-faq-trigger" id="lawisa-faq-trigger-2" aria-expanded="false"
+                        aria-controls="lawisa-faq-panel-2">
                         <span class="lawisa-faq-question" data-i18n="faq_q2">Comment réserver un massage ?</span>
                         <span class="lawisa-faq-icon" aria-hidden="true"></span>
                     </button>
                     <div class="lawisa-faq-panel" id="lawisa-faq-panel-2" role="region"
                         aria-labelledby="lawisa-faq-trigger-2">
                         <div class="lawisa-faq-panel-inner">
-                            <p class="lawisa-faq-answer" data-i18n="faq_a2">Directement via notre plateforme de réservation <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking" target="_blank" rel="noopener noreferrer" class="lawisa-faq-inline-link">Fresha</a>.</p>
+                            <p class="lawisa-faq-answer" data-i18n="faq_a2">Directement via notre plateforme de
+                                réservation <a
+                                    href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking"
+                                    target="_blank" rel="noopener noreferrer" class="lawisa-faq-inline-link">Fresha</a>.
+                            </p>
                         </div>
                     </div>
                 </article>
 
                 <article class="lawisa-faq-item">
-                    <button type="button" class="lawisa-faq-trigger" id="lawisa-faq-trigger-3"
-                        aria-expanded="false" aria-controls="lawisa-faq-panel-3">
-                        <span class="lawisa-faq-question" data-i18n="faq_q3">Comment contacter LAWISA Thaï Massage ?</span>
+                    <button type="button" class="lawisa-faq-trigger" id="lawisa-faq-trigger-3" aria-expanded="false"
+                        aria-controls="lawisa-faq-panel-3">
+                        <span class="lawisa-faq-question" data-i18n="faq_q3">Comment contacter LAWISA Thaï Massage
+                            ?</span>
                         <span class="lawisa-faq-icon" aria-hidden="true"></span>
                     </button>
                     <div class="lawisa-faq-panel" id="lawisa-faq-panel-3" role="region"
                         aria-labelledby="lawisa-faq-trigger-3">
                         <div class="lawisa-faq-panel-inner">
-                            <p class="lawisa-faq-answer" data-i18n="faq_a3">Par téléphone au <a href="tel:+33636432381" class="lawisa-faq-inline-link">+33 6 36 43 23 81</a> ou via <a href="https://wa.me/33636432381" target="_blank" rel="noopener noreferrer" class="lawisa-faq-inline-link">WhatsApp</a>.</p>
+                            <p class="lawisa-faq-answer" data-i18n="faq_a3">Par téléphone au <a href="tel:+33636432381"
+                                    class="lawisa-faq-inline-link">+33 6 36 43 23 81</a> ou via <a
+                                    href="https://wa.me/33636432381" target="_blank" rel="noopener noreferrer"
+                                    class="lawisa-faq-inline-link">WhatsApp</a>.</p>
                         </div>
                     </div>
                 </article>
 
                 <article class="lawisa-faq-item">
-                    <button type="button" class="lawisa-faq-trigger" id="lawisa-faq-trigger-4"
-                        aria-expanded="false" aria-controls="lawisa-faq-panel-4">
-                        <span class="lawisa-faq-question" data-i18n="faq_q4">Quelle différence entre le massage thaï traditionnel et le massage aux huiles chaudes ?</span>
+                    <button type="button" class="lawisa-faq-trigger" id="lawisa-faq-trigger-4" aria-expanded="false"
+                        aria-controls="lawisa-faq-panel-4">
+                        <span class="lawisa-faq-question" data-i18n="faq_q4">Quelle différence entre le massage thaï
+                            traditionnel et le massage aux huiles chaudes ?</span>
                         <span class="lawisa-faq-icon" aria-hidden="true"></span>
                     </button>
                     <div class="lawisa-faq-panel" id="lawisa-faq-panel-4" role="region"
                         aria-labelledby="lawisa-faq-trigger-4">
                         <div class="lawisa-faq-panel-inner">
-                            <p class="lawisa-faq-answer" data-i18n="faq_a4">Le massage traditionnel associe pressions et étirements, tandis que le massage aux huiles chaudes privilégie la détente avec des mouvements fluides.</p>
+                            <p class="lawisa-faq-answer" data-i18n="faq_a4">Le massage traditionnel associe pressions et
+                                étirements, tandis que le massage aux huiles chaudes privilégie la détente avec des
+                                mouvements fluides.</p>
                         </div>
                     </div>
                 </article>
 
                 <article class="lawisa-faq-item">
-                    <button type="button" class="lawisa-faq-trigger" id="lawisa-faq-trigger-5"
-                        aria-expanded="false" aria-controls="lawisa-faq-panel-5">
-                        <span class="lawisa-faq-question" data-i18n="faq_q5">Puis-je choisir l'intensité de mon massage ?</span>
+                    <button type="button" class="lawisa-faq-trigger" id="lawisa-faq-trigger-5" aria-expanded="false"
+                        aria-controls="lawisa-faq-panel-5">
+                        <span class="lawisa-faq-question" data-i18n="faq_q5">Puis-je choisir l'intensité de mon massage
+                            ?</span>
                         <span class="lawisa-faq-icon" aria-hidden="true"></span>
                     </button>
                     <div class="lawisa-faq-panel" id="lawisa-faq-panel-5" role="region"
                         aria-labelledby="lawisa-faq-trigger-5">
                         <div class="lawisa-faq-panel-inner">
-                            <p class="lawisa-faq-answer" data-i18n="faq_a5">Oui, nos praticiennes adaptent la pression selon vos préférences et vos besoins.</p>
+                            <p class="lawisa-faq-answer" data-i18n="faq_a5">Oui, nos praticiennes adaptent la pression
+                                selon vos préférences et vos besoins.</p>
                         </div>
                     </div>
                 </article>
 
                 <article class="lawisa-faq-item">
-                    <button type="button" class="lawisa-faq-trigger" id="lawisa-faq-trigger-6"
-                        aria-expanded="false" aria-controls="lawisa-faq-panel-6">
-                        <span class="lawisa-faq-question" data-i18n="faq_q6">Quels sont vos horaires d'ouverture ?</span>
+                    <button type="button" class="lawisa-faq-trigger" id="lawisa-faq-trigger-6" aria-expanded="false"
+                        aria-controls="lawisa-faq-panel-6">
+                        <span class="lawisa-faq-question" data-i18n="faq_q6">Quels sont vos horaires d'ouverture
+                            ?</span>
                         <span class="lawisa-faq-icon" aria-hidden="true"></span>
                     </button>
                     <div class="lawisa-faq-panel" id="lawisa-faq-panel-6" role="region"
@@ -692,8 +723,10 @@
                                     </svg>
                                 </span>
                                 <div class="lawisa-contact-meta-text">
-                                    <span class="lawisa-contact-meta-label" data-i18n="contact_address_label">Adresse</span>
-                                    <p class="lawisa-contact-meta-value">183 Rue du Faubourg Saint-Honoré, 75008 Paris</p>
+                                    <span class="lawisa-contact-meta-label"
+                                        data-i18n="contact_address_label">Adresse</span>
+                                    <p class="lawisa-contact-meta-value">183 Rue du Faubourg Saint-Honoré, 75008 Paris
+                                    </p>
                                 </div>
                             </div>
 
@@ -706,8 +739,10 @@
                                     </svg>
                                 </span>
                                 <div class="lawisa-contact-meta-text">
-                                    <span class="lawisa-contact-meta-label" data-i18n="contact_hours_label">Horaires d'ouverture</span>
-                                    <p class="lawisa-contact-meta-value" data-i18n="contact_hours_val">Lundi – Dimanche · 11h00 – 20h00</p>
+                                    <span class="lawisa-contact-meta-label" data-i18n="contact_hours_label">Horaires
+                                        d'ouverture</span>
+                                    <p class="lawisa-contact-meta-value" data-i18n="contact_hours_val">Lundi – Dimanche
+                                        · 11h00 – 20h00</p>
                                 </div>
                             </div>
 
@@ -721,7 +756,8 @@
                                     </svg>
                                 </span>
                                 <div class="lawisa-contact-meta-text">
-                                    <span class="lawisa-contact-meta-label" data-i18n="contact_phone_label">Téléphone</span>
+                                    <span class="lawisa-contact-meta-label"
+                                        data-i18n="contact_phone_label">Téléphone</span>
                                     <a href="tel:+33636432381" class="lawisa-contact-meta-value">+33 6 36 43 23 81</a>
                                 </div>
                             </div>
@@ -780,16 +816,14 @@
             <div class="footer-grid">
                 <!-- Brand Column -->
                 <div class="footer-brand fade-in-up">
-                    <div class="logo">
+                    <a href="#accueil" class="logo" aria-label="LAWISA Thaï Massage — Haut de page" data-i18n-aria="footer_top_aria">
                         <img src="public/images/logo-gold.png" alt="Lawisa Thaï Massage" class="footer-logo-img">
-                    </div>
-                    <p class="footer-address">
-                        183 Rue du Faubourg Saint-Honoré<br>
-                        75008 Paris
-                    </p>
-                    <a href="tel:+33636432381" class="footer-phone">06 36 43 23 81</a>
-                    <p class="footer-desc" data-i18n="footer_desc">Massage thaïlandais traditionnel au cœur de Paris.
-                    </p>
+                    </a>
+                    <p class="footer-desc" data-i18n="footer_desc">L’art du massage thaïlandais traditionnel au cœur du 8ᵉ arrondissement de Paris.</p>
+                    <address class="footer-meta">
+                        <span class="footer-address">183 Rue du Faubourg Saint-Honoré<br>75008 Paris</span>
+                        <a href="tel:+33636432381" class="footer-phone">06 36 43 23 81</a>
+                    </address>
                     <div class="footer-social">
                         <a href="https://www.instagram.com/lawisa_paris08/" target="_blank" rel="noopener noreferrer"
                             class="footer-social-link" aria-label="Suivre LAWISA sur Instagram (@lawisa_paris08)"
@@ -805,33 +839,35 @@
                 </div>
 
                 <!-- Nav Column -->
-                <div class="footer-nav fade-in-up" style="transition-delay: 0.1s;">
+                <nav class="footer-nav fade-in-up" style="transition-delay: 0.08s;" aria-label="Navigation pied de page" data-i18n-aria="footer_nav_aria">
                     <a href="#massages" data-i18n="nav_massages">Massages</a>
                     <a href="#le-salon" data-i18n="nav_salon">Le Salon</a>
+                    <a href="#offres" data-i18n="footer_nav_offers">Offres</a>
                     <a href="#galerie" data-i18n="nav_gallery">Galerie</a>
                     <a href="#avis" data-i18n="nav_reviews">Avis</a>
+                    <a href="#faq" data-i18n="footer_nav_faq">FAQ</a>
                     <a href="#contact" data-i18n="nav_contact">Contact</a>
-                </div>
+                </nav>
 
                 <!-- Booking Column -->
-                <div class="footer-booking fade-in-up" style="transition-delay: 0.2s;">
+                <div class="footer-booking fade-in-up" style="transition-delay: 0.16s;">
                     <h3 data-i18n="footer_book_title">Votre moment de détente</h3>
-                    <p data-i18n="footer_book_desc">Réservez votre massage en quelques instants.</p>
+                    <p data-i18n="footer_book_desc">Réservez votre parenthèse bien-être en ligne, tous les jours de 11h à 20h.</p>
                     <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking"
-                        target="_blank" class="footer-btn" data-i18n="footer_book_btn">RÉSERVER</a>
+                        target="_blank" rel="noopener noreferrer" class="footer-btn" data-i18n="footer_book_btn">RÉSERVER</a>
 
-                    <div class="footer-lang">
-                        <a href="#" class="lang-btn active" data-lang="fr">FR</a> <span class="lang-divider">|</span> <a
-                            href="#" class="lang-btn" data-lang="en">EN</a>
+                    <div class="footer-lang" role="group" aria-label="Choisir la langue" data-i18n-aria="footer_lang_aria">
+                        <a href="#" class="lang-btn active" data-lang="fr" aria-current="true">FR</a><span class="lang-divider" aria-hidden="true">|</span><a href="#" class="lang-btn" data-lang="en" aria-current="false">EN</a>
                     </div>
                 </div>
             </div>
 
-            <div class="footer-bottom fade-in-up" style="transition-delay: 0.3s;">
-                <p data-i18n="footer_rights">&copy; 2026 Lawisa Thaï Massage. Tous droits réservés.</p>
+            <div class="footer-bottom">
+                <p class="footer-copyright" data-i18n="footer_rights">&copy; 2026 Lawisa Thaï Massage. Tous droits réservés.</p>
                 <div class="footer-legal">
-                    <a href="#" data-i18n="footer_legal">Mentions légales</a>
-                    <a href="#" data-i18n="footer_privacy">Politique de confidentialité</a>
+                    <a href="mentions-legales/" data-i18n="footer_legal">Mentions légales</a>
+                    <span class="footer-legal-sep" aria-hidden="true">·</span>
+                    <a href="politique-de-confidentialite/" data-i18n="footer_privacy">Politique de confidentialité</a>
                 </div>
             </div>
         </div>
@@ -856,10 +892,11 @@
                 meta_description: "L'Art du Massage Thaïlandais au Cœur de Paris. Une parenthèse de bien-être et d'authenticité au 183 Rue du Faubourg Saint-Honoré.",
                 nav_home: "Accueil",
                 nav_massages: "Massages",
+                nav_massages_url: "/massages/",
                 nav_salon: "Le Salon",
                 nav_gallery: "Galerie",
                 nav_reviews: "Avis",
-                nav_service_area: "Zone de service",
+                nav_offers: "Offres",
                 nav_contact: "Contact",
                 nav_book: "Réserver",
                 hero_title: "L’Art du Massage Thaïlandais<br><span class=\"hero-title-sub\">au cœur de Paris</span>",
@@ -886,7 +923,7 @@
                 massage_5_desc: "Un massage doux du cuir chevelu, des tempes et de la nuque pour évacuer le stress, favoriser le lâcher-prise et procurer une agréable sensation de calme.",
                 massage_6: "Réflexologie Plantaire / Massage des pieds",
                 massage_6_price: "À partir de 45 €",
-                massage_6_desc: "Un massage des pieds associant pressions ciblées et mouvements précis pour soulager les pieds fatigués et retrouver une sensation de légèreté et de confort.",
+                massage_6_desc: "Un massage des pieds associant pressions ouvements précis pour soulager les pieds fatigués et retrouver une sensation de légèreté et de confort.",
                 massage_7: "Jet Lag Recovery Massage",
                 massage_7_price: "À partir de 55 €",
                 massage_7_desc: "Un massage spécialement conçu pour les voyageurs, idéal pour atténuer la fatigue d'un long trajet, détendre le corps et retrouver une agréable sensation de bien-être.",
@@ -894,6 +931,8 @@
                 massage_8_price: "À partir de 60 €",
                 massage_8_desc: "Un massage destiné aux personnes travaillant de longues heures assises ou devant un écran. Il cible les raideurs liées aux postures prolongées, principalement la nuque et le dos, pour retrouver confort et mobilité.",
                 card_btn_book: "Réserver",
+                card_btn_discover: "Découvrir <span aria-hidden=\"true\">→</span>",
+                massage_1_url: "/massages/massage-thai-traditionnel/",
                 about_photo_alt: "Salon Lawisa Thaï Massage Paris 8e",
                 about_eyebrow: "LE SALON",
                 about_title: "Le Salon LAWISA,<span class=\"about-heading-accent\">un havre de calme à Paris 8ᵉ</span>",
@@ -971,10 +1010,15 @@
                 contact_btn_call: "Nous appeler",
                 contact_btn_whatsapp: "WhatsApp",
                 contact_map_title: "Localisation Google Maps — LAWISA Thaï Massage, 183 Rue du Faubourg Saint-Honoré, 75008 Paris",
-                footer_desc: "Massage thaïlandais traditionnel au cœur de Paris.",
+                footer_top_aria: "LAWISA Thaï Massage — Haut de page",
+                footer_nav_aria: "Navigation pied de page",
+                footer_nav_offers: "Offres",
+                footer_nav_faq: "FAQ",
+                footer_lang_aria: "Choisir la langue",
+                footer_desc: "L’art du massage thaïlandais traditionnel au cœur du 8ᵉ arrondissement de Paris.",
                 footer_ig_aria: "Suivre LAWISA sur Instagram (@lawisa_paris08)",
                 footer_book_title: "Votre moment de détente",
-                footer_book_desc: "Réservez votre massage en quelques instants.",
+                footer_book_desc: "Réservez votre parenthèse bien-être en ligne, tous les jours de 11h à 20h.",
                 footer_book_btn: "RÉSERVER",
                 footer_legal: "Mentions légales",
                 footer_privacy: "Politique de confidentialité",
@@ -987,10 +1031,11 @@
                 meta_description: "The Art of Thai Massage in the Heart of Paris. A sanctuary of well-being and authenticity at 183 Rue du Faubourg Saint-Honoré.",
                 nav_home: "Home",
                 nav_massages: "Massages",
+                nav_massages_url: "/en/massages/",
                 nav_salon: "The Salon",
                 nav_gallery: "Gallery",
                 nav_reviews: "Reviews",
-                nav_service_area: "Service Area",
+                nav_offers: "Offers",
                 nav_contact: "Contact",
                 nav_book: "Book",
                 hero_title: "The Art of Thai Massage<br><span class=\"hero-title-sub\">in the heart of Paris</span>",
@@ -1025,6 +1070,8 @@
                 massage_8_price: "From €60",
                 massage_8_desc: "A massage tailored for people spending long hours seated or in front of a screen. It targets stiffness from prolonged posture, focusing on the neck and back to restore comfort and mobility.",
                 card_btn_book: "Book Now",
+                card_btn_discover: "Discover <span aria-hidden=\"true\">→</span>",
+                massage_1_url: "/en/massages/traditional-thai-massage/",
                 about_photo_alt: "Lawisa Thaï Massage Salon Paris 8th",
                 about_eyebrow: "THE SALON",
                 about_title: "The LAWISA Salon,<span class=\"about-heading-accent\">a haven of calm in Paris 8th</span>",
@@ -1102,10 +1149,15 @@
                 contact_btn_call: "Call Us",
                 contact_btn_whatsapp: "WhatsApp",
                 contact_map_title: "Google Maps Location — LAWISA Thaï Massage, 183 Rue du Faubourg Saint-Honoré, 75008 Paris",
-                footer_desc: "Traditional Thai massage in the heart of Paris.",
+                footer_top_aria: "LAWISA Thaï Massage — Back to top",
+                footer_nav_aria: "Footer navigation",
+                footer_nav_offers: "Offers",
+                footer_nav_faq: "FAQ",
+                footer_lang_aria: "Choose language",
+                footer_desc: "The art of traditional Thai massage in the heart of Paris’s 8th arrondissement.",
                 footer_ig_aria: "Follow LAWISA on Instagram (@lawisa_paris08)",
                 footer_book_title: "Your moment of relaxation",
-                footer_book_desc: "Book your massage in just a few moments.",
+                footer_book_desc: "Reserve your wellness escape online, open daily from 11 AM to 8 PM.",
                 footer_book_btn: "BOOK",
                 footer_legal: "Legal notice",
                 footer_privacy: "Privacy policy",
@@ -1134,7 +1186,9 @@
             }
 
             langBtns.forEach(b => {
-                b.classList.toggle('active', b.getAttribute('data-lang') === selectedLang);
+                const isActive = b.getAttribute('data-lang') === selectedLang;
+                b.classList.toggle('active', isActive);
+                b.setAttribute('aria-current', isActive ? 'true' : 'false');
             });
 
             elementsToTranslate.forEach(el => {
@@ -1162,6 +1216,13 @@
                 const key = el.getAttribute('data-i18n-alt');
                 if (Object.prototype.hasOwnProperty.call(dict, key)) {
                     el.setAttribute('alt', dict[key]);
+                }
+            });
+
+            document.querySelectorAll('[data-i18n-href]').forEach(el => {
+                const key = el.getAttribute('data-i18n-href');
+                if (Object.prototype.hasOwnProperty.call(dict, key)) {
+                    el.setAttribute('href', dict[key]);
                 }
             });
 
@@ -1525,6 +1586,42 @@
         } catch (err) {
             console.error('LAWISA FAQ accordion error:', err);
         }
+
+        // Dedicated page click navigation for connected massage card (preserves Fresha booking button)
+        document.querySelectorAll('[data-detail-card]').forEach(card => {
+            card.addEventListener('click', (e) => {
+                if (e.target.closest('a')) return;
+                const detailLink = card.querySelector('.service-detail-link');
+                if (detailLink && detailLink.getAttribute('href')) {
+                    window.location.href = detailLink.getAttribute('href');
+                }
+            });
+        });
+
+        // Smooth in-page navigation aligned with sticky header & GSAP ScrollTrigger pin-spacer
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', (e) => {
+                const hash = anchor.getAttribute('href');
+                if (!hash || hash === '#') return;
+                const targetEl = document.querySelector(hash);
+                if (!targetEl) return;
+                e.preventDefault();
+
+                const scrollHost = (targetEl.parentElement && targetEl.parentElement.classList.contains('pin-spacer'))
+                    ? targetEl.parentElement
+                    : targetEl;
+                const offset = parseFloat(window.getComputedStyle(targetEl).scrollMarginTop) || 0;
+                const top = hash === '#accueil'
+                    ? 0
+                    : Math.max(0, scrollHost.getBoundingClientRect().top + window.scrollY - offset);
+                const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+                window.scrollTo({ top, behavior: reduced ? 'auto' : 'smooth' });
+                if (window.history && window.history.pushState) {
+                    window.history.pushState(null, '', hash);
+                }
+            });
+        });
     </script>
 </body>
 

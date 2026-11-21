@@ -811,6 +811,28 @@ a.hero-social:hover {
     display: none;
 }
 
+.service-detail-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    align-self: center;
+    margin-top: 0.65rem;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.88);
+    text-decoration: none;
+    transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.service-detail-link:hover {
+    color: #F4D47A;
+    transform: translateX(2px);
+}
+
 /* ==========================================================================
    About Showcase Section (Section 3)
    ========================================================================== */
@@ -1653,69 +1675,95 @@ a.hero-social:hover {
 .footer {
     background-color: #1F1E1B;
     color: var(--warm-ivory);
-    padding: 6rem 0 2rem;
+    border-top: 1px solid rgba(217, 165, 29, 0.16);
+    padding: clamp(3.25rem, 5vw, 4.25rem) 0 clamp(4.75rem, 6.5vw, 5.25rem);
     font-family: var(--font-body);
 }
 
 .footer-container {
     width: 100%;
-    max-width: 1280px;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 2.5rem;
 }
 
 .footer-grid {
     display: grid;
-    grid-template-columns: 1.2fr 1fr 1.2fr;
-    gap: 4rem;
-    margin-bottom: 5rem;
+    grid-template-columns: minmax(0, 1.32fr) minmax(0, 0.78fr) minmax(0, 1.15fr);
+    gap: clamp(2.25rem, 4.5vw, 4.5rem);
+    align-items: start;
+    margin-bottom: clamp(2.25rem, 3.5vw, 2.75rem);
+}
+
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .footer-brand .logo {
-    margin-bottom: 2rem;
+    display: inline-block;
+    margin-bottom: 1.15rem;
 }
 
 .footer-logo-img {
-    height: 60px;
+    height: 54px;
     width: auto;
+    display: block;
     filter: brightness(0) invert(1);
-    opacity: 0.9;
+    opacity: 0.94;
+    transition: opacity 0.25s ease;
+}
+
+.footer-brand .logo:hover .footer-logo-img {
+    opacity: 1;
+}
+
+.footer-desc {
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    line-height: 1.65;
+    color: rgba(248, 244, 236, 0.74);
+    max-width: 31ch;
+    margin-bottom: 1.25rem;
+}
+
+.footer-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    font-style: normal;
 }
 
 .footer-address {
-    font-size: 1rem;
-    line-height: 1.65;
-    margin-bottom: 1.5rem;
-    color: rgba(255, 247, 235, 0.72);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: rgba(248, 244, 236, 0.64);
 }
 
 .footer-phone {
     display: inline-block;
     font-family: var(--font-body);
-    font-size: 1.25rem;
+    font-size: 0.98rem;
     font-weight: 500;
     font-variant-numeric: lining-nums tabular-nums;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.03em;
     color: var(--warm-ivory);
     text-decoration: none;
-    margin-bottom: 1.5rem;
-    transition: color 0.3s ease;
+    transition: color 0.25s ease;
 }
 
 .footer-phone:hover {
     color: var(--lawisa-gold);
 }
 
-.footer-desc {
-    font-size: 0.95rem;
-    color: rgba(255, 247, 235, 0.5);
-}
-
 .footer-social {
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    margin-top: 1.35rem;
+    margin-top: 1.25rem;
 }
 
 .footer-social-link {
@@ -1748,73 +1796,94 @@ a.hero-social:hover {
 .footer-nav {
     display: flex;
     flex-direction: column;
-    gap: 1.2rem;
-    padding-top: 1rem;
+    align-items: flex-start;
+    gap: 0.78rem;
+    padding-top: 0.2rem;
 }
 
 .footer-nav a {
-    color: rgba(255, 247, 235, 0.7);
-    font-size: 1rem;
+    font-family: var(--font-body);
+    color: rgba(248, 244, 236, 0.74);
+    font-size: 0.9375rem;
+    font-weight: 400;
+    letter-spacing: 0.015em;
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: color 0.25s ease, transform 0.25s ease;
 }
 
 .footer-nav a:hover {
     color: var(--lawisa-gold);
-    transform: translateX(5px);
+    transform: translateX(4px);
 }
 
 .footer-booking {
-    padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 0.15rem;
 }
 
 .footer-booking h3 {
-    font-family: var(--font-body);
-    font-size: 1.22rem;
+    font-family: var(--font-heading);
+    font-size: clamp(1.55rem, 2.2vw, 1.9rem);
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: -0.015em;
     color: var(--warm-ivory);
-    margin-bottom: 0.55rem;
-    font-weight: 500;
-    letter-spacing: 0;
+    margin-bottom: 0.65rem;
 }
 
 .footer-booking p {
-    font-size: 0.96rem;
-    color: rgba(255, 247, 235, 0.62);
-    margin-bottom: 2rem;
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    line-height: 1.65;
+    color: rgba(248, 244, 236, 0.68);
+    max-width: 32ch;
+    margin-bottom: 1.4rem;
 }
 
 .footer-btn {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     background-color: var(--lawisa-gold);
     color: #1F1E1B;
-    padding: 0.8rem 2rem;
-    font-size: 0.86rem;
-    font-weight: 500;
+    padding: 0.85rem 2rem;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.14em;
     text-decoration: none;
     border-radius: 10px;
     border: 1px solid var(--lawisa-gold);
-    margin-bottom: 3rem;
-    transition: all 0.3s ease;
+    margin-bottom: 1.35rem;
+    transition: background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
 }
 
 .footer-btn:hover {
-    background-color: #fff;
+    background-color: var(--soft-white);
     border-color: var(--lawisa-gold);
+    color: #1F1E1B;
     transform: translateY(-2px);
-    box-shadow: 0 0 14px rgba(217, 165, 29, 0.5), 0 6px 22px rgba(217, 165, 29, 0.35);
+    box-shadow: 0 0 14px rgba(217, 165, 29, 0.44), 0 6px 20px rgba(217, 165, 29, 0.26);
 }
 
 .footer-lang {
-    font-size: 0.9rem;
-    color: rgba(255, 247, 235, 0.4);
+    display: inline-flex;
+    align-items: center;
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: rgba(248, 244, 236, 0.42);
 }
 
 .footer-lang a {
-    color: rgba(255, 247, 235, 0.5);
+    color: rgba(248, 244, 236, 0.56);
     text-decoration: none;
-    transition: color 0.3s ease;
+    padding: 0.2rem 0;
+    transition: color 0.25s ease;
 }
 
 .footer-lang a.active,
@@ -1823,32 +1892,104 @@ a.hero-social:hover {
 }
 
 .lang-divider {
-    margin: 0 0.5rem;
+    margin: 0 0.55rem;
+    color: rgba(217, 165, 29, 0.35);
 }
 
 .footer-bottom {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-top: 1px solid rgba(255, 247, 235, 0.1);
-    padding-top: 2rem;
-    font-size: 0.85rem;
-    color: rgba(255, 247, 235, 0.4);
+    gap: 1rem 2rem;
+    border-top: 1px solid rgba(217, 165, 29, 0.24);
+    padding-top: 1.5rem;
+    font-family: var(--font-body);
+    font-size: 0.84rem;
+    line-height: 1.5;
+    color: rgba(248, 244, 236, 0.62);
+}
+
+.footer-copyright {
+    margin: 0;
 }
 
 .footer-legal {
     display: flex;
-    gap: 2rem;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem 0.9rem;
+}
+
+.footer-legal-sep {
+    color: rgba(217, 165, 29, 0.42);
+    user-select: none;
 }
 
 .footer-legal a {
-    color: rgba(255, 247, 235, 0.4);
+    color: rgba(248, 244, 236, 0.64);
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: color 0.25s ease;
 }
 
 .footer-legal a:hover {
     color: var(--lawisa-gold);
+}
+
+@media (max-width: 960px) {
+    .footer-container {
+        padding: 0 1.75rem;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 2.5rem;
+    }
+
+    .footer-booking {
+        grid-column: 1 / -1;
+        padding-top: 0;
+    }
+}
+
+@media (max-width: 680px) {
+    .footer {
+        padding: 3rem 0 5.25rem;
+    }
+
+    .footer-container {
+        padding: 0 1.35rem;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-top: 1.25rem;
+        font-size: 0.8125rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .footer-logo-img,
+    .footer-phone,
+    .footer-social-link,
+    .footer-nav a,
+    .footer-btn,
+    .footer-lang a,
+    .footer-legal a {
+        transition: none;
+    }
+
+    .footer-social-link:hover,
+    .footer-nav a:hover,
+    .footer-btn:hover {
+        transform: none;
+    }
 }
 
 /* ==========================================================================
@@ -1939,8 +2080,7 @@ a.hero-social:hover {
     }
 
     .experience-content,
-    .location-grid,
-    .footer-grid {
+    .location-grid {
         grid-template-columns: 1fr;
     }
 
@@ -1966,65 +2106,117 @@ a.hero-social:hover {
 }
 
 /* ==========================================================================
-   WhatsApp Widget
+   WhatsApp Floating Concierge Button (Global)
    ========================================================================== */
-.whatsapp-widget {
+.whatsapp-widget,
+.whatsapp-fab {
     position: fixed;
-    bottom: 26px;
-    right: 26px;
-    width: auto;
-    height: auto;
+    bottom: calc(18px + env(safe-area-inset-bottom, 0px));
+    right: calc(18px + env(safe-area-inset-right, 0px));
+    width: 48px;
+    height: 48px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 0.6rem;
-    padding: 0.72rem 1.25rem;
-    background-color: #25D366;
-    color: #ffffff !important;
-    border-radius: 999px;
-    border: 1.5px solid rgba(255, 255, 255, 0.35);
-    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.32), 0 4px 12px rgba(0, 0, 0, 0.14);
+    padding: 0;
+    background-color: #1F4E3D;
+    color: #FFFCF7 !important;
+    border-radius: 50%;
+    border: 1.5px solid rgba(217, 165, 29, 0.58);
+    box-shadow: 0 8px 22px rgba(20, 48, 38, 0.28), 0 0 0 1px rgba(217, 165, 29, 0.14);
     z-index: 1000;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+    transition: transform 0.28s ease, box-shadow 0.28s ease, background-color 0.28s ease, border-color 0.28s ease;
 }
 
-.whatsapp-widget svg {
-    width: 22px;
-    height: 22px;
+.whatsapp-widget svg,
+.whatsapp-fab svg {
+    width: 21px;
+    height: 21px;
+    display: block;
     flex-shrink: 0;
 }
 
 .whatsapp-widget-label {
+    position: absolute;
+    right: calc(100% + 10px);
+    top: 50%;
+    transform: translateY(-50%) translateX(6px);
+    padding: 0.48rem 0.85rem;
+    border-radius: 999px;
+    background-color: #1F4E3D;
+    color: #FFFCF7;
+    border: 1px solid rgba(217, 165, 29, 0.52);
+    box-shadow: 0 8px 20px rgba(20, 48, 38, 0.26);
     font-family: var(--font-body);
-    font-size: 0.84rem;
+    font-size: 0.78rem;
     font-weight: 500;
     letter-spacing: 0.02em;
     white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.22s ease, transform 0.22s ease;
 }
 
-.whatsapp-widget:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 28px rgba(37, 211, 102, 0.42), 0 0 14px rgba(217, 165, 29, 0.28);
-    background-color: #1EBE5D;
+.whatsapp-widget:hover,
+.whatsapp-widget:focus-visible,
+.whatsapp-fab:hover,
+.whatsapp-fab:focus-visible {
+    transform: translateY(-2px);
+    background-color: #16392C;
     border-color: var(--lawisa-gold);
-    color: #ffffff !important;
+    box-shadow: 0 12px 26px rgba(20, 48, 38, 0.36), 0 0 14px rgba(217, 165, 29, 0.34);
+    color: #FFFCF7 !important;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .whatsapp-widget:hover .whatsapp-widget-label,
+    .whatsapp-widget:focus-visible .whatsapp-widget-label {
+        opacity: 1;
+        transform: translateY(-50%) translateX(0);
+    }
+}
+
+.mobile-sticky-icon-btn.whatsapp {
+    background-color: #1F4E3D;
+    color: #FFFCF7;
+    border: 1px solid rgba(217, 165, 29, 0.52);
+}
+
+.mobile-sticky-icon-btn.whatsapp:hover {
+    background-color: #16392C;
+    border-color: var(--lawisa-gold);
 }
 
 @media (max-width: 768px) {
-    .whatsapp-widget {
-        bottom: 18px;
-        right: 16px;
-        padding: 0.62rem 1rem;
-        gap: 0.45rem;
+    .whatsapp-widget,
+    .whatsapp-fab {
+        bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+        right: calc(16px + env(safe-area-inset-right, 0px));
+        width: 44px;
+        height: 44px;
     }
 
-    .whatsapp-widget svg {
-        width: 20px;
-        height: 20px;
+    .whatsapp-widget svg,
+    .whatsapp-fab svg {
+        width: 19px;
+        height: 19px;
     }
 
     .whatsapp-widget-label {
-        font-size: 0.78rem;
+        display: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .whatsapp-widget,
+    .whatsapp-fab,
+    .whatsapp-widget-label {
+        transition: none;
+    }
+
+    .whatsapp-widget:hover,
+    .whatsapp-fab:hover {
+        transform: none;
     }
 }
 
@@ -2427,6 +2619,7 @@ a.hero-social:hover {
     padding: 5.25rem 0;
     background-color: var(--warm-ivory);
     border-top: 1px solid rgba(217, 165, 29, 0.22);
+    scroll-margin-top: 76px;
 }
 
 .lawisa-offers-container {
@@ -2507,8 +2700,8 @@ a.hero-social:hover {
     flex-direction: column;
     justify-content: flex-end;
     transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1),
-                border-color 0.45s ease,
-                box-shadow 0.55s ease;
+        border-color 0.45s ease,
+        box-shadow 0.55s ease;
 }
 
 .lawisa-offer-card::before {
@@ -2563,13 +2756,11 @@ a.hero-social:hover {
     position: absolute;
     inset: 0;
     z-index: 1;
-    background: linear-gradient(
-        to top,
-        rgba(20, 17, 14, 0.82) 0%,
-        rgba(20, 17, 14, 0.34) 38%,
-        rgba(20, 17, 14, 0.1) 70%,
-        rgba(20, 17, 14, 0.22) 100%
-    );
+    background: linear-gradient(to top,
+            rgba(20, 17, 14, 0.82) 0%,
+            rgba(20, 17, 14, 0.34) 38%,
+            rgba(20, 17, 14, 0.1) 70%,
+            rgba(20, 17, 14, 0.22) 100%);
     pointer-events: none;
 }
 
@@ -2577,12 +2768,10 @@ a.hero-social:hover {
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-        to top,
-        rgba(18, 15, 12, 0.94) 0%,
-        rgba(24, 20, 16, 0.8) 54%,
-        rgba(24, 20, 16, 0.42) 100%
-    );
+    background: linear-gradient(to top,
+            rgba(18, 15, 12, 0.94) 0%,
+            rgba(24, 20, 16, 0.8) 54%,
+            rgba(24, 20, 16, 0.42) 100%);
     backdrop-filter: blur(3px);
     -webkit-backdrop-filter: blur(3px);
     opacity: 0;
@@ -2693,8 +2882,8 @@ a.hero-social:hover {
     transform: translateY(14px);
     pointer-events: none;
     transition: grid-template-rows 0.55s cubic-bezier(0.16, 1, 0.3, 1),
-                opacity 0.45s ease,
-                transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+        opacity 0.45s ease,
+        transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .lawisa-offer-card:hover .lawisa-offer-card-reveal,

@@ -16,7 +16,7 @@
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css?v=38">
+    <link rel="stylesheet" href="style.css?v=42">
     <style>
         .service-card {
             position: relative;
@@ -1922,53 +1922,48 @@
         }
 
         /* ==========================================================================
-   Find Us - Location & Contact Section (Section 7)
+   Find Us - Location & Contact Section (Section 7 — Full Uncut Storefront Layout)
    ========================================================================== */
         .lawisa-contact-section {
             position: relative;
-            padding: 3.75rem 0;
+            scroll-margin-top: 76px;
+            padding: clamp(1.1rem, 2.2vh, 2.2rem) 0 clamp(1.25rem, 2.4vh, 2.4rem);
             background-color: var(--warm-ivory);
-            border-top: 1px solid rgba(217, 165, 29, 0.2);
+            border-top: 1px solid rgba(217, 165, 29, 0.22);
         }
 
         .lawisa-contact-container {
             width: 100%;
-            max-width: 1300px;
+            max-width: 1120px;
             margin: 0 auto;
-            padding: 0 2.5rem;
+            padding: 0 2.25rem;
         }
 
-        .lawisa-contact-grid {
-            display: grid;
-            grid-template-columns: 0.95fr 1.05fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .lawisa-contact-info {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            width: 100%;
-            min-width: 0;
+        /* Compact Centered Section Header Above Everything */
+        .lawisa-contact-header {
+            text-align: center;
+            max-width: 620px;
+            margin: 0 auto clamp(0.8rem, 1.6vh, 1.35rem);
         }
 
         .lawisa-contact-eyebrow {
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 0.7rem;
-            margin-bottom: 0.45rem;
+            margin-bottom: 0.28rem;
             font-family: 'Inter', sans-serif !important;
-            font-size: 0.72rem;
+            font-size: 0.68rem;
             font-weight: 600;
-            letter-spacing: 0.18em;
+            letter-spacing: 0.2em;
             text-transform: uppercase;
             color: var(--deep-gold);
         }
 
-        .lawisa-contact-eyebrow::before {
+        .lawisa-contact-eyebrow::before,
+        .lawisa-contact-eyebrow::after {
             content: "";
-            width: 24px;
+            width: 22px;
             height: 1px;
             background-color: var(--lawisa-gold);
             display: inline-block;
@@ -1977,163 +1972,302 @@
 
         .lawisa-contact-title {
             font-family: 'Cormorant Garamond', serif !important;
-            font-size: clamp(2.15rem, 3vw, 2.7rem);
+            font-size: clamp(1.85rem, 2.5vw, 2.4rem);
             font-weight: 600 !important;
-            line-height: 1.1 !important;
+            line-height: 1.08 !important;
             color: var(--charcoal);
-            margin-bottom: 1.35rem !important;
+            margin: 0 !important;
             letter-spacing: -0.01em;
         }
 
-        /* Exterior Salon & Address Card */
-        .lawisa-contact-facade-card {
-            display: flex;
-            align-items: center;
-            gap: 1.15rem;
-            width: 100%;
-            padding: 0.95rem 1.15rem;
-            background: rgba(255, 252, 247, 0.92);
-            border: 1px solid rgba(217, 165, 29, 0.42);
-            border-radius: 14px;
-            margin-bottom: 0.75rem;
-            box-shadow: 0 8px 22px rgba(34, 33, 31, 0.04);
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        /* Desktop Showcase: Full Uncut 2:3 Storefront Photo (Left) + Map & Concierge Panel (Right) */
+        .lawisa-contact-layout {
+            --contact-hero-h: clamp(450px, calc(100vh - 210px), 570px);
+            --contact-hero-h: clamp(450px, calc(100dvh - 210px), 570px);
+            display: grid;
+            grid-template-columns: calc((var(--contact-hero-h) - 21px) * 0.6667 + 21px) 1fr;
+            grid-template-rows: minmax(215px, 1fr) auto;
+            grid-template-areas:
+                "facade map"
+                "facade panel";
+            column-gap: clamp(1.25rem, 2vw, 1.85rem);
+            row-gap: 0.9rem;
+            height: var(--contact-hero-h);
+            align-items: stretch;
         }
 
-        .lawisa-contact-facade-card:hover {
-            border-color: rgba(217, 165, 29, 0.72);
-            box-shadow: 0 10px 26px rgba(184, 135, 24, 0.1);
-        }
-
-        .lawisa-contact-facade-photo {
-            width: 96px;
-            height: 104px;
-            border-radius: 10px;
-            overflow: hidden;
-            flex-shrink: 0;
-            border: 1px solid rgba(217, 165, 29, 0.35);
-            background-color: var(--warm-beige);
-        }
-
-        .lawisa-contact-facade-photo img {
-            width: 100%;
+        .lawisa-contact-facade-slot {
+            grid-area: facade;
             height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+            min-width: 0;
+            min-height: 0;
         }
 
-        .lawisa-contact-facade-card:hover .lawisa-contact-facade-photo img {
-            transform: scale(1.05);
+        .lawisa-contact-map-slot {
+            grid-area: map;
+            height: 100%;
+            min-width: 0;
+            min-height: 0;
         }
 
-        .lawisa-contact-facade-text {
-            display: flex;
-            flex-direction: column;
-            gap: 0.25rem;
+        .lawisa-contact-panel-slot {
+            grid-area: panel;
             min-width: 0;
         }
 
-        .lawisa-contact-brand {
-            font-family: 'Cormorant Garamond', serif !important;
-            font-size: 1.38rem;
-            font-weight: 600 !important;
-            line-height: 1.15 !important;
-            color: var(--charcoal);
-            margin: 0 !important;
-        }
-
-        .lawisa-contact-address {
-            font-family: 'Inter', sans-serif !important;
-            font-size: 0.92rem;
-            font-weight: 500;
-            line-height: 1.4;
-            color: rgba(34, 33, 31, 0.85);
-            margin: 0;
-        }
-
-        .lawisa-contact-district {
-            font-family: 'Inter', sans-serif !important;
-            font-size: 0.78rem;
-            font-weight: 500;
-            letter-spacing: 0.04em;
-            color: #1F4E3D;
-        }
-
-        /* Business Detail Rows (Hours & Phone) */
-        .lawisa-contact-details-list {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .lawisa-contact-detail-row {
+        /* Double-Layer Gold Framed Storefront Photograph (100% Uncut 2:3 Portrait Hero) */
+        .lawisa-contact-facade-frame {
             position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 1rem;
-            padding: 0.85rem 1.15rem;
-            border-radius: 11px;
-            border: 1px solid transparent;
-            background: transparent;
-            transition: border-color 0.25s ease, background-color 0.25s ease, box-shadow 0.3s ease;
+            width: 100%;
+            height: 100%;
+            padding: 8px;
+            border-radius: 22px;
+            background: linear-gradient(145deg, #FFFDF8 0%, #F4ECE0 100%);
+            border: 1.5px solid rgba(217, 165, 29, 0.55);
+            box-shadow: 0 20px 48px rgba(28, 24, 19, 0.11), inset 0 1px 0 rgba(255, 255, 255, 0.85);
+            transition: border-color 0.45s ease, box-shadow 0.45s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .lawisa-contact-detail-row::after {
+        .lawisa-contact-facade-frame:hover {
+            border-color: var(--lawisa-gold);
+            box-shadow: 0 0 22px rgba(217, 165, 29, 0.28), 0 26px 56px rgba(24, 20, 16, 0.16);
+            transform: translateY(-2px);
+        }
+
+        .lawisa-contact-facade-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid rgba(217, 165, 29, 0.52);
+            background-color: #2B2620;
+            isolation: isolate;
+            -webkit-mask-image: -webkit-radial-gradient(white, black);
+        }
+
+        .lawisa-contact-facade-inner::after {
             content: "";
             position: absolute;
-            left: 0.25rem;
-            right: 0.25rem;
-            bottom: -1px;
-            height: 1px;
-            background: rgba(217, 165, 29, 0.24);
-            transition: opacity 0.25s ease;
+            inset: 8px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 246, 214, 0.34);
+            pointer-events: none;
+            z-index: 3;
+            transition: border-color 0.45s ease;
+        }
+
+        .lawisa-contact-facade-frame:hover .lawisa-contact-facade-inner::after {
+            border-color: rgba(244, 212, 122, 0.72);
+        }
+
+        .lawisa-contact-facade-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center center;
+            display: block;
+            transform: scale(1.03);
+            transition: transform 1.1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .lawisa-contact-facade-slot.visible .lawisa-contact-facade-img {
+            transform: scale(1);
+        }
+
+        .lawisa-contact-facade-slot.visible .lawisa-contact-facade-frame:hover .lawisa-contact-facade-img {
+            transform: scale(1.035);
+            transition-duration: 0.85s;
+        }
+
+        .lawisa-contact-facade-scrim {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 20%;
+            background: linear-gradient(to top, rgba(16, 24, 20, 0.52) 0%, rgba(16, 24, 20, 0.12) 60%, transparent 100%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .lawisa-contact-facade-pill {
+            position: absolute;
+            left: 14px;
+            bottom: 14px;
+            max-width: calc(100% - 28px);
+            z-index: 4;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            padding: 0.38rem 0.85rem;
+            border-radius: 999px;
+            background: rgba(18, 30, 25, 0.76);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(244, 212, 122, 0.5);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.28);
+            color: #FAF3E3;
+            font-family: 'Inter', sans-serif !important;
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            line-height: 1.25;
             pointer-events: none;
         }
 
-        .lawisa-contact-detail-row:hover {
-            z-index: 2;
-            background: rgba(255, 252, 247, 0.95);
-            border-color: rgba(217, 165, 29, 0.65);
-            box-shadow: 0 8px 22px rgba(184, 135, 24, 0.09);
+        .lawisa-contact-facade-pill svg {
+            width: 12px;
+            height: 12px;
+            color: #F4D47A;
+            flex-shrink: 0;
         }
 
-        .lawisa-contact-detail-row:hover::after,
-        .lawisa-contact-detail-row:has(+ .lawisa-contact-detail-row:hover)::after {
-            opacity: 0;
+        /* Complementary Double-Layer Gold Framed Google Map (Top Right) */
+        .lawisa-contact-map-frame {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            padding: 8px;
+            border-radius: 22px;
+            background: linear-gradient(145deg, #FFFDF8 0%, #F4ECE0 100%);
+            border: 1.5px solid rgba(217, 165, 29, 0.52);
+            box-shadow: 0 20px 48px rgba(28, 24, 19, 0.09), inset 0 1px 0 rgba(255, 255, 255, 0.85);
+            transition: border-color 0.45s ease, box-shadow 0.45s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .lawisa-contact-detail-label {
+        .lawisa-contact-map-frame:hover {
+            border-color: var(--lawisa-gold);
+            box-shadow: 0 0 22px rgba(217, 165, 29, 0.26), 0 24px 52px rgba(24, 20, 16, 0.14);
+            transform: translateY(-2px);
+        }
+
+        .lawisa-contact-map-inner {
+            width: 100%;
+            height: 100%;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid rgba(217, 165, 29, 0.42);
+            background-color: var(--warm-beige);
+        }
+
+        .lawisa-contact-map-inner iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            display: block;
+        }
+
+        /* Compact Luxury Concierge Info & Actions Panel (Bottom Right, Flush with Storefront Base) */
+        .lawisa-contact-panel {
+            width: 100%;
+            padding: 1.05rem 1.35rem;
+            border-radius: 20px;
+            background: linear-gradient(180deg, #FFFDF9 0%, #FAF4E8 100%);
+            border: 1.5px solid rgba(217, 165, 29, 0.44);
+            box-shadow: 0 16px 38px rgba(34, 33, 31, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.85);
+        }
+
+        .lawisa-contact-meta-grid {
+            display: grid;
+            grid-template-columns: 1.25fr 0.85fr;
+            column-gap: 1.25rem;
+            row-gap: 0.72rem;
+            align-items: center;
+        }
+
+        .lawisa-contact-meta-item {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            min-width: 0;
+        }
+
+        .lawisa-contact-meta-item.is-address {
+            grid-column: 1 / -1;
+        }
+
+        .lawisa-contact-meta-item:last-child::before {
+            content: "";
+            position: absolute;
+            left: -0.65rem;
+            top: 12%;
+            bottom: 12%;
+            width: 1px;
+            background: rgba(217, 165, 29, 0.3);
+        }
+
+        .lawisa-contact-meta-icon {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(217, 165, 29, 0.11);
+            border: 1px solid rgba(217, 165, 29, 0.4);
+            color: var(--deep-gold);
+            transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .lawisa-contact-meta-item:hover .lawisa-contact-meta-icon {
+            background: rgba(217, 165, 29, 0.18);
+            border-color: var(--lawisa-gold);
+            transform: translateY(-1px);
+        }
+
+        .lawisa-contact-meta-icon svg {
+            width: 15px;
+            height: 15px;
+        }
+
+        .lawisa-contact-meta-text {
+            display: flex;
+            flex-direction: column;
+            gap: 0.08rem;
+            min-width: 0;
+        }
+
+        .lawisa-contact-meta-label {
             font-family: 'Inter', sans-serif !important;
-            font-size: 0.86rem;
-            font-weight: 500;
-            color: rgba(34, 33, 31, 0.65);
-        }
-
-        .lawisa-contact-detail-val,
-        .lawisa-contact-phone-val {
-            font-family: 'Inter', sans-serif !important;
-            font-size: 0.94rem;
+            font-size: 0.62rem;
             font-weight: 600;
-            font-variant-numeric: lining-nums tabular-nums;
-            color: var(--charcoal);
-            text-align: right;
-            transition: color 0.25s ease;
-        }
-
-        .lawisa-contact-phone-val:hover,
-        .lawisa-contact-detail-row:hover .lawisa-contact-phone-val {
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
             color: var(--deep-gold);
         }
 
-        /* 2x2 Contact Action Buttons */
+        .lawisa-contact-meta-value {
+            font-family: 'Inter', sans-serif !important;
+            font-size: 0.87rem;
+            font-weight: 600;
+            line-height: 1.28;
+            font-variant-numeric: lining-nums tabular-nums;
+            color: var(--charcoal);
+            margin: 0;
+            text-decoration: none;
+            transition: color 0.25s ease;
+        }
+
+        a.lawisa-contact-meta-value:hover {
+            color: var(--deep-gold);
+        }
+
+        .lawisa-contact-divider {
+            width: 100%;
+            height: 1px;
+            margin: 0.85rem 0;
+            background: linear-gradient(90deg, transparent 0%, rgba(217, 165, 29, 0.34) 10%, rgba(217, 165, 29, 0.34) 90%, transparent 100%);
+        }
+
+        /* Four Balanced Action Buttons (2x2 Grid) */
         .lawisa-contact-actions {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 0.75rem;
+            gap: 0.65rem;
             width: 100%;
-            margin-top: 1.25rem;
         }
 
         .lawisa-contact-btn {
@@ -2141,24 +2275,25 @@
             align-items: center;
             justify-content: center;
             gap: 0.5rem;
-            height: 44px;
+            height: 40px;
             padding: 0 1rem;
-            border-radius: 9px;
+            border-radius: 999px;
             font-family: 'Inter', sans-serif !important;
-            font-size: 0.78rem;
+            font-size: 0.73rem;
             font-weight: 600;
-            letter-spacing: 0.07em;
+            letter-spacing: 0.08em;
             text-transform: uppercase;
             background-color: var(--soft-white);
             color: var(--charcoal) !important;
-            border: 1px solid rgba(217, 165, 29, 0.5);
+            border: 1px solid rgba(217, 165, 29, 0.55);
+            text-decoration: none;
             white-space: nowrap;
-            transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+            transition: background-color 0.28s ease, border-color 0.28s ease, color 0.28s ease, box-shadow 0.28s ease, transform 0.28s ease;
         }
 
         .lawisa-contact-btn svg {
-            width: 16px;
-            height: 16px;
+            width: 15px;
+            height: 15px;
             flex-shrink: 0;
         }
 
@@ -2166,74 +2301,150 @@
             background-color: var(--charcoal);
             color: #ffffff !important;
             border-color: var(--lawisa-gold);
-            box-shadow: 0 0 14px rgba(217, 165, 29, 0.4), 0 6px 18px rgba(217, 165, 29, 0.22);
-            transform: translateY(-1px);
+            box-shadow: 0 0 16px rgba(217, 165, 29, 0.38), 0 8px 20px rgba(34, 33, 31, 0.16);
+            transform: translateY(-2px);
         }
 
         .lawisa-contact-btn.is-primary {
             background-color: var(--lawisa-gold);
             color: #ffffff !important;
             border-color: var(--lawisa-gold);
+            box-shadow: 0 6px 18px rgba(217, 165, 29, 0.26);
         }
 
         .lawisa-contact-btn.is-primary:hover {
             background-color: var(--deep-gold);
-            border-color: var(--lawisa-gold);
-            box-shadow: 0 0 16px rgba(217, 165, 29, 0.5), 0 6px 20px rgba(217, 165, 29, 0.3);
+            border-color: #F4D47A;
+            box-shadow: 0 0 18px rgba(217, 165, 29, 0.52), 0 8px 22px rgba(217, 165, 29, 0.32);
         }
 
         .lawisa-contact-btn.is-whatsapp {
             background-color: #1F4E3D;
             color: #ffffff !important;
-            border-color: rgba(217, 165, 29, 0.45);
+            border-color: rgba(217, 165, 29, 0.5);
+            box-shadow: 0 6px 18px rgba(31, 78, 61, 0.18);
         }
 
         .lawisa-contact-btn.is-whatsapp:hover {
             background-color: #16392C;
             border-color: var(--lawisa-gold);
-            box-shadow: 0 0 14px rgba(217, 165, 29, 0.42), 0 6px 18px rgba(31, 78, 61, 0.28);
+            box-shadow: 0 0 16px rgba(217, 165, 29, 0.44), 0 8px 20px rgba(31, 78, 61, 0.3);
         }
 
-        /* Right Column: Interactive Google Map */
-        .lawisa-contact-map-wrap {
-            width: 100%;
-            height: 470px;
-            border-radius: 22px;
-            overflow: hidden;
-            border: 1.5px solid rgba(217, 165, 29, 0.38);
-            box-shadow: 0 20px 45px rgba(34, 33, 31, 0.08);
-            background-color: var(--warm-beige);
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
-        }
+        @media (prefers-reduced-motion: reduce) {
+            .lawisa-contact-section .fade-in-up {
+                opacity: 1;
+                transform: none;
+                transition: none;
+            }
 
-        .lawisa-contact-map-wrap:hover {
-            border-color: var(--lawisa-gold);
-            box-shadow: 0 0 18px rgba(217, 165, 29, 0.32), 0 22px 50px rgba(34, 33, 31, 0.12);
-        }
+            .lawisa-contact-facade-frame,
+            .lawisa-contact-facade-inner::after,
+            .lawisa-contact-facade-img,
+            .lawisa-contact-map-frame,
+            .lawisa-contact-meta-icon,
+            .lawisa-contact-btn {
+                transition: none;
+            }
 
-        .lawisa-contact-map-wrap iframe {
-            width: 100%;
-            height: 100%;
-            border: 0;
-            display: block;
+            .lawisa-contact-facade-img,
+            .lawisa-contact-facade-frame:hover,
+            .lawisa-contact-facade-slot.visible .lawisa-contact-facade-frame:hover .lawisa-contact-facade-img,
+            .lawisa-contact-map-frame:hover,
+            .lawisa-contact-meta-item:hover .lawisa-contact-meta-icon,
+            .lawisa-contact-btn:hover {
+                transform: none;
+            }
         }
 
         /* Responsive Design */
-        @media (max-width: 1024px) {
+        @media (max-width: 1060px) {
+            .lawisa-contact-container {
+                padding: 0 1.75rem;
+            }
+
+            .lawisa-contact-panel {
+                padding: 0.95rem 1.1rem;
+            }
+
+            .lawisa-contact-meta-value {
+                font-size: 0.83rem;
+            }
+
+            .lawisa-contact-btn {
+                padding: 0 0.75rem;
+                font-size: 0.7rem;
+                letter-spacing: 0.06em;
+            }
+        }
+
+        @media (max-width: 900px) {
             .lawisa-contact-section {
-                min-height: auto;
                 padding: 3.5rem 0;
             }
 
-            .lawisa-contact-grid {
+            .lawisa-contact-header {
+                margin-bottom: 1.85rem;
+            }
+
+            /* Mobile & Tablet: Natural Scrolling Stack (1. Full Uncut Storefront Photo -> 2. Contact Info & Buttons -> 3. Map) */
+            .lawisa-contact-layout {
+                height: auto;
                 grid-template-columns: 1fr;
-                gap: 2.5rem;
-                max-width: 720px;
+                grid-template-rows: auto;
+                grid-template-areas:
+                    "facade"
+                    "panel"
+                    "map";
+                gap: 1.4rem;
+                max-width: 560px;
                 margin: 0 auto;
             }
 
-            .lawisa-contact-map-wrap {
-                height: 380px;
+            .lawisa-contact-facade-slot {
+                height: auto;
+            }
+
+            .lawisa-contact-facade-frame {
+                width: 100%;
+                max-width: 440px;
+                margin: 0 auto;
+                height: auto;
+                aspect-ratio: 2 / 3;
+            }
+
+            .lawisa-contact-map-slot {
+                height: auto;
+            }
+
+            .lawisa-contact-map-frame {
+                height: 360px;
+            }
+
+            .lawisa-contact-panel {
+                padding: 1.45rem 1.35rem;
+            }
+
+            .lawisa-contact-meta-grid {
+                grid-template-columns: 1fr;
+                gap: 0.95rem;
+            }
+
+            .lawisa-contact-meta-item:last-child::before {
+                display: none;
+            }
+
+            .lawisa-contact-meta-value {
+                font-size: 0.92rem;
+            }
+
+            .lawisa-contact-divider {
+                margin: 1.1rem 0;
+            }
+
+            .lawisa-contact-btn {
+                height: 46px;
+                font-size: 0.75rem;
             }
         }
 
@@ -2242,180 +2453,42 @@
                 padding: 0 1.25rem;
             }
 
-            .lawisa-contact-facade-card {
-                padding: 0.85rem;
-                gap: 0.9rem;
+            .lawisa-contact-facade-frame,
+            .lawisa-contact-map-frame {
+                padding: 7px;
+                border-radius: 20px;
             }
 
-            .lawisa-contact-facade-photo {
-                width: 82px;
-                height: 92px;
+            .lawisa-contact-facade-inner,
+            .lawisa-contact-map-inner {
+                border-radius: 13px;
             }
 
-            .lawisa-contact-detail-row {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 0.25rem;
-                padding: 0.8rem 0.95rem;
+            .lawisa-contact-facade-inner::after {
+                inset: 7px;
+                border-radius: 8px;
             }
 
-            .lawisa-contact-detail-val,
-            .lawisa-contact-phone-val {
-                text-align: left;
+            .lawisa-contact-facade-pill {
+                left: 12px;
+                bottom: 12px;
+                max-width: calc(100% - 24px);
+                padding: 0.4rem 0.8rem;
+                font-size: 0.7rem;
+            }
+
+            .lawisa-contact-panel {
+                padding: 1.35rem 1.15rem;
+                border-radius: 18px;
             }
 
             .lawisa-contact-actions {
                 grid-template-columns: 1fr;
+                gap: 0.65rem;
             }
 
-            .lawisa-contact-map-wrap {
-                height: 320px;
-                border-radius: 18px;
-            }
-        }
-
-        /* ==========================================================================
-   Compact Final Booking CTA Section (Before Footer)
-   ========================================================================== */
-        .lawisa-final-cta-section {
-            padding: 2.5rem 0 3.25rem;
-            background-color: var(--soft-white);
-            border-top: 1px solid rgba(217, 165, 29, 0.2);
-        }
-
-        .lawisa-final-cta-container {
-            width: 100%;
-            max-width: 1300px;
-            margin: 0 auto;
-            padding: 0 2.5rem;
-        }
-
-        .lawisa-final-cta-card {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 2.5rem;
-            padding: 2rem 2.75rem;
-            border-radius: 18px;
-            background: linear-gradient(135deg, #18352B 0%, #101E19 55%, #121615 100%);
-            border: 1.5px solid rgba(217, 165, 29, 0.6);
-            box-shadow: 0 0 20px rgba(217, 165, 29, 0.14), 0 16px 36px rgba(16, 30, 25, 0.16);
-        }
-
-        .lawisa-final-cta-text {
-            min-width: 0;
-            flex: 1;
-        }
-
-        .lawisa-final-cta-eyebrow {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.6rem;
-            font-family: 'Inter', sans-serif !important;
-            font-size: 0.68rem;
-            font-weight: 600;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            color: var(--lawisa-gold);
-            margin-bottom: 0.35rem;
-        }
-
-        .lawisa-final-cta-title {
-            font-family: 'Cormorant Garamond', serif !important;
-            font-size: clamp(1.75rem, 2.4vw, 2.2rem);
-            font-weight: 600 !important;
-            line-height: 1.15 !important;
-            color: var(--soft-white) !important;
-            margin: 0 0 0.35rem !important;
-        }
-
-        .lawisa-final-cta-desc {
-            font-family: 'Inter', sans-serif !important;
-            font-size: 0.9rem;
-            line-height: 1.5;
-            color: rgba(255, 252, 247, 0.76);
-            margin: 0;
-        }
-
-        .lawisa-final-cta-actions {
-            display: flex;
-            align-items: center;
-            gap: 0.85rem;
-            flex-shrink: 0;
-        }
-
-        .lawisa-final-cta-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            height: 44px;
-            padding: 0 1.5rem;
-            border-radius: 9px;
-            font-family: 'Inter', sans-serif !important;
-            font-size: 0.78rem;
-            font-weight: 600;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            white-space: nowrap;
-            transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
-        }
-
-        .lawisa-final-cta-btn.is-primary {
-            background-color: var(--lawisa-gold);
-            color: #ffffff !important;
-            border: 1px solid var(--lawisa-gold);
-        }
-
-        .lawisa-final-cta-btn.is-primary:hover {
-            background-color: var(--deep-gold);
-            border-color: var(--lawisa-gold);
-            box-shadow: 0 0 16px rgba(217, 165, 29, 0.5), 0 6px 20px rgba(217, 165, 29, 0.3);
-            transform: translateY(-1px);
-        }
-
-        .lawisa-final-cta-btn.is-secondary {
-            background-color: rgba(255, 255, 255, 0.06);
-            color: var(--soft-white) !important;
-            border: 1px solid rgba(217, 165, 29, 0.45);
-            font-variant-numeric: lining-nums tabular-nums;
-        }
-
-        .lawisa-final-cta-btn.is-secondary:hover {
-            background-color: rgba(255, 255, 255, 0.12);
-            border-color: var(--lawisa-gold);
-            box-shadow: 0 0 14px rgba(217, 165, 29, 0.35);
-            transform: translateY(-1px);
-        }
-
-        @media (max-width: 1024px) {
-            .lawisa-final-cta-card {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 1.5rem;
-                padding: 1.75rem 2rem;
-            }
-        }
-
-        @media (max-width: 640px) {
-            .lawisa-final-cta-section {
-                padding: 2rem 0 2.75rem;
-            }
-
-            .lawisa-final-cta-container {
-                padding: 0 1.25rem;
-            }
-
-            .lawisa-final-cta-card {
-                padding: 1.5rem;
-            }
-
-            .lawisa-final-cta-actions {
-                width: 100%;
-                flex-direction: column;
-            }
-
-            .lawisa-final-cta-btn {
-                width: 100%;
+            .lawisa-contact-map-frame {
+                height: 325px;
             }
         }
 
@@ -3025,105 +3098,140 @@
             data-i18n-aria="lightbox_next_aria">&#10095;</button>
     </div>
 
-    <!-- Find Us — Location & Contact Section (Section 7) -->
+    <!-- Find Us — Location & Contact Section (Section 7 — Luxury Editorial Layout) -->
     <section class="lawisa-contact-section" id="contact">
         <div class="lawisa-contact-container">
-            <div class="lawisa-contact-grid">
-                <!-- Left Column: Business Information & Contact Actions -->
-                <div class="lawisa-contact-info fade-in-up">
-                    <span class="lawisa-contact-eyebrow" data-i18n="contact_eyebrow">NOUS TROUVER · PARIS 8E</span>
-                    <h2 class="lawisa-contact-title" data-i18n="contact_title">Retrouvez-nous au cœur de Paris</h2>
-
-                    <div class="lawisa-contact-facade-card">
-                        <div class="lawisa-contact-facade-photo">
-                            <img src="public/images/WhatsApp Image 2026-11-15 at 15.36.14.jpeg"
-                                alt="Façade du salon LAWISA Thaï Massage — 183 Rue du Faubourg Saint-Honoré"
-                                data-i18n-alt="contact_facade_alt" loading="lazy" decoding="async">
-                        </div>
-                        <div class="lawisa-contact-facade-text">
-                            <h3 class="lawisa-contact-brand">LAWISA Thaï Massage</h3>
-                            <p class="lawisa-contact-address">183 Rue du Faubourg Saint-Honoré, 75008 Paris</p>
-                            <span class="lawisa-contact-district" data-i18n="contact_district">Quartier Faubourg
-                                Saint-Honoré · Paris 8ᵉ</span>
-                        </div>
-                    </div>
-
-                    <div class="lawisa-contact-details-list">
-                        <div class="lawisa-contact-detail-row">
-                            <span class="lawisa-contact-detail-label" data-i18n="contact_hours_label">Horaires
-                                d'ouverture</span>
-                            <span class="lawisa-contact-detail-val" data-i18n="contact_hours_val">Lundi – Dimanche ·
-                                11h00 – 20h00</span>
-                        </div>
-                        <div class="lawisa-contact-detail-row">
-                            <span class="lawisa-contact-detail-label" data-i18n="contact_phone_label">Téléphone</span>
-                            <a href="tel:+33636432381" class="lawisa-contact-phone-val">+33 6 36 43 23 81</a>
-                        </div>
-                    </div>
-
-                    <div class="lawisa-contact-actions">
-                        <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking"
-                            target="_blank" rel="noopener noreferrer" class="lawisa-contact-btn is-primary"
-                            data-i18n="contact_btn_book">Réserver un massage</a>
-                        <a href="https://www.google.com/maps/dir/?api=1&destination=Lawisa+Thai+Massage+183+Rue+du+Faubourg+Saint-Honor%C3%A9+75008+Paris"
-                            target="_blank" rel="noopener noreferrer" class="lawisa-contact-btn">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                <circle cx="12" cy="10" r="3"></circle>
-                            </svg>
-                            <span data-i18n="contact_btn_route">Itinéraire</span>
-                        </a>
-                        <a href="tel:+33636432381" class="lawisa-contact-btn">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                <path
-                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z">
-                                </path>
-                            </svg>
-                            <span data-i18n="contact_btn_call">Nous appeler</span>
-                        </a>
-                        <a href="https://wa.me/33636432381" target="_blank" rel="noopener noreferrer"
-                            class="lawisa-contact-btn is-whatsapp">
-                            <svg viewBox="0 0 448 512" fill="currentColor" aria-hidden="true">
-                                <path
-                                    d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157.1zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z" />
-                            </svg>
-                            <span data-i18n="contact_btn_whatsapp">WhatsApp</span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Right Column: Interactive Google Map -->
-                <div class="lawisa-contact-map-wrap fade-in-up" style="transition-delay: 0.15s;">
-                    <iframe
-                        src="https://maps.google.com/maps?q=Lawisa%20Tha%C3%AF%20Massage%20183%20Rue%20du%20Faubourg%20Saint-Honor%C3%A9%2075008%20Paris&t=&z=16&ie=UTF8&iwloc=&output=embed"
-                        title="Localisation Google Maps — LAWISA Thaï Massage, 183 Rue du Faubourg Saint-Honoré, 75008 Paris"
-                        data-i18n-title="contact_map_title" width="100%" height="100%" allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
-                </div>
+            <div class="lawisa-contact-header fade-in-up">
+                <span class="lawisa-contact-eyebrow" data-i18n="contact_eyebrow">NOUS TROUVER · PARIS 8E</span>
+                <h2 class="lawisa-contact-title" data-i18n="contact_title">Retrouvez-nous au cœur de Paris</h2>
             </div>
-        </div>
-    </section>
 
-    <!-- Final Booking CTA Section -->
-    <section class="lawisa-final-cta-section">
-        <div class="lawisa-final-cta-container">
-            <div class="lawisa-final-cta-card fade-in-up">
-                <div class="lawisa-final-cta-text">
-                    <span class="lawisa-final-cta-eyebrow" data-i18n="booking_cta_eyebrow">VOTRE PARENTHÈSE BIEN-ÊTRE ·
-                        PARIS 8E</span>
-                    <h2 class="lawisa-final-cta-title" data-i18n="booking_cta_title">Votre Moment de Bien-être Vous
-                        Attend</h2>
-                    <p class="lawisa-final-cta-desc" data-i18n="booking_cta_desc">Offrez-vous une pause au cœur du 8ᵉ
-                        arrondissement et réservez votre soin en quelques clics.</p>
+            <div class="lawisa-contact-layout">
+                <!-- Left (55%): Genuine LAWISA Storefront Entrance Photograph -->
+                <div class="lawisa-contact-facade-slot fade-in-up">
+                    <figure class="lawisa-contact-facade-frame">
+                        <div class="lawisa-contact-facade-inner">
+                            <img src="public/images/WhatsApp Image 2026-11-15 at 15.36.14.jpeg"
+                                alt="Façade et entrée du salon LAWISA Thaï Massage — 183 Rue du Faubourg Saint-Honoré, Paris 8e"
+                                data-i18n-alt="contact_facade_alt" width="1330" height="1995"
+                                class="lawisa-contact-facade-img" loading="lazy" decoding="async">
+                            <div class="lawisa-contact-facade-scrim" aria-hidden="true"></div>
+                            <figcaption class="lawisa-contact-facade-pill">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                                <span data-i18n="contact_facade_pill">183 Rue du Faubourg Saint-Honoré · Paris 8ᵉ</span>
+                            </figcaption>
+                        </div>
+                    </figure>
                 </div>
-                <div class="lawisa-final-cta-actions">
-                    <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking"
-                        target="_blank" rel="noopener noreferrer" class="lawisa-final-cta-btn is-primary"
-                        data-i18n="booking_cta_btn">Réserver maintenant</a>
-                    <a href="tel:+33636432381" class="lawisa-final-cta-btn is-secondary">+33 6 36 43 23 81</a>
+
+                <!-- Right (45%): Interactive Google Map (Matched Height & Gold Frame) -->
+                <div class="lawisa-contact-map-slot fade-in-up" style="transition-delay: 0.12s;">
+                    <div class="lawisa-contact-map-frame">
+                        <div class="lawisa-contact-map-inner">
+                            <iframe
+                                src="https://maps.google.com/maps?q=Lawisa%20Tha%C3%AF%20Massage%20183%20Rue%20du%20Faubourg%20Saint-Honor%C3%A9%2075008%20Paris&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                                title="Localisation Google Maps — LAWISA Thaï Massage, 183 Rue du Faubourg Saint-Honoré, 75008 Paris"
+                                data-i18n-title="contact_map_title" width="100%" height="100%" allowfullscreen=""
+                                loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bottom Full-Width Concierge Bar: Address, Hours, Phone & 4 Action Buttons -->
+                <div class="lawisa-contact-panel-slot fade-in-up" style="transition-delay: 0.18s;">
+                    <div class="lawisa-contact-panel">
+                        <div class="lawisa-contact-meta-grid">
+                            <div class="lawisa-contact-meta-item is-address">
+                                <span class="lawisa-contact-meta-icon" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                        <circle cx="12" cy="10" r="3"></circle>
+                                    </svg>
+                                </span>
+                                <div class="lawisa-contact-meta-text">
+                                    <span class="lawisa-contact-meta-label" data-i18n="contact_address_label">Adresse</span>
+                                    <p class="lawisa-contact-meta-value">183 Rue du Faubourg Saint-Honoré, 75008 Paris</p>
+                                </div>
+                            </div>
+
+                            <div class="lawisa-contact-meta-item">
+                                <span class="lawisa-contact-meta-icon" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="12" cy="12" r="9"></circle>
+                                        <polyline points="12 7 12 12 15.5 14"></polyline>
+                                    </svg>
+                                </span>
+                                <div class="lawisa-contact-meta-text">
+                                    <span class="lawisa-contact-meta-label" data-i18n="contact_hours_label">Horaires d'ouverture</span>
+                                    <p class="lawisa-contact-meta-value" data-i18n="contact_hours_val">Lundi – Dimanche · 11h00 – 20h00</p>
+                                </div>
+                            </div>
+
+                            <div class="lawisa-contact-meta-item">
+                                <span class="lawisa-contact-meta-icon" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <path
+                                            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z">
+                                        </path>
+                                    </svg>
+                                </span>
+                                <div class="lawisa-contact-meta-text">
+                                    <span class="lawisa-contact-meta-label" data-i18n="contact_phone_label">Téléphone</span>
+                                    <a href="tel:+33636432381" class="lawisa-contact-meta-value">+33 6 36 43 23 81</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="lawisa-contact-divider" aria-hidden="true"></div>
+
+                        <div class="lawisa-contact-actions">
+                            <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking"
+                                target="_blank" rel="noopener noreferrer" class="lawisa-contact-btn is-primary">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                                </svg>
+                                <span data-i18n="contact_btn_book">Réserver un massage</span>
+                            </a>
+                            <a href="https://www.google.com/maps/dir/?api=1&destination=Lawisa+Thai+Massage+183+Rue+du+Faubourg+Saint-Honor%C3%A9+75008+Paris"
+                                target="_blank" rel="noopener noreferrer" class="lawisa-contact-btn">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                                <span data-i18n="contact_btn_route">Itinéraire</span>
+                            </a>
+                            <a href="tel:+33636432381" class="lawisa-contact-btn">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path
+                                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z">
+                                    </path>
+                                </svg>
+                                <span data-i18n="contact_btn_call">Nous appeler</span>
+                            </a>
+                            <a href="https://wa.me/33636432381" target="_blank" rel="noopener noreferrer"
+                                class="lawisa-contact-btn is-whatsapp">
+                                <svg viewBox="0 0 448 512" fill="currentColor" aria-hidden="true">
+                                    <path
+                                        d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157.1zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z" />
+                                </svg>
+                                <span data-i18n="contact_btn_whatsapp">WhatsApp</span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -3300,14 +3408,11 @@
                 lightbox_prev_aria: "Photo précédente",
                 lightbox_next_aria: "Photo suivante",
                 lightbox_img_alt: "Aperçu du salon LAWISA",
-                booking_cta_eyebrow: "VOTRE PARENTHÈSE BIEN-ÊTRE · PARIS 8E",
-                booking_cta_title: "Votre Moment de Bien-être Vous Attend",
-                booking_cta_desc: "Offrez-vous une pause au cœur du 8ᵉ arrondissement et réservez votre soin en quelques clics.",
-                booking_cta_btn: "Réserver maintenant",
                 contact_eyebrow: "NOUS TROUVER · PARIS 8E",
                 contact_title: "Retrouvez-nous au cœur de Paris",
-                contact_facade_alt: "Façade du salon LAWISA Thaï Massage — 183 Rue du Faubourg Saint-Honoré",
-                contact_district: "Quartier Faubourg Saint-Honoré · Paris 8ᵉ",
+                contact_facade_alt: "Façade et entrée du salon LAWISA Thaï Massage — 183 Rue du Faubourg Saint-Honoré, Paris 8e",
+                contact_facade_pill: "183 Rue du Faubourg Saint-Honoré · Paris 8ᵉ",
+                contact_address_label: "Adresse",
                 contact_hours_label: "Horaires d'ouverture",
                 contact_hours_val: "Lundi – Dimanche · 11h00 – 20h00",
                 contact_phone_label: "Téléphone",
@@ -3421,14 +3526,11 @@
                 lightbox_prev_aria: "Previous photo",
                 lightbox_next_aria: "Next photo",
                 lightbox_img_alt: "LAWISA Salon Preview",
-                booking_cta_eyebrow: "YOUR WELLNESS SANCTUARY · PARIS 8TH",
-                booking_cta_title: "Your Moment of Well-Being Awaits",
-                booking_cta_desc: "Treat yourself to a peaceful escape in Paris 8th and book your treatment in moments.",
-                booking_cta_btn: "Book Now",
                 contact_eyebrow: "FIND US · PARIS 8TH",
                 contact_title: "Find Us in the Heart of Paris",
-                contact_facade_alt: "LAWISA Thaï Massage Salon Exterior — 183 Rue du Faubourg Saint-Honoré",
-                contact_district: "Faubourg Saint-Honoré District · Paris 8th",
+                contact_facade_alt: "LAWISA Thaï Massage storefront and entrance — 183 Rue du Faubourg Saint-Honoré, Paris 8th",
+                contact_facade_pill: "183 Rue du Faubourg Saint-Honoré · Paris 8th",
+                contact_address_label: "Address",
                 contact_hours_label: "Opening Hours",
                 contact_hours_val: "Monday – Sunday · 11 AM – 8 PM",
                 contact_phone_label: "Phone",

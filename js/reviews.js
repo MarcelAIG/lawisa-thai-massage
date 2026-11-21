@@ -11,7 +11,7 @@ window.LAWISA_REVIEWS_CONFIG = {
     businessName: "LAWISA Thaï Massage",
     rating: "5.0",
     totalReviews: null, // Populated dynamically only when verified via Google Places API or confirmed directly
-    mapsProfileUrl: "https://maps.app.goo.gl/87m61ci81Ua11WW76",
+    mapsProfileUrl: "https://www.google.com/maps/place//data=!4m4!3m3!1s0x47e66f31875950e5:0x177eec84d0ff940e!9m1!1b1",
 
     // Direct Google review-writing popup link
     placeId: "",
@@ -106,7 +106,9 @@ window.LAWISA_REVIEWS_CONFIG = {
         rafId: null,
         lastFrameTime: 0,
         bound: false,
-        totalUnique: 0
+        totalUnique: 0,
+        paginationExpanded: false,
+        lastPaginationSignature: ""
     };
 
     const AUTO_SCROLL_PX_PER_SEC = 34;
@@ -231,9 +233,36 @@ window.LAWISA_REVIEWS_CONFIG = {
         }
     }
 
+    function getPaginationTokens() {
+        const n = state.totalUnique;
+        if (n <= 0) return [];
+        if (n <= 6 || state.paginationExpanded) {
+            const all = [];
+            for (let p = 1; p <= n; p++) all.push(p);
+            return all;
+        }
+
+        const activePage = state.activeIndex + 1;
+        if (activePage <= 4) {
+            return [1, 2, 3, 4, 5, "ellipsis", n];
+        }
+        if (activePage >= n - 3) {
+            return [1, "ellipsis", n - 4, n - 3, n - 2, n - 1, n];
+        }
+        return [1, "ellipsis", activePage - 1, activePage, activePage + 1, "ellipsis", n];
+    }
+
     function updatePaginationActiveUI() {
         const pagination = document.getElementById("lawisa-reviews-pagination");
         if (!pagination) return;
+
+        const tokens = getPaginationTokens();
+        const sig = `${getCurrentLang()}:${tokens.join(",")}`;
+        if (sig !== state.lastPaginationSignature) {
+            renderPagination();
+            return;
+        }
+
         pagination.querySelectorAll(".lawisa-page-btn[data-index]").forEach(btn => {
             const idx = Number(btn.getAttribute("data-index"));
             const isActive = idx === state.activeIndex;
@@ -248,33 +277,33 @@ window.LAWISA_REVIEWS_CONFIG = {
         if (state.totalUnique <= 0) {
             pagination.innerHTML = "";
             pagination.hidden = true;
+            state.lastPaginationSignature = "";
             return;
         }
 
         pagination.hidden = false;
         const lang = getCurrentLang();
-        const prevLabel = lang === "en" ? "Previous review" : "Avis précédent";
         const nextLabel = lang === "en" ? "Next review" : "Avis suivant";
+        const expandLabel = lang === "en" ? "Show all review pages" : "Afficher toutes les pages d'avis";
+        const tokens = getPaginationTokens();
+        state.lastPaginationSignature = `${lang}:${tokens.join(",")}`;
 
-        let html = `<button type="button" class="lawisa-page-prev" id="lawisa-page-prev" aria-label="${prevLabel}">&#10094;</button>`;
-        for (let i = 0; i < state.totalUnique; i++) {
-            const isActive = i === state.activeIndex;
-            const itemLabel = lang === "en" ? `Review ${i + 1}` : `Avis ${i + 1}`;
-            html += `<button type="button" class="lawisa-page-btn${isActive ? " active" : ""}" data-index="${i}" aria-label="${itemLabel}" aria-current="${isActive ? "true" : "false"}">${i + 1}</button>`;
-        }
-        html += `<button type="button" class="lawisa-page-next" id="lawisa-page-next" aria-label="${nextLabel}">&#10095;</button>`;
+        let html = "";
+        tokens.forEach(token => {
+            if (token === "ellipsis") {
+                html += `<button type="button" class="lawisa-page-btn lawisa-page-ellipsis" data-expand-pages="true" aria-label="${expandLabel}">&hellip;</button>`;
+            } else {
+                const idx = token - 1;
+                const isActive = idx === state.activeIndex;
+                const itemLabel = lang === "en" ? `Review ${token}` : `Avis ${token}`;
+                html += `<button type="button" class="lawisa-page-btn${isActive ? " active" : ""}" data-index="${idx}" aria-label="${itemLabel}" aria-current="${isActive ? "true" : "false"}">${token}</button>`;
+            }
+        });
+        html += `<button type="button" class="lawisa-page-next" id="lawisa-page-next" aria-label="${nextLabel}">&rarr;</button>`;
 
         pagination.innerHTML = html;
 
-        const prevBtn = document.getElementById("lawisa-page-prev");
         const nextBtn = document.getElementById("lawisa-page-next");
-
-        if (prevBtn) {
-            prevBtn.addEventListener("click", () => {
-                const target = (state.activeIndex - 1 + state.totalUnique) % state.totalUnique;
-                scrollToReview(target, true);
-            });
-        }
         if (nextBtn) {
             nextBtn.addEventListener("click", () => {
                 const target = (state.activeIndex + 1) % state.totalUnique;
@@ -285,6 +314,12 @@ window.LAWISA_REVIEWS_CONFIG = {
             btn.addEventListener("click", () => {
                 const target = Number(btn.getAttribute("data-index")) || 0;
                 scrollToReview(target, true);
+            });
+        });
+        pagination.querySelectorAll("[data-expand-pages]").forEach(btn => {
+            btn.addEventListener("click", () => {
+                state.paginationExpanded = true;
+                renderPagination();
             });
         });
     }

@@ -16,7 +16,7 @@
         href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,400..500&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css?v=47">
+    <link rel="stylesheet" href="style.css?v=55">
 
     <!-- GSAP for Horizontal Scroll -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -91,12 +91,20 @@
     <!-- Services Section -->
     <section class="services section-padding" id="massages">
         <div class="container">
-            <h2 class="section-title text-center fade-in-up" data-i18n="section_massages">Nos Massages</h2>
+            <div class="services-header">
+                <h2 class="section-title fade-in-up" data-i18n="section_massages">Nos Massages</h2>
+                <a href="/massages/" class="services-discover-btn fade-in-up"
+                    data-i18n-href="nav_massages_url">
+                    <span data-i18n="services_discover_btn">Découvrir</span>
+                    <span class="services-discover-arrow" aria-hidden="true">→</span>
+                </a>
+            </div>
         </div>
         <div class="services-wrapper">
             <div class="services-grid">
                 <!-- Service 1 -->
-                <div class="service-card fade-in-up" data-detail-card>
+                <div class="service-card fade-in-up" data-detail-card
+                    data-detail-url="/massages/massage-thai-traditionnel/" data-i18n-detail-url="massage_1_url">
                     <div class="service-image">
                         <img src="public/images/services/thai-traditionnel.jpg" alt="Massage Thaï Traditionnel"
                             data-i18n-alt="massage_1" decoding="async">
@@ -112,9 +120,6 @@
                         <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking"
                             target="_blank" rel="noopener noreferrer" class="service-link"
                             data-i18n="card_btn_book">Réserver</a>
-                        <a href="/massages/massage-thai-traditionnel/" class="service-detail-link"
-                            data-i18n="card_btn_discover" data-i18n-href="massage_1_url">Découvrir <span
-                                aria-hidden="true">→</span></a>
                     </div>
                 </div>
 
@@ -269,11 +274,18 @@
             <!-- Left side: Image + Overlapping Circular Logo Badge -->
             <div class="about-showcase-media fade-in-up">
                 <div class="about-showcase-photo">
-                    <img src="public/images/WhatsApp Image 2026-11-15 at 15.36.15 (7).jpeg"
-                        alt="Salon Lawisa Thaï Massage Paris 8e" data-i18n-alt="about_photo_alt">
+                    <div class="about-showcase-photo-inner">
+                        <img src="public/images/WhatsApp Image 2026-11-15 at 15.36.15 (7).jpeg"
+                            alt="Salon Lawisa Thaï Massage Paris 8e" data-i18n-alt="about_photo_alt">
+                    </div>
                 </div>
                 <div class="about-logo-badge">
-                    <img src="public/images/WhatsApp Image 2026-11-15 at 15.36.15 (3).jpeg" alt="Lawisa Thaï Massage">
+                    <div class="about-logo-badge-frame">
+                        <div class="about-logo-badge-inner">
+                            <img src="public/images/WhatsApp Image 2026-11-15 at 15.36.15 (3).jpeg"
+                                alt="Lawisa Thaï Massage">
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -495,45 +507,57 @@
 
             <div class="lawisa-gallery-mosaic fade-in-up" style="transition-delay: 0.1s;">
                 <div class="lawisa-gallery-item is-tall gallery-item" data-index="0" role="button" tabindex="0">
-                    <img src="public/images/WhatsApp Image 2026-11-15 at 15.36.15 (7).jpeg"
-                        alt="Architecture intérieure et luminaires dorés LAWISA" data-i18n-alt="gallery_cap_1"
-                        loading="lazy" decoding="async">
-                    <div class="lawisa-gallery-caption" data-i18n="gallery_cap_1">Architecture &amp; Luminaires Dorés
+                    <div class="lawisa-gallery-inner">
+                        <img src="public/images/WhatsApp Image 2026-11-15 at 15.36.15 (7).jpeg"
+                            alt="Architecture intérieure et luminaires dorés LAWISA" data-i18n-alt="gallery_cap_1"
+                            loading="lazy" decoding="async">
+                        <div class="lawisa-gallery-caption" data-i18n="gallery_cap_1">Architecture &amp; Luminaires Dorés
+                        </div>
                     </div>
                 </div>
 
                 <div class="lawisa-gallery-item is-wide-left gallery-item" data-index="1" role="button" tabindex="0">
-                    <img src="public/images/WhatsApp Image 2026-11-15 at 15.36.15 (1).jpeg"
-                        alt="Réception et espace d'accueil LAWISA" data-i18n-alt="gallery_cap_2" loading="lazy"
-                        decoding="async">
-                    <div class="lawisa-gallery-caption" data-i18n="gallery_cap_2">Réception &amp; Espace d'Accueil</div>
+                    <div class="lawisa-gallery-inner">
+                        <img src="public/images/WhatsApp Image 2026-11-15 at 15.36.15 (1).jpeg"
+                            alt="Réception et espace d'accueil LAWISA" data-i18n-alt="gallery_cap_2" loading="lazy"
+                            decoding="async">
+                        <div class="lawisa-gallery-caption" data-i18n="gallery_cap_2">Réception &amp; Espace d'Accueil</div>
+                    </div>
                 </div>
 
                 <div class="lawisa-gallery-item is-wide-right gallery-item" data-index="2" role="button" tabindex="0">
-                    <img src="public/images/WhatsApp Image 2026-11-15 at 15.36.14 (1).jpeg"
-                        alt="Cabine de soin traditionnelle thaïlandaise" data-i18n-alt="gallery_cap_3" loading="lazy"
-                        decoding="async">
-                    <div class="lawisa-gallery-caption" data-i18n="gallery_cap_3">Cabine de Soin Traditionnelle</div>
+                    <div class="lawisa-gallery-inner">
+                        <img src="public/images/WhatsApp Image 2026-11-15 at 15.36.14 (1).jpeg"
+                            alt="Cabine de soin traditionnelle thaïlandaise" data-i18n-alt="gallery_cap_3" loading="lazy"
+                            decoding="async">
+                        <div class="lawisa-gallery-caption" data-i18n="gallery_cap_3">Cabine de Soin Traditionnelle</div>
+                    </div>
                 </div>
 
                 <div class="lawisa-gallery-item is-bottom-left gallery-item" data-index="3" role="button" tabindex="0">
-                    <img src="public/images/WhatsApp Image 2026-11-15 at 15.32.27.jpeg"
-                        alt="Sculptures et art thaïlandais à la réception" data-i18n-alt="gallery_cap_4" loading="lazy"
-                        decoding="async">
-                    <div class="lawisa-gallery-caption" data-i18n="gallery_cap_4">Sculptures &amp; Art Thaïlandais</div>
+                    <div class="lawisa-gallery-inner">
+                        <img src="public/images/WhatsApp Image 2026-11-15 at 15.32.27.jpeg"
+                            alt="Sculptures et art thaïlandais à la réception" data-i18n-alt="gallery_cap_4" loading="lazy"
+                            decoding="async">
+                        <div class="lawisa-gallery-caption" data-i18n="gallery_cap_4">Sculptures &amp; Art Thaïlandais</div>
+                    </div>
                 </div>
 
                 <div class="lawisa-gallery-item is-bottom-mid gallery-item" data-index="4" role="button" tabindex="0">
-                    <img src="public/images/WhatsApp Image 2026-11-15 at 15.36.15 (4).jpeg"
-                        alt="Suite Duo privée lumineuse" data-i18n-alt="gallery_cap_5" loading="lazy" decoding="async">
-                    <div class="lawisa-gallery-caption" data-i18n="gallery_cap_5">Suite Duo Privée</div>
+                    <div class="lawisa-gallery-inner">
+                        <img src="public/images/WhatsApp Image 2026-11-15 at 15.36.15 (4).jpeg"
+                            alt="Suite Duo privée lumineuse" data-i18n-alt="gallery_cap_5" loading="lazy" decoding="async">
+                        <div class="lawisa-gallery-caption" data-i18n="gallery_cap_5">Suite Duo Privée</div>
+                    </div>
                 </div>
 
                 <div class="lawisa-gallery-item is-bottom-right gallery-item" data-index="5" role="button" tabindex="0">
-                    <img src="public/images/WhatsApp Image 2026-11-15 at 15.36.15 (6).jpeg"
-                        alt="Préparation de cabine et fleurs de frangipanier" data-i18n-alt="gallery_cap_6"
-                        loading="lazy" decoding="async">
-                    <div class="lawisa-gallery-caption" data-i18n="gallery_cap_6">Détails &amp; Fleurs de Frangipanier
+                    <div class="lawisa-gallery-inner">
+                        <img src="public/images/WhatsApp Image 2026-11-15 at 15.36.15 (6).jpeg"
+                            alt="Préparation de cabine et fleurs de frangipanier" data-i18n-alt="gallery_cap_6"
+                            loading="lazy" decoding="async">
+                        <div class="lawisa-gallery-caption" data-i18n="gallery_cap_6">Détails &amp; Fleurs de Frangipanier
+                        </div>
                     </div>
                 </div>
             </div>
@@ -931,7 +955,7 @@
                 massage_8_price: "À partir de 60 €",
                 massage_8_desc: "Un massage destiné aux personnes travaillant de longues heures assises ou devant un écran. Il cible les raideurs liées aux postures prolongées, principalement la nuque et le dos, pour retrouver confort et mobilité.",
                 card_btn_book: "Réserver",
-                card_btn_discover: "Découvrir <span aria-hidden=\"true\">→</span>",
+                services_discover_btn: "Découvrir",
                 massage_1_url: "/massages/massage-thai-traditionnel/",
                 about_photo_alt: "Salon Lawisa Thaï Massage Paris 8e",
                 about_eyebrow: "LE SALON",
@@ -1070,7 +1094,7 @@
                 massage_8_price: "From €60",
                 massage_8_desc: "A massage tailored for people spending long hours seated or in front of a screen. It targets stiffness from prolonged posture, focusing on the neck and back to restore comfort and mobility.",
                 card_btn_book: "Book Now",
-                card_btn_discover: "Discover <span aria-hidden=\"true\">→</span>",
+                services_discover_btn: "Discover",
                 massage_1_url: "/en/massages/traditional-thai-massage/",
                 about_photo_alt: "Lawisa Thaï Massage Salon Paris 8th",
                 about_eyebrow: "THE SALON",
@@ -1226,6 +1250,13 @@
                 }
             });
 
+            document.querySelectorAll('[data-i18n-detail-url]').forEach(el => {
+                const key = el.getAttribute('data-i18n-detail-url');
+                if (Object.prototype.hasOwnProperty.call(dict, key)) {
+                    el.setAttribute('data-detail-url', dict[key]);
+                }
+            });
+
             window.dispatchEvent(new CustomEvent('lawisa:langchange', { detail: { lang: selectedLang } }));
         }
 
@@ -1233,12 +1264,36 @@
             btn.addEventListener('click', (e) => {
                 e.preventDefault();
                 const selectedLang = btn.getAttribute('data-lang');
+                if (selectedLang === 'fr' && window.location.search.includes('lang=')) {
+                    const cleanUrl = new URL(window.location.href);
+                    cleanUrl.searchParams.delete('lang');
+                    if (window.history && window.history.replaceState) {
+                        window.history.replaceState(null, '', cleanUrl.pathname + cleanUrl.search + cleanUrl.hash);
+                    }
+                }
                 applyLanguage(selectedLang);
             });
         });
 
         const urlParams = new URLSearchParams(window.location.search);
-        const initialLang = urlParams.get('lang') === 'en' ? 'en' : 'fr';
+        const navEntry = (window.performance && typeof window.performance.getEntriesByType === 'function')
+            ? window.performance.getEntriesByType('navigation')[0]
+            : null;
+        const isPageReload = navEntry
+            ? navEntry.type === 'reload'
+            : Boolean(window.performance && window.performance.navigation && window.performance.navigation.type === 1);
+
+        let initialLang = 'fr';
+        if (isPageReload && urlParams.get('lang') === 'en') {
+            urlParams.delete('lang');
+            const nextQuery = urlParams.toString();
+            const cleanPath = window.location.pathname + (nextQuery ? `?${nextQuery}` : '') + window.location.hash;
+            if (window.history && window.history.replaceState) {
+                window.history.replaceState(null, '', cleanPath);
+            }
+        } else if (!isPageReload && urlParams.get('lang') === 'en') {
+            initialLang = 'en';
+        }
         applyLanguage(initialLang);
 
 
@@ -1591,9 +1646,9 @@
         document.querySelectorAll('[data-detail-card]').forEach(card => {
             card.addEventListener('click', (e) => {
                 if (e.target.closest('a')) return;
-                const detailLink = card.querySelector('.service-detail-link');
-                if (detailLink && detailLink.getAttribute('href')) {
-                    window.location.href = detailLink.getAttribute('href');
+                const url = card.getAttribute('data-detail-url');
+                if (url) {
+                    window.location.href = url;
                 }
             });
         });
@@ -1623,6 +1678,7 @@
             });
         });
     </script>
+    <script src="js/whatsapp-prompt.js?v=1"></script>
 </body>
 
 </html>

@@ -594,9 +594,90 @@ a.hero-social:hover {
     max-width: 1220px;
 }
 
-.services .section-title {
-    margin-top: 0;
+.services-header {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 1.5rem;
     margin-bottom: 1.5rem;
+}
+
+.services-header .section-title {
+    grid-column: 2;
+    justify-self: center;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.services-discover-btn {
+    grid-column: 3;
+    justify-self: end;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    background-color: var(--lawisa-gold);
+    color: #1F1E1B;
+    border: 1px solid var(--lawisa-gold);
+    border-radius: 10px;
+    padding: 0.78rem 1.55rem;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+    box-shadow: 0 6px 18px rgba(217, 165, 29, 0.22);
+    transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.services-discover-btn:hover,
+.services-discover-btn:focus-visible {
+    background-color: var(--soft-white);
+    border-color: var(--lawisa-gold);
+    color: #1F1E1B;
+    transform: translateY(-2px);
+    box-shadow: 0 0 14px rgba(217, 165, 29, 0.44), 0 6px 20px rgba(217, 165, 29, 0.26);
+}
+
+.services-discover-arrow {
+    font-size: 0.95rem;
+    line-height: 1;
+    transition: transform 0.25s ease;
+}
+
+.services-discover-btn:hover .services-discover-arrow,
+.services-discover-btn:focus-visible .services-discover-arrow {
+    transform: translateX(4px);
+}
+
+@media (max-width: 768px) {
+    .services-header {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        gap: 0.9rem;
+    }
+
+    .services-header .section-title,
+    .services-discover-btn {
+        grid-column: 1;
+        justify-self: center;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .services-discover-btn,
+    .services-discover-arrow {
+        transition: none;
+    }
+
+    .services-discover-btn:hover,
+    .services-discover-btn:focus-visible,
+    .services-discover-btn:hover .services-discover-arrow,
+    .services-discover-btn:focus-visible .services-discover-arrow {
+        transform: none;
+    }
 }
 
 .services-wrapper {
@@ -695,13 +776,6 @@ a.hero-social:hover {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.service-card:hover .service-image img,
-.service-card.is-hovered .service-image img,
-.service-card:focus-within .service-image img {
-    transform: scale(1.05);
 }
 
 .service-info {
@@ -811,28 +885,6 @@ a.hero-social:hover {
     display: none;
 }
 
-.service-detail-link {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.35rem;
-    align-self: center;
-    margin-top: 0.65rem;
-    font-family: var(--font-body);
-    font-size: 0.8rem;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.88);
-    text-decoration: none;
-    transition: color 0.25s ease, transform 0.25s ease;
-}
-
-.service-detail-link:hover {
-    color: #F4D47A;
-    transform: translateX(2px);
-}
-
 /* ==========================================================================
    About Showcase Section (Section 3)
    ========================================================================== */
@@ -863,9 +915,45 @@ a.hero-social:hover {
     position: relative;
     width: 100%;
     height: 540px;
-    border-radius: 28px;
+    padding: 8px;
+    border-radius: 22px;
+    background: linear-gradient(145deg, #FFFDF8 0%, #F4ECE0 100%);
+    border: 1.5px solid rgba(217, 165, 29, 0.55);
+    box-shadow: 0 20px 48px rgba(28, 24, 19, 0.11), inset 0 1px 0 rgba(255, 255, 255, 0.85);
+    transition: border-color 0.45s ease, box-shadow 0.45s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.about-showcase-photo:hover {
+    border-color: var(--lawisa-gold);
+    box-shadow: 0 0 22px rgba(217, 165, 29, 0.28), 0 26px 56px rgba(24, 20, 16, 0.16);
+    transform: translateY(-2px);
+}
+
+.about-showcase-photo-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0 20px 45px rgba(34, 33, 31, 0.08);
+    border: 1px solid rgba(217, 165, 29, 0.52);
+    background-color: #2B2620;
+    isolation: isolate;
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
+}
+
+.about-showcase-photo-inner::after {
+    content: "";
+    position: absolute;
+    inset: 8px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 246, 214, 0.34);
+    pointer-events: none;
+    z-index: 3;
+    transition: border-color 0.45s ease;
+}
+
+.about-showcase-photo:hover .about-showcase-photo-inner::after {
+    border-color: rgba(244, 212, 122, 0.72);
 }
 
 .about-showcase-photo img {
@@ -881,28 +969,62 @@ a.hero-social:hover {
     right: -10px;
     width: 175px;
     height: 175px;
+    z-index: 3;
+    will-change: transform, opacity;
+}
+
+.about-logo-badge-frame {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 7px;
     border-radius: 50%;
+    background: linear-gradient(145deg, #FFFDF8 0%, #F4ECE0 100%);
+    border: 1.5px solid rgba(217, 165, 29, 0.55);
+    box-shadow: 0 20px 48px rgba(28, 24, 19, 0.11), inset 0 1px 0 rgba(255, 255, 255, 0.85);
+    transition: border-color 0.45s ease, box-shadow 0.45s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.about-logo-badge:hover .about-logo-badge-frame {
+    border-color: var(--lawisa-gold);
+    box-shadow: 0 0 22px rgba(217, 165, 29, 0.32), 0 26px 56px rgba(24, 20, 16, 0.16);
+    transform: translateY(-2px);
+}
+
+.about-logo-badge-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
     background-color: #ffffff;
-    border: 1.5px solid var(--lawisa-gold);
-    box-shadow: 0 0 15px rgba(217, 165, 29, 0.38), 0 14px 36px rgba(34, 33, 31, 0.12);
+    border: 1px solid rgba(217, 165, 29, 0.52);
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 1.4rem;
-    z-index: 3;
-    will-change: transform, opacity;
-    transition: box-shadow 0.35s ease, border-color 0.35s ease;
+    padding: 1.2rem;
 }
 
-.about-logo-badge:hover {
-    border-color: var(--lawisa-gold);
-    box-shadow: 0 0 22px rgba(217, 165, 29, 0.55), 0 16px 40px rgba(217, 165, 29, 0.35);
+.about-logo-badge-inner::after {
+    content: "";
+    position: absolute;
+    inset: 6px;
+    border-radius: 50%;
+    border: 1px solid rgba(217, 165, 29, 0.28);
+    pointer-events: none;
+    z-index: 3;
+    transition: border-color 0.45s ease;
+}
+
+.about-logo-badge:hover .about-logo-badge-inner::after {
+    border-color: rgba(217, 165, 29, 0.72);
 }
 
 .about-logo-badge img {
     width: 100%;
     height: auto;
     object-fit: contain;
+    display: block;
 }
 
 .about-showcase-content {
@@ -1062,6 +1184,24 @@ a.hero-social:hover {
         width: 140px;
         height: 140px;
         right: 0;
+    }
+
+    .about-logo-badge-inner {
+        padding: 0.95rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .about-showcase-photo,
+    .about-showcase-photo-inner::after,
+    .about-logo-badge-frame,
+    .about-logo-badge-inner::after {
+        transition: none;
+    }
+
+    .about-showcase-photo:hover,
+    .about-logo-badge:hover .about-logo-badge-frame {
+        transform: none;
     }
 }
 
@@ -2140,21 +2280,27 @@ a.hero-social:hover {
     position: absolute;
     right: calc(100% + 10px);
     top: 50%;
-    transform: translateY(-50%) translateX(6px);
-    padding: 0.48rem 0.85rem;
+    transform: translateY(-50%) translateX(10px) scale(0.96);
+    padding: 0.48rem 0.9rem;
     border-radius: 999px;
     background-color: #1F4E3D;
     color: #FFFCF7;
-    border: 1px solid rgba(217, 165, 29, 0.52);
+    border: 1px solid rgba(217, 165, 29, 0.56);
     box-shadow: 0 8px 20px rgba(20, 48, 38, 0.26);
     font-family: var(--font-body);
-    font-size: 0.78rem;
+    font-size: 0.8rem;
     font-weight: 500;
     letter-spacing: 0.02em;
     white-space: nowrap;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.22s ease, transform 0.22s ease;
+    transition: opacity 0.34s cubic-bezier(0.16, 1, 0.3, 1), transform 0.38s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.whatsapp-widget.is-prompt-open:not(.is-dismissed) .whatsapp-widget-label {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0) scale(1);
+    pointer-events: auto;
 }
 
 .whatsapp-widget:hover,
@@ -2169,10 +2315,10 @@ a.hero-social:hover {
 }
 
 @media (hover: hover) and (pointer: fine) {
-    .whatsapp-widget:hover .whatsapp-widget-label,
-    .whatsapp-widget:focus-visible .whatsapp-widget-label {
+    .whatsapp-widget:not(.is-dismissed):hover .whatsapp-widget-label,
+    .whatsapp-widget:not(.is-dismissed):focus-visible .whatsapp-widget-label {
         opacity: 1;
-        transform: translateY(-50%) translateX(0);
+        transform: translateY(-50%) translateX(0) scale(1);
     }
 }
 
@@ -2203,7 +2349,9 @@ a.hero-social:hover {
     }
 
     .whatsapp-widget-label {
-        display: none;
+        right: calc(100% + 8px);
+        padding: 0.42rem 0.78rem;
+        font-size: 0.74rem;
     }
 }
 
@@ -2743,13 +2891,6 @@ a.hero-social:hover {
     object-fit: cover;
     object-position: center 30%;
     display: block;
-    transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.lawisa-offer-card:hover .lawisa-offer-card-media img,
-.lawisa-offer-card.is-open .lawisa-offer-card-media img,
-.lawisa-offer-card:focus-within .lawisa-offer-card-media img {
-    transform: scale(1.06);
 }
 
 .lawisa-offer-card-scrim {
@@ -2980,7 +3121,6 @@ a.hero-social:hover {
 
     .lawisa-offer-card,
     .lawisa-offer-card::before,
-    .lawisa-offer-card-media img,
     .lawisa-offer-card-scrim::after,
     .lawisa-offer-badge,
     .lawisa-offer-card-cue,
@@ -2992,9 +3132,6 @@ a.hero-social:hover {
     .lawisa-offer-card:hover,
     .lawisa-offer-card.is-open,
     .lawisa-offer-card:focus-within,
-    .lawisa-offer-card:hover .lawisa-offer-card-media img,
-    .lawisa-offer-card.is-open .lawisa-offer-card-media img,
-    .lawisa-offer-card:focus-within .lawisa-offer-card-media img,
     .lawisa-offer-cta:hover {
         transform: none;
     }
@@ -3187,12 +3324,15 @@ a.hero-social:hover {
 
 .lawisa-gallery-item {
     position: relative;
-    border-radius: 16px;
-    overflow: hidden;
+    min-width: 0;
+    min-height: 0;
+    padding: 8px;
+    border-radius: 22px;
     cursor: pointer;
-    border: 1.5px solid rgba(217, 165, 29, 0.22);
-    background-color: var(--warm-beige);
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background: linear-gradient(145deg, #FFFDF8 0%, #F4ECE0 100%);
+    border: 1.5px solid rgba(217, 165, 29, 0.55);
+    box-shadow: 0 20px 48px rgba(28, 24, 19, 0.11), inset 0 1px 0 rgba(255, 255, 255, 0.85);
+    transition: border-color 0.45s ease, box-shadow 0.45s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .lawisa-gallery-item.is-tall {
@@ -3229,7 +3369,36 @@ a.hero-social:hover {
 .lawisa-gallery-item:focus-visible {
     outline: none;
     border-color: var(--lawisa-gold);
-    box-shadow: 0 0 16px rgba(217, 165, 29, 0.38), 0 12px 28px rgba(34, 33, 31, 0.12);
+    box-shadow: 0 0 22px rgba(217, 165, 29, 0.28), 0 26px 56px rgba(24, 20, 16, 0.16);
+    transform: translateY(-2px);
+}
+
+.lawisa-gallery-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    overflow: hidden;
+    border: 1px solid rgba(217, 165, 29, 0.52);
+    background-color: #2B2620;
+    isolation: isolate;
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
+}
+
+.lawisa-gallery-inner::after {
+    content: "";
+    position: absolute;
+    inset: 8px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 246, 214, 0.34);
+    pointer-events: none;
+    z-index: 3;
+    transition: border-color 0.45s ease;
+}
+
+.lawisa-gallery-item:hover .lawisa-gallery-inner::after,
+.lawisa-gallery-item:focus-visible .lawisa-gallery-inner::after {
+    border-color: rgba(244, 212, 122, 0.72);
 }
 
 .lawisa-gallery-item img {
@@ -3237,12 +3406,6 @@ a.hero-social:hover {
     height: 100%;
     object-fit: cover;
     display: block;
-    transition: transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.lawisa-gallery-item:hover img,
-.lawisa-gallery-item:focus-visible img {
-    transform: scale(1.05);
 }
 
 .lawisa-gallery-caption {
@@ -3258,6 +3421,7 @@ a.hero-social:hover {
     font-weight: 500;
     letter-spacing: 0.03em;
     opacity: 0;
+    z-index: 2;
     transition: opacity 0.3s ease;
     pointer-events: none;
 }
@@ -3419,6 +3583,20 @@ a.hero-social:hover {
         gap: 0.85rem;
     }
 
+    .lawisa-gallery-item {
+        padding: 7px;
+        border-radius: 20px;
+    }
+
+    .lawisa-gallery-inner {
+        border-radius: 13px;
+    }
+
+    .lawisa-gallery-inner::after {
+        inset: 7px;
+        border-radius: 8px;
+    }
+
     .lawisa-gallery-item.is-tall,
     .lawisa-gallery-item.is-wide-left,
     .lawisa-gallery-item.is-wide-right,
@@ -3443,6 +3621,19 @@ a.hero-social:hover {
         right: 0.75rem;
         width: 40px;
         height: 40px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .lawisa-gallery-item,
+    .lawisa-gallery-inner::after,
+    .lawisa-gallery-caption {
+        transition: none;
+    }
+
+    .lawisa-gallery-item:hover,
+    .lawisa-gallery-item:focus-visible {
+        transform: none;
     }
 }
 
@@ -3800,17 +3991,6 @@ a.hero-social:hover {
     object-fit: cover;
     object-position: center center;
     display: block;
-    transform: scale(1.03);
-    transition: transform 1.1s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.lawisa-contact-facade-slot.visible .lawisa-contact-facade-img {
-    transform: scale(1);
-}
-
-.lawisa-contact-facade-slot.visible .lawisa-contact-facade-frame:hover .lawisa-contact-facade-img {
-    transform: scale(1.035);
-    transition-duration: 0.85s;
 }
 
 .lawisa-contact-facade-scrim {
@@ -4073,16 +4253,13 @@ a.lawisa-contact-meta-value:hover {
 
     .lawisa-contact-facade-frame,
     .lawisa-contact-facade-inner::after,
-    .lawisa-contact-facade-img,
     .lawisa-contact-map-frame,
     .lawisa-contact-meta-icon,
     .lawisa-contact-btn {
         transition: none;
     }
 
-    .lawisa-contact-facade-img,
     .lawisa-contact-facade-frame:hover,
-    .lawisa-contact-facade-slot.visible .lawisa-contact-facade-frame:hover .lawisa-contact-facade-img,
     .lawisa-contact-map-frame:hover,
     .lawisa-contact-meta-item:hover .lawisa-contact-meta-icon,
     .lawisa-contact-btn:hover {

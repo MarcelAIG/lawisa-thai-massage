@@ -2666,8 +2666,7 @@ a.hero-social:hover {
 .lawisa-review-us-box {
     max-width: 500px;
     margin: 0 auto;
-    background-color: #332E27;
-    background-image: linear-gradient(160deg, rgba(255, 255, 255, 0.08) 0%, rgba(0, 0, 0, 0.24) 100%);
+    background-color: #1F1E1B;
     border: 1.5px solid rgba(217, 165, 29, 0.65);
     border-radius: 14px;
     padding: 1.55rem 2.25rem;
@@ -2679,7 +2678,7 @@ a.hero-social:hover {
     font-family: var(--font-body);
     font-size: clamp(1.05rem, 1.5vw, 1.24rem);
     font-weight: 600;
-    color: #ffffff;
+    color: var(--warm-ivory);
     letter-spacing: 0.12em;
     text-transform: uppercase;
     margin-bottom: 0.5rem;
@@ -2699,23 +2698,25 @@ a.hero-social:hover {
     align-items: center;
     justify-content: center;
     background-color: var(--lawisa-gold);
-    color: #ffffff !important;
+    color: #1F1E1B;
     border: 1px solid var(--lawisa-gold);
-    border-radius: 8px;
-    padding: 0.78rem 1.85rem;
+    border-radius: 10px;
+    padding: 0.82rem 2rem;
     font-family: var(--font-body);
     font-size: 0.8rem;
-    font-weight: 500;
-    letter-spacing: 0.1em;
+    font-weight: 600;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
-    transition: all 0.3s ease;
+    transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
     cursor: pointer;
 }
 
-.lawisa-leave-review-btn:hover {
-    background-color: var(--deep-gold);
+.lawisa-leave-review-btn:hover,
+.lawisa-leave-review-btn:focus-visible {
+    background-color: var(--soft-white);
     border-color: var(--lawisa-gold);
-    box-shadow: 0 0 16px rgba(217, 165, 29, 0.55), 0 6px 20px rgba(217, 165, 29, 0.35);
+    color: #1F1E1B;
+    box-shadow: 0 0 14px rgba(217, 165, 29, 0.44), 0 6px 20px rgba(217, 165, 29, 0.26);
     transform: translateY(-2px);
 }
 

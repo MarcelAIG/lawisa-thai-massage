@@ -8,7 +8,7 @@
     <meta name="description"
         content="Découvrez les 8 soins de LAWISA Thaï Massage à Paris 8ᵉ (183 Rue du Faubourg Saint-Honoré) : massage thaï traditionnel, huiles chaudes, mixte et soins ciblés dès 45 €.">
 
-    <!-- Canonical & reciprocal hreflang (prefix with final confirmed production domain once finalized) -->
+    <!-- Canonical & reciprocal hreflang -->
     <link rel="canonical" href="/massages/">
     <link rel="alternate" hreflang="fr" href="/massages/">
     <link rel="alternate" hreflang="en" href="/en/massages/">
@@ -19,7 +19,7 @@
     <meta property="og:title" content="Nos Massages Thaïlandais à Paris 8e | LAWISA Thaï Massage">
     <meta property="og:description"
         content="Huit rituels de massage thaïlandais pratiqués au salon au 183 Rue du Faubourg Saint-Honoré, Paris 8ᵉ.">
-    <meta property="og:image" content="/public/images/services/thai-traditionnel-stretch.jpg">
+    <meta property="og:image" content="/public/images/WhatsApp%20Image%202026-11-15%20at%2015.36.14%20(1).jpeg">
 
     <!-- Approved Fonts: Exclusively Newsreader & DM Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,8 +28,8 @@
         href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,400..500&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="/style.css?v=48">
-    <link rel="stylesheet" href="/css/massages-catalog.css?v=1">
+    <link rel="stylesheet" href="/style.css?v=68">
+    <link rel="stylesheet" href="/css/massages-catalog.css?v=9">
 
     <script type="application/ld+json">
     {
@@ -65,13 +65,13 @@
           "name": "Carte des massages LAWISA Thaï Massage",
           "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "Massage Thaï Traditionnel", "url": "/massages/massage-thai-traditionnel/" },
-            { "@type": "ListItem", "position": 2, "name": "Massage Thaï aux Huiles Chaudes" },
-            { "@type": "ListItem", "position": 3, "name": "Massage Thaï Mixte aux Huiles Chaudes" },
-            { "@type": "ListItem", "position": 4, "name": "Massage Dos et Des Épaules" },
-            { "@type": "ListItem", "position": 5, "name": "Massage Crânien" },
-            { "@type": "ListItem", "position": 6, "name": "Réflexologie Plantaire / Massage des pieds" },
-            { "@type": "ListItem", "position": 7, "name": "Jet Lag Recovery Massage" },
-            { "@type": "ListItem", "position": 8, "name": "Massage Office Syndrome" }
+            { "@type": "ListItem", "position": 2, "name": "Massage Thaï aux Huiles Chaudes", "url": "/massages/massage-aux-huiles-chaudes/" },
+            { "@type": "ListItem", "position": 3, "name": "Massage Thaï Mixte aux Huiles Chaudes", "url": "/massages/massage-mixte-thai-huiles-chaudes/" },
+            { "@type": "ListItem", "position": 4, "name": "Massage Dos et Des Épaules", "url": "/massages/massage-dos-et-epaules/" },
+            { "@type": "ListItem", "position": 5, "name": "Massage Crânien", "url": "/massages/massage-cranien/" },
+            { "@type": "ListItem", "position": 6, "name": "Réflexologie Plantaire / Massage des pieds", "url": "/massages/reflexologie-plantaire/" },
+            { "@type": "ListItem", "position": 7, "name": "Jet Lag Recovery Massage", "url": "/massages/jet-lag-recovery-massage/" },
+            { "@type": "ListItem", "position": 8, "name": "Massage Office Syndrome", "url": "/massages/massage-office-syndrome/" }
           ]
         }
       ]
@@ -115,235 +115,139 @@
     </header>
 
     <main class="mcat-main">
-        <!-- 1. Editorial Hero -->
+        <!-- 1. Compact Hero (Single Gold Button + Double-Gold Framed Real Salon Photo) -->
         <section class="mcat-hero">
             <div class="mcat-container">
                 <div class="mcat-hero-grid">
                     <div class="mcat-hero-copy fade-in-up visible">
-                        <h1 class="mcat-hero-title">L’Art du Massage<br><em>à Paris 8ᵉ</em></h1>
-                        <span class="mcat-hero-rule" aria-hidden="true"></span>
+                        <h1 class="mcat-hero-title">L’Art du Massage<em>en toute sérénité</em></h1>
                         <p class="mcat-hero-lead">
-                            Huit rituels pratiqués au 183 Rue du Faubourg Saint-Honoré, entre pressions thaïlandaises
-                            traditionnelles et huiles chaudes.
+                            Huit soins prodigués au 183 Rue du Faubourg Saint-Honoré, entre pressions thaïlandaises et
+                            huiles tièdes.
                         </p>
+                        <a href="#rituels-signature" class="mcat-hero-cta">Découvrir les soins <span aria-hidden="true">↓</span></a>
                     </div>
 
-                    <div class="mcat-hero-media fade-in-up visible">
-                        <img src="/public/images/services/thai-traditionnel-stretch.jpg"
-                            alt="Séance de massage thaï traditionnel réalisée dans une atmosphère lumineuse et apaisante chez LAWISA Paris 8"
-                            width="1200" height="896" decoding="async">
+                    <div class="mcat-hero-frame fade-in-up visible">
+                        <div class="mcat-hero-frame-inner">
+                            <img src="/public/images/WhatsApp%20Image%202026-11-15%20at%2015.36.14%20(1).jpeg"
+                                alt="Suite de soin du salon LAWISA Thaï Massage à Paris 8ᵉ" width="2048" height="1365"
+                                decoding="async">
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 2. Eight Massages — 4 x 2 Grid -->
-        <section class="mcat-collection" aria-labelledby="collection-heading">
+        <!-- 2. Chapter I: Signature Full-Body Rituals (Sized to fit cleanly in one laptop screen) -->
+        <section class="mcat-chapter is-signature" id="rituels-signature" aria-labelledby="signature-heading">
             <div class="mcat-container">
-                <header class="mcat-collection-header fade-in-up">
-                    <h2 class="mcat-collection-title" id="collection-heading">La carte des soins</h2>
-                    <span class="mcat-collection-count">8 rituels</span>
+                <header class="mcat-chapter-header fade-in-up">
+                    <h2 class="mcat-chapter-title" id="signature-heading">Les Rituels Signature</h2>
                 </header>
 
-                <div class="mcat-grid">
-                    <!-- 1. Massage Thaï Traditionnel (Dedicated page exists) -->
-                    <article class="mcat-card fade-in-up" tabindex="0"
-                        data-detail-url="/massages/massage-thai-traditionnel/">
-                        <img class="mcat-card-photo" src="/public/images/services/thai-traditionnel.jpg"
-                            alt="Massage Thaï Traditionnel chez LAWISA Paris 8" width="716" height="960"
-                            decoding="async">
-                        <div class="mcat-card-scrim" aria-hidden="true"></div>
-                        <div class="mcat-card-scrim-deep" aria-hidden="true"></div>
-                        <div class="mcat-card-body">
-                            <h3 class="mcat-card-title">Massage Thaï Traditionnel</h3>
-                            <span class="mcat-card-price">À partir de 90 €</span>
-                            <div class="mcat-card-reveal">
-                                <div class="mcat-card-reveal-inner">
-                                    <p class="mcat-card-desc">
-                                        Issu d’un savoir-faire ancestral thaïlandais, ce massage combine pressions
-                                        profondes et étirements pour soulager les tensions et retrouver vitalité.
-                                    </p>
-                                    <div class="mcat-card-actions">
-                                        <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking"
-                                            target="_blank" rel="noopener noreferrer" class="mcat-book-btn">Réserver</a>
-                                        <a href="/massages/massage-thai-traditionnel/" class="mcat-discover-link">Découvrir
-                                            <span aria-hidden="true">→</span></a>
-                                    </div>
+                <div class="mcat-signature-grid">
+                    <!-- Massage Thaï Traditionnel (Dedicated page live) -->
+                    <article class="mcat-ritual fade-in-up" tabindex="0" data-treatment-id="thai-traditionnel">
+                        <div class="mcat-ritual-media">
+                            <a href="/massages/massage-thai-traditionnel/" class="mcat-ritual-media-link"
+                                aria-label="Découvrir le Massage Thaï Traditionnel">
+                                <div class="mcat-ritual-media-inner">
+                                    <img class="mcat-ritual-photo" src="/public/images/treatments/thai-traditionnel.jpg"
+                                        alt="Massage Thaï Traditionnel chez LAWISA Paris 8" width="1200" height="896"
+                                        decoding="async">
+                                    <span class="mcat-photo-cue" aria-hidden="true">Découvrir →</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="mcat-ritual-body">
+                            <div>
+                                <div class="mcat-ritual-head">
+                                    <h3 class="mcat-ritual-title"><a href="/massages/massage-thai-traditionnel/"
+                                            class="mcat-ritual-title-link">Massage Thaï Traditionnel</a></h3>
+                                    <span class="mcat-ritual-price">Dès 90 €</span>
+                                </div>
+                                <p class="mcat-ritual-desc">
+                                    Pressions profondes et étirements en tenue souple, sans huile.
+                                </p>
+                            </div>
+                            <div class="mcat-ritual-footer">
+                                <div class="mcat-ritual-cta-group">
+                                    <button type="button" class="mcat-rates-trigger" data-open-rates>Tarifs</button>
+                                    <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking"
+                                        target="_blank" rel="noopener noreferrer" class="mcat-book-btn">Réserver</a>
                                 </div>
                             </div>
                         </div>
                     </article>
 
-                    <!-- 2. Massage Thaï aux Huiles Chaudes -->
-                    <article class="mcat-card fade-in-up" tabindex="0" style="transition-delay: 0.04s;">
-                        <img class="mcat-card-photo" src="/public/images/services/huiles-chaudes.jpg"
-                            alt="Massage Thaï aux Huiles Chaudes chez LAWISA Paris 8" width="716" height="960"
-                            decoding="async">
-                        <div class="mcat-card-scrim" aria-hidden="true"></div>
-                        <div class="mcat-card-scrim-deep" aria-hidden="true"></div>
-                        <div class="mcat-card-body">
-                            <h3 class="mcat-card-title">Massage Thaï aux Huiles Chaudes</h3>
-                            <span class="mcat-card-price">À partir de 90 €</span>
-                            <div class="mcat-card-reveal">
-                                <div class="mcat-card-reveal-inner">
-                                    <p class="mcat-card-desc">
-                                        Associe la chaleur des huiles à des mouvements doux et enveloppants pour
-                                        relâcher les muscles et profiter d’une détente profonde.
-                                    </p>
-                                    <div class="mcat-card-actions">
-                                        <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking"
-                                            target="_blank" rel="noopener noreferrer" class="mcat-book-btn">Réserver</a>
-                                    </div>
+                    <!-- Massage Thaï aux Huiles Chaudes -->
+                    <article class="mcat-ritual fade-in-up" tabindex="0" data-treatment-id="huiles-chaudes"
+                        style="transition-delay: 0.04s;">
+                        <div class="mcat-ritual-media">
+                            <a href="/massages/massage-aux-huiles-chaudes/" class="mcat-ritual-media-link"
+                                aria-label="Découvrir le Massage Thaï aux Huiles Chaudes">
+                                <div class="mcat-ritual-media-inner">
+                                    <img class="mcat-ritual-photo" src="/public/images/treatments/huiles-chaudes.jpg"
+                                        alt="Massage Thaï aux Huiles Chaudes chez LAWISA Paris 8" width="1200" height="896"
+                                        decoding="async">
+                                    <span class="mcat-photo-cue" aria-hidden="true">Découvrir →</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="mcat-ritual-body">
+                            <div>
+                                <div class="mcat-ritual-head">
+                                    <h3 class="mcat-ritual-title"><a href="/massages/massage-aux-huiles-chaudes/"
+                                            class="mcat-ritual-title-link">Massage Thaï aux Huiles Chaudes</a></h3>
+                                    <span class="mcat-ritual-price">Dès 90 €</span>
+                                </div>
+                                <p class="mcat-ritual-desc">
+                                    Longs mouvements enveloppants aux huiles tièdes. Happy Hour à 69 €.
+                                </p>
+                            </div>
+                            <div class="mcat-ritual-footer">
+                                <div class="mcat-ritual-cta-group">
+                                    <button type="button" class="mcat-rates-trigger" data-open-rates>Tarifs</button>
+                                    <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking"
+                                        target="_blank" rel="noopener noreferrer" class="mcat-book-btn">Réserver</a>
                                 </div>
                             </div>
                         </div>
                     </article>
 
-                    <!-- 3. Massage Thaï Mixte aux Huiles Chaudes -->
-                    <article class="mcat-card fade-in-up" tabindex="0" style="transition-delay: 0.08s;">
-                        <img class="mcat-card-photo" src="/public/images/services/thai-mixte-huiles.jpg"
-                            alt="Massage Thaï Mixte aux Huiles Chaudes chez LAWISA Paris 8" width="716" height="960"
-                            decoding="async">
-                        <div class="mcat-card-scrim" aria-hidden="true"></div>
-                        <div class="mcat-card-scrim-deep" aria-hidden="true"></div>
-                        <div class="mcat-card-body">
-                            <h3 class="mcat-card-title">Massage Thaï Mixte aux Huiles Chaudes</h3>
-                            <span class="mcat-card-price">À partir de 95 €</span>
-                            <div class="mcat-card-reveal">
-                                <div class="mcat-card-reveal-inner">
-                                    <p class="mcat-card-desc">
-                                        Une alliance entre pressions profondes, étirements thaïlandais et gestes
-                                        relaxants aux huiles chaudes pour un équilibre entre vitalité et apaisement.
-                                    </p>
-                                    <div class="mcat-card-actions">
-                                        <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking"
-                                            target="_blank" rel="noopener noreferrer" class="mcat-book-btn">Réserver</a>
-                                    </div>
+                    <!-- Massage Thaï Mixte aux Huiles Chaudes -->
+                    <article class="mcat-ritual fade-in-up" tabindex="0" data-treatment-id="mixte-huiles"
+                        style="transition-delay: 0.08s;">
+                        <div class="mcat-ritual-media">
+                            <a href="/massages/massage-mixte-thai-huiles-chaudes/" class="mcat-ritual-media-link"
+                                aria-label="Découvrir le Massage Thaï Mixte aux Huiles Chaudes">
+                                <div class="mcat-ritual-media-inner">
+                                    <img class="mcat-ritual-photo" src="/public/images/treatments/thai-mixte-huiles.jpg"
+                                        alt="Massage Thaï Mixte aux Huiles Chaudes chez LAWISA Paris 8" width="1200"
+                                        height="896" decoding="async">
+                                    <span class="mcat-photo-cue" aria-hidden="true">Découvrir →</span>
                                 </div>
-                            </div>
+                            </a>
                         </div>
-                    </article>
-
-                    <!-- 4. Massage Dos et Des Épaules -->
-                    <article class="mcat-card fade-in-up" tabindex="0" style="transition-delay: 0.12s;">
-                        <img class="mcat-card-photo" src="/public/images/services/dos-epaules.jpg"
-                            alt="Massage Dos et Des Épaules chez LAWISA Paris 8" width="716" height="960"
-                            decoding="async">
-                        <div class="mcat-card-scrim" aria-hidden="true"></div>
-                        <div class="mcat-card-scrim-deep" aria-hidden="true"></div>
-                        <div class="mcat-card-body">
-                            <h3 class="mcat-card-title">Massage Dos et Des Épaules</h3>
-                            <span class="mcat-card-price">À partir de 45 €</span>
-                            <div class="mcat-card-reveal">
-                                <div class="mcat-card-reveal-inner">
-                                    <p class="mcat-card-desc">
-                                        Un massage ciblé sur le dos, les épaules et la nuque pour dénouer les tensions
-                                        musculaires et relâcher les zones contractées.
-                                    </p>
-                                    <div class="mcat-card-actions">
-                                        <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking"
-                                            target="_blank" rel="noopener noreferrer" class="mcat-book-btn">Réserver</a>
-                                    </div>
+                        <div class="mcat-ritual-body">
+                            <div>
+                                <div class="mcat-ritual-head">
+                                    <h3 class="mcat-ritual-title"><a
+                                            href="/massages/massage-mixte-thai-huiles-chaudes/"
+                                            class="mcat-ritual-title-link">Massage Thaï Mixte aux Huiles Chaudes</a>
+                                    </h3>
+                                    <span class="mcat-ritual-price">Dès 95 €</span>
                                 </div>
+                                <p class="mcat-ritual-desc">
+                                    Acupression thaïlandaise ciblée suivie d’un soin aux huiles chaudes.
+                                </p>
                             </div>
-                        </div>
-                    </article>
-
-                    <!-- 5. Massage Crânien -->
-                    <article class="mcat-card fade-in-up" tabindex="0">
-                        <img class="mcat-card-photo" src="/public/images/services/massage-cranien.jpg"
-                            alt="Massage Crânien chez LAWISA Paris 8" width="716" height="960" loading="lazy"
-                            decoding="async">
-                        <div class="mcat-card-scrim" aria-hidden="true"></div>
-                        <div class="mcat-card-scrim-deep" aria-hidden="true"></div>
-                        <div class="mcat-card-body">
-                            <h3 class="mcat-card-title">Massage Crânien</h3>
-                            <span class="mcat-card-price">À partir de 45 €</span>
-                            <div class="mcat-card-reveal">
-                                <div class="mcat-card-reveal-inner">
-                                    <p class="mcat-card-desc">
-                                        Un soin doux du cuir chevelu, des tempes et de la nuque pour évacuer le stress
-                                        et inviter au lâcher-prise.
-                                    </p>
-                                    <div class="mcat-card-actions">
-                                        <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking"
-                                            target="_blank" rel="noopener noreferrer" class="mcat-book-btn">Réserver</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- 6. Réflexologie Plantaire / Massage des pieds -->
-                    <article class="mcat-card fade-in-up" tabindex="0" style="transition-delay: 0.04s;">
-                        <img class="mcat-card-photo" src="/public/images/services/reflexologie-plantaire.jpg"
-                            alt="Réflexologie Plantaire et Massage des Pieds chez LAWISA Paris 8" width="716"
-                            height="960" loading="lazy" decoding="async">
-                        <div class="mcat-card-scrim" aria-hidden="true"></div>
-                        <div class="mcat-card-scrim-deep" aria-hidden="true"></div>
-                        <div class="mcat-card-body">
-                            <h3 class="mcat-card-title">Réflexologie Plantaire / Massage des pieds</h3>
-                            <span class="mcat-card-price">À partir de 45 €</span>
-                            <div class="mcat-card-reveal">
-                                <div class="mcat-card-reveal-inner">
-                                    <p class="mcat-card-desc">
-                                        Un massage des pieds mêlant pressions ciblées et gestes précis pour soulager les
-                                        appuis et retrouver une sensation de légèreté.
-                                    </p>
-                                    <div class="mcat-card-actions">
-                                        <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking"
-                                            target="_blank" rel="noopener noreferrer" class="mcat-book-btn">Réserver</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- 7. Jet Lag Recovery Massage -->
-                    <article class="mcat-card fade-in-up" tabindex="0" style="transition-delay: 0.08s;">
-                        <img class="mcat-card-photo" src="/public/images/services/jet-lag-recovery.jpg"
-                            alt="Jet Lag Recovery Massage chez LAWISA Paris 8" width="716" height="960" loading="lazy"
-                            decoding="async">
-                        <div class="mcat-card-scrim" aria-hidden="true"></div>
-                        <div class="mcat-card-scrim-deep" aria-hidden="true"></div>
-                        <div class="mcat-card-body">
-                            <h3 class="mcat-card-title">Jet Lag Recovery Massage</h3>
-                            <span class="mcat-card-price">À partir de 55 €</span>
-                            <div class="mcat-card-reveal">
-                                <div class="mcat-card-reveal-inner">
-                                    <p class="mcat-card-desc">
-                                        Spécialement pensé pour les voyageurs afin d’atténuer la fatigue d’un long
-                                        trajet et détendre l’ensemble du corps.
-                                    </p>
-                                    <div class="mcat-card-actions">
-                                        <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking"
-                                            target="_blank" rel="noopener noreferrer" class="mcat-book-btn">Réserver</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- 8. Massage Office Syndrome -->
-                    <article class="mcat-card fade-in-up" tabindex="0" style="transition-delay: 0.12s;">
-                        <img class="mcat-card-photo" src="/public/images/services/office-syndrome.jpg"
-                            alt="Massage Office Syndrome chez LAWISA Paris 8" width="716" height="960" loading="lazy"
-                            decoding="async">
-                        <div class="mcat-card-scrim" aria-hidden="true"></div>
-                        <div class="mcat-card-scrim-deep" aria-hidden="true"></div>
-                        <div class="mcat-card-body">
-                            <h3 class="mcat-card-title">Massage Office Syndrome</h3>
-                            <span class="mcat-card-price">À partir de 60 €</span>
-                            <div class="mcat-card-reveal">
-                                <div class="mcat-card-reveal-inner">
-                                    <p class="mcat-card-desc">
-                                        Cible les raideurs liées aux postures prolongées sur la nuque et le haut du dos
-                                        pour retrouver confort et mobilité.
-                                    </p>
-                                    <div class="mcat-card-actions">
-                                        <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking"
-                                            target="_blank" rel="noopener noreferrer" class="mcat-book-btn">Réserver</a>
-                                    </div>
+                            <div class="mcat-ritual-footer">
+                                <div class="mcat-ritual-cta-group">
+                                    <button type="button" class="mcat-rates-trigger" data-open-rates>Tarifs</button>
+                                    <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking"
+                                        target="_blank" rel="noopener noreferrer" class="mcat-book-btn">Réserver</a>
                                 </div>
                             </div>
                         </div>
@@ -352,7 +256,190 @@
             </div>
         </section>
 
-        <!-- 3. Unobstructed Wide Spa Photograph & Minimalist Left Booking CTA -->
+        <!-- 3. Chapter II: Focused & Recovery Care -->
+        <section class="mcat-chapter is-focused" id="soins-cibles" aria-labelledby="focused-heading">
+            <div class="mcat-container">
+                <header class="mcat-chapter-header fade-in-up">
+                    <h2 class="mcat-chapter-title" id="focused-heading">Soins Ciblés &amp; Récupération</h2>
+                </header>
+
+                <!-- Unified Focused Care Grid (3 on Row 1, 2 centered on Row 2) -->
+                <div class="mcat-focused-grid">
+                    <article class="mcat-ritual fade-in-up" tabindex="0" data-treatment-id="dos-epaules">
+                        <div class="mcat-ritual-media">
+                            <a href="/massages/massage-dos-et-epaules/" class="mcat-ritual-media-link"
+                                aria-label="Découvrir le Massage Dos et Des Épaules">
+                                <div class="mcat-ritual-media-inner">
+                                    <img class="mcat-ritual-photo" src="/public/images/treatments/dos-epaules.jpg"
+                                        alt="Massage Dos et Des Épaules chez LAWISA Paris 8" width="1200" height="896"
+                                        loading="lazy" decoding="async">
+                                    <span class="mcat-photo-cue" aria-hidden="true">Découvrir →</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="mcat-ritual-body">
+                            <div>
+                                <div class="mcat-ritual-head">
+                                    <h3 class="mcat-ritual-title"><a href="/massages/massage-dos-et-epaules/"
+                                            class="mcat-ritual-title-link">Massage Dos et Des Épaules</a></h3>
+                                    <span class="mcat-ritual-price">Dès 45 €</span>
+                                </div>
+                                <p class="mcat-ritual-desc">
+                                    Soin ciblé sur la nuque, les trapèzes et le haut du dos dès 30 min.
+                                </p>
+                            </div>
+                            <div class="mcat-ritual-footer">
+                                <div class="mcat-ritual-cta-group">
+                                    <button type="button" class="mcat-rates-trigger" data-open-rates>Tarifs</button>
+                                    <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking"
+                                        target="_blank" rel="noopener noreferrer" class="mcat-book-btn">Réserver</a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="mcat-ritual fade-in-up" tabindex="0" data-treatment-id="cranien"
+                        style="transition-delay: 0.04s;">
+                        <div class="mcat-ritual-media">
+                            <a href="/massages/massage-cranien/" class="mcat-ritual-media-link"
+                                aria-label="Découvrir le Massage Crânien">
+                                <div class="mcat-ritual-media-inner">
+                                    <img class="mcat-ritual-photo" src="/public/images/treatments/massage-cranien.jpg"
+                                        alt="Massage Crânien chez LAWISA Paris 8" width="1200" height="896" loading="lazy"
+                                        decoding="async">
+                                    <span class="mcat-photo-cue" aria-hidden="true">Découvrir →</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="mcat-ritual-body">
+                            <div>
+                                <div class="mcat-ritual-head">
+                                    <h3 class="mcat-ritual-title"><a href="/massages/massage-cranien/"
+                                            class="mcat-ritual-title-link">Massage Crânien</a></h3>
+                                    <span class="mcat-ritual-price">Dès 45 €</span>
+                                </div>
+                                <p class="mcat-ritual-desc">
+                                    Détente apaisante du cuir chevelu, des tempes et de la nuque.
+                                </p>
+                            </div>
+                            <div class="mcat-ritual-footer">
+                                <div class="mcat-ritual-cta-group">
+                                    <button type="button" class="mcat-rates-trigger" data-open-rates>Tarifs</button>
+                                    <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking"
+                                        target="_blank" rel="noopener noreferrer" class="mcat-book-btn">Réserver</a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="mcat-ritual fade-in-up" tabindex="0" data-treatment-id="reflexologie"
+                        style="transition-delay: 0.08s;">
+                        <div class="mcat-ritual-media">
+                            <a href="/massages/reflexologie-plantaire/" class="mcat-ritual-media-link"
+                                aria-label="Découvrir la Réflexologie Plantaire">
+                                <div class="mcat-ritual-media-inner">
+                                    <img class="mcat-ritual-photo"
+                                        src="/public/images/treatments/reflexologie-plantaire.jpg"
+                                        alt="Réflexologie Plantaire et Massage des Pieds chez LAWISA Paris 8" width="1200"
+                                        height="896" loading="lazy" decoding="async">
+                                    <span class="mcat-photo-cue" aria-hidden="true">Découvrir →</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="mcat-ritual-body">
+                            <div>
+                                <div class="mcat-ritual-head">
+                                    <h3 class="mcat-ritual-title"><a href="/massages/reflexologie-plantaire/"
+                                            class="mcat-ritual-title-link">Réflexologie Plantaire / Massage des pieds</a>
+                                    </h3>
+                                    <span class="mcat-ritual-price">Dès 45 €</span>
+                                </div>
+                                <p class="mcat-ritual-desc">
+                                    Pressions précises de la voûte plantaire et lissages relaxants.
+                                </p>
+                            </div>
+                            <div class="mcat-ritual-footer">
+                                <div class="mcat-ritual-cta-group">
+                                    <button type="button" class="mcat-rates-trigger" data-open-rates>Tarifs</button>
+                                    <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking"
+                                        target="_blank" rel="noopener noreferrer" class="mcat-book-btn">Réserver</a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="mcat-ritual fade-in-up" tabindex="0" data-treatment-id="jet-lag"
+                        style="transition-delay: 0.04s;">
+                        <div class="mcat-ritual-media">
+                            <a href="/massages/jet-lag-recovery-massage/" class="mcat-ritual-media-link"
+                                aria-label="Découvrir le Jet Lag Recovery Massage">
+                                <div class="mcat-ritual-media-inner">
+                                    <img class="mcat-ritual-photo" src="/public/images/treatments/jet-lag-recovery.jpg"
+                                        alt="Jet Lag Recovery Massage chez LAWISA Paris 8" width="1200" height="896"
+                                        loading="lazy" decoding="async">
+                                    <span class="mcat-photo-cue" aria-hidden="true">Découvrir →</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="mcat-ritual-body">
+                            <div>
+                                <div class="mcat-ritual-head">
+                                    <h3 class="mcat-ritual-title"><a href="/massages/jet-lag-recovery-massage/"
+                                            class="mcat-ritual-title-link">Jet Lag Recovery Massage</a></h3>
+                                    <span class="mcat-ritual-price">Dès 55 €</span>
+                                </div>
+                                <p class="mcat-ritual-desc">
+                                    Conçu après un vol pour délier le corps et relancer la détente.
+                                </p>
+                            </div>
+                            <div class="mcat-ritual-footer">
+                                <div class="mcat-ritual-cta-group">
+                                    <button type="button" class="mcat-rates-trigger" data-open-rates>Tarifs</button>
+                                    <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking"
+                                        target="_blank" rel="noopener noreferrer" class="mcat-book-btn">Réserver</a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="mcat-ritual fade-in-up" tabindex="0" data-treatment-id="office-syndrome"
+                        style="transition-delay: 0.08s;">
+                        <div class="mcat-ritual-media">
+                            <a href="/massages/massage-office-syndrome/" class="mcat-ritual-media-link"
+                                aria-label="Découvrir le Massage Office Syndrome">
+                                <div class="mcat-ritual-media-inner">
+                                    <img class="mcat-ritual-photo" src="/public/images/treatments/office-syndrome.jpg"
+                                        alt="Massage Office Syndrome chez LAWISA Paris 8" width="1200" height="896"
+                                        loading="lazy" decoding="async">
+                                    <span class="mcat-photo-cue" aria-hidden="true">Découvrir →</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="mcat-ritual-body">
+                            <div>
+                                <div class="mcat-ritual-head">
+                                    <h3 class="mcat-ritual-title"><a href="/massages/massage-office-syndrome/"
+                                            class="mcat-ritual-title-link">Massage Office Syndrome</a></h3>
+                                    <span class="mcat-ritual-price">Dès 60 €</span>
+                                </div>
+                                <p class="mcat-ritual-desc">
+                                    Libère les tensions cervicales et dorsales liées aux postures devant écran.
+                                </p>
+                            </div>
+                            <div class="mcat-ritual-footer">
+                                <div class="mcat-ritual-cta-group">
+                                    <button type="button" class="mcat-rates-trigger" data-open-rates>Tarifs</button>
+                                    <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking"
+                                        target="_blank" rel="noopener noreferrer" class="mcat-book-btn">Réserver</a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Elevated Panoramic Spa Finale -->
         <section class="mcat-sanctuary" aria-labelledby="sanctuary-heading">
             <img class="mcat-sanctuary-img" src="/public/images/services/thai-traditionnel-restoration.jpg"
                 alt="Suite lumineuse du salon LAWISA Thaï Massage Paris 8e dans une atmosphère sereine" width="1376"
@@ -370,7 +457,136 @@
         </section>
     </main>
 
-    <!-- 4. Existing Luxury Footer -->
+    <!-- Minimalist Quick-View Overlay (Strictly essentials only) -->
+    <div class="mcat-qv-backdrop" id="mcat-qv-backdrop" role="dialog" aria-modal="true" aria-labelledby="mcat-qv-title"
+        hidden>
+        <div class="mcat-qv-dialog">
+            <button type="button" class="mcat-qv-close" id="mcat-qv-close" aria-label="Fermer">&times;</button>
+            <div class="mcat-qv-grid">
+                <div class="mcat-qv-media">
+                    <div class="mcat-qv-frame">
+                        <div class="mcat-qv-frame-inner">
+                            <img src="/public/images/treatments/thai-traditionnel.jpg" alt="" class="mcat-qv-photo"
+                                id="mcat-qv-photo">
+                        </div>
+                    </div>
+                </div>
+                <div class="mcat-qv-body">
+                    <h3 class="mcat-qv-title" id="mcat-qv-title"></h3>
+                    <p class="mcat-qv-desc" id="mcat-qv-desc"></p>
+                    <div class="mcat-qv-rates" id="mcat-qv-rates" role="group" aria-label="Tarifs"></div>
+                    <div class="mcat-qv-actions">
+                        <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking"
+                            target="_blank" rel="noopener noreferrer" class="mcat-qv-book-btn"
+                            id="mcat-qv-book">Réserver</a>
+                        <a href="/massages/massage-thai-traditionnel/" class="mcat-discover-link" id="mcat-qv-discover"
+                            hidden>Découvrir <span aria-hidden="true">→</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Verified Confirmed Treatment Data (FR) -->
+    <script type="application/json" id="mcat-treatments-data">
+    {
+      "thai-traditionnel": {
+        "title": "Massage Thaï Traditionnel",
+        "image": "/public/images/treatments/thai-traditionnel.jpg",
+        "imageAlt": "Massage Thaï Traditionnel chez LAWISA Paris 8",
+        "description": "Pressions profondes et étirements en tenue souple, sans huile.",
+        "bookUrl": "https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking",
+        "detailUrl": "/massages/massage-thai-traditionnel/",
+        "options": [
+          { "label": "Solo", "duration": "1h", "price": "90 €" },
+          { "label": "Duo", "duration": "1h", "price": "170 €" },
+          { "label": "Duo", "duration": "1h30", "price": "245 €" },
+          { "label": "Duo", "duration": "2h", "price": "320 €" }
+        ]
+      },
+      "huiles-chaudes": {
+        "title": "Massage Thaï aux Huiles Chaudes",
+        "image": "/public/images/treatments/huiles-chaudes.jpg",
+        "imageAlt": "Massage Thaï aux Huiles Chaudes chez LAWISA Paris 8",
+        "description": "Longs mouvements enveloppants aux huiles tièdes.",
+        "bookUrl": "https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking",
+        "detailUrl": "/massages/massage-aux-huiles-chaudes/",
+        "options": [
+          { "label": "Solo", "duration": "1h", "price": "90 €" },
+          { "label": "Happy Hour (Lun–Ven, 11h–14h)", "duration": "1h", "price": "69 €" }
+        ]
+      },
+      "mixte-huiles": {
+        "title": "Massage Thaï Mixte aux Huiles Chaudes",
+        "image": "/public/images/treatments/thai-mixte-huiles.jpg",
+        "imageAlt": "Massage Thaï Mixte aux Huiles Chaudes chez LAWISA Paris 8",
+        "description": "Acupression thaïlandaise ciblée suivie d’un soin aux huiles chaudes.",
+        "bookUrl": "https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking",
+        "detailUrl": "/massages/massage-mixte-thai-huiles-chaudes/",
+        "options": [
+          { "label": "Solo", "duration": "1h", "price": "95 €" },
+          { "label": "Duo", "duration": "1h", "price": "180 €" }
+        ]
+      },
+      "dos-epaules": {
+        "title": "Massage Dos et Des Épaules",
+        "image": "/public/images/treatments/dos-epaules.jpg",
+        "imageAlt": "Massage Dos et Des Épaules chez LAWISA Paris 8",
+        "description": "Soin ciblé sur la nuque, les trapèzes et le haut du dos.",
+        "bookUrl": "https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking",
+        "detailUrl": "/massages/massage-dos-et-epaules/",
+        "options": [
+          { "label": "Séance ciblée", "duration": "30 min", "price": "45 €" }
+        ]
+      },
+      "cranien": {
+        "title": "Massage Crânien",
+        "image": "/public/images/treatments/massage-cranien.jpg",
+        "imageAlt": "Massage Crânien chez LAWISA Paris 8",
+        "description": "Détente apaisante du cuir chevelu, des tempes et de la nuque.",
+        "bookUrl": "https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking",
+        "detailUrl": "/massages/massage-cranien/",
+        "options": [
+          { "label": "À partir de", "duration": "", "price": "45 €" }
+        ]
+      },
+      "reflexologie": {
+        "title": "Réflexologie Plantaire / Massage des pieds",
+        "image": "/public/images/treatments/reflexologie-plantaire.jpg",
+        "imageAlt": "Réflexologie Plantaire et Massage des Pieds chez LAWISA Paris 8",
+        "description": "Pressions précises de la voûte plantaire et lissages relaxants.",
+        "bookUrl": "https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking",
+        "detailUrl": "/massages/reflexologie-plantaire/",
+        "options": [
+          { "label": "À partir de", "duration": "", "price": "45 €" }
+        ]
+      },
+      "jet-lag": {
+        "title": "Jet Lag Recovery Massage",
+        "image": "/public/images/treatments/jet-lag-recovery.jpg",
+        "imageAlt": "Jet Lag Recovery Massage chez LAWISA Paris 8",
+        "description": "Conçu après un vol pour délier le corps et relancer la détente.",
+        "bookUrl": "https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking",
+        "detailUrl": "/massages/jet-lag-recovery-massage/",
+        "options": [
+          { "label": "À partir de", "duration": "", "price": "55 €" }
+        ]
+      },
+      "office-syndrome": {
+        "title": "Massage Office Syndrome",
+        "image": "/public/images/treatments/office-syndrome.jpg",
+        "imageAlt": "Massage Office Syndrome chez LAWISA Paris 8",
+        "description": "Libère les tensions cervicales et dorsales liées aux postures devant écran.",
+        "bookUrl": "https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking",
+        "detailUrl": "/massages/massage-office-syndrome/",
+        "options": [
+          { "label": "À partir de", "duration": "", "price": "60 €" }
+        ]
+      }
+    }
+    </script>
+
+    <!-- Shared Dark Luxury Footer -->
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-grid">
@@ -379,7 +595,8 @@
                         <img src="/public/images/logo-gold.png" alt="Lawisa Thaï Massage" width="1962" height="801"
                             class="footer-logo-img">
                     </a>
-                    <p class="footer-desc">L’art du massage thaïlandais traditionnel au cœur du 8ᵉ arrondissement de Paris.</p>
+                    <p class="footer-desc">L’art du massage thaïlandais traditionnel au cœur du 8ᵉ arrondissement de
+                        Paris.</p>
                     <address class="footer-meta">
                         <span class="footer-address">183 Rue du Faubourg Saint-Honoré<br>75008 Paris</span>
                         <a href="tel:+33636432381" class="footer-phone">06 36 43 23 81</a>
@@ -398,7 +615,8 @@
                     </div>
                 </div>
 
-                <nav class="footer-nav fade-in-up" style="transition-delay: 0.08s;" aria-label="Navigation pied de page">
+                <nav class="footer-nav fade-in-up" style="transition-delay: 0.08s;"
+                    aria-label="Navigation pied de page">
                     <a href="/massages/">Massages</a>
                     <a href="/#le-salon">Le Salon</a>
                     <a href="/#offres">Offres</a>
@@ -415,7 +633,9 @@
                         target="_blank" rel="noopener noreferrer" class="footer-btn">RÉSERVER</a>
 
                     <div class="footer-lang" role="group" aria-label="Choisir la langue">
-                        <a href="/massages/" class="lang-btn active" aria-current="page">FR</a><span class="lang-divider" aria-hidden="true">|</span><a href="/en/massages/" class="lang-btn" hreflang="en">EN</a>
+                        <a href="/massages/" class="lang-btn active" aria-current="page">FR</a><span
+                            class="lang-divider" aria-hidden="true">|</span><a href="/en/massages/" class="lang-btn"
+                            hreflang="en">EN</a>
                     </div>
                 </div>
             </div>
@@ -441,7 +661,7 @@
         <span class="whatsapp-widget-label">Écrire sur WhatsApp</span>
     </a>
 
-    <script src="/js/massages-catalog.js?v=1"></script>
+    <script src="/js/massages-catalog.js?v=3"></script>
     <script src="/js/whatsapp-prompt.js?v=1"></script>
 </body>
 

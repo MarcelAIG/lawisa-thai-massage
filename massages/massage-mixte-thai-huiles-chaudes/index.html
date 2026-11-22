@@ -1,324 +1,372 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Massage Mixte Thaï aux Huiles Chaudes Paris 8ᵉ | LAWISA</title>
-    <meta name="description" content="Massage mixte thaï aux huiles chaudes à Paris 8ᵉ chez LAWISA : combinaison d'acupression thaïlandaise et d'huiles chaudes à partir de 95 €. Solo ou Duo.">
-    <link rel="canonical" href="https://lawisa-thai-massage.pages.dev/massages/massage-mixte-thai-huiles-chaudes">
+    <title>Massage Thaï Mixte aux Huiles Chaudes à Paris 8e | LAWISA</title>
+    <meta name="description"
+        content="Massage thaï mixte aux huiles chaudes à Paris 8ᵉ chez LAWISA : acupression thaïlandaise ciblée suivie d’un soin aux huiles tièdes. Solo dès 95 € et Duo dès 180 €.">
+
+    <!-- Canonical & reciprocal hreflang -->
+    <link rel="canonical" href="/massages/massage-mixte-thai-huiles-chaudes/">
+    <link rel="alternate" hreflang="fr" href="/massages/massage-mixte-thai-huiles-chaudes/">
+    <link rel="alternate" hreflang="en" href="/en/massages/mixed-thai-warm-oil-massage/">
+    <link rel="alternate" hreflang="x-default" href="/massages/massage-mixte-thai-huiles-chaudes/">
 
     <meta property="og:type" content="website">
     <meta property="og:locale" content="fr_FR">
-    <meta property="og:title" content="Massage Mixte Thaï aux Huiles Chaudes Paris 8ᵉ | LAWISA">
-    <meta property="og:description" content="Massage mixte thaï aux huiles chaudes à Paris 8ᵉ chez LAWISA : combinaison d'acupression thaïlandaise et d'huiles chaudes à partir de 95 €. Solo ou Duo.">
-    <meta property="og:image" content="/public/images/WhatsApp%20Image%202026-11-15%20at%2015.36.15%20(4).jpeg">
-    <meta property="og:url" content="https://lawisa-thai-massage.pages.dev/massages/massage-mixte-thai-huiles-chaudes">
+    <meta property="og:title" content="Massage Thaï Mixte aux Huiles Chaudes à Paris 8e | LAWISA">
+    <meta property="og:description"
+        content="Alliance de pressions thaïlandaises ciblées et de mouvements fluides aux huiles chaudes au 183 Rue du Faubourg Saint-Honoré.">
+    <meta property="og:image" content="/public/images/treatments/thai-mixte-huiles.jpg">
 
+    <!-- Approved Fonts: Exclusively Newsreader & DM Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,400..500&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/style.css?v=45">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,400..500&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="/style.css?v=68">
+    <link rel="stylesheet" href="/css/service-page.css?v=5">
+
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Service",
-      "serviceType": "Massage mixte thaï aux huiles chaudes à Paris 8ᵉ",
-      "provider": {
-        "@type": "DaySpa",
-        "name": "LAWISA Thaï Massage",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "183 Rue du Faubourg Saint-Honoré",
-          "postalCode": "75008",
-          "addressLocality": "Paris",
-          "addressCountry": "FR"
+      "@graph": [
+        {
+          "@type": "DaySpa",
+          "@id": "#lawisa-salon",
+          "name": "LAWISA Thaï Massage",
+          "telephone": "+33636432381",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "183 Rue du Faubourg Saint-Honoré",
+            "postalCode": "75008",
+            "addressLocality": "Paris",
+            "addressCountry": "FR"
+          },
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+              "opens": "11:00",
+              "closes": "20:00"
+            }
+          ],
+          "sameAs": [
+            "https://www.instagram.com/lawisa_paris08/",
+            "https://maps.app.goo.gl/87m61ci81Ua11WW76"
+          ]
         },
-        "telephone": "+33636432381"
-      },
-      "areaServed": "Paris 8e"
+        {
+          "@type": "Service",
+          "name": "Massage Thaï Mixte aux Huiles Chaudes",
+          "serviceType": "Massage mixte thaïlandais et huiles chaudes",
+          "areaServed": "Paris 8e",
+          "provider": { "@id": "#lawisa-salon" },
+          "offers": [
+            { "@type": "Offer", "name": "Séance Solo — 1h", "price": "95", "priceCurrency": "EUR", "url": "https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking" },
+            { "@type": "Offer", "name": "Séance Duo — 1h", "price": "180", "priceCurrency": "EUR", "url": "https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking" }
+          ]
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "/" },
+            { "@type": "ListItem", "position": 2, "name": "Massages", "item": "/massages/" },
+            { "@type": "ListItem", "position": 3, "name": "Massage Thaï Mixte aux Huiles Chaudes", "item": "/massages/massage-mixte-thai-huiles-chaudes/" }
+          ]
+        }
+      ]
     }
     </script>
 </head>
+
 <body>
-    <!-- Header -->
-    <header class="site-header" id="site-header">
-        <div class="header-inner">
-            <a href="/" class="site-logo" aria-label="LAWISA Thaï Massage — Accueil">
-                <img src="/public/images/logo-gold.png" alt="LAWISA Thaï Massage Paris 8e" width="132" height="54">
-            </a>
-
-            <nav class="desktop-nav" aria-label="Navigation principale">
-                <a href="/" data-i18n="nav_home">Accueil</a>
-                <a href="/massages/" data-i18n="nav_massages">Massages</a>
-                <a href="/offres/" data-i18n="nav_offers">Offres</a>
-                <a href="/le-salon/" data-i18n="nav_salon">Le Salon</a>
-                <a href="/galerie/" data-i18n="nav_gallery">Galerie</a>
-                <a href="/avis/" data-i18n="nav_reviews">Avis</a>
-                <a href="/contact/" data-i18n="nav_contact">Contact</a>
-            </nav>
-
-            <div class="header-actions">
-                <div class="lang-switch" role="group" aria-label="Langue">
-                    <button type="button" class="lang-btn active" data-lang="fr">FR</button>
-                    <button type="button" class="lang-btn" data-lang="en">EN</button>
-                </div>
-
-                <a href="tel:+33636432381" class="header-phone" aria-label="Appeler LAWISA Thaï Massage au 06 36 43 23 81">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                    <span>06 36 43 23 81</span>
+    <!-- Shared Header -->
+    <header class="header" id="header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="/" aria-label="LAWISA Thaï Massage — Accueil">
+                    <img src="/public/images/logo-gold.png" alt="Lawisa Thaï Massage" width="1962" height="801"
+                        class="logo-img">
                 </a>
+            </div>
+            <nav class="nav-links" aria-label="Navigation principale">
+                <a href="/">Accueil</a>
+                <a href="/massages/">Massages</a>
+                <a href="/#le-salon">Le Salon</a>
+                <a href="/#offres">Offres</a>
+                <a href="/#galerie">Galerie</a>
+                <a href="/#contact">Contact</a>
+            </nav>
+            <div class="nav-actions">
+                <div class="lang-switch" role="group" aria-label="Choisir la langue">
+                    <span class="lang-btn active" aria-current="page">FR</span> | <a
+                        href="/en/massages/mixed-thai-warm-oil-massage/" class="lang-btn" hreflang="en">EN</a>
+                </div>
+                <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking"
+                    target="_blank" rel="noopener noreferrer" class="btn-header">Réserver</a>
 
-                <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9" target="_blank" rel="noopener noreferrer" class="btn btn-primary header-book-btn" data-i18n="nav_book">Réserver</a>
-
-                <button type="button" class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-drawer">
-                    <span></span><span></span><span></span>
+                <button type="button" class="mobile-menu-btn" aria-label="Menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </button>
             </div>
         </div>
     </header>
 
-    <!-- Mobile Navigation Drawer -->
-    <div class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
-        <nav class="mobile-drawer-links" aria-label="Navigation mobile">
-            <a href="/" data-i18n="nav_home">Accueil</a>
-            <a href="/massages/" data-i18n="nav_massages">Massages</a>
-            <a href="/offres/" data-i18n="nav_offers">Offres</a>
-            <a href="/le-salon/" data-i18n="nav_salon">Le Salon</a>
-            <a href="/galerie/" data-i18n="nav_gallery">Galerie</a>
-            <a href="/avis/" data-i18n="nav_reviews">Avis</a>
-            <a href="/contact/" data-i18n="nav_contact">Contact</a>
-            <a href="/faq/" data-i18n="nav_faq">FAQ</a>
-        </nav>
+    <main class="service-page-main">
+        <!-- 1. Treatment Introduction -->
+        <section class="svc-hero">
+            <div class="svc-container">
+                <div class="svc-hero-grid">
+                    <div class="svc-hero-copy fade-in-up visible">
+                        <h1 class="svc-hero-title">Massage Thaï Mixte aux Huiles Chaudes<br><em
+                                class="svc-hero-accent">à Paris&nbsp;8ᵉ</em></h1>
+                        <p class="svc-hero-lead">
+                            Alliance d’acupression thaïlandaise ciblée et de mouvements fluides aux huiles chaudes.
+                            Proposé en séance Solo dès 95 € et en Duo dès 180 €.
+                        </p>
 
-        <div class="mobile-drawer-footer">
-            <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9" target="_blank" rel="noopener noreferrer" class="btn btn-primary" data-i18n="hero_cta_book">Réserver un massage</a>
-            <div class="mobile-drawer-actions-row">
-                <a href="tel:+33636432381" class="btn btn-outline btn-sm" data-i18n="nav_call">Appeler</a>
-                <a href="https://wa.me/33636432381" target="_blank" rel="noopener noreferrer" class="btn btn-dark btn-sm">WhatsApp</a>
-            </div>
-        </div>
-    </div>
-
-    <main>
-        <section class="page-hero">
-            <div class="container">
-                <div class="page-hero-inner">
-                    <nav class="breadcrumb" aria-label="Fil d'Ariane">
-                        <a href="/" data-i18n="nav_home">Accueil</a>
-                        <span>/</span>
-                        <a href="/massages/" data-i18n="nav_massages">Massages</a>
-                        <span>/</span>
-                        <span data-i18n-fr="Massage mixte thaï aux huiles chaudes à Paris 8ᵉ" data-i18n-en="Mixed Thai & warm oil massage in Paris 8th">Massage mixte thaï aux huiles chaudes à Paris 8ᵉ</span>
-                    </nav>
-                    <span class="eyebrow">LAWISA Thaï Massage · Paris 8ᵉ</span>
-                    <h1 data-i18n-fr="Massage mixte thaï aux huiles chaudes à Paris 8ᵉ" data-i18n-en="Mixed Thai & warm oil massage in Paris 8th">Massage mixte thaï aux huiles chaudes à Paris 8ᵉ</h1>
-                    <p class="lead" data-i18n-fr="Notre soin signature le plus complet : la profondeur ciblée des techniques thaïlandaises associée à la fluidité apaisante des huiles chaudes." data-i18n-en="Our signature combination: the targeted depth of Thai bodywork blended with the soothing fluidity of warm oils.">Notre soin signature le plus complet : la profondeur ciblée des techniques thaïlandaises associée à la fluidité apaisante des huiles chaudes.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="section-padding bg-cream">
-            <div class="container">
-                <div class="detail-grid">
-                    <div>
-                        <div class="split-media" style="margin-bottom: 2rem;">
-                            <img src="/public/images/WhatsApp%20Image%202026-11-15%20at%2015.36.15%20(4).jpeg" alt="Suite de soin pour massage mixte thaï aux huiles chaudes chez LAWISA Paris 8">
-                        </div>
-
-                        <h2 data-i18n-fr="Un soin authentique au cœur du 8ᵉ arrondissement" data-i18n-en="An authentic ritual in the heart of Paris 8th">Un soin authentique au cœur du 8ᵉ arrondissement</h2>
-                        <p style="margin-top: 1rem;" data-i18n-fr="Vous hésitez entre l'efficacité d'un massage traditionnel thaïlandais et le réconfort d'un massage aux huiles chaudes ? Le massage mixte réunit le meilleur des deux approches en une seule séance structurée." data-i18n-en="Can't choose between traditional Thai technique and warm oil relaxation? Our mixed massage unites both traditions in one cohesive session.">Vous hésitez entre l'efficacité d'un massage traditionnel thaïlandais et le réconfort d'un massage aux huiles chaudes ? Le massage mixte réunit le meilleur des deux approches en une seule séance structurée.</p>
-                        <p data-i18n-fr="La séance travaille en profondeur les nœuds et zones tendues par des pressions précises, avant d'harmoniser l'ensemble du corps par de longs effleurages à l'huile tiède." data-i18n-en="Deep, targeted pressure addresses localized tension before long, flowing warm oil strokes restore full-body ease.">La séance travaille en profondeur les nœuds et zones tendues par des pressions précises, avant d'harmoniser l'ensemble du corps par de longs effleurages à l'huile tiède.</p>
-
-                        <h3 style="margin-top: 2rem;" data-i18n-fr="Bienfaits ressentis" data-i18n-en="Key wellness benefits">Bienfaits ressentis</h3>
-                        <ul class="feature-list">
-                            <li data-i18n-fr="Combine décontraction profonde et relaxation sensorielle" data-i18n-en="Combines deep tension release with sensory relaxation">Combine décontraction profonde et relaxation sensorielle</li>
-<li data-i18n-fr="Idéal pour les dos chargés tout en restant enveloppant" data-i18n-en="Ideal for tight backs while remaining soothing and fluid">Idéal pour les dos chargés tout en restant enveloppant</li>
-<li data-i18n-fr="Adapté aux besoins des sportifs comme aux citadins stressés" data-i18n-en="Suited both to active guests and busy professionals">Adapté aux besoins des sportifs comme aux citadins stressés</li>
-<li data-i18n-fr="Disponible en séance Solo ou en suite Duo" data-i18n-en="Available as a Solo session or in our Duo suite">Disponible en séance Solo ou en suite Duo</li>
-                        </ul>
-
-                        <h3 style="margin-top: 2.5rem; margin-bottom: 1rem;" data-i18n-fr="Questions fréquentes sur ce soin" data-i18n-en="Frequently asked questions">Questions fréquentes sur ce soin</h3>
-                        <div class="faq-list">
-                            <details class="faq-item">
-                        <summary class="faq-question" data-i18n-fr="Quelle est la différence avec le massage aux huiles chaudes classique ?" data-i18n-en="How does it differ from a classic warm oil massage?">Quelle est la différence avec le massage aux huiles chaudes classique ?</summary>
-                        <div class="faq-answer"><p data-i18n-fr="Le massage mixte intègre davantage de pressions thaïlandaises ciblées et de travail musculaire profond en complément de l'huile chaude." data-i18n-en="The mixed massage incorporates deeper Thai acupressure and muscle-release work alongside the warm oil strokes.">Le massage mixte intègre davantage de pressions thaïlandaises ciblées et de travail musculaire profond en complément de l'huile chaude.</p></div>
-                    </details>
-<details class="faq-item">
-                        <summary class="faq-question" data-i18n-fr="Est-il adapté à une première visite chez LAWISA ?" data-i18n-en="Is it a good choice for a first visit?">Est-il adapté à une première visite chez LAWISA ?</summary>
-                        <div class="faq-answer"><p data-i18n-fr="Oui, c'est l'un des soins les plus appréciés lors d'une première découverte car il équilibre parfaitement efficacité et détente." data-i18n-en="Yes, it is one of our most popular first-visit treatments thanks to its balance of depth and relaxation.">Oui, c'est l'un des soins les plus appréciés lors d'une première découverte car il équilibre parfaitement efficacité et détente.</p></div>
-                    </details>
-                        </div>
-                    </div>
-
-                    <aside class="detail-sidebar">
-                        <span class="eyebrow" data-i18n-fr="Tarifs &amp; Réservation" data-i18n-en="Rates &amp; Booking">Tarifs &amp; Réservation</span>
-                        <h3 data-i18n-fr="Durées &amp; tarifs confirmés" data-i18n-en="Confirmed rates">Durées &amp; tarifs confirmés</h3>
-                        <ul class="pricing-table">
-                            <li><span data-i18n-fr="Séance Solo — à partir de (1h)" data-i18n-en="Solo session — from (1h)">Séance Solo — à partir de (1h)</span><strong>95 €</strong></li>
-<li><span data-i18n-fr="Séance Duo (1h)" data-i18n-en="Duo session (1h)">Séance Duo (1h)</span><strong>180 €</strong></li>
-                        </ul>
-                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem;" data-i18n-fr="Consultez l'ensemble des durées disponibles (solo ou duo) et réservez votre créneau en temps réel sur Fresha." data-i18n-en="View all available durations (solo or duo) and book your preferred slot live on Fresha.">Consultez l'ensemble des durées disponibles (solo ou duo) et réservez votre créneau en temps réel sur Fresha.</p>
-
-                        <div style="display: flex; flex-direction: column; gap: 0.75rem;">
-                            <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width: 100%;">
-                                <span data-i18n="hero_cta_book">Réserver un massage</span>
-                                <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+                        <div class="svc-hero-actions">
+                            <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking"
+                                target="_blank" rel="noopener noreferrer" class="svc-btn-book">
+                                Réserver
                             </a>
-                            <a href="tel:+33636432381" class="btn btn-outline" style="width: 100%;" data-i18n="location_btn_call">Appeler le salon</a>
-                            <a href="/offres/" class="btn btn-dark" style="width: 100%;" data-i18n-fr="Voir Happy Hour &amp; Forfaits" data-i18n-en="View Happy Hour &amp; Packages">Voir Happy Hour &amp; Forfaits</a>
+                            <a href="/massages/" class="svc-back-link">
+                                <span aria-hidden="true">←</span> Tous nos massages
+                            </a>
                         </div>
+                    </div>
 
-                        <div style="margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid var(--border-hairline); font-size: 0.85rem; color: var(--text-muted);">
-                            <strong style="color: var(--charcoal); display: block; margin-bottom: 0.25rem;">LAWISA Thaï Massage</strong>
-                            183 Rue du Faubourg Saint-Honoré, 75008 Paris<br>
-                            <span data-i18n="location_hours_val">Lundi – Dimanche · 11h00 – 20h00</span>
+                    <div class="svc-frame fade-in-up visible">
+                        <div class="svc-frame-inner">
+                            <img src="/public/images/treatments/thai-mixte-huiles.jpg"
+                                alt="Massage Thaï Mixte aux Huiles Chaudes chez LAWISA Paris 8" width="1200"
+                                height="896" decoding="async">
                         </div>
-                    </aside>
+                    </div>
                 </div>
             </div>
         </section>
 
-        
-        <section class="section-padding bg-ivory">
-            <div class="container">
-                <div class="section-header">
-                    <span class="eyebrow" data-i18n-fr="Découvrir d'autres soins" data-i18n-en="Explore more treatments">Découvrir d'autres soins</span>
-                    <h2 data-i18n-fr="Nos autres massages à Paris 8ᵉ" data-i18n-en="Other massages in Paris 8th">Nos autres massages à Paris 8ᵉ</h2>
+        <!-- 2. About the Treatment -->
+        <section class="svc-about">
+            <div class="svc-container">
+                <div class="svc-about-grid">
+                    <div class="svc-frame fade-in-up">
+                        <div class="svc-frame-inner">
+                            <img src="/public/images/treatments/thai-mixte-detail.jpg"
+                                alt="Table de soin préparée avec bol d’huile tiède et serviettes en coton chez LAWISA Paris 8"
+                                width="716" height="537" loading="lazy" decoding="async">
+                        </div>
+                    </div>
+
+                    <div class="svc-about-copy fade-in-up">
+                        <h2 class="svc-section-heading">Équilibre entre profondeur et fluidité</h2>
+                        <p class="svc-about-text">
+                            Conçu pour celles et ceux qui hésitent entre intensité musculaire et douceur sensorielle, ce
+                            soin réunit le travail ciblé du nuad thaï et l’enveloppement des huiles chaudes. Les
+                            pressions précises dénouent d’abord les zones contractées avant que de longs effleurages ne
+                            rétablissent l’harmonie corporelle.
+                        </p>
+                    </div>
                 </div>
-                <div class="related-services-grid">
-                    
-                <a href="/massages/massage-traditionnel-thailandais/" class="related-card">
-                    <div class="related-card-img">
-                        <img src="/public/images/WhatsApp%20Image%202026-11-15%20at%2015.36.14%20(1).jpeg" alt="Massage traditionnel thaïlandais — LAWISA Paris 8" loading="lazy">
+            </div>
+        </section>
+
+        <!-- 3. Prices & Booking -->
+        <section class="svc-rates" id="tarifs">
+            <div class="svc-container">
+                <div class="svc-rates-shell fade-in-up">
+                    <h2 class="svc-section-heading">Durées &amp; Tarifs</h2>
+
+                    <div class="svc-rates-list" role="group" aria-label="Tarifs du Massage Thaï Mixte aux Huiles Chaudes">
+                        <button type="button" class="svc-rate-row is-selected" data-rate-option aria-pressed="true"
+                            data-fresha-url="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking">
+                            <span class="svc-rate-title">Séance Solo</span>
+                            <span class="svc-rate-meta">
+                                <span class="svc-rate-duration">1h</span>
+                                <span class="svc-rate-price">95 €</span>
+                            </span>
+                        </button>
+
+                        <button type="button" class="svc-rate-row" data-rate-option aria-pressed="false"
+                            data-fresha-url="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking">
+                            <span class="svc-rate-title">Séance Duo</span>
+                            <span class="svc-rate-meta">
+                                <span class="svc-rate-duration">1h</span>
+                                <span class="svc-rate-price">180 €</span>
+                            </span>
+                        </button>
                     </div>
-                    <div class="related-card-body">
-                        <span class="eyebrow" style="margin-bottom: 0.35rem;">90 € · 1h</span>
-                        <h3 data-i18n-fr="Massage traditionnel thaïlandais" data-i18n-en="Traditional Thai Massage">Massage traditionnel thaïlandais</h3>
-                        <p data-i18n-fr="Acupression rythmée et étirements doux pour délier les tensions et favoriser l'équilibre corporel." data-i18n-en="Rhythmic acupressure and gentle stretching to ease tension and restore balance.">Acupression rythmée et étirements doux pour délier les tensions et favoriser l'équilibre corporel.</p>
-                    </div>
-                </a>
-                <a href="/massages/massage-aux-huiles-chaudes/" class="related-card">
-                    <div class="related-card-img">
-                        <img src="/public/images/WhatsApp%20Image%202026-11-15%20at%2015.36.15%20(6).jpeg" alt="Massage aux huiles chaudes — LAWISA Paris 8" loading="lazy">
-                    </div>
-                    <div class="related-card-body">
-                        <span class="eyebrow" style="margin-bottom: 0.35rem;">90 € · 1h (69 € en Happy Hour)</span>
-                        <h3 data-i18n-fr="Massage aux huiles chaudes" data-i18n-en="Warm Oil Massage">Massage aux huiles chaudes</h3>
-                        <p data-i18n-fr="Manœuvres fluides et enveloppantes aux huiles tièdes pour une détente profonde du corps et de l'esprit." data-i18n-en="Fluid, enveloping strokes with warmed oils for deep physical and mental relaxation.">Manœuvres fluides et enveloppantes aux huiles tièdes pour une détente profonde du corps et de l'esprit.</p>
-                    </div>
-                </a>
-                <a href="/massages/massage-dos-et-epaules/" class="related-card">
-                    <div class="related-card-img">
-                        <img src="/public/images/WhatsApp%20Image%202026-11-15%20at%2015.32.27%20(3).jpeg" alt="Massage du dos et des épaules — LAWISA Paris 8" loading="lazy">
-                    </div>
-                    <div class="related-card-body">
-                        <span class="eyebrow" style="margin-bottom: 0.35rem;">45 € · 30 min</span>
-                        <h3 data-i18n-fr="Massage du dos et des épaules" data-i18n-en="Back & Shoulders Massage">Massage du dos et des épaules</h3>
-                        <p data-i18n-fr="Soin ciblé sur le haut du dos, la nuque et les épaules pour relâcher les zones de raideur." data-i18n-en="Focused care on the upper back, neck, and shoulders to release everyday stiffness.">Soin ciblé sur le haut du dos, la nuque et les épaules pour relâcher les zones de raideur.</p>
-                    </div>
-                </a>
+
+                    <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking"
+                        target="_blank" rel="noopener noreferrer" class="svc-btn-book" id="svc-rate-cta">
+                        Réserver sur Fresha
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Other Massages -->
+        <section class="svc-related">
+            <div class="svc-container">
+                <header class="svc-related-header fade-in-up">
+                    <h2 class="svc-section-heading">Autres massages</h2>
+                    <a href="/massages/" class="svc-related-all">Toute la carte <span aria-hidden="true">→</span></a>
+                </header>
+
+                <div class="svc-related-grid">
+                    <article class="svc-mini-card fade-in-up">
+                        <div class="svc-mini-media">
+                            <a href="/massages/massage-thai-traditionnel/" class="svc-mini-media-link"
+                                aria-label="Découvrir le Massage Thaï Traditionnel">
+                                <div class="svc-mini-media-inner">
+                                    <img src="/public/images/treatments/thai-traditionnel.jpg"
+                                        alt="Massage Thaï Traditionnel chez LAWISA Paris 8" width="1200" height="896"
+                                        loading="lazy" decoding="async">
+                                    <span class="svc-mini-photo-cue" aria-hidden="true">Découvrir →</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="svc-mini-body">
+                            <div class="svc-mini-head">
+                                <h3 class="svc-mini-title"><a href="/massages/massage-thai-traditionnel/"
+                                        class="svc-mini-title-link">Massage Thaï Traditionnel</a></h3>
+                                <span class="svc-mini-price">Dès 90 €</span>
+                            </div>
+                            <p class="svc-mini-desc">Pressions profondes et étirements en tenue souple, sans huile.</p>
+                        </div>
+                    </article>
+
+                    <article class="svc-mini-card fade-in-up" style="transition-delay: 0.04s;">
+                        <div class="svc-mini-media">
+                            <a href="/massages/massage-aux-huiles-chaudes/" class="svc-mini-media-link"
+                                aria-label="Découvrir le Massage Thaï aux Huiles Chaudes">
+                                <div class="svc-mini-media-inner">
+                                    <img src="/public/images/treatments/huiles-chaudes.jpg"
+                                        alt="Massage Thaï aux Huiles Chaudes chez LAWISA Paris 8" width="1200"
+                                        height="896" loading="lazy" decoding="async">
+                                    <span class="svc-mini-photo-cue" aria-hidden="true">Découvrir →</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="svc-mini-body">
+                            <div class="svc-mini-head">
+                                <h3 class="svc-mini-title"><a href="/massages/massage-aux-huiles-chaudes/"
+                                        class="svc-mini-title-link">Massage Thaï aux Huiles Chaudes</a></h3>
+                                <span class="svc-mini-price">Dès 90 €</span>
+                            </div>
+                            <p class="svc-mini-desc">Longs mouvements enveloppants aux huiles tièdes. Happy Hour 69 €.</p>
+                        </div>
+                    </article>
+
+                    <article class="svc-mini-card fade-in-up" style="transition-delay: 0.08s;">
+                        <div class="svc-mini-media">
+                            <a href="/massages/massage-dos-et-epaules/" class="svc-mini-media-link"
+                                aria-label="Découvrir le Massage Dos et Des Épaules">
+                                <div class="svc-mini-media-inner">
+                                    <img src="/public/images/treatments/dos-epaules.jpg"
+                                        alt="Massage Dos et Des Épaules chez LAWISA Paris 8" width="1200" height="896"
+                                        loading="lazy" decoding="async">
+                                    <span class="svc-mini-photo-cue" aria-hidden="true">Découvrir →</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="svc-mini-body">
+                            <div class="svc-mini-head">
+                                <h3 class="svc-mini-title"><a href="/massages/massage-dos-et-epaules/"
+                                        class="svc-mini-title-link">Massage Dos et Des Épaules</a></h3>
+                                <span class="svc-mini-price">Dès 45 €</span>
+                            </div>
+                            <p class="svc-mini-desc">Soin ciblé nuque, trapèzes et haut du dos dès 30 min.</p>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Final Booking CTA Banner -->
-    <section class="cta-banner">
-        <div class="container">
-            <div class="cta-banner-inner">
-                <div>
-                    <h2 data-i18n="cta_banner_title">Offrez-vous une parenthèse de calme à Paris 8ᵉ</h2>
-                    <p data-i18n="cta_banner_desc">Consultez les créneaux disponibles en temps réel sur Fresha ou contactez-nous par téléphone et WhatsApp.</p>
-                </div>
-                <div class="cta-banner-actions">
-                    <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-                        <span data-i18n="cta_banner_btn">Réserver maintenant</span>
-                        <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-                    </a>
-                    <a href="https://wa.me/33636432381" target="_blank" rel="noopener noreferrer" class="btn btn-hero-secondary">WhatsApp</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Footer -->
-    <footer class="site-footer">
-        <div class="container">
+    <footer class="footer">
+        <div class="footer-container">
             <div class="footer-grid">
-                <div>
-                    <img src="/public/images/logo-gold.png" alt="LAWISA Thaï Massage" class="footer-logo">
-                    <p style="font-size: 0.9rem; margin-bottom: 1rem;" data-i18n="footer_tagline">Salon de massage thaïlandais traditionnel au cœur du 8ᵉ arrondissement de Paris. Soins réalisés exclusivement au salon.</p>
-                    <p style="font-size: 0.9rem;">
-                        183 Rue du Faubourg Saint-Honoré, 75008 Paris<br>
-                        <a href="tel:+33636432381" style="color: var(--gold-light); font-weight: 600;">06 36 43 23 81</a> · <span data-i18n="location_hours_val">Lundi – Dimanche · 11h00 – 20h00</span>
-                    </p>
+                <div class="footer-brand fade-in-up">
+                    <a href="/" class="logo" aria-label="LAWISA Thaï Massage — Accueil">
+                        <img src="/public/images/logo-gold.png" alt="Lawisa Thaï Massage" width="1962" height="801"
+                            class="footer-logo-img">
+                    </a>
+                    <p class="footer-desc">L’art du massage thaïlandais traditionnel au cœur du 8ᵉ arrondissement de Paris.</p>
+                    <address class="footer-meta">
+                        <span class="footer-address">183 Rue du Faubourg Saint-Honoré<br>75008 Paris</span>
+                        <a href="tel:+33636432381" class="footer-phone">06 36 43 23 81</a>
+                    </address>
+                    <div class="footer-social">
+                        <a href="https://www.instagram.com/lawisa_paris08/" target="_blank" rel="noopener noreferrer"
+                            class="footer-social-link" aria-label="Suivre LAWISA sur Instagram (@lawisa_paris08)"
+                            title="Instagram @lawisa_paris08">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle>
+                            </svg>
+                        </a>
+                    </div>
                 </div>
 
-                <div>
-                    <h3 class="footer-title" data-i18n="footer_col_services">Massages</h3>
-                    <ul class="footer-links">
-                        <li><a href="/massages/" data-i18n="services_all_cta">Voir tous nos massages</a></li>
-                        <li><a href="/massages/massage-traditionnel-thailandais/" data-i18n="svc1_title">Massage traditionnel thaïlandais</a></li>
-                        <li><a href="/massages/massage-aux-huiles-chaudes/" data-i18n="svc2_title">Massage aux huiles chaudes</a></li>
-                        <li><a href="/massages/massage-mixte-thai-huiles-chaudes/" data-i18n="svc3_title">Massage mixte thaï aux huiles chaudes</a></li>
-                        <li><a href="/massages/massage-dos-et-epaules/" data-i18n="svc4_title">Massage du dos et des épaules</a></li>
-                    </ul>
-                </div>
+                <nav class="footer-nav fade-in-up" style="transition-delay: 0.08s;" aria-label="Navigation pied de page">
+                    <a href="/massages/">Massages</a>
+                    <a href="/#le-salon">Le Salon</a>
+                    <a href="/#offres">Offres</a>
+                    <a href="/#galerie">Galerie</a>
+                    <a href="/#avis">Avis</a>
+                    <a href="/#faq">FAQ</a>
+                    <a href="/#contact">Contact</a>
+                </nav>
 
-                <div>
-                    <h3 class="footer-title" data-i18n="footer_col_salon">Le Salon</h3>
-                    <ul class="footer-links">
-                        <li><a href="/le-salon/" data-i18n="nav_salon">Le Salon</a></li>
-                        <li><a href="/offres/" data-i18n="nav_offers">Offres</a></li>
-                        <li><a href="/galerie/" data-i18n="nav_gallery">Galerie</a></li>
-                        <li><a href="/avis/" data-i18n="nav_reviews">Avis</a></li>
-                        <li><a href="https://www.instagram.com/lawisa_paris08/" target="_blank" rel="noopener noreferrer">Instagram @lawisa_paris08</a></li>
-                    </ul>
-                </div>
+                <div class="footer-booking fade-in-up" style="transition-delay: 0.16s;">
+                    <h3>Votre moment de détente</h3>
+                    <p>Réservez votre parenthèse bien-être en ligne, tous les jours de 11h à 20h.</p>
+                    <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking"
+                        target="_blank" rel="noopener noreferrer" class="footer-btn">RÉSERVER</a>
 
-                <div>
-                    <h3 class="footer-title" data-i18n="footer_col_info">Informations</h3>
-                    <ul class="footer-links" style="margin-bottom: 1.25rem;">
-                        <li><a href="/contact/" data-i18n="nav_contact">Contact</a></li>
-                        <li><a href="/faq/" data-i18n="nav_faq">FAQ</a></li>
-                        <li><a href="https://maps.app.goo.gl/87m61ci81Ua11WW76" target="_blank" rel="noopener noreferrer">Google Business Profile</a></li>
-                    </ul>
-                    <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" data-i18n="nav_book">Réserver</a>
+                    <div class="footer-lang" role="group" aria-label="Choisir la langue">
+                        <a href="/massages/massage-mixte-thai-huiles-chaudes/" class="lang-btn active"
+                            aria-current="page">FR</a><span class="lang-divider" aria-hidden="true">|</span><a
+                            href="/en/massages/mixed-thai-warm-oil-massage/" class="lang-btn" hreflang="en">EN</a>
+                    </div>
                 </div>
             </div>
 
             <div class="footer-bottom">
-                <p data-i18n="footer_rights">© 2026 LAWISA Thaï Massage — 183 Rue du Faubourg Saint-Honoré, 75008 Paris.</p>
+                <p class="footer-copyright">&copy; 2026 Lawisa Thaï Massage. Tous droits réservés.</p>
                 <div class="footer-legal">
-                    <a href="/mentions-legales/" data-i18n="footer_legal">Mentions légales</a>
-                    <a href="/politique-de-confidentialite/" data-i18n="footer_privacy">Politique de confidentialité</a>
-                    <div class="lang-switch" role="group" aria-label="Langue pied de page" style="background: transparent; border-color: rgba(250,246,238,0.2);">
-                        <button type="button" class="lang-btn active" data-lang="fr" style="color: #FAF6EE;">FR</button>
-                        <button type="button" class="lang-btn" data-lang="en" style="color: #FAF6EE;">EN</button>
-                    </div>
+                    <a href="/mentions-legales/">Mentions légales</a>
+                    <span class="footer-legal-sep" aria-hidden="true">·</span>
+                    <a href="/politique-de-confidentialite/">Politique de confidentialité</a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Desktop WhatsApp FAB -->
-    <a href="https://wa.me/33636432381" target="_blank" rel="noopener noreferrer" class="whatsapp-fab" aria-label="Contacter LAWISA sur WhatsApp">
-        <svg viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157.1zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+    <!-- WhatsApp Floating Concierge Button -->
+    <a href="https://wa.me/33636432381" target="_blank" rel="noopener noreferrer" class="whatsapp-widget"
+        aria-label="Contacter LAWISA sur WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor" aria-hidden="true">
+            <path
+                d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157.1zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z" />
+        </svg>
+        <span class="whatsapp-widget-label">Écrire sur WhatsApp</span>
     </a>
 
-    <!-- Mobile Sticky Booking Bar -->
-    <div class="mobile-sticky-bar" role="region" aria-label="Actions rapides">
-        <a href="tel:+33636432381" class="mobile-sticky-icon-btn" aria-label="Appeler LAWISA">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        </a>
-        <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" style="width: 100%;" data-i18n="hero_cta_book">Réserver un massage</a>
-        <a href="https://wa.me/33636432381" target="_blank" rel="noopener noreferrer" class="mobile-sticky-icon-btn whatsapp" aria-label="WhatsApp LAWISA">
-            <svg viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157.1zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
-        </a>
-    </div>
-
-    <script src="/js/config.js"></script>
-    <script src="/js/i18n.js"></script>
-    <script src="/js/main.js"></script>
+    <script src="/js/service-page.js?v=4"></script>
+    <script src="/js/whatsapp-prompt.js?v=1"></script>
 </body>
+
 </html>

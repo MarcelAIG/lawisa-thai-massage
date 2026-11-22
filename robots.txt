@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://lawisa-thai-massage.pages.dev/sitemap.xml

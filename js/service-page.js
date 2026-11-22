@@ -1,5 +1,6 @@
 /* ==========================================================================
    LAWISA Service Detail Pages — Lightweight Interactions
+   Header sticky state, mobile menu, scroll reveals & pricing selector.
    ========================================================================== */
 (function () {
     'use strict';
@@ -33,7 +34,7 @@
         });
     }
 
-    // Smooth Scroll Reveal (respects prefers-reduced-motion)
+    // Scroll Reveal (respects prefers-reduced-motion)
     const revealEls = document.querySelectorAll('.fade-in-up');
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (reducedMotion || !('IntersectionObserver' in window)) {
@@ -53,12 +54,11 @@
         revealEls.forEach((el) => observer.observe(el));
     }
 
-    // Compact Rate Selection
+    // Compact Rate Option Selection
     const rateButtons = Array.from(document.querySelectorAll('[data-rate-option]'));
-    const statusEl = document.getElementById('svc-rate-status');
     const ctaEl = document.getElementById('svc-rate-cta');
 
-    if (rateButtons.length > 0 && statusEl) {
+    if (rateButtons.length > 0) {
         rateButtons.forEach((button) => {
             button.addEventListener('click', () => {
                 rateButtons.forEach((btn) => {
@@ -67,21 +67,11 @@
                     btn.setAttribute('aria-pressed', String(active));
                 });
 
-                const summary = button.getAttribute('data-rate-summary');
                 const url = button.getAttribute('data-fresha-url');
-                if (summary) statusEl.textContent = summary;
-                if (url && ctaEl) ctaEl.setAttribute('href', url);
+                if (url && ctaEl) {
+                    ctaEl.setAttribute('href', url);
+                }
             });
         });
     }
-    // Connected Card Click Navigation (preserves Fresha booking button)
-    document.querySelectorAll('[data-detail-card]').forEach((card) => {
-        card.addEventListener('click', (event) => {
-            if (event.target.closest('a')) return;
-            const detailLink = card.querySelector('.service-detail-link');
-            if (detailLink && detailLink.getAttribute('href')) {
-                window.location.href = detailLink.getAttribute('href');
-            }
-        });
-    });
 })();

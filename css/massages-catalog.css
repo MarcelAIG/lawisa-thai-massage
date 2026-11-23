@@ -56,7 +56,7 @@
 .mcat-hero-title em {
     font-style: italic;
     font-weight: 300;
-    color: #1F4E3D;
+    color: rgba(34, 33, 31, 0.88);
     display: block;
     margin-top: 0.1rem;
 }

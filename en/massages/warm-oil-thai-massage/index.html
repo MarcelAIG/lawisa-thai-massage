@@ -9,17 +9,34 @@
         content="Warm Oil Thai massage in Paris 8th at LAWISA, 183 Rue du Faubourg Saint-Honoré. Long, fluid enveloping strokes with warmed oils, 1h Solo €90 or Happy Hour €69.">
 
     <!-- Canonical & reciprocal hreflang -->
-    <link rel="canonical" href="/en/massages/warm-oil-thai-massage/">
-    <link rel="alternate" hreflang="en" href="/en/massages/warm-oil-thai-massage/">
-    <link rel="alternate" hreflang="fr" href="/massages/massage-aux-huiles-chaudes/">
-    <link rel="alternate" hreflang="x-default" href="/massages/massage-aux-huiles-chaudes/">
+    <link rel="canonical" href="https://lawisa-thai-massage.pages.dev/en/massages/warm-oil-thai-massage/">
+    <link rel="alternate" hreflang="en" href="https://lawisa-thai-massage.pages.dev/en/massages/warm-oil-thai-massage/">
+    <link rel="alternate" hreflang="fr" href="https://lawisa-thai-massage.pages.dev/massages/massage-aux-huiles-chaudes/">
+    <link rel="alternate" hreflang="x-default" href="https://lawisa-thai-massage.pages.dev/massages/massage-aux-huiles-chaudes/">
 
+    <!-- Favicons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="48x48" href="/public/images/favicon-48x48.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/public/images/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/public/images/apple-touch-icon.png">
+
+    <!-- Open Graph & Social Sharing -->
     <meta property="og:type" content="website">
+    <meta property="og:site_name" content="LAWISA Thaï Massage">
     <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="fr_FR">
+    <meta property="og:url" content="https://lawisa-thai-massage.pages.dev/en/massages/warm-oil-thai-massage/">
     <meta property="og:title" content="Warm Oil Thai Massage in Paris 8th | LAWISA Thaï Massage">
     <meta property="og:description"
         content="Long, fluid and enveloping strokes performed with gently warmed oils in the heart of Paris’s 8th arrondissement at LAWISA.">
-    <meta property="og:image" content="/public/images/treatments/huiles-chaudes.jpg">
+    <meta property="og:image" content="https://lawisa-thai-massage.pages.dev/public/images/treatments/huiles-chaudes.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Warm Oil Thai Massage in Paris 8th | LAWISA Thaï Massage">
+    <meta name="twitter:description"
+        content="Long, fluid and enveloping strokes performed with gently warmed oils in the heart of Paris’s 8th arrondissement at LAWISA.">
+    <meta name="twitter:image" content="https://lawisa-thai-massage.pages.dev/public/images/treatments/huiles-chaudes.jpg">
+
+    
 
     <!-- Approved Fonts: Exclusively Newsreader & DM Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -37,9 +54,13 @@
       "@graph": [
         {
           "@type": "DaySpa",
-          "@id": "#lawisa-salon",
+          "@id": "https://lawisa-thai-massage.pages.dev/#salon",
           "name": "LAWISA Thaï Massage",
+          "url": "https://lawisa-thai-massage.pages.dev/",
+          "logo": "https://lawisa-thai-massage.pages.dev/public/images/logo-gold.png",
+          "image": "https://lawisa-thai-massage.pages.dev/public/images/WhatsApp%20Image%202026-11-15%20at%2015.36.14%20(1).jpeg",
           "telephone": "+33636432381",
+          "priceRange": "€€",
           "address": {
             "@type": "PostalAddress",
             "streetAddress": "183 Rue du Faubourg Saint-Honoré",
@@ -50,7 +71,15 @@
           "openingHoursSpecification": [
             {
               "@type": "OpeningHoursSpecification",
-              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+              "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday"
+              ],
               "opens": "11:00",
               "closes": "20:00"
             }
@@ -64,19 +93,51 @@
           "@type": "Service",
           "name": "Warm Oil Thai Massage",
           "serviceType": "Warm oil massage",
+          "description": "Warm Oil Thai massage in Paris 8th at LAWISA, 183 Rue du Faubourg Saint-Honoré. Long, fluid enveloping strokes with warmed oils, 1h Solo €90 or Happy Hour €69.",
+          "url": "https://lawisa-thai-massage.pages.dev/en/massages/warm-oil-thai-massage/",
+          "image": "https://lawisa-thai-massage.pages.dev/public/images/treatments/huiles-chaudes.jpg",
           "areaServed": "Paris 8th",
-          "provider": { "@id": "#lawisa-salon" },
+          "provider": {
+            "@id": "https://lawisa-thai-massage.pages.dev/#salon"
+          },
           "offers": [
-            { "@type": "Offer", "name": "Solo Session — 1h", "price": "90", "priceCurrency": "EUR", "url": "https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking" },
-            { "@type": "Offer", "name": "Happy Hour (Mon–Fri, 11 AM–2 PM) — 1h", "price": "69", "priceCurrency": "EUR", "url": "https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking" }
+            {
+              "@type": "Offer",
+              "name": "Solo Session — 1h",
+              "price": "90",
+              "priceCurrency": "EUR",
+              "url": "https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking"
+            },
+            {
+              "@type": "Offer",
+              "name": "Happy Hour (Mon–Fri, 11 AM–2 PM) — 1h",
+              "price": "69",
+              "priceCurrency": "EUR",
+              "url": "https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking"
+            }
           ]
         },
         {
           "@type": "BreadcrumbList",
           "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Home", "item": "/?lang=en" },
-            { "@type": "ListItem", "position": 2, "name": "Massages", "item": "/en/massages/" },
-            { "@type": "ListItem", "position": 3, "name": "Warm Oil Thai Massage", "item": "/en/massages/warm-oil-thai-massage/" }
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://lawisa-thai-massage.pages.dev/?lang=en"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Massages",
+              "item": "https://lawisa-thai-massage.pages.dev/en/massages/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Warm Oil Thai Massage",
+              "item": "https://lawisa-thai-massage.pages.dev/en/massages/warm-oil-thai-massage/"
+            }
           ]
         }
       ]
@@ -90,7 +151,7 @@
         <div class="header-container">
             <div class="logo">
                 <a href="/?lang=en" aria-label="LAWISA Thaï Massage — Home">
-                    <img src="/public/images/logo-gold.png" alt="Lawisa Thaï Massage" width="1962" height="801"
+                    <img src="/public/images/logo-gold.png" alt="LAWISA Thaï Massage Paris 8th Logo" width="1962" height="801"
                         class="logo-img">
                 </a>
             </div>
@@ -239,7 +300,8 @@
                                         class="svc-mini-title-link">Traditional Thai Massage</a></h3>
                                 <span class="svc-mini-price">From €90</span>
                             </div>
-                            <p class="svc-mini-desc">Deep acupressure and assisted stretching on a floor mat, oil-free.</p>
+                            <p class="svc-mini-desc">Deep acupressure and assisted stretching on a floor mat, oil-free.
+                            </p>
                         </div>
                     </article>
 
@@ -297,7 +359,7 @@
             <div class="footer-grid">
                 <div class="footer-brand fade-in-up">
                     <a href="/?lang=en" class="logo" aria-label="LAWISA Thaï Massage — Home">
-                        <img src="/public/images/logo-gold.png" alt="Lawisa Thaï Massage" width="1962" height="801"
+                        <img src="/public/images/logo-gold.png" alt="LAWISA Thaï Massage Logo" width="1962" height="801"
                             class="footer-logo-img">
                     </a>
                     <p class="footer-desc">The art of traditional Thai massage in the heart of Paris’s 8th
@@ -338,8 +400,9 @@
 
                     <div class="footer-lang" role="group" aria-label="Choose language">
                         <a href="/massages/massage-aux-huiles-chaudes/" class="lang-btn" hreflang="fr">FR</a><span
-                            class="lang-divider" aria-hidden="true">|</span><a href="/en/massages/warm-oil-thai-massage/"
-                            class="lang-btn active" aria-current="page">EN</a>
+                            class="lang-divider" aria-hidden="true">|</span><a
+                            href="/en/massages/warm-oil-thai-massage/" class="lang-btn active"
+                            aria-current="page">EN</a>
                     </div>
                 </div>
             </div>

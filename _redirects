@@ -1,0 +1,15 @@
+# Consolidate legacy Nov-15 orphan URLs into canonical live pages
+/massages/massage-traditionnel-thailandais /massages/massage-thai-traditionnel/ 301
+/massages/massage-traditionnel-thailandais/ /massages/massage-thai-traditionnel/ 301
+/le-salon /#le-salon 301
+/le-salon/ /#le-salon 301
+/offres /#offres 301
+/offres/ /#offres 301
+/galerie /#galerie 301
+/galerie/ /#galerie 301
+/avis /#avis 301
+/avis/ /#avis 301
+/faq /#faq 301
+/faq/ /#faq 301
+/contact /#contact 301
+/contact/ /#contact 301

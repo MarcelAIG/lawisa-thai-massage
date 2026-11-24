@@ -9,17 +9,34 @@
         content="Réflexologie plantaire thaïlandaise et massage des pieds à Paris 8ᵉ chez LAWISA, 183 Rue du Faubourg Saint-Honoré. Pressions ciblées et légèreté retrouvée dès 45 €.">
 
     <!-- Canonical & reciprocal hreflang -->
-    <link rel="canonical" href="/massages/reflexologie-plantaire/">
-    <link rel="alternate" hreflang="fr" href="/massages/reflexologie-plantaire/">
-    <link rel="alternate" hreflang="en" href="/en/massages/foot-reflexology/">
-    <link rel="alternate" hreflang="x-default" href="/massages/reflexologie-plantaire/">
+    <link rel="canonical" href="https://lawisa-thai-massage.pages.dev/massages/reflexologie-plantaire/">
+    <link rel="alternate" hreflang="fr" href="https://lawisa-thai-massage.pages.dev/massages/reflexologie-plantaire/">
+    <link rel="alternate" hreflang="en" href="https://lawisa-thai-massage.pages.dev/en/massages/foot-reflexology/">
+    <link rel="alternate" hreflang="x-default" href="https://lawisa-thai-massage.pages.dev/massages/reflexologie-plantaire/">
 
+    <!-- Favicons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="48x48" href="/public/images/favicon-48x48.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/public/images/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/public/images/apple-touch-icon.png">
+
+    <!-- Open Graph & Social Sharing -->
     <meta property="og:type" content="website">
+    <meta property="og:site_name" content="LAWISA Thaï Massage">
     <meta property="og:locale" content="fr_FR">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:url" content="https://lawisa-thai-massage.pages.dev/massages/reflexologie-plantaire/">
     <meta property="og:title" content="Réflexologie Plantaire &amp; Massage des Pieds Paris 8e | LAWISA">
     <meta property="og:description"
         content="Pressions précises de la voûte plantaire et lissages relaxants chez LAWISA Paris 8ᵉ à partir de 45 €.">
-    <meta property="og:image" content="/public/images/treatments/reflexologie-plantaire.jpg">
+    <meta property="og:image" content="https://lawisa-thai-massage.pages.dev/public/images/treatments/reflexologie-plantaire.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Réflexologie Plantaire &amp; Massage des Pieds Paris 8e | LAWISA">
+    <meta name="twitter:description"
+        content="Pressions précises de la voûte plantaire et lissages relaxants chez LAWISA Paris 8ᵉ à partir de 45 €.">
+    <meta name="twitter:image" content="https://lawisa-thai-massage.pages.dev/public/images/treatments/reflexologie-plantaire.jpg">
+
+    
 
     <!-- Approved Fonts: Exclusively Newsreader & DM Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -37,9 +54,13 @@
       "@graph": [
         {
           "@type": "DaySpa",
-          "@id": "#lawisa-salon",
+          "@id": "https://lawisa-thai-massage.pages.dev/#salon",
           "name": "LAWISA Thaï Massage",
+          "url": "https://lawisa-thai-massage.pages.dev/",
+          "logo": "https://lawisa-thai-massage.pages.dev/public/images/logo-gold.png",
+          "image": "https://lawisa-thai-massage.pages.dev/public/images/WhatsApp%20Image%202026-11-15%20at%2015.36.14%20(1).jpeg",
           "telephone": "+33636432381",
+          "priceRange": "€€",
           "address": {
             "@type": "PostalAddress",
             "streetAddress": "183 Rue du Faubourg Saint-Honoré",
@@ -50,7 +71,15 @@
           "openingHoursSpecification": [
             {
               "@type": "OpeningHoursSpecification",
-              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+              "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday"
+              ],
               "opens": "11:00",
               "closes": "20:00"
             }
@@ -64,18 +93,44 @@
           "@type": "Service",
           "name": "Réflexologie Plantaire / Massage des pieds",
           "serviceType": "Réflexologie plantaire thaïlandaise",
+          "description": "Réflexologie plantaire thaïlandaise et massage des pieds à Paris 8ᵉ chez LAWISA, 183 Rue du Faubourg Saint-Honoré. Pressions ciblées et légèreté retrouvée dès 45 €.",
+          "url": "https://lawisa-thai-massage.pages.dev/massages/reflexologie-plantaire/",
+          "image": "https://lawisa-thai-massage.pages.dev/public/images/treatments/reflexologie-plantaire.jpg",
           "areaServed": "Paris 8e",
-          "provider": { "@id": "#lawisa-salon" },
+          "provider": {
+            "@id": "https://lawisa-thai-massage.pages.dev/#salon"
+          },
           "offers": [
-            { "@type": "Offer", "name": "Réflexologie Plantaire — À partir de", "price": "45", "priceCurrency": "EUR", "url": "https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking" }
+            {
+              "@type": "Offer",
+              "name": "Réflexologie Plantaire — À partir de",
+              "price": "45",
+              "priceCurrency": "EUR",
+              "url": "https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking"
+            }
           ]
         },
         {
           "@type": "BreadcrumbList",
           "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "/" },
-            { "@type": "ListItem", "position": 2, "name": "Massages", "item": "/massages/" },
-            { "@type": "ListItem", "position": 3, "name": "Réflexologie Plantaire", "item": "/massages/reflexologie-plantaire/" }
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Accueil",
+              "item": "https://lawisa-thai-massage.pages.dev/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Massages",
+              "item": "https://lawisa-thai-massage.pages.dev/massages/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Réflexologie Plantaire",
+              "item": "https://lawisa-thai-massage.pages.dev/massages/reflexologie-plantaire/"
+            }
           ]
         }
       ]
@@ -89,7 +144,7 @@
         <div class="header-container">
             <div class="logo">
                 <a href="/" aria-label="LAWISA Thaï Massage — Accueil">
-                    <img src="/public/images/logo-gold.png" alt="Lawisa Thaï Massage" width="1962" height="801"
+                    <img src="/public/images/logo-gold.png" alt="Logo LAWISA Thaï Massage Paris 8ᵉ" width="1962" height="801"
                         class="logo-img">
                 </a>
             </div>
@@ -286,7 +341,7 @@
             <div class="footer-grid">
                 <div class="footer-brand fade-in-up">
                     <a href="/" class="logo" aria-label="LAWISA Thaï Massage — Accueil">
-                        <img src="/public/images/logo-gold.png" alt="Lawisa Thaï Massage" width="1962" height="801"
+                        <img src="/public/images/logo-gold.png" alt="Logo LAWISA Thaï Massage" width="1962" height="801"
                             class="footer-logo-img">
                     </a>
                     <p class="footer-desc">L’art du massage thaïlandais traditionnel au cœur du 8ᵉ arrondissement de Paris.</p>

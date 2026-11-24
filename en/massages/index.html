@@ -9,17 +9,34 @@
         content="Explore the 8 treatments at LAWISA Thaï Massage Paris 8th (183 Rue du Faubourg Saint-Honoré): Solo & Duo full-body rituals, warm oils, and focused care from €45.">
 
     <!-- Canonical & reciprocal hreflang -->
-    <link rel="canonical" href="/en/massages/">
-    <link rel="alternate" hreflang="en" href="/en/massages/">
-    <link rel="alternate" hreflang="fr" href="/massages/">
-    <link rel="alternate" hreflang="x-default" href="/massages/">
+    <link rel="canonical" href="https://lawisa-thai-massage.pages.dev/en/massages/">
+    <link rel="alternate" hreflang="en" href="https://lawisa-thai-massage.pages.dev/en/massages/">
+    <link rel="alternate" hreflang="fr" href="https://lawisa-thai-massage.pages.dev/massages/">
+    <link rel="alternate" hreflang="x-default" href="https://lawisa-thai-massage.pages.dev/massages/">
 
+    <!-- Favicons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="48x48" href="/public/images/favicon-48x48.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/public/images/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/public/images/apple-touch-icon.png">
+
+    <!-- Open Graph & Social Sharing -->
     <meta property="og:type" content="website">
+    <meta property="og:site_name" content="LAWISA Thaï Massage">
     <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="fr_FR">
+    <meta property="og:url" content="https://lawisa-thai-massage.pages.dev/en/massages/">
     <meta property="og:title" content="Our Thai Massages in Paris 8th | LAWISA Thaï Massage">
     <meta property="og:description"
         content="Eight authentic Thai massage treatments performed in our serene Paris 8th sanctuary at 183 Rue du Faubourg Saint-Honoré.">
-    <meta property="og:image" content="/public/images/WhatsApp%20Image%202026-11-15%20at%2015.36.14%20(1).jpeg">
+    <meta property="og:image" content="https://lawisa-thai-massage.pages.dev/public/images/WhatsApp%20Image%202026-11-15%20at%2015.36.14%20(1).jpeg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Our Thai Massages in Paris 8th | LAWISA Thaï Massage">
+    <meta name="twitter:description"
+        content="Eight authentic Thai massage treatments performed in our serene Paris 8th sanctuary at 183 Rue du Faubourg Saint-Honoré.">
+    <meta name="twitter:image" content="https://lawisa-thai-massage.pages.dev/public/images/WhatsApp%20Image%202026-11-15%20at%2015.36.14%20(1).jpeg">
+
+    
 
     <!-- Approved Fonts: Exclusively Newsreader & DM Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -37,9 +54,13 @@
       "@graph": [
         {
           "@type": "DaySpa",
-          "@id": "#lawisa-salon",
+          "@id": "https://lawisa-thai-massage.pages.dev/#salon",
           "name": "LAWISA Thaï Massage",
+          "url": "https://lawisa-thai-massage.pages.dev/",
+          "logo": "https://lawisa-thai-massage.pages.dev/public/images/logo-gold.png",
+          "image": "https://lawisa-thai-massage.pages.dev/public/images/WhatsApp%20Image%202026-11-15%20at%2015.36.14%20(1).jpeg",
           "telephone": "+33636432381",
+          "priceRange": "€€",
           "address": {
             "@type": "PostalAddress",
             "streetAddress": "183 Rue du Faubourg Saint-Honoré",
@@ -50,7 +71,15 @@
           "openingHoursSpecification": [
             {
               "@type": "OpeningHoursSpecification",
-              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+              "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday"
+              ],
               "opens": "11:00",
               "closes": "20:00"
             }
@@ -64,14 +93,71 @@
           "@type": "ItemList",
           "name": "LAWISA Thaï Massage Treatment Collection",
           "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Traditional Thai Massage", "url": "/en/massages/traditional-thai-massage/" },
-            { "@type": "ListItem", "position": 2, "name": "Warm Oil Thai Massage", "url": "/en/massages/warm-oil-thai-massage/" },
-            { "@type": "ListItem", "position": 3, "name": "Mixed Thai & Warm Oil Massage", "url": "/en/massages/mixed-thai-warm-oil-massage/" },
-            { "@type": "ListItem", "position": 4, "name": "Back & Shoulders Massage", "url": "/en/massages/back-and-shoulders-massage/" },
-            { "@type": "ListItem", "position": 5, "name": "Cranial & Scalp Massage", "url": "/en/massages/cranial-scalp-massage/" },
-            { "@type": "ListItem", "position": 6, "name": "Foot Reflexology / Foot Massage", "url": "/en/massages/foot-reflexology/" },
-            { "@type": "ListItem", "position": 7, "name": "Jet Lag Recovery Massage", "url": "/en/massages/jet-lag-recovery-massage/" },
-            { "@type": "ListItem", "position": 8, "name": "Office Syndrome Massage", "url": "/en/massages/office-syndrome-massage/" }
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Traditional Thai Massage",
+              "url": "https://lawisa-thai-massage.pages.dev/en/massages/traditional-thai-massage/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Warm Oil Thai Massage",
+              "url": "https://lawisa-thai-massage.pages.dev/en/massages/warm-oil-thai-massage/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Mixed Thai & Warm Oil Massage",
+              "url": "https://lawisa-thai-massage.pages.dev/en/massages/mixed-thai-warm-oil-massage/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 4,
+              "name": "Back & Shoulders Massage",
+              "url": "https://lawisa-thai-massage.pages.dev/en/massages/back-and-shoulders-massage/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 5,
+              "name": "Cranial & Scalp Massage",
+              "url": "https://lawisa-thai-massage.pages.dev/en/massages/cranial-scalp-massage/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 6,
+              "name": "Foot Reflexology / Foot Massage",
+              "url": "https://lawisa-thai-massage.pages.dev/en/massages/foot-reflexology/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 7,
+              "name": "Jet Lag Recovery Massage",
+              "url": "https://lawisa-thai-massage.pages.dev/en/massages/jet-lag-recovery-massage/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 8,
+              "name": "Office Syndrome Massage",
+              "url": "https://lawisa-thai-massage.pages.dev/en/massages/office-syndrome-massage/"
+            }
+          ]
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://lawisa-thai-massage.pages.dev/?lang=en"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Massages",
+              "item": "https://lawisa-thai-massage.pages.dev/en/massages/"
+            }
           ]
         }
       ]
@@ -85,7 +171,7 @@
         <div class="header-container">
             <div class="logo">
                 <a href="/?lang=en" aria-label="LAWISA Thaï Massage — Home">
-                    <img src="/public/images/logo-gold.png" alt="Lawisa Thaï Massage" width="1962" height="801"
+                    <img src="/public/images/logo-gold.png" alt="LAWISA Thaï Massage Paris 8th Logo" width="1962" height="801"
                         class="logo-img">
                 </a>
             </div>
@@ -462,7 +548,7 @@
                 <div class="mcat-qv-media">
                     <div class="mcat-qv-frame">
                         <div class="mcat-qv-frame-inner">
-                            <img src="/public/images/treatments/thai-traditionnel.jpg" alt="" class="mcat-qv-photo"
+                            <img src="/public/images/treatments/thai-traditionnel.jpg" alt="Traditional Thai Massage at LAWISA Paris 8th" class="mcat-qv-photo"
                                 id="mcat-qv-photo">
                         </div>
                     </div>
@@ -587,7 +673,7 @@
             <div class="footer-grid">
                 <div class="footer-brand fade-in-up">
                     <a href="/?lang=en" class="logo" aria-label="LAWISA Thaï Massage — Home">
-                        <img src="/public/images/logo-gold.png" alt="Lawisa Thaï Massage" width="1962" height="801"
+                        <img src="/public/images/logo-gold.png" alt="LAWISA Thaï Massage Logo" width="1962" height="801"
                             class="footer-logo-img">
                     </a>
                     <p class="footer-desc">The art of traditional Thai massage in the heart of Paris’s 8th arrondissement.</p>

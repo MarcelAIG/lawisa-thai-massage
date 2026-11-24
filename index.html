@@ -5,9 +5,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google" content="notranslate">
-    <title>Lawisa Thaï Massage | Paris 8ème</title>
+    <title>LAWISA Thaï Massage | Salon de Massage Thaïlandais Paris 8ᵉ</title>
     <meta name="description"
-        content="L'Art du Massage Thaïlandais au Cœur de Paris. Une parenthèse de bien-être et d'authenticité au 183 Rue du Faubourg Saint-Honoré.">
+        content="Salon de massage thaïlandais authentique au 183 Rue du Faubourg Saint-Honoré, Paris 8ᵉ. Massage thaï traditionnel, huiles chaudes et soins ciblés dès 45 €.">
+
+    <!-- Canonical & reciprocal hreflang -->
+    <link rel="canonical" id="canonical-link" href="https://lawisa-thai-massage.pages.dev/">
+    <link rel="alternate" hreflang="fr" href="https://lawisa-thai-massage.pages.dev/">
+    <link rel="alternate" hreflang="en" href="https://lawisa-thai-massage.pages.dev/?lang=en">
+    <link rel="alternate" hreflang="x-default" href="https://lawisa-thai-massage.pages.dev/">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="48x48" href="/public/images/favicon-48x48.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/public/images/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/public/images/apple-touch-icon.png">
+
+    <!-- Open Graph & Social Sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="LAWISA Thaï Massage">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:url" content="https://lawisa-thai-massage.pages.dev/">
+    <meta property="og:title" content="LAWISA Thaï Massage | Salon de Massage Thaïlandais Paris 8ᵉ">
+    <meta property="og:description"
+        content="Salon de massage thaïlandais authentique au 183 Rue du Faubourg Saint-Honoré, Paris 8ᵉ. Massage thaï traditionnel, huiles chaudes et soins ciblés dès 45 €.">
+    <meta property="og:image"
+        content="https://lawisa-thai-massage.pages.dev/public/images/WhatsApp%20Image%202026-11-15%20at%2015.36.14%20(1).jpeg">
+    <meta property="og:image:alt" content="Cabine de soin traditionnelle chez LAWISA Thaï Massage à Paris 8ᵉ">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="LAWISA Thaï Massage | Salon de Massage Thaïlandais Paris 8ᵉ">
+    <meta name="twitter:description"
+        content="Salon de massage thaïlandais authentique au 183 Rue du Faubourg Saint-Honoré, Paris 8ᵉ. Massage thaï traditionnel, huiles chaudes et soins ciblés dès 45 €.">
+    <meta name="twitter:image"
+        content="https://lawisa-thai-massage.pages.dev/public/images/WhatsApp%20Image%202026-11-15%20at%2015.36.14%20(1).jpeg">
+    <script>
+        (function () {
+            try {
+                if (new URLSearchParams(window.location.search).get('lang') === 'en') {
+                    var enUrl = 'https://lawisa-thai-massage.pages.dev/?lang=en';
+                    var enTitle = 'LAWISA Thaï Massage | Authentic Thai Massage Salon Paris 8th';
+                    var enDesc = 'Authentic Thai massage salon at 183 Rue du Faubourg Saint-Honoré, Paris 8th. Traditional Thai acupressure, warm oils, and focused rituals from €45.';
+                    document.documentElement.lang = 'en';
+                    document.title = enTitle;
+                    var can = document.getElementById('canonical-link');
+                    if (can) can.setAttribute('href', enUrl);
+                    var setMeta = function (sel, val) {
+                        var el = document.querySelector(sel);
+                        if (el) el.setAttribute('content', val);
+                    };
+                    setMeta('meta[name="description"]', enDesc);
+                    setMeta('meta[property="og:url"]', enUrl);
+                    setMeta('meta[property="og:locale"]', 'en_US');
+                    setMeta('meta[property="og:locale:alternate"]', 'fr_FR');
+                    setMeta('meta[property="og:title"]', enTitle);
+                    setMeta('meta[property="og:description"]', enDesc);
+                    setMeta('meta[name="twitter:title"]', enTitle);
+                    setMeta('meta[name="twitter:description"]', enDesc);
+                }
+            } catch (e) {}
+        })();
+    </script>
 
     <!-- Fonts: Exclusively Newsreader & DM Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,6 +79,152 @@
     <!-- GSAP for Horizontal Scroll -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "DaySpa",
+          "@id": "https://lawisa-thai-massage.pages.dev/#salon",
+          "name": "LAWISA Thaï Massage",
+          "url": "https://lawisa-thai-massage.pages.dev/",
+          "logo": "https://lawisa-thai-massage.pages.dev/public/images/logo-gold.png",
+          "image": "https://lawisa-thai-massage.pages.dev/public/images/WhatsApp%20Image%202026-11-15%20at%2015.36.14%20(1).jpeg",
+          "description": "Salon de massage thaïlandais traditionnel et soins aux huiles chaudes au 183 Rue du Faubourg Saint-Honoré, Paris 8e.",
+          "telephone": "+33636432381",
+          "priceRange": "€€",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "183 Rue du Faubourg Saint-Honoré",
+            "postalCode": "75008",
+            "addressLocality": "Paris",
+            "addressCountry": "FR"
+          },
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+              "opens": "11:00",
+              "closes": "20:00"
+            }
+          ],
+          "sameAs": [
+            "https://www.instagram.com/lawisa_paris08/",
+            "https://maps.app.goo.gl/87m61ci81Ua11WW76"
+          ],
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Carte des massages LAWISA Thaï Massage",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "price": "90",
+                "priceCurrency": "EUR",
+                "url": "https://lawisa-thai-massage.pages.dev/massages/massage-thai-traditionnel/",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Massage Thaï Traditionnel",
+                  "url": "https://lawisa-thai-massage.pages.dev/massages/massage-thai-traditionnel/"
+                }
+              },
+              {
+                "@type": "Offer",
+                "price": "90",
+                "priceCurrency": "EUR",
+                "url": "https://lawisa-thai-massage.pages.dev/massages/massage-aux-huiles-chaudes/",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Massage Thaï aux Huiles Chaudes",
+                  "url": "https://lawisa-thai-massage.pages.dev/massages/massage-aux-huiles-chaudes/"
+                }
+              },
+              {
+                "@type": "Offer",
+                "price": "95",
+                "priceCurrency": "EUR",
+                "url": "https://lawisa-thai-massage.pages.dev/massages/massage-mixte-thai-huiles-chaudes/",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Massage Thaï Mixte aux Huiles Chaudes",
+                  "url": "https://lawisa-thai-massage.pages.dev/massages/massage-mixte-thai-huiles-chaudes/"
+                }
+              },
+              {
+                "@type": "Offer",
+                "price": "45",
+                "priceCurrency": "EUR",
+                "url": "https://lawisa-thai-massage.pages.dev/massages/massage-dos-et-epaules/",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Massage Dos et Des Épaules",
+                  "url": "https://lawisa-thai-massage.pages.dev/massages/massage-dos-et-epaules/"
+                }
+              },
+              {
+                "@type": "Offer",
+                "price": "45",
+                "priceCurrency": "EUR",
+                "url": "https://lawisa-thai-massage.pages.dev/massages/massage-cranien/",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Massage Crânien",
+                  "url": "https://lawisa-thai-massage.pages.dev/massages/massage-cranien/"
+                }
+              },
+              {
+                "@type": "Offer",
+                "price": "45",
+                "priceCurrency": "EUR",
+                "url": "https://lawisa-thai-massage.pages.dev/massages/reflexologie-plantaire/",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Réflexologie Plantaire / Massage des pieds",
+                  "url": "https://lawisa-thai-massage.pages.dev/massages/reflexologie-plantaire/"
+                }
+              },
+              {
+                "@type": "Offer",
+                "price": "55",
+                "priceCurrency": "EUR",
+                "url": "https://lawisa-thai-massage.pages.dev/massages/jet-lag-recovery-massage/",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Jet Lag Recovery Massage",
+                  "url": "https://lawisa-thai-massage.pages.dev/massages/jet-lag-recovery-massage/"
+                }
+              },
+              {
+                "@type": "Offer",
+                "price": "60",
+                "priceCurrency": "EUR",
+                "url": "https://lawisa-thai-massage.pages.dev/massages/massage-office-syndrome/",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Massage Office Syndrome",
+                  "url": "https://lawisa-thai-massage.pages.dev/massages/massage-office-syndrome/"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://lawisa-thai-massage.pages.dev/#website",
+          "url": "https://lawisa-thai-massage.pages.dev/",
+          "name": "LAWISA Thaï Massage",
+          "inLanguage": ["fr-FR", "en-US"],
+          "publisher": { "@id": "https://lawisa-thai-massage.pages.dev/#salon" }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://lawisa-thai-massage.pages.dev/" }
+          ]
+        }
+      ]
+    }
+    </script>
 </head>
 
 <body>
@@ -28,8 +232,8 @@
     <header class="header" id="header">
         <div class="header-container">
             <div class="logo">
-                <a href="#">
-                    <img src="public/images/logo-gold.png" alt="Lawisa Thaï Massage" class="logo-img">
+                <a href="#accueil" aria-label="LAWISA Thaï Massage — Accueil" data-i18n-aria="footer_top_aria">
+                    <img src="public/images/logo-gold.png" alt="Logo LAWISA Thaï Massage Paris 8ᵉ" class="logo-img">
                 </a>
             </div>
             <nav class="nav-links">
@@ -42,8 +246,8 @@
             </nav>
             <div class="nav-actions">
                 <div class="lang-switch">
-                    <a href="#" class="lang-btn active" data-lang="fr">FR</a> | <a href="#" class="lang-btn"
-                        data-lang="en">EN</a>
+                    <a href="/" class="lang-btn active" data-lang="fr" hreflang="fr">FR</a> | <a href="/?lang=en" class="lang-btn"
+                        data-lang="en" hreflang="en">EN</a>
                 </div>
                 <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking"
                     target="_blank" class="btn-header" data-i18n="nav_book">Réserver</a>
@@ -106,12 +310,14 @@
                 <div class="service-card fade-in-up" data-detail-card
                     data-detail-url="/massages/massage-thai-traditionnel/" data-i18n-detail-url="massage_1_url">
                     <div class="service-image">
-                        <img src="public/images/services/thai-traditionnel.jpg" alt="Massage Thaï Traditionnel"
-                            data-i18n-alt="massage_1" decoding="async">
+                        <img src="public/images/services/thai-traditionnel.jpg"
+                            alt="Séance de massage thaï traditionnel par pressions et étirements chez LAWISA Paris 8ᵉ"
+                            data-i18n-alt="massage_1_alt" decoding="async">
                     </div>
                     <div class="service-info">
                         <div>
-                            <h3 data-i18n="massage_1">Massage Thaï Traditionnel</h3>
+                            <h3><a href="/massages/massage-thai-traditionnel/" data-i18n="massage_1"
+                                    data-i18n-href="massage_1_url">Massage Thaï Traditionnel</a></h3>
                             <span class="service-price" data-i18n="massage_1_price">À partir de 90 €</span>
                             <p class="service-desc" data-i18n="massage_1_desc">Issu d'un savoir-faire ancestral
                                 thaïlandais, ce massage combine pressions profondes et étirements pour soulager les
@@ -124,14 +330,17 @@
                 </div>
 
                 <!-- Service 2 -->
-                <div class="service-card fade-in-up" style="transition-delay: 0.1s;">
+                <div class="service-card fade-in-up" style="transition-delay: 0.1s;" data-detail-card
+                    data-detail-url="/massages/massage-aux-huiles-chaudes/" data-i18n-detail-url="massage_2_url">
                     <div class="service-image">
-                        <img src="public/images/services/huiles-chaudes.jpg" alt="Massage Thaï aux Huiles Chaudes"
-                            data-i18n-alt="massage_2" decoding="async">
+                        <img src="public/images/services/huiles-chaudes.jpg"
+                            alt="Massage thaï aux huiles chaudes réalisé en cabine chez LAWISA Paris 8ᵉ"
+                            data-i18n-alt="massage_2_alt" decoding="async">
                     </div>
                     <div class="service-info">
                         <div>
-                            <h3 data-i18n="massage_2">Massage Thaï aux Huiles Chaudes</h3>
+                            <h3><a href="/massages/massage-aux-huiles-chaudes/" data-i18n="massage_2"
+                                    data-i18n-href="massage_2_url">Massage Thaï aux Huiles Chaudes</a></h3>
                             <span class="service-price" data-i18n="massage_2_price">À partir de 90 €</span>
                             <p class="service-desc" data-i18n="massage_2_desc">Ce massage associe la chaleur des huiles
                                 à des mouvements doux pour détendre les muscles et apaiser le corps. Un soin agréable,
@@ -144,15 +353,17 @@
                 </div>
 
                 <!-- Service 3 -->
-                <div class="service-card fade-in-up" style="transition-delay: 0.2s;">
+                <div class="service-card fade-in-up" style="transition-delay: 0.2s;" data-detail-card
+                    data-detail-url="/massages/massage-mixte-thai-huiles-chaudes/" data-i18n-detail-url="massage_3_url">
                     <div class="service-image">
                         <img src="public/images/services/thai-mixte-huiles.jpg"
-                            alt="Massage Thaï Mixte aux Huiles Chaudes" data-i18n-alt="massage_3" loading="lazy"
-                            decoding="async">
+                            alt="Soin mixte associant pressions thaïlandaises et huiles chaudes chez LAWISA"
+                            data-i18n-alt="massage_3_alt" loading="lazy" decoding="async">
                     </div>
                     <div class="service-info">
                         <div>
-                            <h3 data-i18n="massage_3">Massage Thaï Mixte aux Huiles Chaudes</h3>
+                            <h3><a href="/massages/massage-mixte-thai-huiles-chaudes/" data-i18n="massage_3"
+                                    data-i18n-href="massage_3_url">Massage Thaï Mixte aux Huiles Chaudes</a></h3>
                             <span class="service-price" data-i18n="massage_3_price">À partir de 95 €</span>
                             <p class="service-desc" data-i18n="massage_3_desc">Une combinaison du massage thaï
                                 traditionnel et du massage aux huiles chaudes, alternant pressions profondes, étirements
@@ -165,14 +376,17 @@
                 </div>
 
                 <!-- Service 4 -->
-                <div class="service-card fade-in-up">
+                <div class="service-card fade-in-up" data-detail-card
+                    data-detail-url="/massages/massage-dos-et-epaules/" data-i18n-detail-url="massage_4_url">
                     <div class="service-image">
-                        <img src="public/images/services/dos-epaules.jpg" alt="Massage Dos et Des Épaules"
-                            data-i18n-alt="massage_4" loading="lazy" decoding="async">
+                        <img src="public/images/services/dos-epaules.jpg"
+                            alt="Massage ciblé du dos, de la nuque et des épaules chez LAWISA Paris 8ᵉ"
+                            data-i18n-alt="massage_4_alt" loading="lazy" decoding="async">
                     </div>
                     <div class="service-info">
                         <div>
-                            <h3 data-i18n="massage_4">Massage Dos et Des Épaules</h3>
+                            <h3><a href="/massages/massage-dos-et-epaules/" data-i18n="massage_4"
+                                    data-i18n-href="massage_4_url">Massage Dos et Des Épaules</a></h3>
                             <span class="service-price" data-i18n="massage_4_price">À partir de 45 €</span>
                             <p class="service-desc" data-i18n="massage_4_desc">Un massage ciblé sur le dos, les épaules
                                 et la nuque pour dénouer les tensions musculaires et relâcher les zones contractées.</p>
@@ -184,14 +398,17 @@
                 </div>
 
                 <!-- Service 5 -->
-                <div class="service-card fade-in-up" style="transition-delay: 0.1s;">
+                <div class="service-card fade-in-up" style="transition-delay: 0.1s;" data-detail-card
+                    data-detail-url="/massages/massage-cranien/" data-i18n-detail-url="massage_5_url">
                     <div class="service-image">
-                        <img src="public/images/services/massage-cranien.jpg" alt="Massage Crânien"
-                            data-i18n-alt="massage_5" loading="lazy" decoding="async">
+                        <img src="public/images/services/massage-cranien.jpg"
+                            alt="Massage crânien relaxant du cuir chevelu et des tempes chez LAWISA"
+                            data-i18n-alt="massage_5_alt" loading="lazy" decoding="async">
                     </div>
                     <div class="service-info">
                         <div>
-                            <h3 data-i18n="massage_5">Massage Crânien</h3>
+                            <h3><a href="/massages/massage-cranien/" data-i18n="massage_5"
+                                    data-i18n-href="massage_5_url">Massage Crânien</a></h3>
                             <span class="service-price" data-i18n="massage_5_price">À partir de 45 €</span>
                             <p class="service-desc" data-i18n="massage_5_desc">Un massage doux du cuir chevelu, des
                                 tempes et de la nuque pour évacuer le stress, favoriser le lâcher-prise et procurer une
@@ -204,15 +421,17 @@
                 </div>
 
                 <!-- Service 6 -->
-                <div class="service-card fade-in-up" style="transition-delay: 0.2s;">
+                <div class="service-card fade-in-up" style="transition-delay: 0.2s;" data-detail-card
+                    data-detail-url="/massages/reflexologie-plantaire/" data-i18n-detail-url="massage_6_url">
                     <div class="service-image">
                         <img src="public/images/services/reflexologie-plantaire.jpg"
-                            alt="Réflexologie Plantaire / Massage des pieds" data-i18n-alt="massage_6" loading="lazy"
-                            decoding="async">
+                            alt="Séance de réflexologie plantaire et massage des pieds chez LAWISA Paris 8ᵉ"
+                            data-i18n-alt="massage_6_alt" loading="lazy" decoding="async">
                     </div>
                     <div class="service-info">
                         <div>
-                            <h3 data-i18n="massage_6">Réflexologie Plantaire / Massage des pieds</h3>
+                            <h3><a href="/massages/reflexologie-plantaire/" data-i18n="massage_6"
+                                    data-i18n-href="massage_6_url">Réflexologie Plantaire / Massage des pieds</a></h3>
                             <span class="service-price" data-i18n="massage_6_price">À partir de 45 €</span>
                             <p class="service-desc" data-i18n="massage_6_desc">Un massage des pieds associant pressions
                                 ciblées et mouvements précis pour soulager les pieds fatigués et retrouver une sensation
@@ -225,14 +444,17 @@
                 </div>
 
                 <!-- Service 7 -->
-                <div class="service-card fade-in-up">
+                <div class="service-card fade-in-up" data-detail-card
+                    data-detail-url="/massages/jet-lag-recovery-massage/" data-i18n-detail-url="massage_7_url">
                     <div class="service-image">
-                        <img src="public/images/services/jet-lag-recovery.jpg" alt="Jet Lag Recovery Massage"
-                            data-i18n-alt="massage_7" loading="lazy" decoding="async">
+                        <img src="public/images/services/jet-lag-recovery.jpg"
+                            alt="Soin Jet Lag Recovery aux compresses chaudes pour voyageurs chez LAWISA"
+                            data-i18n-alt="massage_7_alt" loading="lazy" decoding="async">
                     </div>
                     <div class="service-info">
                         <div>
-                            <h3 data-i18n="massage_7">Jet Lag Recovery Massage</h3>
+                            <h3><a href="/massages/jet-lag-recovery-massage/" data-i18n="massage_7"
+                                    data-i18n-href="massage_7_url">Jet Lag Recovery Massage</a></h3>
                             <span class="service-price" data-i18n="massage_7_price">À partir de 55 €</span>
                             <p class="service-desc" data-i18n="massage_7_desc">Un massage spécialement conçu pour les
                                 voyageurs, idéal pour atténuer la fatigue d'un long trajet, détendre le corps et
@@ -245,14 +467,17 @@
                 </div>
 
                 <!-- Service 8 -->
-                <div class="service-card fade-in-up" style="transition-delay: 0.1s;">
+                <div class="service-card fade-in-up" style="transition-delay: 0.1s;" data-detail-card
+                    data-detail-url="/massages/massage-office-syndrome/" data-i18n-detail-url="massage_8_url">
                     <div class="service-image">
-                        <img src="public/images/services/office-syndrome.jpg" alt="Massage Office Syndrome"
-                            data-i18n-alt="massage_8" loading="lazy" decoding="async">
+                        <img src="public/images/services/office-syndrome.jpg"
+                            alt="Massage Office Syndrome ciblant les tensions posturales du dos et de la nuque"
+                            data-i18n-alt="massage_8_alt" loading="lazy" decoding="async">
                     </div>
                     <div class="service-info">
                         <div>
-                            <h3 data-i18n="massage_8">Massage Office Syndrome</h3>
+                            <h3><a href="/massages/massage-office-syndrome/" data-i18n="massage_8"
+                                    data-i18n-href="massage_8_url">Massage Office Syndrome</a></h3>
                             <span class="service-price" data-i18n="massage_8_price">À partir de 60 €</span>
                             <p class="service-desc" data-i18n="massage_8_desc">Un massage destiné aux personnes
                                 travaillant de longues heures assises ou devant un écran. Il cible les raideurs liées
@@ -283,7 +508,8 @@
                     <div class="about-logo-badge-frame">
                         <div class="about-logo-badge-inner">
                             <img src="public/images/WhatsApp Image 2026-11-15 at 15.36.15 (3).jpeg"
-                                alt="Lawisa Thaï Massage">
+                                alt="Emblème doré à fleur de frangipanier du salon LAWISA"
+                                data-i18n-alt="about_badge_alt">
                         </div>
                     </div>
                 </div>
@@ -869,7 +1095,7 @@
                 <!-- Brand Column -->
                 <div class="footer-brand fade-in-up">
                     <a href="#accueil" class="logo" aria-label="LAWISA Thaï Massage — Haut de page" data-i18n-aria="footer_top_aria">
-                        <img src="public/images/logo-gold.png" alt="Lawisa Thaï Massage" class="footer-logo-img">
+                        <img src="public/images/logo-gold.png" alt="Logo LAWISA Thaï Massage" class="footer-logo-img">
                     </a>
                     <p class="footer-desc" data-i18n="footer_desc">L’art du massage thaïlandais traditionnel au cœur du 8ᵉ arrondissement de Paris.</p>
                     <address class="footer-meta">
@@ -909,7 +1135,7 @@
                         target="_blank" rel="noopener noreferrer" class="footer-btn" data-i18n="footer_book_btn">RÉSERVER</a>
 
                     <div class="footer-lang" role="group" aria-label="Choisir la langue" data-i18n-aria="footer_lang_aria">
-                        <a href="#" class="lang-btn active" data-lang="fr" aria-current="true">FR</a><span class="lang-divider" aria-hidden="true">|</span><a href="#" class="lang-btn" data-lang="en" aria-current="false">EN</a>
+                        <a href="/" class="lang-btn active" data-lang="fr" hreflang="fr" aria-current="true">FR</a><span class="lang-divider" aria-hidden="true">|</span><a href="/?lang=en" class="lang-btn" data-lang="en" hreflang="en" aria-current="false">EN</a>
                     </div>
                 </div>
             </div>
@@ -940,8 +1166,8 @@
         // Translations dictionary
         const i18n = {
             fr: {
-                page_title: "Lawisa Thaï Massage | Paris 8ème",
-                meta_description: "L'Art du Massage Thaïlandais au Cœur de Paris. Une parenthèse de bien-être et d'authenticité au 183 Rue du Faubourg Saint-Honoré.",
+                page_title: "LAWISA Thaï Massage | Salon de Massage Thaïlandais Paris 8ᵉ",
+                meta_description: "Salon de massage thaïlandais authentique au 183 Rue du Faubourg Saint-Honoré, Paris 8ᵉ. Massage thaï traditionnel, huiles chaudes et soins ciblés dès 45 €.",
                 nav_home: "Accueil",
                 nav_massages: "Massages",
                 nav_massages_url: "/massages/",
@@ -975,7 +1201,7 @@
                 massage_5_desc: "Un massage doux du cuir chevelu, des tempes et de la nuque pour évacuer le stress, favoriser le lâcher-prise et procurer une agréable sensation de calme.",
                 massage_6: "Réflexologie Plantaire / Massage des pieds",
                 massage_6_price: "À partir de 45 €",
-                massage_6_desc: "Un massage des pieds associant pressions ouvements précis pour soulager les pieds fatigués et retrouver une sensation de légèreté et de confort.",
+                massage_6_desc: "Un massage des pieds associant pressions ciblées et mouvements précis pour soulager les pieds fatigués et retrouver une sensation de légèreté et de confort.",
                 massage_7: "Jet Lag Recovery Massage",
                 massage_7_price: "À partir de 55 €",
                 massage_7_desc: "Un massage spécialement conçu pour les voyageurs, idéal pour atténuer la fatigue d'un long trajet, détendre le corps et retrouver une agréable sensation de bien-être.",
@@ -985,7 +1211,23 @@
                 card_btn_book: "Réserver",
                 services_discover_btn: "Découvrir",
                 massage_1_url: "/massages/massage-thai-traditionnel/",
+                massage_2_url: "/massages/massage-aux-huiles-chaudes/",
+                massage_3_url: "/massages/massage-mixte-thai-huiles-chaudes/",
+                massage_4_url: "/massages/massage-dos-et-epaules/",
+                massage_5_url: "/massages/massage-cranien/",
+                massage_6_url: "/massages/reflexologie-plantaire/",
+                massage_7_url: "/massages/jet-lag-recovery-massage/",
+                massage_8_url: "/massages/massage-office-syndrome/",
+                massage_1_alt: "Séance de massage thaï traditionnel par pressions et étirements chez LAWISA Paris 8ᵉ",
+                massage_2_alt: "Massage thaï aux huiles chaudes réalisé en cabine chez LAWISA Paris 8ᵉ",
+                massage_3_alt: "Soin mixte associant pressions thaïlandaises et huiles chaudes chez LAWISA",
+                massage_4_alt: "Massage ciblé du dos, de la nuque et des épaules chez LAWISA Paris 8ᵉ",
+                massage_5_alt: "Massage crânien relaxant du cuir chevelu et des tempes chez LAWISA",
+                massage_6_alt: "Séance de réflexologie plantaire et massage des pieds chez LAWISA Paris 8ᵉ",
+                massage_7_alt: "Soin Jet Lag Recovery aux compresses chaudes pour voyageurs chez LAWISA",
+                massage_8_alt: "Massage Office Syndrome ciblant les tensions posturales du dos et de la nuque",
                 about_photo_alt: "Salon Lawisa Thaï Massage Paris 8e",
+                about_badge_alt: "Emblème doré à fleur de frangipanier du salon LAWISA",
                 about_eyebrow: "LE SALON",
                 about_title: "Le Salon LAWISA,<span class=\"about-heading-accent\">un havre de calme à Paris 8ᵉ</span>",
                 about_lead: "Situé au 183 Rue du Faubourg Saint-Honoré, Paris 8e, le salon LAWISA vous accueille dans une atmosphère paisible dédiée au massage thaïlandais traditionnel.",
@@ -1085,8 +1327,8 @@
                 whatsapp_aria: "Contacter LAWISA sur WhatsApp"
             },
             en: {
-                page_title: "Lawisa Thaï Massage | Paris 8th",
-                meta_description: "The Art of Thai Massage in the Heart of Paris. A sanctuary of well-being and authenticity at 183 Rue du Faubourg Saint-Honoré.",
+                page_title: "LAWISA Thaï Massage | Authentic Thai Massage Salon Paris 8th",
+                meta_description: "Authentic Thai massage salon at 183 Rue du Faubourg Saint-Honoré, Paris 8th. Traditional Thai acupressure, warm oils, and focused rituals from €45.",
                 nav_home: "Home",
                 nav_massages: "Massages",
                 nav_massages_url: "/en/massages/",
@@ -1130,7 +1372,23 @@
                 card_btn_book: "Book Now",
                 services_discover_btn: "Discover",
                 massage_1_url: "/en/massages/traditional-thai-massage/",
+                massage_2_url: "/en/massages/warm-oil-thai-massage/",
+                massage_3_url: "/en/massages/mixed-thai-warm-oil-massage/",
+                massage_4_url: "/en/massages/back-and-shoulders-massage/",
+                massage_5_url: "/en/massages/cranial-scalp-massage/",
+                massage_6_url: "/en/massages/foot-reflexology/",
+                massage_7_url: "/en/massages/jet-lag-recovery-massage/",
+                massage_8_url: "/en/massages/office-syndrome-massage/",
+                massage_1_alt: "Traditional Thai massage session with acupressure and assisted stretching at LAWISA Paris 8th",
+                massage_2_alt: "Warm oil Thai massage performed in a treatment room at LAWISA Paris 8th",
+                massage_3_alt: "Mixed Thai massage combining deep acupressure and warm oils at LAWISA",
+                massage_4_alt: "Targeted back, neck, and shoulders massage at LAWISA Paris 8th",
+                massage_5_alt: "Relaxing cranial massage of the scalp and temples at LAWISA",
+                massage_6_alt: "Foot reflexology and targeted foot massage session at LAWISA Paris 8th",
+                massage_7_alt: "Jet Lag Recovery massage ritual for travelers at LAWISA Paris 8th",
+                massage_8_alt: "Office Syndrome massage targeting postural neck and upper-back tension",
                 about_photo_alt: "Lawisa Thaï Massage Salon Paris 8th",
+                about_badge_alt: "Golden frangipani emblem of the LAWISA salon",
                 about_eyebrow: "THE SALON",
                 about_title: "The LAWISA Salon,<span class=\"about-heading-accent\">a haven of calm in Paris 8th</span>",
                 about_lead: "Located at 183 Rue du Faubourg Saint-Honoré, Paris 8th, LAWISA welcomes you into a peaceful atmosphere dedicated to traditional Thai massage.",
@@ -1248,6 +1506,29 @@
             if (metaDesc && dict.meta_description) {
                 metaDesc.setAttribute('content', dict.meta_description);
             }
+            const canonicalUrl = selectedLang === 'en'
+                ? 'https://lawisa-thai-massage.pages.dev/?lang=en'
+                : 'https://lawisa-thai-massage.pages.dev/';
+            const canonicalLink = document.getElementById('canonical-link');
+            if (canonicalLink) canonicalLink.setAttribute('href', canonicalUrl);
+            const ogUrl = document.querySelector('meta[property="og:url"]');
+            if (ogUrl) ogUrl.setAttribute('content', canonicalUrl);
+            const ogLocale = document.querySelector('meta[property="og:locale"]');
+            if (ogLocale) ogLocale.setAttribute('content', selectedLang === 'en' ? 'en_US' : 'fr_FR');
+            const ogLocaleAlt = document.querySelector('meta[property="og:locale:alternate"]');
+            if (ogLocaleAlt) ogLocaleAlt.setAttribute('content', selectedLang === 'en' ? 'fr_FR' : 'en_US');
+            if (dict.page_title) {
+                const ogTitle = document.querySelector('meta[property="og:title"]');
+                if (ogTitle) ogTitle.setAttribute('content', dict.page_title);
+                const twTitle = document.querySelector('meta[name="twitter:title"]');
+                if (twTitle) twTitle.setAttribute('content', dict.page_title);
+            }
+            if (dict.meta_description) {
+                const ogDesc = document.querySelector('meta[property="og:description"]');
+                if (ogDesc) ogDesc.setAttribute('content', dict.meta_description);
+                const twDesc = document.querySelector('meta[name="twitter:description"]');
+                if (twDesc) twDesc.setAttribute('content', dict.meta_description);
+            }
 
             langBtns.forEach(b => {
                 const isActive = b.getAttribute('data-lang') === selectedLang;
@@ -1304,36 +1585,21 @@
             btn.addEventListener('click', (e) => {
                 e.preventDefault();
                 const selectedLang = btn.getAttribute('data-lang');
-                if (selectedLang === 'fr' && window.location.search.includes('lang=')) {
-                    const cleanUrl = new URL(window.location.href);
-                    cleanUrl.searchParams.delete('lang');
-                    if (window.history && window.history.replaceState) {
-                        window.history.replaceState(null, '', cleanUrl.pathname + cleanUrl.search + cleanUrl.hash);
+                if (window.history && window.history.replaceState) {
+                    const nextUrl = new URL(window.location.href);
+                    if (selectedLang === 'en') {
+                        nextUrl.searchParams.set('lang', 'en');
+                    } else {
+                        nextUrl.searchParams.delete('lang');
                     }
+                    window.history.replaceState(null, '', nextUrl.pathname + nextUrl.search + nextUrl.hash);
                 }
                 applyLanguage(selectedLang);
             });
         });
 
         const urlParams = new URLSearchParams(window.location.search);
-        const navEntry = (window.performance && typeof window.performance.getEntriesByType === 'function')
-            ? window.performance.getEntriesByType('navigation')[0]
-            : null;
-        const isPageReload = navEntry
-            ? navEntry.type === 'reload'
-            : Boolean(window.performance && window.performance.navigation && window.performance.navigation.type === 1);
-
-        let initialLang = 'fr';
-        if (isPageReload && urlParams.get('lang') === 'en') {
-            urlParams.delete('lang');
-            const nextQuery = urlParams.toString();
-            const cleanPath = window.location.pathname + (nextQuery ? `?${nextQuery}` : '') + window.location.hash;
-            if (window.history && window.history.replaceState) {
-                window.history.replaceState(null, '', cleanPath);
-            }
-        } else if (!isPageReload && urlParams.get('lang') === 'en') {
-            initialLang = 'en';
-        }
+        const initialLang = urlParams.get('lang') === 'en' ? 'en' : 'fr';
         applyLanguage(initialLang);
 
 

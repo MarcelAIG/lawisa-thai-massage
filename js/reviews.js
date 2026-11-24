@@ -108,8 +108,14 @@ window.LAWISA_REVIEWS_CONFIG = {
         bound: false,
         totalUnique: 0,
         paginationExpanded: false,
-        lastPaginationSignature: ""
+        lastPaginationSignature: "",
+        isSectionVisible: true,
+        geomCache: null
     };
+
+    function invalidateGeometry() {
+        state.geomCache = null;
+    }
 
     const AUTO_SCROLL_PX_PER_SEC = 34;
 
@@ -192,6 +198,8 @@ window.LAWISA_REVIEWS_CONFIG = {
     }
 
     function getGeometry() {
+        if (state.geomCache) return state.geomCache;
+
         const viewport = document.getElementById("lawisa-reviews-viewport");
         const track = document.getElementById("lawisa-reviews-track");
         if (!viewport || !track || state.totalUnique <= 0) return null;
@@ -200,27 +208,32 @@ window.LAWISA_REVIEWS_CONFIG = {
         const n = state.totalUnique;
         if (cards.length < n * 3) return null;
 
-        const loopWidth = cards[n].offsetLeft - cards[0].offsetLeft;
+        const cardOffsets = Array.from(cards, c => c.offsetLeft);
+        const firstCardWidth = cards[0].offsetWidth;
+        const loopWidth = cardOffsets[n] - cardOffsets[0];
         const maxScroll = Math.max(0, viewport.scrollWidth - viewport.clientWidth);
         const isMobile = viewport.clientWidth < 768;
         const leadPad = isMobile
-            ? Math.max(16, (viewport.clientWidth - cards[0].offsetWidth) / 2)
+            ? Math.max(16, (viewport.clientWidth - firstCardWidth) / 2)
             : Math.max(24, (viewport.clientWidth - Math.min(1300, viewport.clientWidth)) / 2 + 40);
 
-        return { viewport, track, cards, n, loopWidth, maxScroll, leadPad };
+        if (loopWidth > 0) {
+            state.geomCache = { viewport, track, cards, cardOffsets, firstCardWidth, n, loopWidth, maxScroll, leadPad };
+            return state.geomCache;
+        }
+        return { viewport, track, cards, cardOffsets, firstCardWidth, n, loopWidth, maxScroll, leadPad };
     }
 
     function syncActivePageFromScroll() {
         const geom = getGeometry();
         if (!geom || geom.n <= 0) return;
 
-        const focalX = geom.viewport.scrollLeft + geom.leadPad + (geom.cards[0].offsetWidth * 0.2);
+        const focalX = geom.viewport.scrollLeft + geom.leadPad + (geom.firstCardWidth * 0.2);
         let closestIdx = state.activeIndex;
         let closestDist = Infinity;
 
-        for (let i = 0; i < geom.cards.length; i++) {
-            const cardLeft = geom.cards[i].offsetLeft;
-            const dist = Math.abs(cardLeft - focalX);
+        for (let i = 0; i < geom.cardOffsets.length; i++) {
+            const dist = Math.abs(geom.cardOffsets[i] - focalX);
             if (dist < closestDist) {
                 closestDist = dist;
                 closestIdx = i % geom.n;
@@ -394,6 +407,7 @@ window.LAWISA_REVIEWS_CONFIG = {
             startTime: performance.now(),
             duration: 420
         };
+        startAutoScrollLoop();
     }
 
     function renderReviews(reviewsList, preserveIndex = false) {
@@ -408,6 +422,7 @@ window.LAWISA_REVIEWS_CONFIG = {
             : [];
 
         state.totalUnique = validReviews.length;
+        invalidateGeometry();
 
         if (state.totalUnique === 0) {
             track.innerHTML = "";
@@ -439,6 +454,7 @@ window.LAWISA_REVIEWS_CONFIG = {
                 const expanded = card.classList.toggle("is-expanded");
                 textEl.textContent = expanded ? card.getAttribute("data-full-text") : card.getAttribute("data-short-text");
                 btn.textContent = expanded ? btn.getAttribute("data-less-label") : btn.getAttribute("data-more-label");
+                invalidateGeometry();
             });
         });
 
@@ -573,8 +589,28 @@ window.LAWISA_REVIEWS_CONFIG = {
         }, { passive: true });
 
         window.addEventListener("resize", () => {
+            invalidateGeometry();
             recenterIfOutOfBounds(true);
             syncActivePageFromScroll();
+        }, { passive: true });
+
+        const section = document.getElementById("avis") || viewport;
+        if ("IntersectionObserver" in window && section) {
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    state.isSectionVisible = entry.isIntersecting;
+                    if (state.isSectionVisible && !document.hidden) {
+                        startAutoScrollLoop();
+                    }
+                });
+            }, { rootMargin: "250px 0px", threshold: 0 });
+            io.observe(section);
+        }
+
+        document.addEventListener("visibilitychange", () => {
+            if (!document.hidden && state.isSectionVisible) {
+                startAutoScrollLoop();
+            }
         });
 
         startAutoScrollLoop();
@@ -585,6 +621,11 @@ window.LAWISA_REVIEWS_CONFIG = {
         const reducedMotionQuery = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)");
 
         function tick(now) {
+            if ((document.hidden || !state.isSectionVisible) && !state.animState) {
+                state.rafId = null;
+                state.lastFrameTime = 0;
+                return;
+            }
             state.rafId = requestAnimationFrame(tick);
 
             if (!state.lastFrameTime) {

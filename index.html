@@ -67,18 +67,20 @@
         })();
     </script>
 
-    <!-- Fonts: Exclusively Newsreader & DM Sans -->
+    <!-- Hero Poster Preload & Preconnects -->
+    <link rel="preload" as="image" href="public/images/hero-poster.webp" type="image/webp" fetchpriority="high">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,400..500&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&display=swap"
         rel="stylesheet">
 
     <link rel="stylesheet" href="style.css?v=68">
 
-    <!-- GSAP for Horizontal Scroll -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- GSAP for Horizontal Scroll (Deferred to avoid render-blocking) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
 
     <script type="application/ld+json">
     {
@@ -233,7 +235,7 @@
         <div class="header-container">
             <div class="logo">
                 <a href="#accueil" aria-label="LAWISA Thaï Massage — Accueil" data-i18n-aria="footer_top_aria">
-                    <img src="public/images/logo-gold.png" alt="Logo LAWISA Thaï Massage Paris 8ᵉ" class="logo-img">
+                    <img width="1962" height="801" src="public/images/logo-gold.webp" alt="Logo LAWISA Thaï Massage Paris 8ᵉ" class="logo-img" decoding="async">
                 </a>
             </div>
             <nav class="nav-links">
@@ -264,8 +266,10 @@
     <!-- Hero Section -->
     <section class="hero" id="accueil">
         <div class="hero-image">
-            <video autoplay loop muted playsinline class="hero-video">
-                <source src="public/images/6750892-hd_1920_1080_25fps.mp4" type="video/mp4">
+            <video autoplay loop muted playsinline preload="metadata" poster="public/images/hero-poster.webp"
+                width="1920" height="1080" class="hero-video">
+                <source src="public/images/hero-massage-1080p.webm" type="video/webm">
+                <source src="public/images/hero-massage-1080p.mp4" type="video/mp4">
             </video>
         </div>
         <div class="hero-container">
@@ -310,9 +314,9 @@
                 <div class="service-card fade-in-up" data-detail-card
                     data-detail-url="/massages/massage-thai-traditionnel/" data-i18n-detail-url="massage_1_url">
                     <div class="service-image">
-                        <img src="public/images/services/thai-traditionnel.jpg"
+                        <img width="716" height="960" src="public/images/services/thai-traditionnel.webp"
                             alt="Séance de massage thaï traditionnel par pressions et étirements chez LAWISA Paris 8ᵉ"
-                            data-i18n-alt="massage_1_alt" decoding="async">
+                            data-i18n-alt="massage_1_alt" decoding="async" loading="lazy">
                     </div>
                     <div class="service-info">
                         <div>
@@ -333,9 +337,9 @@
                 <div class="service-card fade-in-up" style="transition-delay: 0.1s;" data-detail-card
                     data-detail-url="/massages/massage-aux-huiles-chaudes/" data-i18n-detail-url="massage_2_url">
                     <div class="service-image">
-                        <img src="public/images/services/huiles-chaudes.jpg"
+                        <img width="716" height="960" src="public/images/services/huiles-chaudes.webp"
                             alt="Massage thaï aux huiles chaudes réalisé en cabine chez LAWISA Paris 8ᵉ"
-                            data-i18n-alt="massage_2_alt" decoding="async">
+                            data-i18n-alt="massage_2_alt" decoding="async" loading="lazy">
                     </div>
                     <div class="service-info">
                         <div>
@@ -356,7 +360,7 @@
                 <div class="service-card fade-in-up" style="transition-delay: 0.2s;" data-detail-card
                     data-detail-url="/massages/massage-mixte-thai-huiles-chaudes/" data-i18n-detail-url="massage_3_url">
                     <div class="service-image">
-                        <img src="public/images/services/thai-mixte-huiles.jpg"
+                        <img width="716" height="960" src="public/images/services/thai-mixte-huiles.webp"
                             alt="Soin mixte associant pressions thaïlandaises et huiles chaudes chez LAWISA"
                             data-i18n-alt="massage_3_alt" loading="lazy" decoding="async">
                     </div>
@@ -379,7 +383,7 @@
                 <div class="service-card fade-in-up" data-detail-card
                     data-detail-url="/massages/massage-dos-et-epaules/" data-i18n-detail-url="massage_4_url">
                     <div class="service-image">
-                        <img src="public/images/services/dos-epaules.jpg"
+                        <img width="716" height="960" src="public/images/services/dos-epaules.webp"
                             alt="Massage ciblé du dos, de la nuque et des épaules chez LAWISA Paris 8ᵉ"
                             data-i18n-alt="massage_4_alt" loading="lazy" decoding="async">
                     </div>
@@ -401,7 +405,7 @@
                 <div class="service-card fade-in-up" style="transition-delay: 0.1s;" data-detail-card
                     data-detail-url="/massages/massage-cranien/" data-i18n-detail-url="massage_5_url">
                     <div class="service-image">
-                        <img src="public/images/services/massage-cranien.jpg"
+                        <img width="716" height="960" src="public/images/services/massage-cranien.webp"
                             alt="Massage crânien relaxant du cuir chevelu et des tempes chez LAWISA"
                             data-i18n-alt="massage_5_alt" loading="lazy" decoding="async">
                     </div>
@@ -424,7 +428,7 @@
                 <div class="service-card fade-in-up" style="transition-delay: 0.2s;" data-detail-card
                     data-detail-url="/massages/reflexologie-plantaire/" data-i18n-detail-url="massage_6_url">
                     <div class="service-image">
-                        <img src="public/images/services/reflexologie-plantaire.jpg"
+                        <img width="716" height="960" src="public/images/services/reflexologie-plantaire.webp"
                             alt="Séance de réflexologie plantaire et massage des pieds chez LAWISA Paris 8ᵉ"
                             data-i18n-alt="massage_6_alt" loading="lazy" decoding="async">
                     </div>
@@ -447,7 +451,7 @@
                 <div class="service-card fade-in-up" data-detail-card
                     data-detail-url="/massages/jet-lag-recovery-massage/" data-i18n-detail-url="massage_7_url">
                     <div class="service-image">
-                        <img src="public/images/services/jet-lag-recovery.jpg"
+                        <img width="716" height="960" src="public/images/services/jet-lag-recovery.webp"
                             alt="Soin Jet Lag Recovery aux compresses chaudes pour voyageurs chez LAWISA"
                             data-i18n-alt="massage_7_alt" loading="lazy" decoding="async">
                     </div>
@@ -470,7 +474,7 @@
                 <div class="service-card fade-in-up" style="transition-delay: 0.1s;" data-detail-card
                     data-detail-url="/massages/massage-office-syndrome/" data-i18n-detail-url="massage_8_url">
                     <div class="service-image">
-                        <img src="public/images/services/office-syndrome.jpg"
+                        <img width="716" height="960" src="public/images/services/office-syndrome.webp"
                             alt="Massage Office Syndrome ciblant les tensions posturales du dos et de la nuque"
                             data-i18n-alt="massage_8_alt" loading="lazy" decoding="async">
                     </div>
@@ -500,16 +504,16 @@
             <div class="about-showcase-media fade-in-up">
                 <div class="about-showcase-photo">
                     <div class="about-showcase-photo-inner">
-                        <img src="public/images/WhatsApp Image 2026-11-15 at 15.36.15 (7).jpeg"
-                            alt="Salon Lawisa Thaï Massage Paris 8e" data-i18n-alt="about_photo_alt">
+                        <img width="1365" height="2048" src="public/images/WhatsApp Image 2026-11-15 at 15.36.15 (7).webp"
+                            alt="Salon Lawisa Thaï Massage Paris 8e" data-i18n-alt="about_photo_alt" loading="lazy" decoding="async">
                     </div>
                 </div>
                 <div class="about-logo-badge">
                     <div class="about-logo-badge-frame">
                         <div class="about-logo-badge-inner">
-                            <img src="public/images/WhatsApp Image 2026-11-15 at 15.36.15 (3).jpeg"
+                            <img width="1741" height="1166" src="public/images/WhatsApp Image 2026-11-15 at 15.36.15 (3).webp"
                                 alt="Emblème doré à fleur de frangipanier du salon LAWISA"
-                                data-i18n-alt="about_badge_alt">
+                                data-i18n-alt="about_badge_alt" loading="lazy" decoding="async">
                         </div>
                     </div>
                 </div>
@@ -591,7 +595,7 @@
                 <div class="lawisa-offer-slot fade-in-up">
                     <article class="lawisa-offer-card" tabindex="0" aria-expanded="false">
                         <div class="lawisa-offer-card-media">
-                            <img src="public/images/offers/happy-hour.jpg"
+                            <img src="public/images/offers/happy-hour.webp"
                                 alt="Rituel de massage aux huiles chaudes dans une atmosphère douce et lumineuse"
                                 data-i18n-alt="offer_hh_alt" width="716" height="960" loading="lazy" decoding="async">
                         </div>
@@ -630,7 +634,7 @@
                 <div class="lawisa-offer-slot fade-in-up" style="transition-delay: 0.12s;">
                     <article class="lawisa-offer-card" tabindex="0" aria-expanded="false">
                         <div class="lawisa-offer-card-media">
-                            <img src="public/images/offers/forfait-5.jpg"
+                            <img src="public/images/offers/forfait-5.webp"
                                 alt="Plateau de soin avec huiles essentielles, serviettes chaudes et bougie"
                                 data-i18n-alt="offer_p5_alt" width="716" height="960" loading="lazy" decoding="async">
                         </div>
@@ -669,7 +673,7 @@
                 <div class="lawisa-offer-slot fade-in-up" style="transition-delay: 0.24s;">
                     <article class="lawisa-offer-card" tabindex="0" aria-expanded="false">
                         <div class="lawisa-offer-card-media">
-                            <img src="public/images/offers/forfait-10.jpg"
+                            <img src="public/images/offers/forfait-10.webp"
                                 alt="Moment de détente après le soin avec infusion chaude dans une ambiance apaisante"
                                 data-i18n-alt="offer_p10_alt" width="716" height="960" loading="lazy" decoding="async">
                         </div>
@@ -734,7 +738,7 @@
             <div class="lawisa-gallery-mosaic fade-in-up" style="transition-delay: 0.1s;">
                 <div class="lawisa-gallery-item is-tall gallery-item" data-index="0" role="button" tabindex="0">
                     <div class="lawisa-gallery-inner">
-                        <img src="public/images/WhatsApp Image 2026-11-15 at 15.36.15 (7).jpeg"
+                        <img width="1365" height="2048" src="public/images/WhatsApp Image 2026-11-15 at 15.36.15 (7).webp"
                             alt="Architecture intérieure et luminaires dorés LAWISA" data-i18n-alt="gallery_cap_1"
                             loading="lazy" decoding="async">
                         <div class="lawisa-gallery-caption" data-i18n="gallery_cap_1">Architecture &amp; Luminaires Dorés
@@ -744,7 +748,7 @@
 
                 <div class="lawisa-gallery-item is-wide-left gallery-item" data-index="1" role="button" tabindex="0">
                     <div class="lawisa-gallery-inner">
-                        <img src="public/images/WhatsApp Image 2026-11-15 at 15.36.15 (1).jpeg"
+                        <img width="2048" height="1365" src="public/images/WhatsApp Image 2026-11-15 at 15.36.15 (1).webp"
                             alt="Réception et espace d'accueil LAWISA" data-i18n-alt="gallery_cap_2" loading="lazy"
                             decoding="async">
                         <div class="lawisa-gallery-caption" data-i18n="gallery_cap_2">Réception &amp; Espace d'Accueil</div>
@@ -753,7 +757,7 @@
 
                 <div class="lawisa-gallery-item is-wide-right gallery-item" data-index="2" role="button" tabindex="0">
                     <div class="lawisa-gallery-inner">
-                        <img src="public/images/WhatsApp Image 2026-11-15 at 15.36.14 (1).jpeg"
+                        <img width="2048" height="1365" src="public/images/WhatsApp Image 2026-11-15 at 15.36.14 (1).webp"
                             alt="Cabine de soin traditionnelle thaïlandaise" data-i18n-alt="gallery_cap_3" loading="lazy"
                             decoding="async">
                         <div class="lawisa-gallery-caption" data-i18n="gallery_cap_3">Cabine de Soin Traditionnelle</div>
@@ -762,7 +766,7 @@
 
                 <div class="lawisa-gallery-item is-bottom-left gallery-item" data-index="3" role="button" tabindex="0">
                     <div class="lawisa-gallery-inner">
-                        <img src="public/images/WhatsApp Image 2026-11-15 at 15.32.27.jpeg"
+                        <img width="1365" height="2048" src="public/images/WhatsApp Image 2026-11-15 at 15.32.27.webp"
                             alt="Sculptures et art thaïlandais à la réception" data-i18n-alt="gallery_cap_4" loading="lazy"
                             decoding="async">
                         <div class="lawisa-gallery-caption" data-i18n="gallery_cap_4">Sculptures &amp; Art Thaïlandais</div>
@@ -771,7 +775,7 @@
 
                 <div class="lawisa-gallery-item is-bottom-mid gallery-item" data-index="4" role="button" tabindex="0">
                     <div class="lawisa-gallery-inner">
-                        <img src="public/images/WhatsApp Image 2026-11-15 at 15.36.15 (4).jpeg"
+                        <img width="2048" height="1364" src="public/images/WhatsApp Image 2026-11-15 at 15.36.15 (4).webp"
                             alt="Suite Duo privée lumineuse" data-i18n-alt="gallery_cap_5" loading="lazy" decoding="async">
                         <div class="lawisa-gallery-caption" data-i18n="gallery_cap_5">Suite Duo Privée</div>
                     </div>
@@ -779,7 +783,7 @@
 
                 <div class="lawisa-gallery-item is-bottom-right gallery-item" data-index="5" role="button" tabindex="0">
                     <div class="lawisa-gallery-inner">
-                        <img src="public/images/WhatsApp Image 2026-11-15 at 15.36.15 (6).jpeg"
+                        <img width="1365" height="2048" src="public/images/WhatsApp Image 2026-11-15 at 15.36.15 (6).webp"
                             alt="Préparation de cabine et fleurs de frangipanier" data-i18n-alt="gallery_cap_6"
                             loading="lazy" decoding="async">
                         <div class="lawisa-gallery-caption" data-i18n="gallery_cap_6">Détails &amp; Fleurs de Frangipanier
@@ -929,7 +933,7 @@
                 <div class="lawisa-contact-facade-slot fade-in-up">
                     <figure class="lawisa-contact-facade-frame">
                         <div class="lawisa-contact-facade-inner">
-                            <img src="public/images/WhatsApp Image 2026-11-15 at 15.36.14.jpeg"
+                            <img src="public/images/WhatsApp Image 2026-11-15 at 15.36.14.webp"
                                 alt="Façade et entrée du salon LAWISA Thaï Massage — 183 Rue du Faubourg Saint-Honoré, Paris 8e"
                                 data-i18n-alt="contact_facade_alt" width="1330" height="1995"
                                 class="lawisa-contact-facade-img" loading="lazy" decoding="async">
@@ -1063,7 +1067,7 @@
     <!-- Closing Reception Invitation & Minimalist Booking CTA -->
     <section class="lawisa-closing-section" aria-labelledby="closing-invitation-title">
         <div class="lawisa-closing-media">
-            <img src="public/images/Modern%20Spa%20Reception%20with%20Golden%20Accents.png"
+            <img src="public/images/Modern%20Spa%20Reception%20with%20Golden%20Accents.webp"
                 alt="Accueil et salon d'attente doré du spa LAWISA Thaï Massage à Paris 8ᵉ"
                 data-i18n-alt="closing_img_alt"
                 class="lawisa-closing-photo"
@@ -1095,7 +1099,7 @@
                 <!-- Brand Column -->
                 <div class="footer-brand fade-in-up">
                     <a href="#accueil" class="logo" aria-label="LAWISA Thaï Massage — Haut de page" data-i18n-aria="footer_top_aria">
-                        <img src="public/images/logo-gold.png" alt="Logo LAWISA Thaï Massage" class="footer-logo-img">
+                        <img width="1962" height="801" src="public/images/logo-gold.webp" alt="Logo LAWISA Thaï Massage" class="footer-logo-img" decoding="async">
                     </a>
                     <p class="footer-desc" data-i18n="footer_desc">L’art du massage thaïlandais traditionnel au cœur du 8ᵉ arrondissement de Paris.</p>
                     <address class="footer-meta">
@@ -1161,7 +1165,7 @@
         <span class="whatsapp-widget-label" data-i18n="whatsapp_cta">Écrire sur WhatsApp</span>
     </a>
 
-    <script src="js/reviews.js?v=9"></script>
+    <script src="js/reviews.js?v=10" defer></script>
     <script>
         // Translations dictionary
         const i18n = {
@@ -1611,7 +1615,7 @@
             } else {
                 header.classList.remove('scrolled');
             }
-        });
+        }, { passive: true });
 
         // Intersection Observer for Animations (Smoother settings)
         const observerOptions = {
@@ -1655,45 +1659,30 @@
             });
         }
 
-        // GSAP Horizontal Scroll for Massages
-        try {
-            if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+        // GSAP Horizontal Scroll for Massages (Event-driven 3D Cover Flow — 0 idle RAF ticks)
+        const initLawisaGsap = () => {
+            try {
+                if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
                 gsap.registerPlugin(ScrollTrigger);
 
                 const servicesSection = document.querySelector('.services');
-                const servicesWrapper = document.querySelector('.services-wrapper');
                 const servicesGrid = document.querySelector('.services-grid');
                 const cards = document.querySelectorAll('.service-card');
 
                 if (servicesGrid && cards.length > 0) {
-                    // Calculate horizontal scroll distance
                     const getScrollAmount = () => -(servicesGrid.scrollWidth - window.innerWidth);
 
-                    const tween = gsap.to(servicesGrid, {
-                        x: getScrollAmount,
-                        ease: "none"
-                    });
-
-                    ScrollTrigger.create({
-                        trigger: servicesSection,
-                        start: "top top",
-                        end: () => `+=${Math.abs(getScrollAmount())}`,
-                        pin: true,
-                        animation: tween,
-                        scrub: true,
-                        invalidateOnRefresh: true
-                    });
-
-                    // RequestAnimationFrame loop for scaling/opacity effect based on center of screen
+                    let cardsScaleRafId = null;
                     function updateCardsScale() {
-                        const centerX = window.innerWidth / 2;
+                        cardsScaleRafId = null;
+                        const vw = window.innerWidth;
+                        const centerX = vw / 2;
+                        const maxDist = vw / 1.5;
+
                         cards.forEach(card => {
                             const rect = card.getBoundingClientRect();
                             const cardCenter = rect.left + rect.width / 2;
                             const dist = Math.abs(centerX - cardCenter);
-
-                            // Max distance where scaling effect applies
-                            const maxDist = window.innerWidth / 1.5;
 
                             let scale = 1.15 - (dist / maxDist) * 0.3;
                             if (scale < 0.85) scale = 0.85;
@@ -1703,7 +1692,6 @@
                             if (opacity < 0.3) opacity = 0.3;
                             if (opacity > 1) opacity = 1;
 
-                            // 3D Cover Flow effect
                             let rotateY = (dist / maxDist) * 45;
                             if (rotateY > 45) rotateY = 45;
                             if (cardCenter > centerX) rotateY = -rotateY;
@@ -1719,12 +1707,37 @@
                                 card._lastOpacity = nextOpacity;
                             }
                         });
-                        requestAnimationFrame(updateCardsScale);
                     }
+
+                    function scheduleCardsScale() {
+                        if (cardsScaleRafId === null) {
+                            cardsScaleRafId = requestAnimationFrame(updateCardsScale);
+                        }
+                    }
+
+                    const tween = gsap.to(servicesGrid, {
+                        x: getScrollAmount,
+                        ease: "none"
+                    });
+
+                    ScrollTrigger.create({
+                        trigger: servicesSection,
+                        start: "top top",
+                        end: () => `+=${Math.abs(getScrollAmount())}`,
+                        pin: true,
+                        animation: tween,
+                        scrub: true,
+                        invalidateOnRefresh: true,
+                        onUpdate: updateCardsScale,
+                        onRefresh: scheduleCardsScale
+                    });
+
                     cards.forEach(card => {
                         card.addEventListener('mouseenter', () => card.classList.add('is-hovered'));
                         card.addEventListener('mouseleave', () => card.classList.remove('is-hovered'));
                     });
+
+                    window.addEventListener('resize', scheduleCardsScale, { passive: true });
                     updateCardsScale();
                 }
 
@@ -1755,9 +1768,15 @@
                         }
                     );
                 }
+            } catch (err) {
+                console.error('LAWISA GSAP initialization error:', err);
             }
-        } catch (err) {
-            console.error('LAWISA GSAP initialization error:', err);
+        };
+
+        if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+            initLawisaGsap();
+        } else {
+            window.addEventListener('DOMContentLoaded', initLawisaGsap, { once: true });
         }
 
         // Lightbox Logic
@@ -1984,7 +2003,7 @@
             });
         });
     </script>
-    <script src="js/whatsapp-prompt.js?v=1"></script>
+    <script src="js/whatsapp-prompt.js?v=1" defer></script>
 </body>
 
 </html>

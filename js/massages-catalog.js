@@ -17,8 +17,16 @@
     const mobileBtn = document.querySelector('.mobile-menu-btn');
     const navLinks = document.querySelector('.nav-links');
     if (mobileBtn && navLinks) {
+        const syncHeaderOffset = () => {
+            if (header) {
+                document.documentElement.style.setProperty('--mobile-header-h', `${header.offsetHeight}px`);
+            }
+        };
+
         const setMenuOpen = (isOpen) => {
+            syncHeaderOffset();
             navLinks.classList.toggle('active', isOpen);
+            if (header) header.classList.toggle('menu-open', isOpen);
             mobileBtn.setAttribute('aria-expanded', String(isOpen));
         };
 
@@ -26,12 +34,22 @@
         navLinks.querySelectorAll('a').forEach((link) => {
             link.addEventListener('click', () => setMenuOpen(false));
         });
+        document.addEventListener('click', (event) => {
+            if (navLinks.classList.contains('active') && header && !header.contains(event.target)) {
+                setMenuOpen(false);
+            }
+        });
         document.addEventListener('keydown', (event) => {
             if (event.key === 'Escape' && navLinks.classList.contains('active')) {
                 setMenuOpen(false);
                 mobileBtn.focus();
             }
         });
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 1024 && navLinks.classList.contains('active')) {
+                setMenuOpen(false);
+            }
+        }, { passive: true });
     }
 
     // Scroll Reveal (respects prefers-reduced-motion)

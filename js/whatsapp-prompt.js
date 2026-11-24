@@ -1,7 +1,7 @@
 /* ==========================================================================
    LAWISA WhatsApp Concierge Pill Prompt
    Appears automatically on load, refresh, page return (bfcache), and lang switch.
-   Dismisses cleanly when clicked until next navigation, refresh, or lang switch.
+   Auto-tucks label on mobile after 3.8s or scroll so it never obstructs CTAs.
    ========================================================================== */
 (function () {
     'use strict';
@@ -10,11 +10,32 @@
     if (!widgets.length) return;
 
     let promptTimer = null;
+    let mobileHideTimer = null;
 
-    function triggerPrompt(delayMs) {
+    function clearTimers() {
         if (promptTimer) {
             window.clearTimeout(promptTimer);
             promptTimer = null;
+        }
+        if (mobileHideTimer) {
+            window.clearTimeout(mobileHideTimer);
+            mobileHideTimer = null;
+        }
+    }
+
+    function closeLabelOnly() {
+        widgets.forEach((widget) => {
+            widget.classList.remove('is-prompt-open');
+        });
+    }
+
+    function triggerPrompt(delayMs) {
+        clearTimers();
+
+        // On compact phones (<= 480px), keep only the clean circular icon so the pill never covers buttons
+        if (window.innerWidth <= 480) {
+            closeLabelOnly();
+            return;
         }
 
         widgets.forEach((widget) => {
@@ -23,26 +44,30 @@
         });
 
         const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        if (reduced) {
-            widgets.forEach((widget) => widget.classList.add('is-prompt-open'));
-            return;
-        }
-
-        promptTimer = window.setTimeout(() => {
+        const showLabel = () => {
             widgets.forEach((widget) => {
                 if (!widget.classList.contains('is-dismissed')) {
                     widget.classList.add('is-prompt-open');
                 }
             });
+            if (window.innerWidth <= 900) {
+                mobileHideTimer = window.setTimeout(closeLabelOnly, 3800);
+            }
+        };
+
+        if (reduced) {
+            showLabel();
+            return;
+        }
+
+        promptTimer = window.setTimeout(() => {
             promptTimer = null;
+            showLabel();
         }, typeof delayMs === 'number' ? delayMs : 280);
     }
 
     function dismissPrompt() {
-        if (promptTimer) {
-            window.clearTimeout(promptTimer);
-            promptTimer = null;
-        }
+        clearTimers();
         widgets.forEach((widget) => {
             widget.classList.remove('is-prompt-open');
             widget.classList.add('is-dismissed');
@@ -53,17 +78,20 @@
         widget.addEventListener('click', dismissPrompt);
     });
 
-    // Trigger on initial entry / refresh
+    window.addEventListener('scroll', () => {
+        if (window.innerWidth <= 900 && window.scrollY > 120) {
+            closeLabelOnly();
+        }
+    }, { passive: true });
+
     triggerPrompt(320);
 
-    // Re-trigger when returning via browser Back/Forward cache or visiting another page
     window.addEventListener('pageshow', (event) => {
         if (event.persisted) {
             triggerPrompt(220);
         }
     });
 
-    // Re-trigger whenever homepage language switcher toggles FR <-> EN
     window.addEventListener('lawisa:langchange', () => {
         triggerPrompt(90);
     });

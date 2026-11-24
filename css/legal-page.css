@@ -276,3 +276,56 @@
         opacity: 1;
     }
 }
+
+
+/* ==========================================================================
+   PHASE 4 — PREMIUM MOBILE & TABLET OPTIMIZATION (Legal Notice & Privacy)
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .legal-hero {
+        padding: 6rem 0 2rem;
+    }
+}
+
+@media (max-width: 639px) {
+    .legal-container {
+        padding: 0 1.2rem;
+    }
+
+    .legal-hero {
+        padding: 6.15rem 0 1.75rem;
+    }
+
+    .legal-back-link {
+        min-height: 40px;
+        margin-bottom: 0.85rem;
+    }
+
+    .legal-title {
+        font-size: clamp(1.85rem, 7.8vw, 2.45rem);
+    }
+
+    .legal-content {
+        padding: 2rem 0 2.75rem;
+    }
+
+    .legal-section p,
+    .legal-section li,
+    .legal-facts dd,
+    .legal-inline-link {
+        overflow-wrap: anywhere;
+        word-break: break-word;
+    }
+
+    .legal-cross-link {
+        display: inline-flex;
+        align-items: center;
+        min-height: 38px;
+    }
+}
+
+@media (max-width: 374px) {
+    .legal-container {
+        padding: 0 0.9rem;
+    }
+}

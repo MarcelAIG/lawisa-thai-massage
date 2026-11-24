@@ -926,3 +926,183 @@ body.mcat-modal-open {
         opacity: 1;
     }
 }
+
+
+/* ==========================================================================
+   PHASE 4 — PREMIUM MOBILE & TABLET OPTIMIZATION (/massages/ & /en/massages/)
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .mcat-hero {
+        padding: 6.15rem 0 2.5rem;
+    }
+}
+
+@media (min-width: 641px) and (max-width: 980px) {
+    /* 768px Tablet: clean 2-column Signature grid matching Focused Care */
+    .mcat-signature-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        max-width: none;
+    }
+
+    .mcat-signature-grid > .mcat-ritual:last-child {
+        grid-column: 1 / -1;
+        max-width: calc((100% - 1.25rem) / 2);
+        width: 100%;
+        justify-self: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .mcat-rates-trigger,
+    .mcat-book-btn {
+        min-height: 44px;
+        flex: 1 1 0;
+        padding: 0.58rem 0.9rem;
+        font-size: 0.74rem;
+    }
+
+    .mcat-hero-cta,
+    .mcat-sanctuary-cta {
+        min-height: 48px;
+    }
+}
+
+@media (max-width: 640px) {
+    .mcat-container {
+        padding: 0 1.2rem;
+    }
+
+    .mcat-hero {
+        padding: 6.15rem 0 2rem;
+    }
+
+    .mcat-qv-close:focus,
+    .mcat-qv-close:focus-visible {
+        background-color: rgba(255, 252, 247, 0.98);
+        color: var(--charcoal);
+        border: 1.5px solid var(--lawisa-gold);
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+        outline: 2px solid rgba(217, 165, 29, 0.45);
+        outline-offset: 2px;
+    }
+
+    .mcat-hero-grid {
+        gap: 1.5rem;
+    }
+
+    .mcat-hero-title {
+        font-size: clamp(1.92rem, 8vw, 2.55rem);
+    }
+
+    .mcat-hero-lead {
+        margin: 0.85rem 0 1.25rem;
+        font-size: 0.95rem;
+    }
+
+    .mcat-hero-cta {
+        width: 100%;
+        max-width: 320px;
+    }
+
+    .mcat-chapter {
+        padding: 1.75rem 0 2.15rem;
+    }
+
+    .mcat-sanctuary {
+        height: 340px;
+    }
+
+    .mcat-sanctuary-title {
+        font-size: clamp(1.68rem, 7vw, 2.15rem);
+        margin-bottom: 1rem;
+    }
+
+    .mcat-sanctuary-cta {
+        width: 100%;
+        max-width: 280px;
+    }
+
+    /* Comfortable Quick-View Pricing Sheet on Mobile */
+    .mcat-qv-backdrop {
+        align-items: flex-end;
+        padding: 0.65rem;
+    }
+
+    .mcat-qv-dialog {
+        max-height: calc(100svh - 1.3rem);
+        border-radius: 20px;
+    }
+
+    .mcat-qv-close {
+        width: 42px;
+        height: 42px;
+        top: 0.75rem;
+        right: 0.75rem;
+        font-size: 1.35rem;
+    }
+
+    .mcat-qv-media {
+        padding: 0.75rem 0.75rem 0;
+    }
+
+    .mcat-qv-frame-inner {
+        aspect-ratio: 16 / 9;
+    }
+
+    .mcat-qv-body {
+        padding: 1rem 1rem 1.15rem;
+    }
+
+    .mcat-qv-title {
+        font-size: 1.38rem;
+        padding-right: 2.5rem;
+    }
+
+    .mcat-qv-desc {
+        margin-bottom: 0.85rem;
+        font-size: 0.85rem;
+    }
+
+    .mcat-qv-rates {
+        margin-bottom: 1rem;
+    }
+
+    .mcat-qv-rate-row {
+        min-height: 48px;
+        padding: 0.72rem 0.65rem;
+        flex-wrap: wrap;
+        row-gap: 0.2rem;
+    }
+
+    .mcat-qv-rate-label {
+        font-size: 0.98rem;
+    }
+
+    .mcat-qv-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.65rem;
+    }
+
+    .mcat-qv-book-btn {
+        width: 100%;
+        min-height: 48px;
+    }
+
+    .mcat-discover-link {
+        align-self: center;
+        min-height: 40px;
+    }
+}
+
+@media (max-width: 374px) {
+    .mcat-container {
+        padding: 0 0.9rem;
+    }
+
+    .mcat-ritual-head {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.2rem;
+    }
+}

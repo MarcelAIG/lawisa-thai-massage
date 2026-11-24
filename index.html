@@ -68,7 +68,7 @@
     </script>
 
     <!-- Hero Poster Preload & Preconnects -->
-    <link rel="preload" as="image" href="public/images/hero-poster.webp" type="image/webp" fetchpriority="high">
+    <link rel="preload" as="image" href="public/images/hero-poster.webp" imagesrcset="public/images/hero-poster-mobile.webp 960w, public/images/hero-poster.webp 1920w" imagesizes="100vw" type="image/webp" fetchpriority="high">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
@@ -76,7 +76,7 @@
         href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,400..500&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css?v=68">
+    <link rel="stylesheet" href="style.css?v=69">
 
     <!-- GSAP for Horizontal Scroll (Deferred to avoid render-blocking) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
@@ -235,7 +235,7 @@
         <div class="header-container">
             <div class="logo">
                 <a href="#accueil" aria-label="LAWISA Thaï Massage — Accueil" data-i18n-aria="footer_top_aria">
-                    <img width="1962" height="801" src="public/images/logo-gold.webp" alt="Logo LAWISA Thaï Massage Paris 8ᵉ" class="logo-img" decoding="async">
+                    <img width="1962" height="801" src="public/images/logo-gold.webp" alt="Logo LAWISA Thaï Massage Paris 8ᵉ" class="logo-img" decoding="async" srcset="public/images/logo-gold-640w.webp 640w, public/images/logo-gold.webp 1962w" sizes="(max-width: 768px) 130px, 220px">
                 </a>
             </div>
             <nav class="nav-links">
@@ -254,7 +254,7 @@
                 <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking"
                     target="_blank" class="btn-header" data-i18n="nav_book">Réserver</a>
 
-                <button class="mobile-menu-btn" aria-label="Menu">
+                <button type="button" class="mobile-menu-btn" aria-label="Menu" aria-expanded="false">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -268,6 +268,8 @@
         <div class="hero-image">
             <video autoplay loop muted playsinline preload="metadata" poster="public/images/hero-poster.webp"
                 width="1920" height="1080" class="hero-video">
+                <source src="public/images/hero-massage-mobile.webm" type="video/webm" media="(max-width: 768px)">
+                <source src="public/images/hero-massage-mobile.mp4" type="video/mp4" media="(max-width: 768px)">
                 <source src="public/images/hero-massage-1080p.webm" type="video/webm">
                 <source src="public/images/hero-massage-1080p.mp4" type="video/mp4">
             </video>
@@ -505,7 +507,7 @@
                 <div class="about-showcase-photo">
                     <div class="about-showcase-photo-inner">
                         <img width="1365" height="2048" src="public/images/WhatsApp Image 2026-11-15 at 15.36.15 (7).webp"
-                            alt="Salon Lawisa Thaï Massage Paris 8e" data-i18n-alt="about_photo_alt" loading="lazy" decoding="async">
+                            alt="Salon Lawisa Thaï Massage Paris 8e" data-i18n-alt="about_photo_alt" loading="lazy" decoding="async" srcset="public/images/WhatsApp Image 2026-11-15 at 15.36.15 (7)-640w.webp 640w, public/images/WhatsApp Image 2026-11-15 at 15.36.15 (7).webp 1365w" sizes="(max-width: 768px) 92vw, 50vw">
                     </div>
                 </div>
                 <div class="about-logo-badge">
@@ -513,7 +515,7 @@
                         <div class="about-logo-badge-inner">
                             <img width="1741" height="1166" src="public/images/WhatsApp Image 2026-11-15 at 15.36.15 (3).webp"
                                 alt="Emblème doré à fleur de frangipanier du salon LAWISA"
-                                data-i18n-alt="about_badge_alt" loading="lazy" decoding="async">
+                                data-i18n-alt="about_badge_alt" loading="lazy" decoding="async" srcset="public/images/WhatsApp Image 2026-11-15 at 15.36.15 (3)-640w.webp 640w, public/images/WhatsApp Image 2026-11-15 at 15.36.15 (3).webp 1741w" sizes="(max-width: 768px) 92vw, 50vw">
                         </div>
                     </div>
                 </div>
@@ -740,7 +742,7 @@
                     <div class="lawisa-gallery-inner">
                         <img width="1365" height="2048" src="public/images/WhatsApp Image 2026-11-15 at 15.36.15 (7).webp"
                             alt="Architecture intérieure et luminaires dorés LAWISA" data-i18n-alt="gallery_cap_1"
-                            loading="lazy" decoding="async">
+                            loading="lazy" decoding="async" srcset="public/images/WhatsApp Image 2026-11-15 at 15.36.15 (7)-640w.webp 640w, public/images/WhatsApp Image 2026-11-15 at 15.36.15 (7).webp 1365w" sizes="(max-width: 768px) 92vw, 50vw">
                         <div class="lawisa-gallery-caption" data-i18n="gallery_cap_1">Architecture &amp; Luminaires Dorés
                         </div>
                     </div>
@@ -750,7 +752,7 @@
                     <div class="lawisa-gallery-inner">
                         <img width="2048" height="1365" src="public/images/WhatsApp Image 2026-11-15 at 15.36.15 (1).webp"
                             alt="Réception et espace d'accueil LAWISA" data-i18n-alt="gallery_cap_2" loading="lazy"
-                            decoding="async">
+                            decoding="async" srcset="public/images/WhatsApp Image 2026-11-15 at 15.36.15 (1)-640w.webp 640w, public/images/WhatsApp Image 2026-11-15 at 15.36.15 (1).webp 2048w" sizes="(max-width: 768px) 92vw, 50vw">
                         <div class="lawisa-gallery-caption" data-i18n="gallery_cap_2">Réception &amp; Espace d'Accueil</div>
                     </div>
                 </div>
@@ -759,7 +761,7 @@
                     <div class="lawisa-gallery-inner">
                         <img width="2048" height="1365" src="public/images/WhatsApp Image 2026-11-15 at 15.36.14 (1).webp"
                             alt="Cabine de soin traditionnelle thaïlandaise" data-i18n-alt="gallery_cap_3" loading="lazy"
-                            decoding="async">
+                            decoding="async" srcset="public/images/WhatsApp Image 2026-11-15 at 15.36.14 (1)-640w.webp 640w, public/images/WhatsApp Image 2026-11-15 at 15.36.14 (1).webp 2048w" sizes="(max-width: 768px) 92vw, 50vw">
                         <div class="lawisa-gallery-caption" data-i18n="gallery_cap_3">Cabine de Soin Traditionnelle</div>
                     </div>
                 </div>
@@ -768,7 +770,7 @@
                     <div class="lawisa-gallery-inner">
                         <img width="1365" height="2048" src="public/images/WhatsApp Image 2026-11-15 at 15.32.27.webp"
                             alt="Sculptures et art thaïlandais à la réception" data-i18n-alt="gallery_cap_4" loading="lazy"
-                            decoding="async">
+                            decoding="async" srcset="public/images/WhatsApp Image 2026-11-15 at 15.32.27-640w.webp 640w, public/images/WhatsApp Image 2026-11-15 at 15.32.27.webp 1365w" sizes="(max-width: 768px) 92vw, 50vw">
                         <div class="lawisa-gallery-caption" data-i18n="gallery_cap_4">Sculptures &amp; Art Thaïlandais</div>
                     </div>
                 </div>
@@ -776,7 +778,7 @@
                 <div class="lawisa-gallery-item is-bottom-mid gallery-item" data-index="4" role="button" tabindex="0">
                     <div class="lawisa-gallery-inner">
                         <img width="2048" height="1364" src="public/images/WhatsApp Image 2026-11-15 at 15.36.15 (4).webp"
-                            alt="Suite Duo privée lumineuse" data-i18n-alt="gallery_cap_5" loading="lazy" decoding="async">
+                            alt="Suite Duo privée lumineuse" data-i18n-alt="gallery_cap_5" loading="lazy" decoding="async" srcset="public/images/WhatsApp Image 2026-11-15 at 15.36.15 (4)-640w.webp 640w, public/images/WhatsApp Image 2026-11-15 at 15.36.15 (4).webp 2048w" sizes="(max-width: 768px) 92vw, 50vw">
                         <div class="lawisa-gallery-caption" data-i18n="gallery_cap_5">Suite Duo Privée</div>
                     </div>
                 </div>
@@ -785,7 +787,7 @@
                     <div class="lawisa-gallery-inner">
                         <img width="1365" height="2048" src="public/images/WhatsApp Image 2026-11-15 at 15.36.15 (6).webp"
                             alt="Préparation de cabine et fleurs de frangipanier" data-i18n-alt="gallery_cap_6"
-                            loading="lazy" decoding="async">
+                            loading="lazy" decoding="async" srcset="public/images/WhatsApp Image 2026-11-15 at 15.36.15 (6)-640w.webp 640w, public/images/WhatsApp Image 2026-11-15 at 15.36.15 (6).webp 1365w" sizes="(max-width: 768px) 92vw, 50vw">
                         <div class="lawisa-gallery-caption" data-i18n="gallery_cap_6">Détails &amp; Fleurs de Frangipanier
                         </div>
                     </div>
@@ -936,7 +938,7 @@
                             <img src="public/images/WhatsApp Image 2026-11-15 at 15.36.14.webp"
                                 alt="Façade et entrée du salon LAWISA Thaï Massage — 183 Rue du Faubourg Saint-Honoré, Paris 8e"
                                 data-i18n-alt="contact_facade_alt" width="1330" height="1995"
-                                class="lawisa-contact-facade-img" loading="lazy" decoding="async">
+                                class="lawisa-contact-facade-img" loading="lazy" decoding="async" srcset="public/images/WhatsApp Image 2026-11-15 at 15.36.14-640w.webp 640w, public/images/WhatsApp Image 2026-11-15 at 15.36.14.webp 1330w" sizes="(max-width: 768px) 92vw, 50vw">
                             <div class="lawisa-contact-facade-scrim" aria-hidden="true"></div>
                             <figcaption class="lawisa-contact-facade-pill">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -1074,7 +1076,7 @@
                 width="1448"
                 height="1086"
                 loading="lazy"
-                decoding="async">
+                decoding="async" srcset="public/images/Modern%20Spa%20Reception%20with%20Golden%20Accents-640w.webp 640w, public/images/Modern%20Spa%20Reception%20with%20Golden%20Accents.webp 1448w" sizes="100vw">
         </div>
 
         <div class="lawisa-closing-container">
@@ -1099,7 +1101,7 @@
                 <!-- Brand Column -->
                 <div class="footer-brand fade-in-up">
                     <a href="#accueil" class="logo" aria-label="LAWISA Thaï Massage — Haut de page" data-i18n-aria="footer_top_aria">
-                        <img width="1962" height="801" src="public/images/logo-gold.webp" alt="Logo LAWISA Thaï Massage" class="footer-logo-img" decoding="async">
+                        <img width="1962" height="801" src="public/images/logo-gold.webp" alt="Logo LAWISA Thaï Massage" class="footer-logo-img" decoding="async" srcset="public/images/logo-gold-640w.webp 640w, public/images/logo-gold.webp 1962w" sizes="(max-width: 768px) 130px, 220px">
                     </a>
                     <p class="footer-desc" data-i18n="footer_desc">L’art du massage thaïlandais traditionnel au cœur du 8ᵉ arrondissement de Paris.</p>
                     <address class="footer-meta">
@@ -1642,24 +1644,54 @@
             fadeElements.forEach((el) => el.classList.add('visible'));
         }
 
-        // Mobile menu toggle
+        // Mobile menu toggle (Accessible drawer + header height sync + outside/Esc close)
         const mobileBtn = document.querySelector('.mobile-menu-btn');
         const navLinks = document.querySelector('.nav-links');
 
         if (mobileBtn && navLinks) {
+            const syncHeaderOffset = () => {
+                if (header) {
+                    document.documentElement.style.setProperty('--mobile-header-h', `${header.offsetHeight}px`);
+                }
+            };
+
+            const setMobileMenuOpen = (isOpen) => {
+                syncHeaderOffset();
+                navLinks.classList.toggle('active', isOpen);
+                if (header) header.classList.toggle('menu-open', isOpen);
+                mobileBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            };
+
             mobileBtn.addEventListener('click', () => {
-                navLinks.classList.toggle('active');
+                setMobileMenuOpen(!navLinks.classList.contains('active'));
             });
 
-            // Close menu when clicking a link
             navLinks.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => {
-                    navLinks.classList.remove('active');
-                });
+                link.addEventListener('click', () => setMobileMenuOpen(false));
             });
+
+            document.addEventListener('click', (e) => {
+                if (navLinks.classList.contains('active') && header && !header.contains(e.target)) {
+                    setMobileMenuOpen(false);
+                }
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+                    setMobileMenuOpen(false);
+                    mobileBtn.focus();
+                }
+            });
+
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 1024 && navLinks.classList.contains('active')) {
+                    setMobileMenuOpen(false);
+                }
+            }, { passive: true });
         }
 
-        // GSAP Horizontal Scroll for Massages (Event-driven 3D Cover Flow — 0 idle RAF ticks)
+        // GSAP Horizontal Scroll for Massages — Scoped strictly to Desktop (min-width: 1025px)
+        // Mobile & Tablet (<= 1024px) use smooth native CSS scroll-snap horizontal swipe
         const initLawisaGsap = () => {
             try {
                 if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
@@ -1669,12 +1701,19 @@
                 const servicesGrid = document.querySelector('.services-grid');
                 const cards = document.querySelectorAll('.service-card');
 
-                if (servicesGrid && cards.length > 0) {
-                    const getScrollAmount = () => -(servicesGrid.scrollWidth - window.innerWidth);
+                cards.forEach(card => {
+                    card.addEventListener('mouseenter', () => card.classList.add('is-hovered'));
+                    card.addEventListener('mouseleave', () => card.classList.remove('is-hovered'));
+                });
 
+                const mm = gsap.matchMedia();
+
+                mm.add('(min-width: 1025px)', () => {
                     let cardsScaleRafId = null;
+
                     function updateCardsScale() {
                         cardsScaleRafId = null;
+                        if (!servicesGrid || !cards.length) return;
                         const vw = window.innerWidth;
                         const centerX = vw / 2;
                         const maxDist = vw / 1.5;
@@ -1715,59 +1754,71 @@
                         }
                     }
 
-                    const tween = gsap.to(servicesGrid, {
-                        x: getScrollAmount,
-                        ease: "none"
-                    });
+                    if (servicesSection && servicesGrid && cards.length > 0) {
+                        const getScrollAmount = () => -(servicesGrid.scrollWidth - window.innerWidth);
 
-                    ScrollTrigger.create({
-                        trigger: servicesSection,
-                        start: "top top",
-                        end: () => `+=${Math.abs(getScrollAmount())}`,
-                        pin: true,
-                        animation: tween,
-                        scrub: true,
-                        invalidateOnRefresh: true,
-                        onUpdate: updateCardsScale,
-                        onRefresh: scheduleCardsScale
-                    });
+                        const tween = gsap.to(servicesGrid, {
+                            x: getScrollAmount,
+                            ease: 'none'
+                        });
 
-                    cards.forEach(card => {
-                        card.addEventListener('mouseenter', () => card.classList.add('is-hovered'));
-                        card.addEventListener('mouseleave', () => card.classList.remove('is-hovered'));
-                    });
+                        ScrollTrigger.create({
+                            trigger: servicesSection,
+                            start: 'top top',
+                            end: () => `+=${Math.abs(getScrollAmount())}`,
+                            pin: true,
+                            animation: tween,
+                            scrub: true,
+                            invalidateOnRefresh: true,
+                            onUpdate: updateCardsScale,
+                            onRefresh: scheduleCardsScale
+                        });
 
-                    window.addEventListener('resize', scheduleCardsScale, { passive: true });
-                    updateCardsScale();
-                }
+                        window.addEventListener('resize', scheduleCardsScale, { passive: true });
+                        updateCardsScale();
+                    }
 
-                const aboutLogoBadge = document.querySelector('.about-logo-badge');
-                const aboutSection = document.querySelector('.about-showcase-section');
-                if (aboutLogoBadge && aboutSection) {
-                    gsap.fromTo(aboutLogoBadge,
-                        {
-                            y: -260,
-                            x: 90,
-                            scale: 0.45,
-                            rotation: -20,
-                            opacity: 0
-                        },
-                        {
-                            y: 0,
-                            x: 0,
-                            scale: 1,
-                            rotation: 0,
-                            opacity: 1,
-                            ease: "power2.out",
-                            scrollTrigger: {
-                                trigger: aboutSection,
-                                start: "top 95%",
-                                end: "top 30%",
-                                scrub: 1
+                    const aboutLogoBadge = document.querySelector('.about-logo-badge');
+                    const aboutSection = document.querySelector('.about-showcase-section');
+                    if (aboutLogoBadge && aboutSection) {
+                        gsap.fromTo(aboutLogoBadge,
+                            {
+                                y: -260,
+                                x: 90,
+                                scale: 0.45,
+                                rotation: -20,
+                                opacity: 0
+                            },
+                            {
+                                y: 0,
+                                x: 0,
+                                scale: 1,
+                                rotation: 0,
+                                opacity: 1,
+                                ease: 'power2.out',
+                                scrollTrigger: {
+                                    trigger: aboutSection,
+                                    start: 'top 95%',
+                                    end: 'top 30%',
+                                    scrub: 1
+                                }
                             }
+                        );
+                    }
+
+                    return () => {
+                        if (cardsScaleRafId !== null) {
+                            cancelAnimationFrame(cardsScaleRafId);
                         }
-                    );
-                }
+                        window.removeEventListener('resize', scheduleCardsScale);
+                        cards.forEach(card => {
+                            card.style.transform = '';
+                            card.style.opacity = '';
+                            delete card._lastTransform;
+                            delete card._lastOpacity;
+                        });
+                    };
+                });
             } catch (err) {
                 console.error('LAWISA GSAP initialization error:', err);
             }
@@ -1862,9 +1913,24 @@
                 }
             });
 
+            let lbTouchStartX = 0;
+            lightbox.addEventListener('touchstart', (e) => {
+                if (e.touches && e.touches.length === 1) {
+                    lbTouchStartX = e.touches[0].clientX;
+                }
+            }, { passive: true });
+            lightbox.addEventListener('touchend', (e) => {
+                if (!lbTouchStartX || !e.changedTouches || !e.changedTouches.length) return;
+                const dx = e.changedTouches[0].clientX - lbTouchStartX;
+                lbTouchStartX = 0;
+                if (Math.abs(dx) > 42) {
+                    openLightboxAt(dx < 0 ? currentImgIndex + 1 : currentImgIndex - 1);
+                }
+            }, { passive: true });
+
             window.addEventListener('lawisa:langchange', () => {
                 if (lightbox.classList.contains('active')) {
-                    updateLightboxImage()
+                    updateLightboxImage();
                 }
             });
         }
@@ -2003,7 +2069,7 @@
             });
         });
     </script>
-    <script src="js/whatsapp-prompt.js?v=1" defer></script>
+    <script src="js/whatsapp-prompt.js?v=2" defer></script>
 </body>
 
 </html>

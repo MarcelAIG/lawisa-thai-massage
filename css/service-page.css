@@ -636,3 +636,127 @@
         opacity: 1;
     }
 }
+
+
+/* ==========================================================================
+   PHASE 4 — PREMIUM MOBILE & TABLET OPTIMIZATION (16 Service Detail Pages)
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .svc-hero {
+        padding: 6rem 0 2.5rem;
+    }
+}
+
+@media (min-width: 640px) and (max-width: 900px) {
+    /* 768px Tablet: balanced 2-up + centered layout for Related Massages */
+    .svc-related-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        max-width: none;
+    }
+
+    .svc-related-grid > .svc-mini-card:last-child {
+        grid-column: 1 / -1;
+        max-width: calc((100% - 1.25rem) / 2);
+        width: 100%;
+        justify-self: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .svc-btn-book {
+        min-height: 48px;
+    }
+
+    .svc-back-link {
+        min-height: 40px;
+    }
+
+    .svc-rate-row {
+        min-height: 50px;
+    }
+}
+
+@media (max-width: 639px) {
+    .svc-container {
+        padding: 0 1.2rem;
+    }
+
+    .svc-hero {
+        padding: 6.15rem 0 2rem;
+    }
+
+    .svc-back-link {
+        margin-bottom: 0.85rem;
+        font-size: 0.82rem;
+    }
+
+    .svc-hero-grid {
+        gap: 1.5rem;
+    }
+
+    .svc-hero-title {
+        font-size: clamp(1.8rem, 7.6vw, 2.38rem);
+        line-height: 1.1;
+    }
+
+    .svc-hero-lead {
+        margin: 0.85rem 0 1.25rem;
+        font-size: 0.95rem;
+    }
+
+    .svc-hero-actions {
+        width: 100%;
+    }
+
+    .svc-hero-actions .svc-btn-book,
+    #svc-rate-cta {
+        width: 100%;
+        max-width: 340px;
+    }
+
+    .svc-about,
+    .svc-rates,
+    .svc-related {
+        padding: 2.25rem 0 2.5rem;
+    }
+
+    .svc-about-grid {
+        gap: 1.5rem;
+    }
+
+    .svc-rates-list {
+        margin: 1.15rem 0 1.35rem;
+    }
+
+    .svc-rate-row {
+        padding: 0.82rem 0.75rem;
+        flex-wrap: wrap;
+        row-gap: 0.22rem;
+    }
+
+    .svc-rate-title {
+        font-size: 1rem;
+    }
+
+    .svc-related-all {
+        display: inline-flex;
+        align-items: center;
+        min-height: 38px;
+    }
+}
+
+@media (max-width: 374px) {
+    .svc-container {
+        padding: 0 0.9rem;
+    }
+
+    .svc-hero-title {
+        font-size: clamp(1.68rem, 7.5vw, 1.92rem);
+    }
+
+    .svc-mini-head {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.18rem;
+    }
+}

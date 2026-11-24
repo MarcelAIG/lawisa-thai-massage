@@ -4976,21 +4976,48 @@ a.lawisa-contact-meta-value:hover {
         margin-right: 0.4rem;
     }
 
-    /* Reviews touch comfort */
+    /* Reviews: One complete centered card at a time + smooth horizontal swipe */
+    .lawisa-reviews-section {
+        --rev-card-w: min(420px, calc(var(--rev-vw, 100vw) - 2.5rem));
+    }
+
     .lawisa-reviews-container {
         padding: 0 1.25rem;
     }
 
+    .lawisa-reviews-viewport {
+        scroll-snap-type: x mandatory;
+        scroll-behavior: auto;
+        overscroll-behavior-x: contain;
+        -webkit-overflow-scrolling: touch;
+        mask-image: none;
+        -webkit-mask-image: none;
+        padding: 0.5rem 0 0.75rem;
+    }
+
+    .lawisa-reviews-viewport.is-programmatic-scroll {
+        scroll-snap-type: none !important;
+        scroll-behavior: auto !important;
+    }
+
+    .lawisa-reviews-track {
+        padding: 0 calc((var(--rev-vw, 100vw) - var(--rev-card-w)) / 2);
+        gap: max(1.5rem, calc((var(--rev-vw, 100vw) - var(--rev-card-w)) / 2 + 0.85rem));
+    }
+
     .lawisa-review-card {
-        width: min(300px, calc(100vw - 2.5rem));
+        width: var(--rev-card-w);
+        scroll-snap-align: center;
+        scroll-snap-stop: always;
+        padding: 1.25rem 1.35rem;
     }
 
     .lawisa-page-btn,
     .lawisa-page-prev,
     .lawisa-page-next {
-        min-width: 38px;
-        height: 38px;
-        font-size: 0.88rem;
+        min-width: 36px;
+        height: 36px;
+        font-size: 0.86rem;
     }
 
     .lawisa-see-all-btn,
@@ -5006,7 +5033,7 @@ a.lawisa-contact-meta-value:hover {
         background: rgba(24, 20, 16, 0.42);
     }
 
-    /* WhatsApp Floating Button — Never obstructs modals, drawers, or footer links */
+    /* WhatsApp Floating Button — Auto-yields over buttons & interactive content */
     .whatsapp-widget,
     .whatsapp-fab {
         z-index: 990;
@@ -5014,18 +5041,34 @@ a.lawisa-contact-meta-value:hover {
         right: calc(14px + env(safe-area-inset-right, 0px));
         width: 44px;
         height: 44px;
+        transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.28s ease, box-shadow 0.28s ease, background-color 0.28s ease, border-color 0.28s ease;
+    }
+
+    .whatsapp-widget.is-yielding,
+    .whatsapp-fab.is-yielding {
+        opacity: 0 !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+        transition: none !important;
     }
 
     .whatsapp-widget-label {
-        max-width: calc(100vw - 82px);
-        overflow: hidden;
-        text-overflow: ellipsis;
+        display: none !important;
+    }
+
+    .footer {
+        padding-bottom: calc(5.25rem + env(safe-area-inset-bottom, 0px));
     }
 }
 
 @media (max-width: 639px) {
-    .container {
+    .container,
+    .lawisa-reviews-container {
         padding: 0 1.2rem;
+    }
+
+    .lawisa-reviews-section {
+        --rev-card-w: calc(var(--rev-vw, 100vw) - 2.4rem);
     }
 
     .section-padding {
@@ -5244,22 +5287,27 @@ a.lawisa-contact-meta-value:hover {
         padding: 1.15rem 0.1rem;
     }
 
-    /* Contact — Compact storefront proportion + 2x2 concierge actions */
+    /* Contact — Compact storefront proportion + 4 equally sized, aligned concierge buttons */
     .lawisa-contact-facade-frame {
         max-width: 100%;
         aspect-ratio: 4 / 4.2;
     }
 
     .lawisa-contact-actions {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 0.6rem;
+        grid-template-columns: 1fr;
+        grid-auto-rows: 48px;
+        gap: 0.65rem;
     }
 
     .lawisa-contact-btn {
-        min-height: 46px;
-        padding: 0 0.6rem;
-        font-size: 0.69rem;
-        letter-spacing: 0.06em;
+        box-sizing: border-box;
+        width: 100%;
+        height: 48px;
+        min-height: 48px;
+        padding: 0 1.15rem;
+        font-size: 0.75rem;
+        letter-spacing: 0.09em;
+        justify-content: center;
     }
 
     .lawisa-contact-map-frame {
@@ -5288,7 +5336,7 @@ a.lawisa-contact-meta-value:hover {
 
     /* Footer — Clean 2-column navigation & safe bottom clearance for WhatsApp icon */
     .footer {
-        padding: 2.65rem 0 calc(4.85rem + env(safe-area-inset-bottom, 0px));
+        padding: 2.65rem 0 calc(5.25rem + env(safe-area-inset-bottom, 0px));
     }
 
     .footer-container {
@@ -5342,6 +5390,19 @@ a.lawisa-contact-meta-value:hover {
 
     .nav-actions {
         gap: 0.48rem;
+    }
+
+    .lawisa-reviews-pagination {
+        gap: 0.25rem;
+    }
+
+    .lawisa-page-btn,
+    .lawisa-page-prev,
+    .lawisa-page-next {
+        min-width: 34px;
+        height: 36px;
+        padding: 0 0.35rem;
+        font-size: 0.84rem;
     }
 }
 
@@ -5408,9 +5469,36 @@ a.lawisa-contact-meta-value:hover {
         height: 88px;
     }
 
+    .lawisa-reviews-section {
+        --rev-card-w: calc(var(--rev-vw, 100vw) - 1.8rem);
+    }
+
+    .lawisa-review-card {
+        padding: 1.15rem;
+    }
+
+    .lawisa-reviews-pagination {
+        gap: 0.18rem;
+    }
+
+    .lawisa-page-btn,
+    .lawisa-page-prev,
+    .lawisa-page-next {
+        min-width: 31px;
+        height: 34px;
+        padding: 0 0.28rem;
+        font-size: 0.8rem;
+    }
+
     .lawisa-gallery-actions,
     .lawisa-contact-actions {
         grid-template-columns: 1fr;
+    }
+
+    .lawisa-contact-btn {
+        font-size: 0.72rem;
+        letter-spacing: 0.07em;
+        padding: 0 0.9rem;
     }
 
     .lawisa-offer-card {

@@ -197,12 +197,31 @@ window.LAWISA_REVIEWS_CONFIG = {
         `;
     }
 
+    function setScrollInstant(viewport, scrollPos) {
+        const wasProgrammatic = viewport.classList.contains("is-programmatic-scroll");
+        if (!wasProgrammatic) viewport.classList.add("is-programmatic-scroll");
+        state.lastWrittenScroll = scrollPos;
+        viewport.scrollLeft = scrollPos;
+        state.virtualScroll = viewport.scrollLeft;
+        if (!wasProgrammatic && !state.animState) {
+            void viewport.offsetWidth;
+            viewport.classList.remove("is-programmatic-scroll");
+        }
+    }
+
     function getGeometry() {
         if (state.geomCache) return state.geomCache;
 
         const viewport = document.getElementById("lawisa-reviews-viewport");
         const track = document.getElementById("lawisa-reviews-track");
         if (!viewport || !track || state.totalUnique <= 0) return null;
+
+        const section = document.getElementById("avis") || viewport;
+        const vw = viewport.clientWidth;
+        if (vw > 0 && state.lastRevVw !== vw) {
+            state.lastRevVw = vw;
+            section.style.setProperty("--rev-vw", `${vw}px`);
+        }
 
         const cards = track.querySelectorAll(".lawisa-review-card");
         const n = state.totalUnique;
@@ -212,23 +231,27 @@ window.LAWISA_REVIEWS_CONFIG = {
         const firstCardWidth = cards[0].offsetWidth;
         const loopWidth = cardOffsets[n] - cardOffsets[0];
         const maxScroll = Math.max(0, viewport.scrollWidth - viewport.clientWidth);
-        const isMobile = viewport.clientWidth < 768;
+        const isMobile = window.matchMedia
+            ? window.matchMedia("(max-width: 768px)").matches
+            : viewport.clientWidth <= 768;
         const leadPad = isMobile
-            ? Math.max(16, (viewport.clientWidth - firstCardWidth) / 2)
+            ? Math.max(0, (viewport.clientWidth - firstCardWidth) / 2)
             : Math.max(24, (viewport.clientWidth - Math.min(1300, viewport.clientWidth)) / 2 + 40);
 
         if (loopWidth > 0) {
-            state.geomCache = { viewport, track, cards, cardOffsets, firstCardWidth, n, loopWidth, maxScroll, leadPad };
+            state.geomCache = { viewport, track, cards, cardOffsets, firstCardWidth, n, loopWidth, maxScroll, leadPad, isMobile };
             return state.geomCache;
         }
-        return { viewport, track, cards, cardOffsets, firstCardWidth, n, loopWidth, maxScroll, leadPad };
+        return { viewport, track, cards, cardOffsets, firstCardWidth, n, loopWidth, maxScroll, leadPad, isMobile };
     }
 
     function syncActivePageFromScroll() {
         const geom = getGeometry();
         if (!geom || geom.n <= 0) return;
 
-        const focalX = geom.viewport.scrollLeft + geom.leadPad + (geom.firstCardWidth * 0.2);
+        const focalX = geom.isMobile
+            ? geom.viewport.scrollLeft + geom.leadPad
+            : geom.viewport.scrollLeft + geom.leadPad + (geom.firstCardWidth * 0.2);
         let closestIdx = state.activeIndex;
         let closestDist = Infinity;
 
@@ -328,7 +351,8 @@ window.LAWISA_REVIEWS_CONFIG = {
                 const target = Number(btn.getAttribute("data-index")) || 0;
                 scrollToReview(target, true);
             });
-        });
+        }
+        );
         pagination.querySelectorAll("[data-expand-pages]").forEach(btn => {
             btn.addEventListener("click", () => {
                 state.paginationExpanded = true;
@@ -358,9 +382,7 @@ window.LAWISA_REVIEWS_CONFIG = {
         }
 
         if (shifted !== cur) {
-            state.lastWrittenScroll = shifted;
-            viewport.scrollLeft = shifted;
-            state.virtualScroll = shifted;
+            setScrollInstant(viewport, shifted);
         }
     }
 
@@ -373,7 +395,7 @@ window.LAWISA_REVIEWS_CONFIG = {
         const candidates = [idx, geom.n + idx, geom.n * 2 + idx]
             .map(cardIdx => {
                 const card = geom.cards[cardIdx];
-                return card ? card.offsetLeft - geom.leadPad : null;
+                return card ? Math.round(card.offsetLeft - geom.leadPad) : null;
             })
             .filter(pos => pos !== null && pos >= 0 && pos <= geom.maxScroll);
 
@@ -395,12 +417,12 @@ window.LAWISA_REVIEWS_CONFIG = {
 
         if (!smooth) {
             state.animState = null;
-            state.lastWrittenScroll = bestTarget;
-            geom.viewport.scrollLeft = bestTarget;
-            state.virtualScroll = bestTarget;
+            geom.viewport.classList.remove("is-programmatic-scroll");
+            setScrollInstant(geom.viewport, bestTarget);
             return;
         }
 
+        geom.viewport.classList.add("is-programmatic-scroll");
         state.animState = {
             startScroll: current,
             targetScroll: bestTarget,
@@ -422,6 +444,7 @@ window.LAWISA_REVIEWS_CONFIG = {
             : [];
 
         state.totalUnique = validReviews.length;
+        state.lastRevVw = 0;
         invalidateGeometry();
 
         if (state.totalUnique === 0) {
@@ -465,10 +488,8 @@ window.LAWISA_REVIEWS_CONFIG = {
             if (!geom) return;
             const middleStartCard = geom.cards[geom.n + state.activeIndex];
             if (middleStartCard) {
-                const startScroll = Math.max(0, Math.min(geom.maxScroll, middleStartCard.offsetLeft - geom.leadPad));
-                state.lastWrittenScroll = startScroll;
-                geom.viewport.scrollLeft = startScroll;
-                state.virtualScroll = startScroll;
+                const startScroll = Math.round(Math.max(0, Math.min(geom.maxScroll, middleStartCard.offsetLeft - geom.leadPad)));
+                setScrollInstant(geom.viewport, startScroll);
             }
         });
     }
@@ -494,6 +515,7 @@ window.LAWISA_REVIEWS_CONFIG = {
         viewport.addEventListener("touchstart", () => {
             state.isTouching = true;
             state.animState = null;
+            viewport.classList.remove("is-programmatic-scroll");
             state.pauseAutoUntil = performance.now() + 2200;
         }, { passive: true });
 
@@ -510,6 +532,7 @@ window.LAWISA_REVIEWS_CONFIG = {
         viewport.addEventListener("wheel", (e) => {
             if (Math.abs(e.deltaX) > 2 || e.shiftKey) {
                 state.animState = null;
+                viewport.classList.remove("is-programmatic-scroll");
                 state.pauseAutoUntil = performance.now() + 2000;
             }
         }, { passive: true });
@@ -574,7 +597,7 @@ window.LAWISA_REVIEWS_CONFIG = {
 
         let scrollEndTimer = null;
         viewport.addEventListener("scroll", () => {
-            if (Math.abs(viewport.scrollLeft - state.lastWrittenScroll) > 2.5) {
+            if (Math.abs(viewport.scrollLeft - state.lastWrittenScroll) > 1.5) {
                 state.virtualScroll = viewport.scrollLeft;
                 if (!state.animState) {
                     state.pauseAutoUntil = Math.max(state.pauseAutoUntil, performance.now() + 1500);
@@ -584,13 +607,23 @@ window.LAWISA_REVIEWS_CONFIG = {
                 scrollEndTimer = setTimeout(() => {
                     recenterIfOutOfBounds(true);
                     syncActivePageFromScroll();
-                }, 140);
+                }, 160);
             }
         }, { passive: true });
 
         window.addEventListener("resize", () => {
             invalidateGeometry();
-            recenterIfOutOfBounds(true);
+            const geom = getGeometry();
+            if (geom && geom.isMobile) {
+                const activeCard = geom.cards[geom.n + state.activeIndex];
+                if (activeCard) {
+                    const centered = Math.round(Math.max(0, Math.min(geom.maxScroll, activeCard.offsetLeft - geom.leadPad)));
+                    setScrollInstant(geom.viewport, centered);
+                }
+            } else {
+                recenterIfOutOfBounds(true);
+                startAutoScrollLoop();
+            }
             syncActivePageFromScroll();
         }, { passive: true });
 
@@ -626,6 +659,50 @@ window.LAWISA_REVIEWS_CONFIG = {
                 state.lastFrameTime = 0;
                 return;
             }
+
+            const geom = getGeometry();
+            if (!geom || geom.loopWidth <= 0 || geom.maxScroll <= 0) {
+                state.rafId = null;
+                state.lastFrameTime = 0;
+                return;
+            }
+
+            const { viewport } = geom;
+
+            if (state.animState) {
+                state.rafId = requestAnimationFrame(tick);
+                if (!state.animState.firstFrameNow) {
+                    state.animState.firstFrameNow = now;
+                }
+                const elapsed = Math.max(0, now - state.animState.firstFrameNow);
+                const progress = Math.min(1, elapsed / state.animState.duration);
+                const ease = 1 - Math.pow(1 - progress, 3);
+                const next = state.animState.startScroll + (state.animState.targetScroll - state.animState.startScroll) * ease;
+                state.lastWrittenScroll = next;
+                viewport.scrollLeft = next;
+                state.virtualScroll = viewport.scrollLeft;
+
+                if (progress >= 1) {
+                    const finalTarget = Math.round(state.animState.targetScroll);
+                    state.animState = null;
+                    state.lastWrittenScroll = finalTarget;
+                    viewport.scrollLeft = finalTarget;
+                    state.virtualScroll = viewport.scrollLeft;
+                    recenterIfOutOfBounds(true);
+                    void viewport.offsetWidth;
+                    viewport.classList.remove("is-programmatic-scroll");
+                    syncActivePageFromScroll();
+                }
+                return;
+            }
+
+            // Mobile uses centered single-card native scroll-snap + pagination (no auto-drift)
+            if (geom.isMobile) {
+                state.rafId = null;
+                state.lastFrameTime = 0;
+                return;
+            }
+
             state.rafId = requestAnimationFrame(tick);
 
             if (!state.lastFrameTime) {
@@ -634,29 +711,6 @@ window.LAWISA_REVIEWS_CONFIG = {
             }
             const dt = Math.min(0.05, Math.max(0, (now - state.lastFrameTime) / 1000));
             state.lastFrameTime = now;
-
-            const geom = getGeometry();
-            if (!geom || geom.loopWidth <= 0 || geom.maxScroll <= 0) return;
-
-            const { viewport } = geom;
-
-            if (state.animState) {
-                const elapsed = now - state.animState.startTime;
-                const progress = Math.min(1, elapsed / state.animState.duration);
-                const ease = 1 - Math.pow(1 - progress, 3);
-                const next = state.animState.startScroll + (state.animState.targetScroll - state.animState.startScroll) * ease;
-                state.lastWrittenScroll = next;
-                viewport.scrollLeft = next;
-                state.virtualScroll = viewport.scrollLeft;
-                syncActivePageFromScroll();
-
-                if (progress >= 1) {
-                    state.animState = null;
-                    recenterIfOutOfBounds(true);
-                    syncActivePageFromScroll();
-                }
-                return;
-            }
 
             const reduceMotion = reducedMotionQuery && reducedMotionQuery.matches;
             if (
@@ -677,7 +731,7 @@ window.LAWISA_REVIEWS_CONFIG = {
             state.virtualScroll += AUTO_SCROLL_PX_PER_SEC * dt;
 
             const lo = geom.loopWidth * 0.45;
-            const hi = Math.min(geom.loopWidth * 1.55, Math.max(geom.loopWidth + 50, geom.maxScroll - 40));
+            const hi = Math.min(loopWidthSafe(geom), Math.max(geom.loopWidth + 50, geom.maxScroll - 40));
             if (state.virtualScroll > hi && state.virtualScroll - geom.loopWidth >= 0) {
                 state.virtualScroll -= geom.loopWidth;
             } else if (state.virtualScroll < lo && state.virtualScroll + geom.loopWidth <= geom.maxScroll) {
@@ -687,6 +741,10 @@ window.LAWISA_REVIEWS_CONFIG = {
             state.lastWrittenScroll = state.virtualScroll;
             viewport.scrollLeft = state.virtualScroll;
             syncActivePageFromScroll();
+        }
+
+        function loopWidthSafe(geom) {
+            return geom.loopWidth * 1.55;
         }
 
         state.rafId = requestAnimationFrame(tick);

@@ -7,9 +7,9 @@
  * reciprocal `hreflang` annotations, and English metadata directly in the HTTP response.
  */
 const EN_CANONICAL = "https://lawisa-thai-massage.pages.dev/?lang=en";
-const EN_TITLE = "LAWISA Thaï Massage | Authentic Thai Massage Salon Paris 8th";
+const EN_TITLE = "Authentic Thai Massage Paris 8th – Faubourg Saint-Honoré | LAWISA";
 const EN_DESC =
-    "Authentic Thai massage salon at 183 Rue du Faubourg Saint-Honoré, Paris 8th. Traditional Thai acupressure, warm oils, and focused rituals from €45.";
+    "Authentic Thai massage salon at 183 Rue du Faubourg Saint-Honoré in Paris 8th, near the Champs-Élysées and Saint-Philippe-du-Roule. Solo & Duo rituals from €45.";
 const EN_OG_IMAGE_ALT = "Traditional Thai treatment room at LAWISA Thaï Massage in Paris 8th";
 
 const EN_HREFS = {
@@ -28,7 +28,7 @@ const EN_HREFS = {
 
 const EN_TEXT = {
     hero_title: 'The Art of Thai Massage<br><span class="hero-title-sub">in the heart of Paris</span>',
-    hero_subtitle: "Authentic Thai massage and warm oil rituals in a serene sanctuary on Faubourg Saint-Honoré.",
+    hero_subtitle: "Authentic Thai massage and warm oil rituals on Rue du Faubourg Saint-Honoré in Paris’s 8th&nbsp;arrondissement.",
     section_massages: "Our Massages",
     massage_1: "Traditional Thai Massage",
     massage_2: "Warm Oil Thai Massage",
@@ -37,7 +37,13 @@ const EN_TEXT = {
     massage_5: "Cranial & Scalp Massage",
     massage_6: "Foot Reflexology / Foot Massage",
     massage_7: "Jet Lag Recovery Massage",
-    massage_8: "Office Syndrome Massage"
+    massage_8: "Office Syndrome Massage",
+    about_title: 'The LAWISA Salon,<span class="about-heading-accent">a haven of calm in Paris&nbsp;8th</span>',
+    about_lead: "Located at 183&nbsp;Rue du Faubourg Saint-Honoré in Paris’s 8th&nbsp;arrondissement, between the Champs-Élysées and&nbsp;Courcelles, LAWISA welcomes you into a peaceful sanctuary dedicated to traditional Thai&nbsp;massage.",
+    offers_subtitle: "Privileged moments thoughtfully crafted to extend your serenity in the heart of&nbsp;Paris&nbsp;8th.",
+    faq_a1: "At 183&nbsp;Rue du Faubourg Saint-Honoré in Paris’s 8th&nbsp;arrondissement, steps from the Champs-Élysées and metro stations Saint-Philippe-du-Roule, Miromesnil, and&nbsp;Courcelles.",
+    contact_title: "Find Us in the Heart of&nbsp;Paris",
+    contact_access_desc: "Located at 183&nbsp;Rue du Faubourg Saint-Honoré in Paris’s 8th&nbsp;arrondissement, steps from the Champs-Élysées and easily reached by metro via Saint-Philippe-du-Roule, Miromesnil, and&nbsp;Courcelles."
 };
 
 export async function onRequestGet(context) {

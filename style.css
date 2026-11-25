@@ -2786,7 +2786,7 @@ a.hero-social:hover {
 
 .lawisa-offers-header {
     text-align: center;
-    max-width: 620px;
+    max-width: 640px;
     margin: 0 auto clamp(2rem, 3.2vw, 2.5rem);
 }
 
@@ -2830,6 +2830,19 @@ a.hero-social:hover {
     line-height: 1.65;
     color: rgba(34, 33, 31, 0.7);
     margin: 0;
+    text-wrap: balance;
+}
+
+@media (min-width: 960px) {
+    .lawisa-offers-header {
+        max-width: none;
+    }
+
+    .lawisa-offers-subtitle {
+        max-width: none;
+        white-space: nowrap;
+        text-wrap: nowrap;
+    }
 }
 
 .lawisa-offers-grid {
@@ -3247,6 +3260,7 @@ a.hero-social:hover {
     margin: 0;
     letter-spacing: var(--tracking-tight);
 }
+
 
 .lawisa-gallery-actions {
     display: flex;
@@ -3875,8 +3889,8 @@ a.hero-social:hover {
 /* Compact Centered Section Header Above Everything */
 .lawisa-contact-header {
     text-align: center;
-    max-width: 620px;
-    margin: 0 auto clamp(0.8rem, 1.6vh, 1.35rem);
+    max-width: 680px;
+    margin: 0 auto clamp(0.95rem, 1.8vh, 1.45rem);
 }
 
 .lawisa-contact-eyebrow {
@@ -3907,10 +3921,21 @@ a.hero-social:hover {
     font-family: var(--font-heading);
     font-size: clamp(1.9rem, 2.55vw, 2.4rem);
     font-weight: 400;
-    line-height: 1.08;
+    line-height: 1.12;
     color: var(--charcoal);
     margin: 0;
     letter-spacing: var(--tracking-tight);
+    text-wrap: balance;
+}
+
+.lawisa-contact-access {
+    font-family: var(--font-body);
+    font-size: clamp(0.88rem, 1vw, 0.94rem);
+    line-height: 1.6;
+    color: rgba(34, 33, 31, 0.72);
+    max-width: 60ch;
+    margin: 0.65rem auto 0;
+    text-wrap: balance;
 }
 
 /* Desktop Showcase: Full Uncut 2:3 Storefront Photo (Left) + Map & Concierge Panel (Right) */

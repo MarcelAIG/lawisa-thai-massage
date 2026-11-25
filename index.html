@@ -76,7 +76,7 @@
         href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,400..500&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css?v=73">
+    <link rel="stylesheet" href="style.css?v=77">
 
     <!-- GSAP for Horizontal Scroll (Deferred to avoid render-blocking) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
@@ -989,6 +989,24 @@
 
                 <!-- Right (45%): Interactive Google Map (Matched Height & Gold Frame) -->
                 <div class="lawisa-contact-map-slot fade-in-up" style="transition-delay: 0.12s;">
+                    <svg width="10" height="10" style="position:fixed;left:-9999px;top:-9999px;pointer-events:none;" aria-hidden="true" focusable="false">
+                        <defs>
+                            <filter id="lawisa-light-map" color-interpolation-filters="sRGB">
+                                <feColorMatrix in="SourceGraphic" type="saturate" values="0.30" result="desat" />
+                                <feComponentTransfer in="desat" result="lightBase">
+                                    <feFuncR type="linear" slope="0.96" intercept="0.045" />
+                                    <feFuncG type="linear" slope="0.96" intercept="0.042" />
+                                    <feFuncB type="linear" slope="0.95" intercept="0.036" />
+                                </feComponentTransfer>
+                                <feColorMatrix in="SourceGraphic" type="matrix" values="
+                                    1    0    0    0  0
+                                    0    1    0    0  0
+                                    0    0    1    0  0
+                                    4.2 -5.4 -2.8  0 -0.45" result="redPinOnly" />
+                                <feComposite in="redPinOnly" in2="lightBase" operator="over" />
+                            </filter>
+                        </defs>
+                    </svg>
                     <div class="lawisa-contact-map-frame">
                         <div class="lawisa-contact-map-inner">
                             <iframe

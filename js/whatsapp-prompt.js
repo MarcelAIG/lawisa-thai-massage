@@ -227,19 +227,6 @@
     }
     window.addEventListener('load', () => scheduleOverlapCheck(false), { passive: true });
 
-    window.addEventListener('resize', () => scheduleOverlapCheck(false), { passive: true });
-    window.addEventListener('orientationchange', () => scheduleOverlapCheck(true), { passive: true });
-    document.addEventListener('click', () => scheduleOverlapCheck(true), { passive: true });
-    document.addEventListener('touchend', () => scheduleOverlapCheck(true), { passive: true });
-    document.addEventListener('keydown', () => scheduleOverlapCheck(true), { passive: true });
-
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', () => scheduleOverlapCheck(true));
-    } else {
-        scheduleOverlapCheck(true);
-    }
-    window.addEventListener('load', () => scheduleOverlapCheck(false), { passive: true });
-
     triggerPrompt(320);
 
     window.addEventListener('pageshow', (event) => {

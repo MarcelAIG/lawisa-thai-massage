@@ -76,7 +76,7 @@
         href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,400..500&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css?v=70">
+    <link rel="stylesheet" href="style.css?v=71">
 
     <!-- GSAP for Horizontal Scroll (Deferred to avoid render-blocking) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
@@ -2033,16 +2033,93 @@
             console.error('LAWISA FAQ accordion error:', err);
         }
 
-        // Dedicated page click navigation for connected massage card (preserves Fresha booking button)
-        document.querySelectorAll('[data-detail-card]').forEach(card => {
-            card.addEventListener('click', (e) => {
-                if (e.target.closest('a')) return;
-                const url = card.getAttribute('data-detail-url');
-                if (url) {
-                    window.location.href = url;
+        // Mobile & Tablet Massage Carousel: Active Centered Card Golden Glow + Tap-to-Center
+        (function initMobileMassageActiveCard() {
+            const wrapper = document.querySelector('.services-wrapper');
+            const cards = Array.from(document.querySelectorAll('.services-grid .service-card'));
+            if (!wrapper || !cards.length) return;
+
+            const isMobileCarousel = () => window.matchMedia
+                ? window.matchMedia('(max-width: 1024px)').matches
+                : window.innerWidth <= 1024;
+
+            let rafId = 0;
+
+            function setActiveCard(targetCard) {
+                cards.forEach((c) => {
+                    c.classList.toggle('is-active-mobile', c === targetCard);
+                });
+            }
+
+            function syncCenteredCard() {
+                rafId = 0;
+                if (!isMobileCarousel()) {
+                    cards.forEach((c) => c.classList.remove('is-active-mobile'));
+                    return;
                 }
+                const wRect = wrapper.getBoundingClientRect();
+                if (wRect.width <= 0) return;
+                const centerX = wRect.left + wRect.width / 2;
+
+                let closestCard = cards[0];
+                let closestDist = Infinity;
+                for (let i = 0; i < cards.length; i++) {
+                    const r = cards[i].getBoundingClientRect();
+                    const cardCenter = r.left + r.width / 2;
+                    const dist = Math.abs(cardCenter - centerX);
+                    if (dist < closestDist) {
+                        closestDist = dist;
+                        closestCard = cards[i];
+                    }
+                }
+                setActiveCard(closestCard);
+            }
+
+            function scheduleSync() {
+                syncCenteredCard();
+                if (!rafId) {
+                    rafId = window.requestAnimationFrame(syncCenteredCard);
+                }
+            }
+
+            wrapper.addEventListener('scroll', scheduleSync, { passive: true });
+            window.addEventListener('resize', scheduleSync, { passive: true });
+            window.addEventListener('orientationchange', scheduleSync, { passive: true });
+            window.addEventListener('lawisa:langchange', scheduleSync);
+
+            // Tapping a non-centered card centers & activates it; tapping the centered card opens its detail page
+            cards.forEach((card) => {
+                card.addEventListener('click', (e) => {
+                    if (e.target.closest('.service-link')) return;
+
+                    if (isMobileCarousel() && !card.classList.contains('is-active-mobile')) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        setActiveCard(card);
+                        const wRect = wrapper.getBoundingClientRect();
+                        const cRect = card.getBoundingClientRect();
+                        const delta = (cRect.left + cRect.width / 2) - (wRect.left + wRect.width / 2);
+                        const maxScroll = Math.max(0, wrapper.scrollWidth - wrapper.clientWidth);
+                        const clampedLeft = Math.max(0, Math.min(maxScroll, wrapper.scrollLeft + delta));
+                        const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                        wrapper.scrollTo({ left: clampedLeft, behavior: reduced ? 'auto' : 'smooth' });
+                        return;
+                    }
+
+                    if (e.target.closest('a')) return;
+                    const url = card.getAttribute('data-detail-url');
+                    if (url) {
+                        window.location.href = url;
+                    }
+                });
             });
-        });
+
+            syncCenteredCard();
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', syncCenteredCard, { once: true });
+            }
+            window.addEventListener('load', syncCenteredCard, { once: true, passive: true });
+        })();
 
         // Smooth in-page navigation aligned with sticky header & GSAP ScrollTrigger pin-spacer
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -2069,7 +2146,7 @@
             });
         });
     </script>
-    <script src="js/whatsapp-prompt.js?v=3" defer></script>
+    <script src="js/whatsapp-prompt.js?v=4" defer></script>
 </body>
 
 </html>

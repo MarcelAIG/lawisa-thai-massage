@@ -4806,7 +4806,9 @@ a.lawisa-contact-meta-value:hover {
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
         -ms-overflow-style: none;
-        padding: 0.65rem 0 1.15rem;
+        padding: 1.4rem 0 2.35rem;
+        margin-top: -0.65rem;
+        margin-bottom: -1.1rem;
     }
 
     .services-wrapper::-webkit-scrollbar {
@@ -4836,6 +4838,53 @@ a.lawisa-contact-meta-value:hover {
                 rgba(16, 14, 12, 0.88) 0%,
                 rgba(16, 14, 12, 0.48) 54%,
                 rgba(0, 0, 0, 0.04) 100%);
+    }
+
+    @media (hover: none), (pointer: coarse) {
+        .service-card:hover:not(.is-active-mobile),
+        .service-card.is-hovered:not(.is-active-mobile),
+        .service-card:focus-within:not(.is-active-mobile) {
+            background-color: #332E27;
+            border-color: rgba(217, 165, 29, 0.25);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 14px 32px rgba(34, 33, 31, 0.12);
+        }
+
+        .service-card:hover:not(.is-active-mobile) .service-image,
+        .service-card.is-hovered:not(.is-active-mobile) .service-image,
+        .service-card:focus-within:not(.is-active-mobile) .service-image {
+            border-color: rgba(217, 165, 29, 0.65);
+            box-shadow: 0 0 10px rgba(217, 165, 29, 0.16), inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+        }
+
+        .service-card:hover:not(.is-active-mobile) .service-image::after,
+        .service-card.is-hovered:not(.is-active-mobile) .service-image::after,
+        .service-card:focus-within:not(.is-active-mobile) .service-image::after {
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.14);
+            background: linear-gradient(to top,
+                    rgba(16, 14, 12, 0.88) 0%,
+                    rgba(16, 14, 12, 0.48) 54%,
+                    rgba(0, 0, 0, 0.04) 100%);
+        }
+    }
+
+    /* Active centered massage card: luxury golden border & glow without mouse hover */
+    .service-card.is-active-mobile {
+        background-color: var(--lawisa-gold);
+        border-color: var(--lawisa-gold);
+        box-shadow: 0 0 18px rgba(217, 165, 29, 0.48), 0 12px 40px rgba(217, 165, 29, 0.45);
+    }
+
+    .service-card.is-active-mobile .service-image {
+        border-color: rgba(255, 246, 214, 0.85);
+        box-shadow: 0 0 16px rgba(217, 165, 29, 0.45), inset 0 0 12px rgba(217, 165, 29, 0.18);
+    }
+
+    .service-card.is-active-mobile .service-image::after {
+        box-shadow: inset 0 0 0 1.5px var(--lawisa-gold);
+        background: linear-gradient(to top,
+                rgba(18, 16, 14, 0.88) 0%,
+                rgba(18, 16, 14, 0.54) 60%,
+                rgba(0, 0, 0, 0.08) 100%);
     }
 
     .service-info {
@@ -4966,6 +5015,7 @@ a.lawisa-contact-meta-value:hover {
     .hero-social {
         font-size: 0.86rem;
         min-height: 40px;
+        max-width: calc(100% - 68px);
         flex-wrap: wrap;
         row-gap: 0.2rem;
     }
@@ -5059,6 +5109,20 @@ a.lawisa-contact-meta-value:hover {
     .footer {
         padding-bottom: calc(5.25rem + env(safe-area-inset-bottom, 0px));
     }
+
+    .footer-booking {
+        width: 100%;
+    }
+
+    .footer-btn {
+        display: flex;
+        align-self: center;
+        width: 100%;
+        max-width: 300px;
+        min-height: 46px;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 @media (max-width: 639px) {
@@ -5101,7 +5165,9 @@ a.lawisa-contact-meta-value:hover {
 
     .services-wrapper {
         order: 2;
-        padding: 0.45rem 0 0.85rem;
+        padding: 1.35rem 0 2.25rem;
+        margin-top: -0.75rem;
+        margin-bottom: -1.25rem;
     }
 
     .services-discover-btn {

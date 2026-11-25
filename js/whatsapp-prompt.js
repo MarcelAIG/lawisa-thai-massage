@@ -19,25 +19,16 @@
     const INTERACTIVE_SELECTOR = [
         'a[href]',
         'button',
-        '[role="button"]',
         'input',
         'select',
         'textarea',
         'summary',
         'iframe',
-        '[tabindex]:not([tabindex="-1"])',
-        '[data-detail-card]',
-        '.service-card',
-        '.lawisa-review-card',
-        '.lawisa-review-us-box',
-        '.lawisa-offer-card',
-        '.lawisa-gallery-item',
+        '.lawisa-offer-card-cue',
+        '.lawisa-offer-cta',
+        '.lawisa-gallery-caption',
         '.lawisa-faq-trigger',
-        '.lawisa-contact-panel',
-        '.mcat-ritual-actions',
-        '.svc-rate-row',
-        '.hero-social',
-        '.about-logo-badge'
+        '.svc-rate-row'
     ].join(',');
 
     function isMobileViewport() {
@@ -82,6 +73,11 @@
             const faqItem = faqPanel.closest('.lawisa-faq-item');
             const trigger = faqItem && faqItem.querySelector('.lawisa-faq-trigger');
             if (trigger && trigger.getAttribute('aria-expanded') !== 'true') return false;
+        }
+        const offerReveal = el.closest('.lawisa-offer-card-reveal');
+        if (offerReveal) {
+            const offerCard = offerReveal.closest('.lawisa-offer-card');
+            if (offerCard && !offerCard.classList.contains('is-open')) return false;
         }
 
         const style = window.getComputedStyle(el);

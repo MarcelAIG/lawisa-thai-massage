@@ -13,16 +13,23 @@
         window.addEventListener('scroll', updateHeader, { passive: true });
     }
 
-    // Mobile Menu Drawer Toggle
+    // Mobile Menu Drawer Toggle & Header Height Sync
     const mobileBtn = document.querySelector('.mobile-menu-btn');
     const navLinks = document.querySelector('.nav-links');
-    if (mobileBtn && navLinks) {
-        const syncHeaderOffset = () => {
-            if (header) {
-                document.documentElement.style.setProperty('--mobile-header-h', `${header.offsetHeight}px`);
+    const syncHeaderOffset = () => {
+        if (header) {
+            const h = header.offsetHeight;
+            if (h > 0) {
+                document.documentElement.style.setProperty('--mobile-header-h', `${h}px`);
             }
-        };
+        }
+    };
+    syncHeaderOffset();
+    window.addEventListener('resize', syncHeaderOffset, { passive: true });
+    window.addEventListener('orientationchange', syncHeaderOffset, { passive: true });
+    window.addEventListener('load', syncHeaderOffset, { once: true, passive: true });
 
+    if (mobileBtn && navLinks) {
         const setMenuOpen = (isOpen) => {
             syncHeaderOffset();
             navLinks.classList.toggle('active', isOpen);

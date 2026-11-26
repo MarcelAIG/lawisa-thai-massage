@@ -8,6 +8,14 @@
 (function () {
     'use strict';
 
+    // Sync explicit session language preference on dedicated FR/EN subpages
+    try {
+        const p = window.location.pathname || '/';
+        if (p !== '/' && p !== '/index.html') {
+            window.sessionStorage.setItem('lawisa_lang', document.documentElement.lang === 'en' ? 'en' : 'fr');
+        }
+    } catch (e) {}
+
     const widgets = Array.from(document.querySelectorAll('.whatsapp-widget'));
     if (!widgets.length) return;
 
@@ -138,7 +146,6 @@
     }
 
     function scheduleOverlapCheck(withFollowUp) {
-        checkMobileOverlap();
         if (!overlapRaf) {
             overlapRaf = window.requestAnimationFrame(checkMobileOverlap);
         }
@@ -146,7 +153,9 @@
             if (followUpTimer) window.clearTimeout(followUpTimer);
             followUpTimer = window.setTimeout(() => {
                 followUpTimer = null;
-                checkMobileOverlap();
+                if (!overlapRaf) {
+                    overlapRaf = window.requestAnimationFrame(checkMobileOverlap);
+                }
             }, 340);
         }
     }
@@ -217,7 +226,6 @@
         if (e.propertyName === 'opacity' || e.propertyName === 'transform' || e.propertyName === 'grid-template-rows') {
             scheduleOverlapCheck(false);
         }
-        scheduleOverlapCheck(false);
     }, { passive: true, capture: true });
 
     if (document.readyState === 'loading') {

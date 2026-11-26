@@ -110,6 +110,7 @@ window.LAWISA_REVIEWS_CONFIG = {
         paginationExpanded: false,
         lastPaginationSignature: "",
         isSectionVisible: true,
+        mobileAutoTimerId: null,
         geomCache: null
     };
 
@@ -118,6 +119,55 @@ window.LAWISA_REVIEWS_CONFIG = {
     }
 
     const AUTO_SCROLL_PX_PER_SEC = 34;
+    const MOBILE_AUTO_INTERVAL_MS = 3600;
+    const MOBILE_INITIAL_DELAY_MS = 2400;
+    const MOBILE_SLIDE_DURATION_MS = 560;
+
+    function clearMobileAutoTimer() {
+        if (state.mobileAutoTimerId !== null) {
+            clearTimeout(state.mobileAutoTimerId);
+            state.mobileAutoTimerId = null;
+        }
+    }
+
+    function scheduleMobileAutoAdvance(delayMs) {
+        clearMobileAutoTimer();
+        const geom = getGeometry();
+        if (!geom || !geom.isMobile || geom.n <= 1) return;
+        const reducedMotionQuery = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)");
+        if (reducedMotionQuery && reducedMotionQuery.matches) return;
+        if (document.hidden || !state.isSectionVisible) return;
+
+        const now = performance.now();
+        const waitMs = Math.max(
+            typeof delayMs === "number" ? delayMs : MOBILE_AUTO_INTERVAL_MS,
+            Math.max(0, state.pauseAutoUntil - now)
+        );
+
+        state.mobileAutoTimerId = setTimeout(() => {
+            state.mobileAutoTimerId = null;
+            const curGeom = getGeometry();
+            if (!curGeom || !curGeom.isMobile || curGeom.n <= 1) return;
+            const rmq = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)");
+            if ((rmq && rmq.matches) || document.hidden || !state.isSectionVisible) return;
+
+            const hasExpandedCard = Boolean(curGeom.track && curGeom.track.querySelector(".lawisa-review-card.is-expanded"));
+            const curNow = performance.now();
+            if (state.isTouching || state.isDragging || state.animState || hasExpandedCard || curNow < state.pauseAutoUntil) {
+                scheduleMobileAutoAdvance(Math.max(1200, state.pauseAutoUntil - curNow));
+                return;
+            }
+
+            syncActivePageFromScroll();
+            const nextIndex = (state.activeIndex + 1) % curGeom.n;
+            scrollToReview(nextIndex, true, {
+                preferForward: true,
+                duration: MOBILE_SLIDE_DURATION_MS,
+                isAuto: true
+            });
+            scheduleMobileAutoAdvance(MOBILE_AUTO_INTERVAL_MS + MOBILE_SLIDE_DURATION_MS);
+        }, waitMs);
+    }
 
     function getWriteReviewTargetUrl() {
         if (config.directWriteReviewUrl && config.directWriteReviewUrl.trim() !== "") {
@@ -343,7 +393,7 @@ window.LAWISA_REVIEWS_CONFIG = {
         if (nextBtn) {
             nextBtn.addEventListener("click", () => {
                 const target = (state.activeIndex + 1) % state.totalUnique;
-                scrollToReview(target, true);
+                scrollToReview(target, true, { preferForward: true });
             });
         }
         pagination.querySelectorAll(".lawisa-page-btn[data-index]").forEach(btn => {
@@ -351,8 +401,7 @@ window.LAWISA_REVIEWS_CONFIG = {
                 const target = Number(btn.getAttribute("data-index")) || 0;
                 scrollToReview(target, true);
             });
-        }
-        );
+        });
         pagination.querySelectorAll("[data-expand-pages]").forEach(btn => {
             btn.addEventListener("click", () => {
                 state.paginationExpanded = true;
@@ -386,9 +435,17 @@ window.LAWISA_REVIEWS_CONFIG = {
         }
     }
 
-    function scrollToReview(targetIndex, smooth = true) {
+    function scrollToReview(targetIndex, smooth = true, opts = {}) {
         const geom = getGeometry();
         if (!geom || geom.n <= 0) return;
+
+        const preferForward = Boolean(opts && opts.preferForward);
+        const isAuto = Boolean(opts && opts.isAuto);
+        const duration = (opts && typeof opts.duration === "number") ? opts.duration : 420;
+
+        if (preferForward) {
+            recenterIfOutOfBounds(true);
+        }
 
         const idx = ((targetIndex % geom.n) + geom.n) % geom.n;
         const current = geom.viewport.scrollLeft;
@@ -402,18 +459,39 @@ window.LAWISA_REVIEWS_CONFIG = {
         if (candidates.length === 0) return;
 
         let bestTarget = candidates[0];
-        let bestDist = Math.abs(bestTarget - current);
-        for (let i = 1; i < candidates.length; i++) {
-            const dist = Math.abs(candidates[i] - current);
-            if (dist < bestDist) {
-                bestDist = dist;
-                bestTarget = candidates[i];
+        if (preferForward) {
+            const forwardCandidates = candidates.filter(pos => pos > current + 4);
+            if (forwardCandidates.length > 0) {
+                bestTarget = Math.min(...forwardCandidates);
+            } else {
+                let bestDist = Math.abs(bestTarget - current);
+                for (let i = 1; i < candidates.length; i++) {
+                    const dist = Math.abs(candidates[i] - current);
+                    if (dist < bestDist) {
+                        bestDist = dist;
+                        bestTarget = candidates[i];
+                    }
+                }
+            }
+        } else {
+            let bestDist = Math.abs(bestTarget - current);
+            for (let i = 1; i < candidates.length; i++) {
+                const dist = Math.abs(candidates[i] - current);
+                if (dist < bestDist) {
+                    bestDist = dist;
+                    bestTarget = candidates[i];
+                }
             }
         }
 
         state.activeIndex = idx;
         updatePaginationActiveUI();
-        state.pauseAutoUntil = performance.now() + 3500;
+        if (!isAuto) {
+            state.pauseAutoUntil = performance.now() + 5000;
+            if (geom.isMobile) {
+                scheduleMobileAutoAdvance(5000);
+            }
+        }
 
         if (!smooth) {
             state.animState = null;
@@ -427,7 +505,7 @@ window.LAWISA_REVIEWS_CONFIG = {
             startScroll: current,
             targetScroll: bestTarget,
             startTime: performance.now(),
-            duration: 420
+            duration
         };
         startAutoScrollLoop();
     }
@@ -491,6 +569,12 @@ window.LAWISA_REVIEWS_CONFIG = {
                 const startScroll = Math.round(Math.max(0, Math.min(geom.maxScroll, middleStartCard.offsetLeft - geom.leadPad)));
                 setScrollInstant(geom.viewport, startScroll);
             }
+            if (geom.isMobile) {
+                scheduleMobileAutoAdvance(MOBILE_INITIAL_DELAY_MS);
+            } else {
+                clearMobileAutoTimer();
+                startAutoScrollLoop();
+            }
         });
     }
 
@@ -516,17 +600,20 @@ window.LAWISA_REVIEWS_CONFIG = {
             state.isTouching = true;
             state.animState = null;
             viewport.classList.remove("is-programmatic-scroll");
-            state.pauseAutoUntil = performance.now() + 2200;
+            clearMobileAutoTimer();
+            state.pauseAutoUntil = performance.now() + 5000;
         }, { passive: true });
 
         viewport.addEventListener("touchend", () => {
             state.isTouching = false;
-            state.pauseAutoUntil = performance.now() + 1800;
+            state.pauseAutoUntil = performance.now() + 4500;
+            scheduleMobileAutoAdvance(4500);
         }, { passive: true });
 
         viewport.addEventListener("touchcancel", () => {
             state.isTouching = false;
-            state.pauseAutoUntil = performance.now() + 1800;
+            state.pauseAutoUntil = performance.now() + 4500;
+            scheduleMobileAutoAdvance(4500);
         }, { passive: true });
 
         viewport.addEventListener("wheel", (e) => {
@@ -600,7 +687,8 @@ window.LAWISA_REVIEWS_CONFIG = {
             if (Math.abs(viewport.scrollLeft - state.lastWrittenScroll) > 1.5) {
                 state.virtualScroll = viewport.scrollLeft;
                 if (!state.animState) {
-                    state.pauseAutoUntil = Math.max(state.pauseAutoUntil, performance.now() + 1500);
+                    state.pauseAutoUntil = Math.max(state.pauseAutoUntil, performance.now() + 4500);
+                    scheduleMobileAutoAdvance(4500);
                 }
                 syncActivePageFromScroll();
                 clearTimeout(scrollEndTimer);
@@ -620,7 +708,9 @@ window.LAWISA_REVIEWS_CONFIG = {
                     const centered = Math.round(Math.max(0, Math.min(geom.maxScroll, activeCard.offsetLeft - geom.leadPad)));
                     setScrollInstant(geom.viewport, centered);
                 }
+                scheduleMobileAutoAdvance(MOBILE_AUTO_INTERVAL_MS);
             } else {
+                clearMobileAutoTimer();
                 recenterIfOutOfBounds(true);
                 startAutoScrollLoop();
             }
@@ -628,12 +718,28 @@ window.LAWISA_REVIEWS_CONFIG = {
         }, { passive: true });
 
         const section = document.getElementById("avis") || viewport;
+        if (section) {
+            section.addEventListener("keydown", () => {
+                state.pauseAutoUntil = Math.max(state.pauseAutoUntil, performance.now() + 6000);
+                scheduleMobileAutoAdvance(6000);
+            });
+        }
         if ("IntersectionObserver" in window && section) {
             const io = new IntersectionObserver((entries) => {
                 entries.forEach((entry) => {
+                    const becameVisible = entry.isIntersecting && !state.isSectionVisible;
                     state.isSectionVisible = entry.isIntersecting;
                     if (state.isSectionVisible && !document.hidden) {
-                        startAutoScrollLoop();
+                        const geom = getGeometry();
+                        if (geom && geom.isMobile) {
+                            if (becameVisible || state.mobileAutoTimerId === null) {
+                                scheduleMobileAutoAdvance(MOBILE_INITIAL_DELAY_MS);
+                            }
+                        } else {
+                            startAutoScrollLoop();
+                        }
+                    } else if (!state.isSectionVisible) {
+                        clearMobileAutoTimer();
                     }
                 });
             }, { rootMargin: "250px 0px", threshold: 0 });
@@ -641,12 +747,36 @@ window.LAWISA_REVIEWS_CONFIG = {
         }
 
         document.addEventListener("visibilitychange", () => {
-            if (!document.hidden && state.isSectionVisible) {
-                startAutoScrollLoop();
+            if (document.hidden) {
+                clearMobileAutoTimer();
+            } else if (state.isSectionVisible) {
+                const geom = getGeometry();
+                if (geom && geom.isMobile) {
+                    scheduleMobileAutoAdvance(MOBILE_INITIAL_DELAY_MS);
+                } else {
+                    startAutoScrollLoop();
+                }
             }
         });
 
+        const rmq = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)");
+        if (rmq && typeof rmq.addEventListener === "function") {
+            rmq.addEventListener("change", () => {
+                if (rmq.matches) {
+                    clearMobileAutoTimer();
+                } else if (!document.hidden && state.isSectionVisible) {
+                    const geom = getGeometry();
+                    if (geom && geom.isMobile) {
+                        scheduleMobileAutoAdvance(MOBILE_AUTO_INTERVAL_MS);
+                    } else {
+                        startAutoScrollLoop();
+                    }
+                }
+            });
+        }
+
         startAutoScrollLoop();
+        scheduleMobileAutoAdvance(MOBILE_INITIAL_DELAY_MS);
     }
 
     function startAutoScrollLoop() {
@@ -671,10 +801,11 @@ window.LAWISA_REVIEWS_CONFIG = {
 
             if (state.animState) {
                 state.rafId = requestAnimationFrame(tick);
+                const animNow = performance.now();
                 if (!state.animState.firstFrameNow) {
-                    state.animState.firstFrameNow = now;
+                    state.animState.firstFrameNow = animNow;
                 }
-                const elapsed = Math.max(0, now - state.animState.firstFrameNow);
+                const elapsed = Math.max(0, animNow - state.animState.firstFrameNow);
                 const progress = Math.min(1, elapsed / state.animState.duration);
                 const ease = 1 - Math.pow(1 - progress, 3);
                 const next = state.animState.startScroll + (state.animState.targetScroll - state.animState.startScroll) * ease;
@@ -696,13 +827,14 @@ window.LAWISA_REVIEWS_CONFIG = {
                 return;
             }
 
-            // Mobile uses centered single-card native scroll-snap + pagination (no auto-drift)
+            // Mobile uses setTimeout-scheduled step slides (zero idle rAF battery drain)
             if (geom.isMobile) {
                 state.rafId = null;
                 state.lastFrameTime = 0;
                 return;
             }
 
+            const reduceMotion = reducedMotionQuery && reducedMotionQuery.matches;
             state.rafId = requestAnimationFrame(tick);
 
             if (!state.lastFrameTime) {
@@ -712,14 +844,13 @@ window.LAWISA_REVIEWS_CONFIG = {
             const dt = Math.min(0.05, Math.max(0, (now - state.lastFrameTime) / 1000));
             state.lastFrameTime = now;
 
-            const reduceMotion = reducedMotionQuery && reducedMotionQuery.matches;
             if (
                 reduceMotion ||
                 document.hidden ||
                 state.isHovering ||
                 state.isTouching ||
                 state.isDragging ||
-                now < state.pauseAutoUntil
+                performance.now() < state.pauseAutoUntil
             ) {
                 return;
             }

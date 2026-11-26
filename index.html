@@ -42,7 +42,12 @@
     <script>
         (function () {
             try {
-                if (new URLSearchParams(window.location.search).get('lang') === 'en') {
+                var params = new URLSearchParams(window.location.search);
+                var paramLang = params.get('lang');
+                var storedLang = null;
+                try { storedLang = window.sessionStorage.getItem('lawisa_lang'); } catch (err) {}
+                var useEn = paramLang === 'en' || (!paramLang && storedLang === 'en');
+                if (useEn) {
                     var enUrl = 'https://lawisa-thai-massage.pages.dev/?lang=en';
                     var enTitle = 'Authentic Thai Massage Paris 8th – Faubourg Saint-Honoré | LAWISA';
                     var enDesc = 'Authentic Thai massage salon at 183 Rue du Faubourg Saint-Honoré in Paris 8th, near the Champs-Élysées and Saint-Philippe-du-Roule. Solo & Duo rituals from €45.';
@@ -76,7 +81,7 @@
         href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,400..500&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css?v=78">
+    <link rel="stylesheet" href="style.css?v=79">
 
     <!-- GSAP for Horizontal Scroll (Deferred to avoid render-blocking) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
@@ -287,9 +292,9 @@
                 <a href="#contact" data-i18n="nav_contact">Contact</a>
             </nav>
             <div class="nav-actions">
-                <div class="lang-switch">
-                    <a href="/" class="lang-btn active" data-lang="fr" hreflang="fr">FR</a> | <a href="/?lang=en" class="lang-btn"
-                        data-lang="en" hreflang="en">EN</a>
+                <div class="lang-switch notranslate" translate="no">
+                    <a href="/" class="lang-btn active" data-lang="fr" hreflang="fr" translate="no">FR</a> | <a href="/?lang=en" class="lang-btn"
+                        data-lang="en" hreflang="en" translate="no">EN</a>
                 </div>
                 <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking"
                     target="_blank" rel="noopener noreferrer" class="btn-header" data-i18n="nav_book">Réserver</a>
@@ -1193,8 +1198,8 @@
                     <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking"
                         target="_blank" rel="noopener noreferrer" class="footer-btn" data-i18n="footer_book_btn">RÉSERVER</a>
 
-                    <div class="footer-lang" role="group" aria-label="Choisir la langue" data-i18n-aria="footer_lang_aria">
-                        <a href="/" class="lang-btn active" data-lang="fr" hreflang="fr" aria-current="true">FR</a><span class="lang-divider" aria-hidden="true">|</span><a href="/?lang=en" class="lang-btn" data-lang="en" hreflang="en" aria-current="false">EN</a>
+                    <div class="footer-lang notranslate" translate="no" role="group" aria-label="Choisir la langue" data-i18n-aria="footer_lang_aria">
+                        <a href="/" class="lang-btn active" data-lang="fr" hreflang="fr" aria-current="true" translate="no">FR</a><span class="lang-divider" aria-hidden="true">|</span><a href="/?lang=en" class="lang-btn" data-lang="en" hreflang="en" aria-current="false" translate="no">EN</a>
                     </div>
                 </div>
             </div>
@@ -1220,7 +1225,7 @@
         <span class="whatsapp-widget-label" data-i18n="whatsapp_cta">Écrire sur WhatsApp</span>
     </a>
 
-    <script src="js/reviews.js?v=11" defer></script>
+    <script src="js/reviews.js?v=12" defer></script>
     <script>
         // Translations dictionary
         const i18n = {
@@ -1642,26 +1647,60 @@
             window.dispatchEvent(new CustomEvent('lawisa:langchange', { detail: { lang: selectedLang } }));
         }
 
+        function syncLangUrl(selectedLang) {
+            if (window.history && window.history.replaceState) {
+                const nextUrl = new URL(window.location.href);
+                if (selectedLang === 'en') {
+                    nextUrl.searchParams.set('lang', 'en');
+                } else {
+                    nextUrl.searchParams.delete('lang');
+                }
+                window.history.replaceState(null, '', nextUrl.pathname + nextUrl.search + nextUrl.hash);
+            }
+        }
+
+        function resolveInitialLang() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const paramLang = urlParams.get('lang');
+            if (paramLang === 'en') {
+                try { window.sessionStorage.setItem('lawisa_lang', 'en'); } catch (e) {}
+                return 'en';
+            }
+            if (paramLang === 'fr') {
+                try { window.sessionStorage.setItem('lawisa_lang', 'fr'); } catch (e) {}
+                return 'fr';
+            }
+            let storedLang = null;
+            try { storedLang = window.sessionStorage.getItem('lawisa_lang'); } catch (e) {}
+            if (storedLang === 'en') {
+                syncLangUrl('en');
+                return 'en';
+            }
+            return 'fr';
+        }
+
         langBtns.forEach(btn => {
             btn.addEventListener('click', (e) => {
                 e.preventDefault();
-                const selectedLang = btn.getAttribute('data-lang');
-                if (window.history && window.history.replaceState) {
-                    const nextUrl = new URL(window.location.href);
-                    if (selectedLang === 'en') {
-                        nextUrl.searchParams.set('lang', 'en');
-                    } else {
-                        nextUrl.searchParams.delete('lang');
-                    }
-                    window.history.replaceState(null, '', nextUrl.pathname + nextUrl.search + nextUrl.hash);
-                }
+                const selectedLang = btn.getAttribute('data-lang') === 'en' ? 'en' : 'fr';
+                try { window.sessionStorage.setItem('lawisa_lang', selectedLang); } catch (err) {}
+                syncLangUrl(selectedLang);
                 applyLanguage(selectedLang);
             });
         });
 
-        const urlParams = new URLSearchParams(window.location.search);
-        const initialLang = urlParams.get('lang') === 'en' ? 'en' : 'fr';
-        applyLanguage(initialLang);
+        applyLanguage(resolveInitialLang());
+
+        window.addEventListener('popstate', () => {
+            const paramLang = new URLSearchParams(window.location.search).get('lang');
+            applyLanguage(paramLang === 'en' ? 'en' : 'fr');
+        });
+
+        window.addEventListener('pageshow', (event) => {
+            if (event.persisted) {
+                applyLanguage(resolveInitialLang());
+            }
+        });
 
 
         // Sticky Header
@@ -1703,13 +1742,20 @@
         const mobileBtn = document.querySelector('.mobile-menu-btn');
         const navLinks = document.querySelector('.nav-links');
 
-        if (mobileBtn && navLinks) {
-            const syncHeaderOffset = () => {
-                if (header) {
-                    document.documentElement.style.setProperty('--mobile-header-h', `${header.offsetHeight}px`);
+        const syncHeaderOffset = () => {
+            if (header) {
+                const h = header.offsetHeight;
+                if (h > 0) {
+                    document.documentElement.style.setProperty('--mobile-header-h', `${h}px`);
                 }
-            };
+            }
+        };
+        syncHeaderOffset();
+        window.addEventListener('resize', syncHeaderOffset, { passive: true });
+        window.addEventListener('orientationchange', syncHeaderOffset, { passive: true });
+        window.addEventListener('load', syncHeaderOffset, { once: true, passive: true });
 
+        if (mobileBtn && navLinks) {
             const setMobileMenuOpen = (isOpen) => {
                 syncHeaderOffset();
                 navLinks.classList.toggle('active', isOpen);
@@ -1756,14 +1802,17 @@
                 const servicesGrid = document.querySelector('.services-grid');
                 const cards = document.querySelectorAll('.service-card');
 
-                cards.forEach(card => {
-                    card.addEventListener('mouseenter', () => card.classList.add('is-hovered'));
-                    card.addEventListener('mouseleave', () => card.classList.remove('is-hovered'));
-                });
-
                 const mm = gsap.matchMedia();
 
                 mm.add('(min-width: 1025px)', () => {
+                    const hoverHandlers = [];
+                    cards.forEach(card => {
+                        const onEnter = () => card.classList.add('is-hovered');
+                        const onLeave = () => card.classList.remove('is-hovered');
+                        card.addEventListener('mouseenter', onEnter);
+                        card.addEventListener('mouseleave', onLeave);
+                        hoverHandlers.push([card, onEnter, onLeave]);
+                    });
                     let cardsScaleRafId = null;
 
                     function updateCardsScale() {
@@ -1866,6 +1915,11 @@
                             cancelAnimationFrame(cardsScaleRafId);
                         }
                         window.removeEventListener('resize', scheduleCardsScale);
+                        hoverHandlers.forEach(([card, onEnter, onLeave]) => {
+                            card.removeEventListener('mouseenter', onEnter);
+                            card.removeEventListener('mouseleave', onLeave);
+                            card.classList.remove('is-hovered');
+                        });
                         cards.forEach(card => {
                             card.style.transform = '';
                             card.style.opacity = '';
@@ -2088,7 +2142,7 @@
             console.error('LAWISA FAQ accordion error:', err);
         }
 
-        // Mobile & Tablet Massage Carousel: Active Centered Card Golden Glow + Tap-to-Center
+        // Mobile & Tablet Massage Carousel: Instant Active Centered Card Golden Glow + Tap-to-Center
         (function initMobileMassageActiveCard() {
             const wrapper = document.querySelector('.services-wrapper');
             const cards = Array.from(document.querySelectorAll('.services-grid .service-card'));
@@ -2098,30 +2152,51 @@
                 ? window.matchMedia('(max-width: 1024px)').matches
                 : window.innerWidth <= 1024;
 
-            let rafId = 0;
+            let cardCenters = [];
+            let activeCard = null;
+            let watchRafId = 0;
+            let lastWatchedLeft = -1;
+            let stableFrames = 0;
+            let isTouching = false;
 
             function setActiveCard(targetCard) {
-                cards.forEach((c) => {
-                    c.classList.toggle('is-active-mobile', c === targetCard);
-                });
+                if (targetCard === activeCard) return;
+                if (activeCard) activeCard.classList.remove('is-active-mobile');
+                if (targetCard) targetCard.classList.add('is-active-mobile');
+                activeCard = targetCard;
             }
 
-            function syncCenteredCard() {
-                rafId = 0;
+            function measureCardCenters() {
                 if (!isMobileCarousel()) {
-                    cards.forEach((c) => c.classList.remove('is-active-mobile'));
+                    cardCenters = [];
                     return;
                 }
                 const wRect = wrapper.getBoundingClientRect();
                 if (wRect.width <= 0) return;
-                const centerX = wRect.left + wRect.width / 2;
+                const sl = wrapper.scrollLeft;
+                cardCenters = cards.map((card) => {
+                    const r = card.getBoundingClientRect();
+                    return (r.left - wRect.left) + sl + (r.width / 2);
+                });
+            }
 
+            function syncCenteredCard() {
+                if (!isMobileCarousel()) {
+                    setActiveCard(null);
+                    return;
+                }
+                const viewW = wrapper.clientWidth;
+                if (viewW <= 0) return;
+                if (cardCenters.length !== cards.length) {
+                    measureCardCenters();
+                    if (cardCenters.length !== cards.length) return;
+                }
+
+                const centerX = wrapper.scrollLeft + viewW / 2;
                 let closestCard = cards[0];
                 let closestDist = Infinity;
                 for (let i = 0; i < cards.length; i++) {
-                    const r = cards[i].getBoundingClientRect();
-                    const cardCenter = r.left + r.width / 2;
-                    const dist = Math.abs(cardCenter - centerX);
+                    const dist = Math.abs(cardCenters[i] - centerX);
                     if (dist < closestDist) {
                         closestDist = dist;
                         closestCard = cards[i];
@@ -2130,34 +2205,76 @@
                 setActiveCard(closestCard);
             }
 
-            function scheduleSync() {
+            function watchMomentum() {
+                watchRafId = 0;
+                if (!isMobileCarousel()) return;
                 syncCenteredCard();
-                if (!rafId) {
-                    rafId = window.requestAnimationFrame(syncCenteredCard);
+                const curLeft = wrapper.scrollLeft;
+                if (Math.abs(curLeft - lastWatchedLeft) > 0.25) {
+                    lastWatchedLeft = curLeft;
+                    stableFrames = 0;
+                } else {
+                    stableFrames++;
+                }
+                if (isTouching || stableFrames < 10) {
+                    watchRafId = window.requestAnimationFrame(watchMomentum);
                 }
             }
 
-            wrapper.addEventListener('scroll', scheduleSync, { passive: true });
-            window.addEventListener('resize', scheduleSync, { passive: true });
-            window.addEventListener('orientationchange', scheduleSync, { passive: true });
-            window.addEventListener('lawisa:langchange', scheduleSync);
+            function startWatch() {
+                stableFrames = 0;
+                syncCenteredCard();
+                if (!watchRafId) {
+                    lastWatchedLeft = wrapper.scrollLeft;
+                    watchRafId = window.requestAnimationFrame(watchMomentum);
+                }
+            }
+
+            function remeasureAndSync() {
+                measureCardCenters();
+                syncCenteredCard();
+            }
+
+            wrapper.addEventListener('touchstart', () => {
+                isTouching = true;
+                if (cardCenters.length !== cards.length) measureCardCenters();
+                startWatch();
+            }, { passive: true });
+            wrapper.addEventListener('touchmove', syncCenteredCard, { passive: true });
+            wrapper.addEventListener('touchend', () => {
+                isTouching = false;
+                startWatch();
+            }, { passive: true });
+            wrapper.addEventListener('touchcancel', () => {
+                isTouching = false;
+                startWatch();
+            }, { passive: true });
+            wrapper.addEventListener('scroll', startWatch, { passive: true });
+            if ('onscrollend' in window) {
+                wrapper.addEventListener('scrollend', syncCenteredCard, { passive: true });
+            }
+            window.addEventListener('resize', remeasureAndSync, { passive: true });
+            window.addEventListener('orientationchange', remeasureAndSync, { passive: true });
+            window.addEventListener('lawisa:langchange', remeasureAndSync);
 
             // Tapping a non-centered card centers & activates it; tapping the centered card opens its detail page
-            cards.forEach((card) => {
+            cards.forEach((card, idx) => {
                 card.addEventListener('click', (e) => {
                     if (e.target.closest('.service-link')) return;
 
-                    if (isMobileCarousel() && !card.classList.contains('is-active-mobile')) {
+                    if (isMobileCarousel() && card !== activeCard) {
                         e.preventDefault();
                         e.stopPropagation();
                         setActiveCard(card);
-                        const wRect = wrapper.getBoundingClientRect();
-                        const cRect = card.getBoundingClientRect();
-                        const delta = (cRect.left + cRect.width / 2) - (wRect.left + wRect.width / 2);
+                        if (cardCenters.length !== cards.length) measureCardCenters();
                         const maxScroll = Math.max(0, wrapper.scrollWidth - wrapper.clientWidth);
-                        const clampedLeft = Math.max(0, Math.min(maxScroll, wrapper.scrollLeft + delta));
+                        const targetLeft = cardCenters.length === cards.length
+                            ? cardCenters[idx] - (wrapper.clientWidth / 2)
+                            : wrapper.scrollLeft + ((card.getBoundingClientRect().left + card.offsetWidth / 2) - (wrapper.getBoundingClientRect().left + wrapper.clientWidth / 2));
+                        const clampedLeft = Math.max(0, Math.min(maxScroll, targetLeft));
                         const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
                         wrapper.scrollTo({ left: clampedLeft, behavior: reduced ? 'auto' : 'smooth' });
+                        startWatch();
                         return;
                     }
 
@@ -2169,11 +2286,11 @@
                 });
             });
 
-            syncCenteredCard();
+            remeasureAndSync();
             if (document.readyState === 'loading') {
-                document.addEventListener('DOMContentLoaded', syncCenteredCard, { once: true });
+                document.addEventListener('DOMContentLoaded', remeasureAndSync, { once: true });
             }
-            window.addEventListener('load', syncCenteredCard, { once: true, passive: true });
+            window.addEventListener('load', remeasureAndSync, { once: true, passive: true });
         })();
 
         // Smooth in-page navigation aligned with sticky header & GSAP ScrollTrigger pin-spacer
@@ -2196,12 +2313,12 @@
 
                 window.scrollTo({ top, behavior: reduced ? 'auto' : 'smooth' });
                 if (window.history && window.history.pushState) {
-                    window.history.pushState(null, '', hash);
+                    window.history.pushState(null, '', window.location.pathname + window.location.search + hash);
                 }
             });
         });
     </script>
-    <script src="js/whatsapp-prompt.js?v=5" defer></script>
+    <script src="js/whatsapp-prompt.js?v=6" defer></script>
 </body>
 
 </html>

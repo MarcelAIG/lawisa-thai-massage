@@ -953,6 +953,17 @@ body.mcat-modal-open {
 }
 
 @media (max-width: 768px) {
+    .mcat-hero {
+        min-height: 100vh;
+        min-height: 100svh;
+        min-height: 100dvh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: calc(var(--mobile-header-h, 64px) + 1.4rem) 0 calc(2rem + env(safe-area-inset-bottom, 0px));
+        box-sizing: border-box;
+    }
+
     .mcat-rates-trigger,
     .mcat-book-btn {
         min-height: 44px;
@@ -965,6 +976,33 @@ body.mcat-modal-open {
     .mcat-sanctuary-cta {
         min-height: 48px;
     }
+
+    .mcat-sanctuary-inner {
+        align-items: center;
+        text-align: center;
+        padding: 2rem 1.2rem;
+    }
+
+    .mcat-sanctuary-content {
+        width: 100%;
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .mcat-sanctuary-title {
+        font-size: clamp(1.22rem, 5.15vw, 1.95rem);
+        line-height: 1.16;
+        margin: 0 0 1.15rem;
+        text-wrap: balance;
+    }
+
+    .mcat-sanctuary-cta {
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 @media (max-width: 640px) {
@@ -973,7 +1011,7 @@ body.mcat-modal-open {
     }
 
     .mcat-hero {
-        padding: 6.15rem 0 2rem;
+        padding: calc(var(--mobile-header-h, 62px) + 1.25rem) 0 calc(1.85rem + env(safe-area-inset-bottom, 0px));
     }
 
     .mcat-qv-close:focus,
@@ -1012,9 +1050,13 @@ body.mcat-modal-open {
         height: 340px;
     }
 
+    .mcat-sanctuary-inner {
+        padding: 1.85rem 1rem;
+    }
+
     .mcat-sanctuary-title {
-        font-size: clamp(1.68rem, 7vw, 2.15rem);
-        margin-bottom: 1rem;
+        font-size: clamp(1.22rem, 5.15vw, 1.8rem);
+        margin-bottom: 1.1rem;
     }
 
     .mcat-sanctuary-cta {

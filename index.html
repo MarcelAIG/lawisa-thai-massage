@@ -81,7 +81,7 @@
         href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,400..500&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css?v=79">
+    <link rel="stylesheet" href="style.css?v=80">
 
     <!-- GSAP for Horizontal Scroll (Deferred to avoid render-blocking) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
@@ -328,7 +328,17 @@
                 <div class="hero-actions">
                     <a href="https://www.fresha.com/a/lawisa-thai-massage-paris-183-rue-du-faubourg-saint-honore-oiragzk9/booking"
                         target="_blank" rel="noopener noreferrer" class="btn-primary" data-i18n="hero_btn_book">Réserver maintenant</a>
-                    <a href="#massages" class="btn-secondary" data-i18n="hero_btn_discover">Nos massages</a>
+                    <a href="tel:+33636432381" class="btn-secondary"
+                        aria-label="Appeler LAWISA Thaï Massage au +33 6 36 43 23 81"
+                        data-i18n-aria="hero_btn_call_aria">
+                        <svg class="hero-btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path
+                                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z">
+                            </path>
+                        </svg>
+                        <span data-i18n="hero_btn_call">Appelez-nous</span>
+                    </a>
                 </div>
 
                 <div class="hero-meta">
@@ -1244,7 +1254,8 @@
                 hero_title: "L’Art du Massage Thaïlandais<br><span class=\"hero-title-sub\">au cœur de Paris</span>",
                 hero_subtitle: "Massages thaïlandais authentiques et soins aux huiles chaudes au Faubourg Saint-Honoré, Paris&nbsp;8ème.",
                 hero_btn_book: "Réserver maintenant",
-                hero_btn_discover: "Nos massages",
+                hero_btn_call: "Appelez-nous",
+                hero_btn_call_aria: "Appeler LAWISA Thaï Massage au +33 6 36 43 23 81",
                 hero_social: "<span class=\"stars\">★★★★★</span> 5.0 sur Google · +200 avis",
                 hero_social_aria: "Laisser un avis Google sur LAWISA (5.0 sur 5 · +200 avis)",
                 section_massages: "Nos Massages",
@@ -1406,7 +1417,8 @@
                 hero_title: "The Art of Thai Massage<br><span class=\"hero-title-sub\">in the heart of Paris</span>",
                 hero_subtitle: "Authentic Thai massage and warm oil rituals on Rue du Faubourg Saint-Honoré in Paris’s 8th&nbsp;arrondissement.",
                 hero_btn_book: "Book Now",
-                hero_btn_discover: "Our Massages",
+                hero_btn_call: "Call Now",
+                hero_btn_call_aria: "Call LAWISA Thaï Massage at +33 6 36 43 23 81",
                 hero_social: "<span class=\"stars\">★★★★★</span> 5.0 on Google · +200 reviews",
                 hero_social_aria: "Write a Google review for LAWISA (5.0 on Google · +200 reviews)",
                 section_massages: "Our Massages",

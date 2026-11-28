@@ -531,6 +531,7 @@ img {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    gap: 0.55rem;
     padding: 1.1rem 2.5rem;
     font-size: 0.85rem;
     letter-spacing: 0.15em;
@@ -544,11 +545,23 @@ img {
     cursor: pointer;
 }
 
-.hero-actions .btn-secondary:hover {
+.hero-actions .btn-secondary .hero-btn-icon {
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+}
+
+.hero-actions .btn-secondary:hover,
+.hero-actions .btn-secondary:focus-visible {
     background-color: var(--lawisa-gold);
     color: #fff;
     border-color: var(--lawisa-gold);
     box-shadow: 0 0 14px rgba(217, 165, 29, 0.45), 0 6px 22px rgba(217, 165, 29, 0.3);
+}
+
+.hero-actions .btn-secondary:focus-visible {
+    outline: 2px solid var(--lawisa-gold);
+    outline-offset: 3px;
 }
 
 .hero-meta {

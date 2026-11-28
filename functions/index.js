@@ -29,6 +29,7 @@ const EN_HREFS = {
 const EN_TEXT = {
     hero_title: 'The Art of Thai Massage<br><span class="hero-title-sub">in the heart of Paris</span>',
     hero_subtitle: "Authentic Thai massage and warm oil rituals on Rue du Faubourg Saint-Honoré in Paris’s 8th&nbsp;arrondissement.",
+    hero_btn_call: "Call Now",
     section_massages: "Our Massages",
     massage_1: "Traditional Thai Massage",
     massage_2: "Warm Oil Thai Massage",
